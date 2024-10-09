@@ -1,0 +1,13 @@
+{
+    "hero": {
+      "showSkills": "Show my Skills"
+    },
+    "nav": {
+      "home": "Home",
+      "experience": "Experience",
+      "projects": "Projects",
+      "approach": "Approach",
+      "gallery": "Gallery"
+    }
+  }
+  

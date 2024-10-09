@@ -1,3 +1,20 @@
 {
-  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"]
+  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"],
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "requireConfig": false
+          }
+        ]
+      }
+    }
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }

@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { FiHome, FiUser, FiBriefcase, FiMail } from "react-icons/fi"; // Ícones modernos
+import { FiHome, FiUser, FiBriefcase, FiMail } from "react-icons/fi"; 
 
 export const FloatingNav = ({
   navItems,
@@ -37,7 +37,7 @@ export const FloatingNav = ({
     setLastScrollY(current);
   });
 
-  const icons = [<FiHome />, <FiUser />, <FiBriefcase />, <FiMail />]; // Ícones para os itens de navegação
+  const icons = [<FiHome />, <FiUser />, <FiBriefcase />, <FiMail />]; 
 
   return (
     <AnimatePresence>
@@ -69,13 +69,13 @@ export const FloatingNav = ({
                 "relative text-neutral-50 flex items-center space-x-3 p-2 transition-all duration-300 ease-in-out hover:text-neutral-200 group"
               )}
             >
-              {/* Ícone */}
+          
               <span className="block text-lg">{icons[idx]}</span>
 
-              {/* Texto com tamanho de fonte aumentado */}
+       
               <span className="text-sm font-medium">{navItem.name}</span>
 
-              {/* Animação da borda ao passar o mouse */}
+             
               <span
                 className="absolute bottom-0 left-0 w-0 h-[2px] bg-violet-500 transition-all duration-300 group-hover:w-full"
                 style={{ borderRadius: "2px" }}

@@ -169,7 +169,7 @@ export const workExperience = [
         className: "md:col-span-2"
     },
     {
-        id: 4,
+        id: 5,
         title: "Software Engineer",
         company: "Global Tech Solutions",
         location: "Curitiba, Brasil",
@@ -192,7 +192,7 @@ export const workExperience = [
         className: "md:col-span-2"
     },
     {
-        id: 4,
+        id: 6,
         title: "Software Engineer",
         company: "Global Tech Solutions",
         location: "Curitiba, Brasil",
@@ -215,3 +215,24 @@ export const workExperience = [
         className: "md:col-span-2"
     }
 ];
+
+export const socialIcons = [
+    {
+        id: 1,
+        img: "/git.svg",
+        name: "GitHub",
+        link: "https://github.com/Wesley-SdS"
+    },
+    {
+        id: 2,
+        img: "/twit.svg",
+        name: "Twitter",
+        link: "https://github.com/Wesley-SdS"
+    },
+    {
+        id: 3,
+        img: "/link.svg",
+        name: "Linkedin",
+        link: "https://www.linkedin.com/in/wesley-sds/"
+    }
+]

@@ -13,8 +13,8 @@ const RecentProjects = () => {
           projects.map((item) => (
             <div className='flex flex-col items-center justify-center w-full' key={item.id}>
               <PinContainer
-                title='google.com.br'
-                href='#'
+                title="/ui.aceternity.com"
+                href="https://twitter.com/mannupaaji"
               >
                 <div className="flex flex-col p-4 tracking-tight w-[20rem] h-[20rem]">
                   <h3 className="max-w-xs !pb-2 !m-0 font-bold text-slate-100">

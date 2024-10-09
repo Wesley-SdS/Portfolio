@@ -1,7 +1,7 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import en from '../data/en.json';
-import pt from '../data/pt.json'; // Corrigido para o arquivo correto de português
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import en from "../data/en.json";
+import pt from "../data/pt.json"; // Corrigido para o arquivo correto de português
 
 // Traduções
 const resources = {

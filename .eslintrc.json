@@ -1,20 +1,34 @@
 {
-  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"],
+  "extends": [
+    "next/core-web-vitals",
+    "@rocketseat/eslint-config/react"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "requireConfig": false
+      }
+    ]
+  },
   "overrides": [
     {
-      "files": ["**/*.ts", "**/*.tsx"],
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
       "rules": {
         "prettier/prettier": [
           "error",
-          {
+          "no-unused-vars": "off",
+          "@typescript-eslint/no-explicit-any": "off"{
             "requireConfig": false
           }
         ]
       }
     }
-  ],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": "error"
-  }
+  ]
 }

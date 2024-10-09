@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 @layer base {
-    * {
-        @apply border-border !scroll-smooth; 
-    }
-    body {
-        @apply bg-background text-foreground;
-    }
-    button {
-        @apply active:outline-none; 
-    }
-} 
+  * {
+    @apply !scroll-smooth border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button {
+    @apply active:outline-none;
+  }
+}
 
 @layer utilities {
-    .heading {
-        @apply font-bold text-4xl sm:text-5xl text-center; 
-    }
+  .heading {
+    @apply text-center text-4xl font-bold sm:text-5xl;
+  }
 
-    .black-gradient {
-        background: linear-gradient(90deg, #161a31 0%, #06091f 100%); 
-    }
+  .black-gradient {
+    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+  }
 }

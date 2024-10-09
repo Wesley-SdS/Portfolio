@@ -32,8 +32,8 @@ export function Button({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl min-h-[4rem] min-w-[10rem] p-[1px] overflow-hidden", // Use min-h e min-w
-        containerClassName
+        "relative min-h-[4rem] min-w-[10rem] overflow-hidden bg-transparent p-[1px] text-xl", // Use min-h e min-w
+        containerClassName,
       )}
       style={{
         borderRadius: borderRadius,
@@ -47,8 +47,8 @@ export function Button({
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              "h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]",
-              borderClassName
+              "h-20 w-20 bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)] opacity-[0.8]",
+              borderClassName,
             )}
           />
         </MovingBorder>
@@ -56,8 +56,8 @@ export function Button({
 
       <div
         className={cn(
-          "relative bg-black border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
-          className
+          "relative flex h-full w-full items-center justify-center border border-slate-800 bg-black text-sm text-white antialiased backdrop-blur-xl",
+          className,
         )}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,
@@ -95,11 +95,11 @@ export const MovingBorder = ({
 
   const x = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).x
+    (val) => pathRef.current?.getPointAtLength(val).x,
   );
   const y = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).y
+    (val) => pathRef.current?.getPointAtLength(val).y,
   );
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;

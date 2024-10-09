@@ -1,9 +1,4 @@
 {
-    "cSpell.words": [
-        "Aceternity",
-        "clsx",
-        "tailwindcss",
-        "tsparticles"
-    ],
-    "files.autoSave": "afterDelay"
+  "cSpell.words": ["Aceternity", "clsx", "tailwindcss", "tsparticles"],
+  "files.autoSave": "afterDelay"
 }

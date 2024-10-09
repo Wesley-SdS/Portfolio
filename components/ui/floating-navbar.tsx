@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { FiHome, FiUser, FiBriefcase, FiMail } from "react-icons/fi"; 
+import { FiHome, FiUser, FiBriefcase, FiMail } from "react-icons/fi";
 
 export const FloatingNav = ({
   navItems,
@@ -37,7 +37,7 @@ export const FloatingNav = ({
     setLastScrollY(current);
   });
 
-  const icons = [<FiHome />, <FiUser />, <FiBriefcase />, <FiMail />]; 
+  const icons = [<FiHome />, <FiUser />, <FiBriefcase />, <FiMail />];
 
   return (
     <AnimatePresence>
@@ -48,8 +48,8 @@ export const FloatingNav = ({
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.4 }}
           className={cn(
-            "flex max-w-fit md:min-w-[70vw] lg:min-w-fit fixed z-[5000] top-10 inset-x-0 mx-auto px-8 py-3 items-center justify-center space-x-6",
-            className
+            "fixed inset-x-0 top-10 z-[5000] mx-auto flex max-w-fit items-center justify-center space-x-6 px-8 py-3 md:min-w-[70vw] lg:min-w-fit",
+            className,
           )}
           style={{
             backdropFilter: "blur(10px) saturate(150%)",
@@ -58,26 +58,21 @@ export const FloatingNav = ({
             border: "1px solid rgba(88, 24, 127, 0.25)",
             boxShadow: "0px 4px 15px rgba(88, 24, 127, 0.1)",
           }}
-          
-          
         >
           {navItems.map((navItem, idx) => (
             <Link
               key={`link-${idx}`}
               href={navItem.link}
               className={cn(
-                "relative text-neutral-50 flex items-center space-x-3 p-2 transition-all duration-300 ease-in-out hover:text-neutral-200 group"
+                "group relative flex items-center space-x-3 p-2 text-neutral-50 transition-all duration-300 ease-in-out hover:text-neutral-200",
               )}
             >
-          
               <span className="block text-lg">{icons[idx]}</span>
 
-       
               <span className="text-sm font-medium">{navItem.name}</span>
 
-             
               <span
-                className="absolute bottom-0 left-0 w-0 h-[2px] bg-violet-500 transition-all duration-300 group-hover:w-full"
+                className="absolute bottom-0 left-0 h-[2px] w-0 bg-violet-500 transition-all duration-300 group-hover:w-full"
                 style={{ borderRadius: "2px" }}
               />
             </Link>

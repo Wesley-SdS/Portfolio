@@ -7,17 +7,19 @@ const Footer = () => {
   return (
     <footer id="contact" className="w-full pb-10 pt-48 text-white">
       <section className="flex flex-col items-center">
-        <h1 className="heading text-center lg:max-w-[40vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
-        </h1>
+      <h1 className="heading text-center lg:max-w-[60vw] leading-tight">
+  Preparado para transformar 
+  <span className="text-purple"> sua presença digital </span> 
+  em algo extraordinário?
+</h1>
+
+
         <p className="my-5 text-center text-gray-300 md:mt-10">
-          Reach out to me today and let's discuss how I can help you achieve
-          your goals.
+        Entre em contato comigo hoje e vamos discutir como posso ajudá-lo a atingir seus objetivos.
         </p>
         <a href="mailto:wesleysantos.0095@gmail.com">
           <MagicButton
-            title="Let's get in touch"
+            title="Entrar em Contato"
             position="right"
             icon={<FaLocationCrosshairs />}
           />

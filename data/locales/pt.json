@@ -1,0 +1,168 @@
+{
+  "navItems": [
+    { "name": "Início", "link": "#home" },
+    { "name": "Experiência", "link": "#experience" },
+    { "name": "Projetos", "link": "#projects" },
+    { "name": "Abordagem", "link": "#approach" },
+    { "name": "Galeria", "link": "#gallery" }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Plataforma de E-commerce",
+      "desc": "Um marketplace robusto com atualizações de produtos em tempo real, gerenciamento de inventário e um processo de checkout seguro.",
+      "img": "/project-1.jpg",
+      "link": "https://ecommerce-example.com"
+    },
+    {
+      "id": 2,
+      "title": "Site de Portfólio",
+      "desc": "Um portfólio minimalista e responsivo, exibindo trabalho e habilidades profissionais com uma interface elegante.",
+      "img": "/project-2.jpg",
+      "link": "https://portfolio-example.com"
+    },
+    {
+      "id": 3,
+      "title": "Painel de Mídias Sociais",
+      "desc": "Uma ferramenta de análise que monitora métricas de mídias sociais, engajamento de usuários e tendências de crescimento do público.",
+      "img": "/project-3.jpg",
+      "link": "https://dashboard-example.com"
+    },
+    {
+      "id": 4,
+      "title": "Aplicativo de Gerenciamento de Tarefas",
+      "desc": "Um aplicativo elegante para organizar tarefas, acompanhar progresso e gerenciar prazos com recursos colaborativos.",
+      "img": "/project-4.jpg",
+      "link": "https://taskapp-example.com"
+    },
+    {
+      "id": 5,
+      "title": "Rastreador de Fitness",
+      "desc": "Uma aplicação dinâmica de fitness que rastreia rotinas de treino, calorias queimadas e oferece planos personalizados.",
+      "img": "/project-5.jpg",
+      "link": "https://fitnesstracker-example.com"
+    },
+    {
+      "id": 6,
+      "title": "Site de Reserva de Viagens",
+      "desc": "Uma plataforma completa de reservas de viagens para voos, hotéis e aluguel de carros, com uma interface de usuário intuitiva.",
+      "img": "/project-6.jpg",
+      "link": "https://travelbooking-example.com"
+    },
+    {
+      "id": 7,
+      "title": "Carteira de Criptomoeda",
+      "desc": "Um aplicativo de carteira de criptomoedas seguro com rastreamento em tempo real de preços e tendências de mercado.",
+      "img": "/project-7.jpg",
+      "link": "https://cryptowallet-example.com"
+    },
+    {
+      "id": 8,
+      "title": "Plataforma de Ensino Online",
+      "desc": "Uma plataforma que oferece cursos e tutoriais com quizzes integrados, acompanhamento de progresso e certificação.",
+      "img": "/project-8.jpg",
+      "link": "https://learningplatform-example.com"
+    },
+    {
+      "id": 9,
+      "title": "Sistema de Pedidos para Restaurantes",
+      "desc": "Um aplicativo web que permite aos usuários navegar nos menus, fazer pedidos e realizar pagamentos online para restaurantes locais.",
+      "img": "/project-9.jpg",
+      "link": "https://restaurant-ordering-example.com"
+    }
+  ],
+  "workExperience": [
+    {
+      "id": 1,
+      "title": "Designer UI/UX",
+      "company": "ABC Tech Solutions",
+      "location": "São Paulo, Brasil",
+      "period": "Janeiro 2023 - Presente",
+      "desc": "Responsável pela criação de interfaces intuitivas e atraentes para aplicações web e móveis. Colaborei com equipes multifuncionais para otimizar a experiência do usuário, implementando práticas de design centradas no usuário.",
+      "responsibilities": [
+        "Desenvolver protótipos e wireframes utilizando ferramentas como Figma e Adobe XD.",
+        "Realizar testes de usabilidade para coletar feedback dos usuários.",
+        "Colaborar com desenvolvedores para garantir a implementação precisa dos designs.",
+        "Participar de reuniões de brainstorming e oferecer insights sobre tendências de design."
+      ],
+      "skills": [
+        "Design de Interface",
+        "Design de Experiência do Usuário",
+        "Prototipagem",
+        "Teste de Usabilidade",
+        "Colaboração Interdisciplinar"
+      ],
+      "thumbnail": "/01.svg",
+      "className": "md:col-span-2"
+    },
+    {
+      "id": 2,
+      "title": "Desenvolvedor Frontend",
+      "company": "XYZ Web Agency",
+      "location": "Rio de Janeiro, Brasil",
+      "period": "Março 2021 - Dezembro 2022",
+      "desc": "Desenvolvedor frontend com foco na criação de aplicações responsivas e de alto desempenho. Trabalhei em estreita colaboração com designers e gerentes de projeto para entregar soluções de software de alta qualidade.",
+      "responsibilities": [
+        "Implementar designs responsivos utilizando HTML, CSS e JavaScript.",
+        "Otimizar aplicações para desempenho e escalabilidade.",
+        "Realizar a integração com APIs e serviços de backend.",
+        "Participar de revisões de código e promover boas práticas de desenvolvimento."
+      ],
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "Otimização de Desempenho"
+      ],
+      "thumbnail": "/02.svg",
+      "className": "md:col-span-2"
+    },
+    {
+      "id": 3,
+      "title": "Gerente de Produto",
+      "company": "Tech Innovations Inc.",
+      "location": "Belo Horizonte, Brasil",
+      "period": "Fevereiro 2020 - Fevereiro 2021",
+      "desc": "Gerenciei o ciclo de vida do produto desde a concepção até o lançamento. Colaborei com equipes de marketing e desenvolvimento para garantir que os produtos atendessem às necessidades dos usuários.",
+      "responsibilities": [
+        "Definir a visão e a estratégia do produto com base em pesquisas de mercado.",
+        "Priorizar o backlog de produtos e coordenar a execução das tarefas.",
+        "Realizar análises de concorrência e tendências do setor.",
+        "Facilitar reuniões de feedback e apresentar resultados para stakeholders."
+      ],
+      "skills": [
+        "Gestão de Produtos",
+        "Pesquisa de Mercado",
+        "Análise de Dados",
+        "Liderança de Equipe",
+        "Comunicação Eficaz"
+      ],
+      "thumbnail": "/03.svg",
+      "className": "md:col-span-2"
+    },
+    {
+      "id": 4,
+      "title": "Engenheiro de Software",
+      "company": "Global Tech Solutions",
+      "location": "Curitiba, Brasil",
+      "period": "Maio 2018 - Janeiro 2020",
+      "desc": "Desenvolvedor de software focado na criação de soluções backend escaláveis e eficientes. Trabalhei em projetos que exigiam integração com serviços externos e otimização de sistemas existentes.",
+      "responsibilities": [
+        "Desenvolver e manter APIs RESTful utilizando Node.js e Express.",
+        "Escrever testes automatizados para garantir a qualidade do código.",
+        "Colaborar com equipes de frontend para integração de sistemas.",
+        "Participar de reuniões ágeis e contribuir para a melhoria contínua dos processos."
+      ],
+      "skills": [
+        "Node.js",
+        "Express",
+        "Banco de Dados NoSQL",
+        "Testes Automatizados",
+        "Metodologias Ágeis"
+      ],
+      "thumbnail": "/04.svg",
+      "className": "md:col-span-2"
+    }
+  ]
+}

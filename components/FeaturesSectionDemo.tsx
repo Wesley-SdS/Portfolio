@@ -13,55 +13,57 @@ import {
 export function FeaturesSectionDemo() {
   const features = [
     {
-      title: "Built for developers",
+      title: "Desenvolvimento Personalizado",
       description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
+        "Ofereço soluções sob medida para as necessidades do seu negócio, utilizando as melhores práticas de desenvolvimento para entregar resultados de alta qualidade.",
       icon: <IconTerminal2 />,
     },
     {
-      title: "Ease of use",
+      title: "Consultoria Técnica Especializada",
       description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
+        "Ajudamos sua empresa a escolher as melhores tecnologias e estratégias para alcançar seus objetivos, com foco em eficiência e inovação.",
       icon: <IconEaseInOut />,
     },
     {
-      title: "Pricing like no other",
+      title: "Sites e Aplicações Responsivos",
       description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
+        "Criação de sites e aplicações totalmente responsivos, garantindo uma excelente experiência em dispositivos móveis, tablets e desktops.",
       icon: <IconCurrencyDollar />,
     },
     {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
+      title: "Integração e APIs",
+      description: "Integro sistemas de maneira eficaz e crio APIs robustas para facilitar a comunicação entre plataformas, melhorando a performance e a escalabilidade dos seus produtos.",
       icon: <IconCloud />,
     },
     {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
+      title: "Desenvolvimento Ágil",
+      description: "Utilizo metodologias ágeis para garantir entregas rápidas, com total transparência e flexibilidade durante todo o processo de desenvolvimento.",
       icon: <IconRouteAltLeft />,
     },
     {
-      title: "24/7 Customer Support",
+      title: "Otimização de Desempenho",
       description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
+        "Especializado em melhorar o desempenho de sites e aplicativos, reduzindo o tempo de carregamento e proporcionando uma experiência mais fluida para os usuários.",
       icon: <IconHelp />,
     },
     {
-      title: "Money back guarantee",
+      title: "SEO e Marketing Digital",
       description:
-        "If you donot like EveryAI, we will convince you to like us.",
+        "Além do desenvolvimento, também ofereço estratégias de SEO e marketing digital para aumentar a visibilidade do seu site nos motores de busca e atrair mais visitantes.",
       icon: <IconAdjustmentsBolt />,
     },
     {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
+      title: "Suporte Contínuo",
+      description: "Forneço suporte técnico contínuo, garantindo que suas aplicações e sistemas estejam sempre atualizados e funcionando sem problemas.",
       icon: <IconHeart />,
     },
+    
+
   ];
   return (
     <div className="relative z-10 mx-auto max-w-7xl py-10">
       <div className="">
-        <h1 className="heading mt-16 text-purple">Features</h1>
+        <h1 className="heading mt-16 mb-10 text-purple">Soluções</h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {features.map((feature, index) => (

@@ -33,17 +33,9 @@ const Hero = () => {
       <div className="relative z-10 my-20 flex justify-center">
         <div className="flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]">
           <SparklesPreview />
-          <div className="">
-            <a href="">
-              <MagicButton
-                icon={<FaLocationCrosshairs />}
-                title="Show my Skills"
-                position="right"
-              />
-            </a>
           </div>
-        </div>
       </div>
+        
     </section>
   );
 };

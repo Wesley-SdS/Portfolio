@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { FiHome, FiUser, FiBriefcase, FiMail } from "react-icons/fi";
+import Translation from "../Translation";
 
 export const FloatingNav = ({
   navItems,
@@ -77,6 +78,7 @@ export const FloatingNav = ({
               />
             </Link>
           ))}
+           <div className="flex justify-end  text-white"></div>
         </motion.div>
       )}
     </AnimatePresence>

@@ -8,13 +8,13 @@ export function CanvasRevealEffectDemo() {
   return (
     <section id="approach" className="w-full py-20">
       <h1 className="heading text-white">
-        My <span className="text-purple">UI Approach</span>
+        Inerface <span className="text-purple">do Usuário</span>
       </h1>
       <div className="mx-auto flex w-full flex-col items-center justify-center gap-4 bg-black px-8 py-20 lg:flex-row">
         <Card
-          title="Unmanaged"
+          title="Minimalista"
           icon={<AceternityIcon order="UI 1" />}
-          des="Advanced users system"
+          des="Focado em simplicidade, eliminando elementos desnecessários para destacar o essencial. A abordagem minimalista garante uma interface limpa, rápida e fácil de usar."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -22,9 +22,9 @@ export function CanvasRevealEffectDemo() {
           />
         </Card>
         <Card
-          title="lorem"
+          title="Funcional"
           icon={<AceternityIcon order="UI 2" />}
-          des="lorem lorem"
+          des="Priorizando a funcionalidade, esta abordagem assegura que cada elemento tenha um propósito claro, resultando em uma interface que serve exatamente ao que o usuário precisa."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -37,14 +37,18 @@ export function CanvasRevealEffectDemo() {
           />
         </Card>
         <Card
-          title="lorem"
+          title="Intuitivo"
           icon={<AceternityIcon order="UI 3" />}
-          des="lorem lorem"
+          des="Com foco em acessibilidade e facilidade de uso, a abordagem intuitiva cria uma interface que os usuários entendem e usam sem a necessidade de tutoriais ou instruções."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
-            containerClassName="bg-sky-600 overflow-hidden"
-            colors={[[125, 211, 252]]}
+            containerClassName="bg-violet-900 overflow-hidden"
+            colors={[
+              [255, 166, 158],
+              
+            ]}
+            dotSize={2}
           />
         </Card>
       </div>

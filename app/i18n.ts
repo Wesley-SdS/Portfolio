@@ -1,24 +1,24 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import en from "../data/en.json";
-import pt from "../data/pt.json"; // Corrigido para o arquivo correto de português
+import LanguageDetector from "i18next-browser-languagedetector";
+import en from "../data/locales/en.json";
+import pt from "../data/locales/pt.json"; 
+import es from "../data/locales/es.json";
 
-// Traduções
+
 const resources = {
   en: { translation: en },
   pt: { translation: pt },
+  es: { translation: es },
 };
 
-// Inicialização do i18next
 i18n
-  .use(initReactI18next) // Passa o i18n para o react-i18next
+  .use(LanguageDetector) // Detecta o idioma do navegador
+  .use(initReactI18next) // Integração com React
   .init({
     resources,
-    lng: "pt", // Idioma padrão
-    fallbackLng: "en", // Idioma de fallback corrigido para inglês
-    interpolation: {
-      escapeValue: false, // React já faz a sanitização
-    },
+    fallbackLng: "en",
+    interpolation: { escapeValue: false },
   });
 
 export default i18n;

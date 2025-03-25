@@ -1,3 +1,4 @@
+import AboutMe from "@/components/AboutMe";
 import { CanvasRevealEffectDemo } from "@/components/CanvasRevealEffectDemo";
 import Experience from "@/components/Experience";
 import { FeaturesSectionDemo } from "@/components/FeaturesSectionDemo";
@@ -14,7 +15,9 @@ export default function Home() {
     <main className="relative mx-auto flex flex-col items-center justify-center overflow-hidden bg-black px-5 sm:px-10">
       <div className="w-full max-w-7xl">
         <FloatingNav navItems={navItems} />
+       
         <Hero />
+        <AboutMe />
         <Experience />
         <RecentProjects />
         <FeaturesSectionDemo />

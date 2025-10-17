@@ -1,240 +1,251 @@
 'use client';
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { workExperience } from "@/data";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/moving-border";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import {
-  FaReact,
-  FaNodeJs,
-  FaDocker,
-  FaHtml5,
-  FaCss3Alt,
-  FaJsSquare,
-  FaLaravel,
-  FaPython,
-  FaVuejs,
-  FaAngular,
-  FaGitAlt,
-} from "react-icons/fa";
-import {
-  SiTypescript,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiDjango,
-  SiPostgresql,
-  SiMysql,
-  SiRedux,
-  SiGraphql,
-  SiMongodb,
-} from "react-icons/si";
+import ExperienceTimeline from "./3d/ExperienceTimeline";
 import MagicButton from "./MagicButton";
 
 const Experience = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const skillsTech = [
-    { icon: <FaReact className="text-cyan-500" />, name: "React.js", description: "Interfaces dinâmicas e interativas." },
-    { icon: <SiNextdotjs className="text-purple-500" />, name: "Next.js", description: "Framework moderno otimizado para SEO." },
-    { icon: <SiTailwindcss className="text-teal-400" />, name: "Tailwind CSS", description: "Estilização responsiva e rápida." },
-    { icon: <SiTypescript className="text-blue-600" />, name: "TypeScript", description: "Tipagem estática para escalabilidade." },
-    { icon: <FaNodeJs className="text-green-500" />, name: "Node.js", description: "Backend escalável e eficiente." },
-    { icon: <FaDocker className="text-blue-400" />, name: "Docker", description: "Contêineres para deploy eficiente." },
-    { icon: <FaHtml5 className="text-orange-600" />, name: "HTML5", description: "Base para páginas web semânticas." },
-    { icon: <FaCss3Alt className="text-blue-500" />, name: "CSS3", description: "Estilização visual de páginas web." },
-    { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript", description: "Linguagem para lógica e interatividade." },
-    { icon: <FaLaravel className="text-red-600" />, name: "Laravel", description: "Framework PHP robusto e versátil." },
-    { icon: <FaPython className="text-green-300" />, name: "Python", description: "Linguagem poderosa para diversas aplicações." },
-    { icon: <SiDjango className="text-green-700" />, name: "Django", description: "Desenvolvimento web seguro e rápido." },
-    { icon: <FaVuejs className="text-green-400" />, name: "Vue.js", description: "Interfaces interativas com foco em simplicidade." },
-    { icon: <FaAngular className="text-red-700" />, name: "Angular", description: "Framework modular para aplicações web." },
-    { icon: <SiGraphql className="text-pink-500" />, name: "GraphQL", description: "APIs flexíveis e performáticas." },
-    { icon: <SiMysql className="text-blue-600" />, name: "MySQL", description: "Banco de dados relacional robusto." },
-    { icon: <SiPostgresql className="text-blue-800" />, name: "PostgreSQL", description: "Banco avançado para grandes aplicações." },
-    { icon: <SiMongodb className="text-green-600" />, name: "MongoDB", description: "Banco NoSQL para dados não estruturados." },
-    { icon: <SiRedux className="text-purple-500" />, name: "Redux", description: "Gerenciamento de estado global." },
-    { icon: <FaGitAlt className="text-orange-500" />, name: "Git", description: "Controle de versão eficiente." },
+  const techSkills = [
+    { name: "Next.js", level: 95, color: "#000000" },
+    { name: "React", level: 95, color: "#61DAFB" },
+    { name: "TypeScript", level: 90, color: "#3178C6" },
+    { name: "Python", level: 85, color: "#3776AB" },
+    { name: "Node.js", level: 90, color: "#339933" },
+    { name: "PostgreSQL", level: 85, color: "#336791" },
+    { name: "Three.js", level: 60, color: "#000000" },
+    { name: "TailwindCSS", level: 95, color: "#06B6D4" },
   ];
 
-  const skillsPersonal = [
-    {
-      name: "Organização",
-      description: "Capacidade de estruturar tarefas e gerenciar prioridades de forma eficiente para alcançar resultados consistentes.",
-    },
-    {
-      name: "Trabalho em Equipe",
-      description: "Habilidade de colaborar de maneira produtiva com colegas para alcançar objetivos comuns e superar desafios.",
-    },
-    {
-      name: "Proatividade",
-      description: "Iniciativa para identificar e resolver problemas ou sugerir melhorias antes que sejam solicitadas.",
-    },
-    {
-      name: "Atenção aos Detalhes",
-      description: "Foco em revisar e ajustar os mínimos aspectos para garantir precisão e qualidade em entregas.",
-    },
-    {
-      name: "Comprometimento",
-      description: "Dedicação total às responsabilidades, mantendo ética profissional e um padrão elevado de trabalho.",
-    },
-    {
-      name: "Aprendizado Rápido",
-      description: "Capacidade de adquirir novas habilidades e conhecimentos rapidamente, adaptando-se a diferentes contextos.",
-    },
-    {
-      name: "Comunicação Clara",
-      description: "Facilidade para transmitir ideias e informações de maneira eficiente, garantindo alinhamento e compreensão.",
-    },
-    {
-      name: "Foco em Resultados",
-      description: "Compromisso com a obtenção de objetivos mensuráveis e impacto positivo nas entregas e no time.",
-    },
+  const leadershipSkills = [
+    { name: "Liderança Técnica", level: 90 },
+    { name: "Arquitetura de Software", level: 85 },
+    { name: "Mentoria", level: 80 },
+    { name: "Gestão de Projetos", level: 75 },
   ];
-  
 
   return (
-    <section id="experience" className="w-full py-20">
-      <h1 className="heading text-purple">
-        <span className="text-purple-500">Experiências</span>
-      </h1>
+    <section id="experience" className="w-full py-20 deep-space-gradient">
+      <motion.div 
+        className="max-w-7xl mx-auto px-6 lg:px-20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.h1 
+          className="heading mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="text-purple">Experiências</span>
+        </motion.h1>
 
-      <div className="mt-12 grid w-full grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {workExperience.map((card) => (
-          <Button
-            key={card.id}
-            borderRadius="1.75rem"
-            duration={Math.floor(Math.random() * 10000) + 1000}
-            style={{
-              background: "rgb(0, 0, 0)",
-              borderRadius: `calc(1.75rem * 0.96)`,
+        {/* 3D Timeline Experience */}
+        <motion.div 
+          className="mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+            Jornada Profissional 3D
+          </h2>
+          <ExperienceTimeline />
+        </motion.div>
+
+        {/* Professional Experience Cards */}
+        <motion.div 
+          className="mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+            Posições Destacadas
+          </h2>
+          <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {workExperience.slice(0, 6).map((card, index) => (
+              <motion.div
+                key={card.id}
+                className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300 cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                onClick={() => setIsDialogOpen(true)}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-lg overflow-hidden">
+                    <img
+                      src={card.thumbnail}
+                      alt={card.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-200">{card.title}</h3>
+                    <p className="text-sm text-slate-400">{card.company}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-slate-300 mb-4">{card.desc}</p>
+                <div className="flex flex-wrap gap-2">
+                  {card.skills?.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="text-xs px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Technical Skills */}
+        <motion.div 
+          className="mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+            Stack Tecnológico
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {techSkills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                className="glassmorphism rounded-lg p-4"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-slate-200 font-medium">{skill.name}</span>
+                  <span className="text-slate-400 text-sm">{skill.level}%</span>
+                </div>
+                <div className="w-full bg-slate-700 rounded-full h-2">
+                  <motion.div
+                    className="h-2 rounded-full"
+                    style={{ backgroundColor: skill.color }}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1 + index * 0.1, duration: 0.8 }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Leadership Skills */}
+        <motion.div 
+          className="mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
+          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+            Liderança & Soft Skills
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {leadershipSkills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                className="glassmorphism rounded-lg p-4"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-slate-200 font-medium">{skill.name}</span>
+                  <span className="text-slate-400 text-sm">{skill.level}%</span>
+                </div>
+                <div className="w-full bg-slate-700 rounded-full h-2">
+                  <motion.div
+                    className="h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 1.2 + index * 0.1, duration: 0.8 }}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div 
+          className="text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+        >
+          <MagicButton
+            title="Ver Projetos"
+            icon={<></>}
+            position="right"
+            onClick={() => {
+              const element = document.getElementById('projects');
+              element?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="text-white"
-          >
-            <div className="flex flex-col items-center gap-2 p-3 py-6 md:p-5 lg:p-10">
-              <img
-                src={card.thumbnail}
-                alt={card.title}
-                className="w-16 text-center"
-              />
-              <div className="text-center lg:mt-5">
-                <h1 className="text-xl font-bold md:text-2xl">{card.title}</h1>
-                <p className="mt-3 text-white-100">{card.desc}</p>
-              </div>
-            </div>
-          </Button>
-        ))}
-      </div>
+            otherClasses="glassmorphism hover:glow-effect transition-all duration-300"
+          />
+        </motion.div>
+      </motion.div>
 
-  
-      <div className="mt-12 flex justify-center">
-  <div className="relative group">
-
-    <div className="absolute inset-0 rounded-lg border-4 border-transparent bg-gradient-to-r from-purple-500 via-blue-500 to-pink-500 animate-spin-border"></div>
-
-
-    <div className="mt-6 flex justify-center">
-        <MagicButton
-          title="Minhas Skills"
-          icon={<FaReact />}
-          position="left"
-          onClick={() => setIsDialogOpen(true)} 
-        />
-      </div></div>
-</div>
-
+      {/* Dialog for detailed view */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogContent className="h-full w-full max-w-6xl p-8 bg-transparent backdrop-blur-md rounded-lg">
-
-
-
-
-    <DialogHeader>
-      <DialogTitle className="text-2xl font-bold text-center text-white">Minhas Skills</DialogTitle>
-    </DialogHeader>
-    <ScrollArea className="h-full w-full p-4">
-      {/* Tecnologias */}
-      <h2 className="text-lg font-semibold text-purple-300">Tecnologias:</h2>
-      <div className="grid grid-cols-2 gap-6 mt-4 md:grid-cols-3 lg:grid-cols-4">
-        {skillsTech.map((skill, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center gap-3 p-4 text-center border border-violet-900 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300"
-          >
-            <div className="text-4xl text-purple-400">{skill.icon}</div>
-            <h3 className="text-lg font-semibold text-white">{skill.name}</h3>
-            <p className="text-sm text-gray-300">{skill.description}</p>
-          </div>
-        ))}
-      </div>
-
-  
-      <h2 className="mt-12 text-lg font-semibold text-purple-300">Habilidades Pessoais:</h2>
-      <ul className="mt-4 space-y-3 pl-5 text-gray-300 list-disc">
-        {skillsPersonal.map((skill, index) => (
-          <li
-            key={index}
-            className="text-base font-medium hover:text-white transition-all duration-200"
-          >
-            {skill.name}: <span className="font-normal">{skill.description}</span>
-          </li>
-        ))}
-      </ul>
-      
-
-    </ScrollArea>
-    
-  </DialogContent>
-</Dialog>
-
-  <div className="relative border-l-2 border-violet-900 pl-4 mt-8 space-y-8">
-    {workExperience.map((experience) => (
-      <div key={experience.id} className="relative">
-  
-        <div className="absolute -left-2 w-4 h-4 bg-violet-900 rounded-full border-2 border-white"></div>
-
-        <div className="p-6 rounded-lg shadow-md border border-violet-900">
-     
-          <div className="flex items-center gap-4">
-            <img
-              src={experience.thumbnail}
-              alt={experience.title}
-              className="w-16 h-16 rounded-full"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-white">{experience.title}</h3>
-              <p className="text-sm text-gray-300">{experience.company}</p>
+        <DialogContent className="max-w-4xl max-h-[80vh] glassmorphism">
+          <DialogHeader>
+            <DialogTitle className="text-slate-200">Experiência Completa</DialogTitle>
+          </DialogHeader>
+          <ScrollArea className="h-[60vh]">
+            <div className="grid grid-cols-1 gap-6">
+              {workExperience.map((card) => (
+                <div key={card.id} className="glassmorphism rounded-lg p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={card.thumbnail}
+                      alt={card.company}
+                      className="w-16 h-16 rounded-lg object-cover"
+                    />
+                    <div>
+                      <h3 className="text-xl font-semibold text-slate-200">{card.title}</h3>
+                      <p className="text-slate-400">{card.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-slate-300 mb-4">{card.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {card.skills?.map((tech, i) => (
+                      <span key={i} className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-
-    
-          <div className="mt-2 text-gray-400 text-sm">
-            <p>{experience.location}</p>
-            <p>{experience.period}</p>
-          </div>
-          <ScrollArea className="h-96 w-full p-4">
-
-     
-          <p className="mt-4 text-gray-300">{experience.desc}</p>
-
-          <ul className="mt-4 text-gray-400 list-disc list-inside">
-            {experience.responsibilities.map((responsibility, index) => (
-              <li key={index}>{responsibility}</li>
-            ))}
-          </ul>
-
-
-          <ul className="mt-4 text-gray-300 list-disc list-inside">
-            {experience.skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
-          </ul>
           </ScrollArea>
-        </div>
-      </div>
-    ))}
-  </div>
-
-
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

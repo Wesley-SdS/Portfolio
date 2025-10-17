@@ -1,63 +1,137 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
+import MagicButton from "./MagicButton";
+import { FaBriefcase, FaCode, FaUsers, FaRocket } from "react-icons/fa";
 
 const AboutMe: React.FC = () => {
   return (
-    <section className="py-16 px-6 lg:px-20  text-violet-250">
+    <section id="about" className="py-20 px-6 lg:px-20 deep-space-gradient">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-violet-500 mb-8">
-          Sobre <span className="text-violet-300">Mim</span>
-        </h2>
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          {/* Imagem de perfil */}
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg">
-            <img
-              src="/your-profile-picture.jpg"
-              alt="Minha foto"
-              className="w-full h-full object-cover"
-            />
-          </div>
+        <motion.h2 
+          className="heading mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          Sobre <span className="text-purple">Mim</span>
+        </motion.h2>
 
-          {/* Texto sobre mim */}
-          <div className="flex-1">
-            <p className="text-lg leading-relaxed mb-4">
-              Olá! Meu nome é <span className="font-semibold text-violet-300">Wesley Santos</span>, 
-              sou um desenvolvedor apaixonado por criar soluções inovadoras. Tenho experiência em desenvolvimento 
-              <strong> frontend, backend e fullstack</strong>, com foco na entrega de resultados excepcionais.
-            </p>
-            <p className="text-lg leading-relaxed mb-4">
-              Ao longo da minha carreira, trabalhei em projetos desafiadores como e-commerces, dashboards e plataformas 
-              personalizadas. Tenho expertise em tecnologias como <strong>React.js, Next.js, Angular, Node.js, TypeScript, Tailwind CSS</strong>, 
-              e estou sempre me atualizando para oferecer o melhor desempenho nas soluções.
-            </p>
-            <p className="text-lg leading-relaxed mb-4">
-              Fora do ambiente de trabalho, sou muito ligado à minha família. Sou casado e, nos momentos de lazer, gosto muito de 
-              assistir filmes e séries com minha esposa, comendo uma pipoca. Além disso, Sou pai da Madalena. Minha família é a minha maior fonte de inspiração e felicidade que me motiva a buscar sempre mais e a ser melhor em tudo o que faço por ela..
-            </p>
-            <p className="text-lg leading-relaxed mb-4">
-            Nos meus hobbies, gosto de estudar e ampliar meus conhecimentos. Também aprecio praticar esportes, como correr e pedalar. No meu tempo livre, dedico-me a explorar novas tecnologias, experimentar receitas criativas na cozinha e aproveitar momentos tranquilos com minha família.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Se você precisa de alguém dedicado, criativo e apaixonado pelo que faz, estou aqui para transformar sua ideia em realidade. 
-              Vamos trabalhar juntos!
-            </p>
-
-            {/* Botões de contato */}
-            <div className="mt-8 flex gap-4">
-              <a
-                href="#"
-                className="bg-violet-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-violet-700 transition"
-              >
-                Entre em Contato
-              </a>
-              <a
-                href="/curriculo.pdf"
-                className="bg-gray-800 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-900 transition"
-                download
-              >
-                Baixar Currículo
-              </a>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Profile Section */}
+          <motion.div 
+            className="text-center lg:text-left"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="w-64 h-64 mx-auto lg:mx-0 rounded-full overflow-hidden glow-effect mb-8">
+              <img
+                src="/wills.png"
+                alt="Wesley Santos - Tech Lead"
+                className="w-full h-full object-cover"
+              />
             </div>
-          </div>
+
+            <h3 className="text-2xl font-bold text-slate-200 mb-4">
+              Wesley Santos
+            </h3>
+            <p className="text-xl text-slate-400 mb-6">
+              Tech Lead Full Stack & Digital Artisan
+            </p>
+            
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              {['9+ Anos', 'IA & Automação', 'Liderança', 'Full Stack'].map((tag) => (
+                <span key={tag} className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-300">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div 
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
+              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                <FaRocket className="text-purple-400" />
+                Minha Missão
+              </h4>
+              <p className="text-slate-300 leading-relaxed">
+                Com mais de nove anos de experiência em tecnologia, atuo como Programador Sênior e Líder Técnico na Adalink, 
+                onde conduzo o desenvolvimento de soluções avançadas em Inteligência Artificial e automação. 
+                Transformo ideias complexas em sistemas inteligentes e escaláveis.
+              </p>
+            </div>
+
+            <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
+              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                <FaCode className="text-purple-400" />
+                Expertise Técnica
+              </h4>
+              <p className="text-slate-300 leading-relaxed mb-4">
+                Trabalho com uma stack moderna que inclui Next.js, TypeScript, Python, Node.js e Go, 
+                explorando o melhor de cada linguagem para construir aplicações robustas e de alta performance.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'PostgreSQL'].map((tech) => (
+                  <span key={tech} className="text-xs px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
+              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                <FaBriefcase className="text-purple-400" />
+                Liderança & Inovação
+              </h4>
+              <p className="text-slate-300 leading-relaxed mb-4">
+                Na Adalink, lidero iniciativas de automações inteligentes e orquestração de agentes. 
+                Participo ativamente de decisões de arquitetura e guio o time na implementação de práticas sólidas 
+                como clean code, testes e CI/CD.
+              </p>
+            </div>
+
+            <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
+              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                <FaUsers className="text-purple-400" />
+                Visão & Valores
+              </h4>
+              <p className="text-slate-300 leading-relaxed">
+                Sou entusiasta de Inteligência Artificial aplicada a negócios, com experiência em integrações com 
+                LLMs como OpenAI, Anthropic e Gemini. Minha abordagem une técnica e propósito, buscando sempre 
+                entender o contexto do problema e propor soluções inteligentes.
+              </p>
+            </div>
+
+            <motion.div 
+              className="flex justify-center lg:justify-start pt-4"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8 }}
+            >
+              <MagicButton
+                title="Ver Experiência"
+                icon={<></>}
+                position="right"
+                onClick={() => {
+                  const element = document.getElementById('experience');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                otherClasses="glassmorphism hover:glow-effect transition-all duration-300"
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

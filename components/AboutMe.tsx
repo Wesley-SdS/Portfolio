@@ -27,12 +27,17 @@ const AboutMe: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="w-64 h-64 mx-auto lg:mx-0 rounded-full overflow-hidden glow-effect mb-8">
-              <img
-                src="/wills.png"
-                alt="Wesley Santos - Tech Lead"
-                className="w-full h-full object-cover"
-              />
+            {/* Sua foto aqui */}
+            <div className="mb-8 lg:mb-12">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden glow-effect glassmorphism border-2 border-purple-500/20 mx-auto lg:mx-0">
+                <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl lg:text-8xl mb-4">👤</div>
+                    <p className="text-slate-300 text-sm lg:text-base">Sua foto aqui</p>
+                    <p className="text-xs text-slate-400 mt-2">Adicione sua imagem em /public</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <h3 className="text-2xl font-bold text-slate-200 mb-4">
@@ -65,9 +70,7 @@ const AboutMe: React.FC = () => {
                 Minha Missão
               </h4>
               <p className="text-slate-300 leading-relaxed">
-                Com mais de nove anos de experiência em tecnologia, atuo como Programador Sênior e Líder Técnico na Adalink, 
-                onde conduzo o desenvolvimento de soluções avançadas em Inteligência Artificial e automação. 
-                Transformo ideias complexas em sistemas inteligentes e escaláveis.
+                Com mais de nove anos de experiência em tecnologia, atuo como Programador Sênior e Líder Técnico na Adalink, onde conduzo o desenvolvimento de soluções avançadas em Inteligência Artificial e automação. Minha missão é transformar ideias complexas em sistemas inteligentes e escaláveis.
               </p>
             </div>
 
@@ -77,8 +80,7 @@ const AboutMe: React.FC = () => {
                 Expertise Técnica
               </h4>
               <p className="text-slate-300 leading-relaxed mb-4">
-                Trabalho com uma stack moderna que inclui Next.js, TypeScript, Python, Node.js e Go, 
-                explorando o melhor de cada linguagem para construir aplicações robustas e de alta performance.
+                Trabalho com uma stack moderna que inclui Next.js, TypeScript, Python, Node.js e Go, explorando o melhor de cada linguagem para construir aplicações robustas e de alta performance.
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'PostgreSQL'].map((tech) => (
@@ -91,25 +93,21 @@ const AboutMe: React.FC = () => {
 
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
               <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
-                <FaBriefcase className="text-purple-400" />
+                <FaCode className="text-purple-400" />
                 Liderança & Inovação
               </h4>
-              <p className="text-slate-300 leading-relaxed mb-4">
-                Na Adalink, lidero iniciativas de automações inteligentes e orquestração de agentes. 
-                Participo ativamente de decisões de arquitetura e guio o time na implementação de práticas sólidas 
-                como clean code, testes e CI/CD.
+              <p className="text-slate-300 leading-relaxed">
+                Na Adalink, lidero iniciativas de automações inteligentes e orquestração de agentes. Participo ativamente de decisões de arquitetura e guio o time na implementação de práticas sólidas como clean code, testes e CI/CD.
               </p>
             </div>
 
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
               <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
-                <FaUsers className="text-purple-400" />
+                <FaCode className="text-purple-400" />
                 Visão & Valores
               </h4>
               <p className="text-slate-300 leading-relaxed">
-                Sou entusiasta de Inteligência Artificial aplicada a negócios, com experiência em integrações com 
-                LLMs como OpenAI, Anthropic e Gemini. Minha abordagem une técnica e propósito, buscando sempre 
-                entender o contexto do problema e propor soluções inteligentes.
+                Sou entusiasta de Inteligência Artificial aplicada a negócios, com experiência em integrações com LLMs como OpenAI, Anthropic e Gemini. Minha abordagem une técnica e propósito, buscando sempre entender o contexto do problema.
               </p>
             </div>
 
@@ -118,7 +116,7 @@ const AboutMe: React.FC = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
+              transition={{ delay: 0.8, duration: 1 }}
             >
               <MagicButton
                 title="Ver Experiência"

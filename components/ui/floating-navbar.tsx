@@ -8,8 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { FiHome, FiUser, FiBriefcase, FiMail } from "react-icons/fi";
-import Translation from "../Translation";
+import { FiHome, FiUser, FiBriefcase, FiMail, FiSettings, FiFilter } from "react-icons/fi";
 
 export const FloatingNav = ({
   navItems,
@@ -38,7 +37,7 @@ export const FloatingNav = ({
     setLastScrollY(current);
   });
 
-  const icons = [<FiHome />, <FiUser />, <FiBriefcase />, <FiMail />];
+  const icons = [<FiHome />, <FiUser />, <FiBriefcase />, <FiMail />, <FiSettings />, <FiFilter />];
 
   return (
     <AnimatePresence>
@@ -54,10 +53,10 @@ export const FloatingNav = ({
           )}
           style={{
             backdropFilter: "blur(10px) saturate(150%)",
-            backgroundColor: "rgba(17, 17, 17, 0.85)",
-            borderRadius: "12px",
-            border: "1px solid rgba(88, 24, 127, 0.25)",
-            boxShadow: "0px 4px 15px rgba(88, 24, 127, 0.1)",
+            backgroundColor: "rgba(10, 14, 26, 0.85)",
+            borderRadius: "16px",
+            border: "1px solid rgba(99, 102, 241, 0.2)",
+            boxShadow: "0px 8px 32px rgba(99, 102, 241, 0.15)",
           }}
         >
           {navItems.map((navItem, idx) => (
@@ -65,7 +64,7 @@ export const FloatingNav = ({
               key={`link-${idx}`}
               href={navItem.link}
               className={cn(
-                "group relative flex items-center space-x-3 p-2 text-neutral-50 transition-all duration-300 ease-in-out hover:text-neutral-200",
+                "group relative flex items-center space-x-3 p-2 text-slate-300 transition-all duration-300 ease-in-out hover:text-purple-400",
               )}
             >
               <span className="block text-lg">{icons[idx]}</span>

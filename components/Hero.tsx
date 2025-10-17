@@ -3,16 +3,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Spotlight } from "./ui/Spotlight";
 import MagicButton from "./MagicButton";
-import { FaLocationCrosshairs } from "react-icons/fa6";
+import { FaLocationCrosshairs, FaCode, FaRocket } from "react-icons/fa6";
 import DigitalGalaxy from "./3d/DigitalGalaxy";
 
 const Hero = () => {
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden deep-space-gradient">
-      {/* 3D Galaxy Background */}
-      <div className="absolute inset-0 z-0">
-        <DigitalGalaxy className="w-full h-full" />
+    <section id="home" className="relative min-h-screen deep-space-gradient overflow-hidden w-full">
+      {/* Background Effects */}
+      <div className="absolute inset-0 w-full">
+        {/* 3D Galaxy Background */}
+        <DigitalGalaxy className="absolute inset-0 w-full h-full opacity-60" />
+        
+        {/* Additional gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
       </div>
 
       {/* Spotlight Effects */}
@@ -32,89 +36,140 @@ const Hero = () => {
       </div>
 
       {/* Hero Content */}
-      <div className="relative z-20 my-20 flex justify-center">
-        <motion.div 
-          className="flex max-w-[89vw] flex-col items-center justify-center md:max-w-2xl lg:max-w-[60vw]"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h1 
-            className="heading mb-6 text-glow"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 1 }}
-          >
-            <span className="text-purple">Digital Artisan</span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-center text-xl md:text-2xl text-slate-300 mb-8 font-light"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 1 }}
-          >
-            Transformando código em experiências extraordinárias
-          </motion.p>
-
-          <motion.p 
-            className="text-center text-lg text-slate-400 mb-12 max-w-2xl"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1 }}
-          >
-            Tech Lead Full Stack com 9+ anos de experiência em Inteligência Artificial, 
-            automação e desenvolvimento de plataformas escaláveis.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 1 }}
-            className="flex flex-col sm:flex-row gap-4 items-center"
-          >
-            <MagicButton
-              title="Enter the Digital Realm"
-              icon={<FaLocationCrosshairs />}
-              position="right"
-              onClick={() => {
-                const element = document.getElementById('about');
-                element?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              otherClasses="glassmorphism hover:glow-effect transition-all duration-300"
-            />
-            
-            <motion.a
-              href="#projects"
-              className="px-8 py-3 rounded-full border border-indigo-500/30 text-slate-300 hover:bg-indigo-500/10 hover:border-indigo-500/50 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Explore My Work
-            </motion.a>
-          </motion.div>
-
-          {/* Tech Stack Floating Pills */}
+      <div className="relative z-20 min-h-screen flex items-center justify-center w-full px-6">
+        <div className="max-w-7xl mx-auto w-full">
           <motion.div 
-            className="mt-16 flex flex-wrap gap-3 justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            {['React', 'Next.js', 'TypeScript', 'Three.js', 'Python', 'AI/ML'].map((tech, index) => (
-              <motion.span
-                key={tech}
-                className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-300 border border-indigo-500/20"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.05, borderColor: '#6366F1' }}
+            {/* Avatar with Glow Effect */}
+            <motion.div
+              className="mb-8 inline-block"
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              <div className="relative">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 glow-effect bg-slate-800">
+                  <div className="w-full h-full flex items-center justify-center text-purple-400 text-4xl font-bold">
+                    WS
+                  </div>
+                </div>
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <FaCode className="text-white text-sm" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Main Title */}
+            <motion.h1 
+              className="heading mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
+              <span className="text-purple">Digital Artisan</span>
+            </motion.h1>
+            
+            {/* Subtitle */}
+            <motion.p 
+              className="text-xl md:text-2xl text-slate-300 mb-6 font-light"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 1 }}
+            >
+              Transformando código em experiências extraordinárias
+            </motion.p>
+
+            {/* Description */}
+            <motion.p 
+              className="text-lg text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+            >
+              Tech Lead Full Stack com <span className="text-purple font-semibold">9+ anos</span> de experiência em 
+              Inteligência Artificial, automação e desenvolvimento de plataformas escaláveis. 
+              Líder técnico na Adalink, transformando ideias complexas em sistemas inteligentes.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12"
+            >
+              <MagicButton
+                title="Enter the Digital Realm"
+                icon={<FaLocationCrosshairs />}
+                position="right"
+                onClick={() => {
+                  const element = document.getElementById('about');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                otherClasses="glassmorphism hover:glow-effect transition-all duration-300"
+              />
+              
+              <motion.button
+                onClick={() => {
+                  const element = document.getElementById('projects');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-8 py-3 rounded-full glassmorphism text-slate-300 font-medium border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center gap-2"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {tech}
-              </motion.span>
-            ))}
+                <FaRocket className="text-sm" />
+                Explore My Work
+              </motion.button>
+            </motion.div>
+
+            {/* Tech Stack Floating Pills */}
+            <motion.div 
+              className="flex flex-wrap gap-3 justify-center mb-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 1 }}
+            >
+              {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'AI/ML'].map((tech, index) => (
+                <motion.span
+                  key={tech}
+                  className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-300 border border-indigo-500/20 hover:border-purple-500/40 hover:bg-purple-500/10 transition-all duration-300"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.4 + index * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.6, duration: 1 }}
+            >
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-400 mb-2">9+</div>
+                <div className="text-slate-400 text-sm">Anos de Experiência</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-400 mb-2">50+</div>
+                <div className="text-slate-400 text-sm">Projetos Entregues</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-400 mb-2">100%</div>
+                <div className="text-slate-400 text-sm">Foco em Qualidade</div>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
@@ -125,12 +180,12 @@ const Hero = () => {
         transition={{ delay: 2, duration: 1 }}
       >
         <motion.div
-          className="w-6 h-10 rounded-full border-2 border-slate-500 flex justify-center"
+          className="w-6 h-10 rounded-full border-2 border-purple-500/50 flex justify-center"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
           <motion.div
-            className="w-1 h-3 bg-slate-500 rounded-full mt-2"
+            className="w-1 h-3 bg-gradient-to-b from-purple-400 to-transparent rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Infinity, duration: 2, delay: 0.2 }}
           />

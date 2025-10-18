@@ -1,10 +1,15 @@
 "use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { Spotlight } from "./ui/Spotlight";
 import MagicButton from "./MagicButton";
 import { FaLocationCrosshairs, FaCode, FaRocket } from "react-icons/fa6";
-import DigitalGalaxy from "./3d/DigitalGalaxy";
+
+const DigitalGalaxy = dynamic(() => import("./3d/DigitalGalaxy"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 w-full h-full bg-slate-900/20" />
+});
 
 const Hero = () => {
   return (
@@ -42,14 +47,14 @@ const Hero = () => {
             className="text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
           >
             {/* Avatar with Glow Effect */}
             <motion.div
               className="mb-8 inline-block"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
             >
               <div className="relative">
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 glow-effect bg-slate-800">

@@ -1,12 +1,84 @@
 'use client';
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { workExperience } from "@/data";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/moving-border";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import ExperienceTimeline from "./3d/ExperienceTimeline";
 import MagicButton from "./MagicButton";
+
+const ExperienceTimeline = dynamic(() => import("./3d/ExperienceTimeline"), {
+  ssr: false,
+  loading: () => <div className="w-full h-96 mb-8 animate-pulse bg-slate-800/20 rounded-lg" />
+});
+
+interface TechSkill {
+  name: string;
+  level: number;
+  color: string;
+}
+
+interface LeadershipSkill {
+  name: string;
+  level: number;
+}
+
+const TechSkillBar = React.memo<{ skill: TechSkill; index: number }>(({ skill, index }) => (
+  <motion.div
+    className="glassmorphism rounded-lg p-4"
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
+  >
+    <div className="flex items-center justify-between mb-2">
+      <span className="text-slate-200 font-medium">{skill.name}</span>
+      <span className="text-slate-400 text-sm">{skill.level}%</span>
+    </div>
+    <div className="w-full bg-slate-700 rounded-full h-2">
+      <motion.div
+        className="h-2 rounded-full"
+        style={{ backgroundColor: skill.color }}
+        initial={{ width: 0 }}
+        whileInView={{ width: `${skill.level}%` }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.8 + index * 0.1, duration: 0.6 }}
+      />
+    </div>
+  </motion.div>
+));
+
+TechSkillBar.displayName = 'TechSkillBar';
+
+const LeadershipSkillBar = React.memo<{ skill: LeadershipSkill; index: number }>(({ skill, index }) => (
+  <motion.div
+    className="glassmorphism rounded-lg p-4"
+    initial={{ opacity: 0, x: 50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.8 + index * 0.1, duration: 0.4 }}
+  >
+    <div className="flex items-center justify-between mb-2">
+      <span className="text-slate-200 font-medium">{skill.name}</span>
+      <span className="text-slate-400 text-sm">{skill.level}%</span>
+    </div>
+    <div className="w-full bg-slate-700 rounded-full h-2">
+      <motion.div
+        className="h-2 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+        style={{
+          background: 'linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #ef4444 100%)'
+        }}
+        initial={{ width: 0 }}
+        whileInView={{ width: `${skill.level}%` }}
+        viewport={{ once: true }}
+        transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
+      />
+    </div>
+  </motion.div>
+));
+
+LeadershipSkillBar.displayName = 'LeadershipSkillBar';
 
 const Experience = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -36,14 +108,14 @@ const Experience = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
       >
         <motion.h1 
           className="heading mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
         >
           <span className="text-purple">Experiências</span>
         </motion.h1>
@@ -124,29 +196,7 @@ const Experience = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {techSkills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                className="glassmorphism rounded-lg p-4"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-slate-200 font-medium">{skill.name}</span>
-                  <span className="text-slate-400 text-sm">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-slate-700 rounded-full h-2">
-                  <motion.div
-                    className="h-2 rounded-full"
-                    style={{ backgroundColor: skill.color }}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1 + index * 0.1, duration: 0.8 }}
-                  />
-                </div>
-              </motion.div>
+              <TechSkillBar key={skill.name} skill={skill} index={index} />
             ))}
           </div>
         </motion.div>
@@ -164,31 +214,7 @@ const Experience = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {leadershipSkills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                className="glassmorphism rounded-lg p-4"
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-slate-200 font-medium">{skill.name}</span>
-                  <span className="text-slate-400 text-sm">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-slate-700 rounded-full h-2">
-                  <motion.div
-                    className="h-2 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
-                    style={{
-                      background: 'linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #ef4444 100%)'
-                    }}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1.2 + index * 0.1, duration: 0.8 }}
-                  />
-                </div>
-              </motion.div>
+              <LeadershipSkillBar key={skill.name} skill={skill} index={index} />
             ))}
           </div>
         </motion.div>

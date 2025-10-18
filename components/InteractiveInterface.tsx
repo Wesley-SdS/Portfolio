@@ -133,7 +133,7 @@ const InteractiveInterface: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
         >
           <h1 className="heading mb-6">
             <span className="text-purple">Interface</span>
@@ -325,7 +325,7 @@ const InteractiveInterface: React.FC = () => {
                           opacity: [1, 0.5, 1]
                         }}
                         transition={{
-                          duration: 1.5,
+                          duration: 0.6,
                           repeat: Infinity,
                           delay: i * 0.2
                         }}

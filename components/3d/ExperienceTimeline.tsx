@@ -15,6 +15,7 @@ interface ExperienceNode {
 const ExperienceTimeline: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const experiences: ExperienceNode[] = [
     {
@@ -65,8 +66,21 @@ const ExperienceTimeline: React.FC = () => {
   ];
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !isVisible) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -179,7 +193,7 @@ const ExperienceTimeline: React.FC = () => {
         cancelAnimationFrame(animationId);
       }
     };
-  }, [experiences, hoveredNode]);
+  }, [experiences, hoveredNode, isVisible]);
 
   return (
     <div className="relative w-full h-96 mb-8">

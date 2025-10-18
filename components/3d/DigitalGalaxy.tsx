@@ -14,6 +14,7 @@ interface TechPlanet {
 const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
+  const [isVisible, setIsVisible] = useState(false);
 
   const technologies: TechPlanet[] = [
     { name: 'React', color: '#61DAFB', size: 0.8, orbitRadius: 120, orbitSpeed: 0.5, initialAngle: 0 },
@@ -38,8 +39,21 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
   }, []);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !isVisible) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -51,8 +65,9 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
     let time = 0;
 
     // Background stars
+    const starsCount = dimensions.width > 768 ? 80 : 40;
     const stars: Array<{ x: number; y: number; size: number; brightness: number }> = [];
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < starsCount; i++) {
       stars.push({
         x: Math.random() * dimensions.width,
         y: Math.random() * dimensions.height,
@@ -134,7 +149,7 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
         cancelAnimationFrame(animationId);
       }
     };
-  }, [dimensions, technologies]);
+  }, [dimensions, technologies, isVisible]);
 
   return (
     <div className={`relative ${className}`}>

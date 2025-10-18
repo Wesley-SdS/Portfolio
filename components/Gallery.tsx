@@ -118,7 +118,7 @@ const Gallery: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
         >
           <h1 className="heading mb-6">
             <span className="text-purple">Galeria</span>
@@ -208,7 +208,7 @@ const Gallery: React.FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
         >
           <div className="glassmorphism rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-purple-400 mb-2">{galleryImages.length}</div>
@@ -237,7 +237,7 @@ const Gallery: React.FC = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.8 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
         >
           <div className="glassmorphism rounded-2xl p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-4">

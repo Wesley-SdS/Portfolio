@@ -13,7 +13,7 @@ const AboutMe: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
         >
           Sobre <span className="text-purple">Mim</span>
         </motion.h2>
@@ -25,7 +25,7 @@ const AboutMe: React.FC = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             {/* Sua foto aqui */}
             <div className="mb-8 lg:mb-12">
@@ -62,7 +62,7 @@ const AboutMe: React.FC = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
               <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">

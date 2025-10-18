@@ -33,7 +33,7 @@ const ProjectsTree: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 deep-space-gradient relative overflow-hidden">
+    <section id="projects" className="py-20 deep-space-gradient relative overflow-hidden w-full">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full filter blur-3xl animate-pulse" />
@@ -84,7 +84,7 @@ const ProjectsTree: React.FC = () => {
 
               {/* Project Card */}
               <motion.div
-                className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300 relative overflow-hidden cursor-pointer"
+                className="glassmorphism rounded-xl p-8 hover:glow-effect transition-all duration-300 relative overflow-hidden cursor-pointer h-[480px] flex flex-col"
                 whileHover={{ 
                   y: -5, 
                   scale: 1.02,
@@ -93,10 +93,37 @@ const ProjectsTree: React.FC = () => {
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setSelectedProject(project)}
               >
+                {/* Status and Featured Badges */}
+                <div className="flex gap-2 mb-6">
+                  {/* Status Badge */}
+                  <span className={`px-3 py-1 text-xs rounded-full border ${
+                    project.status === 'completed'
+                      ? 'border-green-500 text-green-300 bg-green-500/10'
+                      : project.status === 'in-progress'
+                      ? 'border-yellow-500 text-yellow-300 bg-yellow-500/10'
+                      : 'border-blue-500 text-blue-300 bg-blue-500/10'
+                  }`}>
+                    {project.status === 'completed' ? '🌳' :
+                     project.status === 'in-progress' ? '🌱' : '🌰'}
+                    <span className="ml-1">
+                      {project.status === 'completed' ? 'Maduro' :
+                       project.status === 'in-progress' ? 'Crescendo' : 'Semente'}
+                    </span>
+                  </span>
+
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <span className="px-3 py-1 text-xs rounded-full border border-yellow-500 text-yellow-300 bg-yellow-500/10 flex items-center gap-1">
+                      <FaStar className="text-xs" />
+                      Estrela
+                    </span>
+                  )}
+                </div>
+
                 {/* Project Header */}
                 <div className="relative mb-4">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg" />
-                  
+
                   {/* Icon and Title */}
                   <div className="relative flex items-center gap-3">
                     <div className={`w-12 h-12 rounded-xl border-2 ${getCategoryBorder(project.category)} flex items-center justify-center text-white text-lg shadow-lg`}>
@@ -109,34 +136,6 @@ const ProjectsTree: React.FC = () => {
                       <p className="text-xs text-slate-400">{project.category}</p>
                     </div>
                   </div>
-
-                  {/* Status Badge */}
-                  <div className="absolute top-2 right-2">
-                    <span className={`px-2 py-1 text-xs rounded-full border ${
-                      project.status === 'completed' 
-                        ? 'border-green-500 text-green-300 bg-green-500/10'
-                        : project.status === 'in-progress'
-                        ? 'border-yellow-500 text-yellow-300 bg-yellow-500/10'
-                        : 'border-blue-500 text-blue-300 bg-blue-500/10'
-                    }`}>
-                      {project.status === 'completed' ? '🌳' : 
-                       project.status === 'in-progress' ? '🌱' : '🌰'}
-                      <span className="ml-1">
-                        {project.status === 'completed' ? 'Maduro' : 
-                         project.status === 'in-progress' ? 'Crescendo' : 'Semente'}
-                      </span>
-                    </span>
-                  </div>
-
-                  {/* Featured Badge */}
-                  {project.featured && (
-                    <div className="absolute bottom-2 right-2">
-                      <span className="px-2 py-1 text-xs rounded-full border border-yellow-500 text-yellow-300 bg-yellow-500/10 flex items-center gap-1">
-                        <FaStar className="text-xs" />
-                        Estrela
-                      </span>
-                    </div>
-                  )}
                 </div>
 
                 {/* Description */}
@@ -170,14 +169,14 @@ const ProjectsTree: React.FC = () => {
                 {project.achievements && project.achievements.length > 0 && (
                   <div className="mb-4">
                     <div className="text-xs text-slate-400 mb-2">Frutos:</div>
-                    <div className="text-xs text-slate-300">
+                    <div className="text-xs text-slate-300 line-clamp-2">
                       {project.achievements[0]}
                     </div>
                   </div>
                 )}
 
                 {/* Action Buttons */}
-                <div className="flex gap-2">
+                <div className="flex gap-2 mt-auto">
                   {project.links.map((link, linkIndex) => (
                     <motion.button
                       key={linkIndex}

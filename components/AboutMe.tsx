@@ -6,7 +6,7 @@ import { FaBriefcase, FaCode, FaUsers, FaRocket } from "react-icons/fa";
 
 const AboutMe: React.FC = () => {
   return (
-    <section id="about" className="py-20 px-6 lg:px-20 deep-space-gradient">
+    <section id="about" className="py-20 px-6 lg:px-20 deep-space-gradient w-full">
       <div className="max-w-7xl mx-auto">
         <motion.h2 
           className="heading mb-16"

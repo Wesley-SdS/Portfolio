@@ -12,13 +12,13 @@ const Experience = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const techSkills = [
-    { name: "Next.js", level: 95, color: "#000000" },
+    { name: "Next.js", level: 95, color: "#ffffff" },
     { name: "React", level: 95, color: "#61DAFB" },
     { name: "TypeScript", level: 90, color: "#3178C6" },
     { name: "Python", level: 85, color: "#3776AB" },
     { name: "Node.js", level: 90, color: "#339933" },
     { name: "PostgreSQL", level: 85, color: "#336791" },
-    { name: "Three.js", level: 60, color: "#000000" },
+    { name: "Three.js", level: 60, color: "#ff6b35" },
     { name: "TailwindCSS", level: 95, color: "#06B6D4" },
   ];
 
@@ -178,7 +178,10 @@ const Experience = () => {
                 </div>
                 <div className="w-full bg-slate-700 rounded-full h-2">
                   <motion.div
-                    className="h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"
+                    className="h-2 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+                    style={{
+                      background: 'linear-gradient(90deg, #a855f7 0%, #ec4899 50%, #ef4444 100%)'
+                    }}
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}

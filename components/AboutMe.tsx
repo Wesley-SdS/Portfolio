@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import MagicButton from "./MagicButton";
 import { FaBriefcase, FaCode, FaUsers, FaRocket } from "react-icons/fa";
 
@@ -27,16 +28,16 @@ const AboutMe: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {/* Sua foto aqui */}
+           
             <div className="mb-8 lg:mb-12">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden glow-effect glassmorphism border-2 border-purple-500/20 mx-auto lg:mx-0">
-                <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl lg:text-8xl mb-4">👤</div>
-                    <p className="text-slate-300 text-sm lg:text-base">Sua foto aqui</p>
-                    <p className="text-xs text-slate-400 mt-2">Adicione sua imagem em /public</p>
-                  </div>
-                </div>
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden glow-effect glassmorphism border-2 border-purple-500/20 mx-auto lg:mx-0 relative">
+                <Image
+                  src="/Wesley.jpg"
+                  alt="Wesley Santos"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 256px, 320px"
+                />
               </div>
             </div>
 
@@ -44,7 +45,7 @@ const AboutMe: React.FC = () => {
               Wesley Santos
             </h3>
             <p className="text-xl text-slate-400 mb-6">
-              Tech Lead Full Stack & Digital Artisan
+              Tech Lead Software Engineer
             </p>
             
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">

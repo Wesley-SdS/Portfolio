@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { Spotlight } from "./ui/Spotlight";
+import dynamic from "next/dynamic";
+import { FaCode, FaLocationCrosshairs, FaRocket } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
-import { FaLocationCrosshairs, FaCode, FaRocket } from "react-icons/fa6";
+import { Spotlight } from "./ui/Spotlight";
 
 const DigitalGalaxy = dynamic(() => import("./3d/DigitalGalaxy"), {
   ssr: false,
@@ -75,7 +74,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 1 }}
             >
-              <span className="text-purple">Digital Artisan</span>
+              <span className="text-purple">Tech Lead Software Engineer</span>
             </motion.h1>
             
             {/* Subtitle */}
@@ -108,7 +107,7 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12"
             >
               <MagicButton
-                title="Enter the Digital Realm"
+                title="Entre nessa Imersão"
                 icon={<FaLocationCrosshairs />}
                 position="right"
                 onClick={() => {
@@ -128,7 +127,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaRocket className="text-sm" />
-                Explore My Work
+                Conheça o meu trabalho
               </motion.button>
             </motion.div>
 
@@ -160,7 +159,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.6, duration: 1 }}
             >
-              <div className="text-center">
+              <div className="text-center mb-10">
                 <div className="text-3xl font-bold text-purple-400 mb-2">9+</div>
                 <div className="text-slate-400 text-sm">Anos de Experiência</div>
               </div>

@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <FaRocket className="text-2xl text-purple-400" />
-              <h3 className="text-xl font-bold text-slate-200">Digital Artisan</h3>
+              <h3 className="text-xl font-bold text-slate-200">Tech Lead Software Engineer</h3>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               Transformando código em experiências extraordinárias. 

@@ -6,13 +6,13 @@ import ProjectsTree from "@/components/ProjectsTree";
 import Solutions from "@/components/Solutions";
 import InteractiveInterface from "@/components/InteractiveInterface";
 import Gallery from "@/components/Gallery";
-import { FloatingNav } from "@/components/ui/floating-navbar";
+import { CosmicNav } from "@/components/ui/cosmic-nav";
 import { navItems } from "@/data";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black">
-      <FloatingNav navItems={navItems} />
+    <div className="relative min-h-screen w-full overflow-x-hidden bg-black">
+      <CosmicNav navItems={navItems} />
       
       <main className="w-full">
         <Hero />

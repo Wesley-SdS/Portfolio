@@ -1,19 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import { FaExpand, FaSearch, FaFilter } from "react-icons/fa";
 import MagicButton from "./MagicButton";
 
-const Gallery: React.FC = () => {
+const Gallery: React.FC = React.memo(() => {
+  const t = useTranslations('gallery');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
   const categories = [
-    { id: 'all', name: 'Todos' },
-    { id: 'screenshots', name: 'Screenshots' },
-    { id: 'design', name: 'Design Process' },
-    { id: 'mockups', name: 'Mockups' },
-    { id: 'devices', name: 'Responsive' },
+    { id: 'all', name: t('categories.all') },
+    { id: 'screenshots', name: t('categories.screenshots') },
+    { id: 'design', name: t('categories.design') },
+    { id: 'mockups', name: t('categories.mockups') },
+    { id: 'devices', name: t('categories.devices') },
   ];
 
   const galleryImages = [
@@ -91,9 +94,12 @@ const Gallery: React.FC = () => {
     },
   ];
 
-  const filteredImages = selectedCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(image => image.category === selectedCategory);
+  const filteredImages = useMemo(() => 
+    selectedCategory === 'all' 
+      ? galleryImages 
+      : galleryImages.filter(image => image.category === selectedCategory),
+    [selectedCategory]
+  );
 
   const openLightbox = (image: string) => {
     setLightboxImage(image);
@@ -121,11 +127,10 @@ const Gallery: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="heading mb-6">
-            <span className="text-purple">Galeria</span>
+            <span className="text-purple">{t('title')}</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
-            Visualização do processo criativo e resultados finais. 
-            Do design inicial à entrega final, cada detalhe importa.
+            {t('subtitle')}
           </p>
 
           {/* Category Filter */}
@@ -167,10 +172,13 @@ const Gallery: React.FC = () => {
             >
               {/* Image */}
               <div className="relative aspect-video overflow-hidden">
-                <img
+                <Image
                   src={image.image}
                   alt={image.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
                 
                 {/* Overlay */}
@@ -212,22 +220,22 @@ const Gallery: React.FC = () => {
         >
           <div className="glassmorphism rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-purple-400 mb-2">{galleryImages.length}</div>
-            <div className="text-slate-400 text-sm">Imagens Totais</div>
+            <div className="text-slate-400 text-sm">{t('stats.total')}</div>
           </div>
           
           <div className="glassmorphism rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-green-400 mb-2">{categories.length}</div>
-            <div className="text-slate-400 text-sm">Categorias</div>
+            <div className="text-slate-400 text-sm">{t('stats.categories')}</div>
           </div>
 
           <div className="glassmorphism rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-blue-400 mb-2">100%</div>
-            <div className="text-slate-400 text-sm">Design Original</div>
+            <div className="text-slate-400 text-sm">{t('stats.original')}</div>
           </div>
 
           <div className="glassmorphism rounded-lg p-6 text-center">
             <div className="text-3xl font-bold text-yellow-400 mb-2">4K</div>
-            <div className="text-slate-400 text-sm">Alta Resolução</div>
+            <div className="text-slate-400 text-sm">{t('stats.resolution')}</div>
           </div>
         </motion.div>
 
@@ -246,13 +254,12 @@ const Gallery: React.FC = () => {
             </div>
             
             <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-              Navegue pelos projetos em diferentes estágios. Do conceito inicial ao produto final, 
-              cada etapa do processo criativo está documentada aqui.
+              {t('description')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <MagicButton
-                title="Ver GitHub"
+                title={t('cta.viewGitHub')}
                 icon={<FaExpand />}
                 position="right"
                 onClick={() => window.open('https://github.com/seu-usuario', '_blank')}
@@ -269,7 +276,7 @@ const Gallery: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaFilter className="text-sm" />
-                Personalizar Visualização
+                {t('cta.customize')}
               </motion.button>
             </div>
           </div>
@@ -292,10 +299,13 @@ const Gallery: React.FC = () => {
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <Image
               src={lightboxImage}
               alt="Gallery image"
-              className="w-full h-full object-contain rounded-xl"
+              fill
+              sizes="90vw"
+              className="object-contain rounded-xl"
+              quality={90}
             />
             
             <button
@@ -309,6 +319,8 @@ const Gallery: React.FC = () => {
       )}
     </section>
   );
-};
+});
+
+Gallery.displayName = 'Gallery';
 
 export default Gallery;

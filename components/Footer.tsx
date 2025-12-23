@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 import { FaGithub, FaLinkedin, FaEnvelope, FaRocket, FaCode } from "react-icons/fa";
 import MagicButton from "./MagicButton";
 
-const Footer: React.FC = () => {
+const Footer: React.FC = React.memo(() => {
+  const t = useTranslations('footer');
   const socialLinks = [
     {
       icon: <FaGithub className="text-2xl" />,
@@ -26,11 +28,12 @@ const Footer: React.FC = () => {
     }
   ];
 
+  const tCommon = useTranslations('common');
   const quickLinks = [
-    { name: "Início", href: "#home" },
-    { name: "Sobre", href: "#about" },
-    { name: "Experiência", href: "#experience" },
-    { name: "Projetos", href: "#projects" }
+    { name: tCommon('nav.home'), href: "#home" },
+    { name: tCommon('nav.about'), href: "#about" },
+    { name: tCommon('nav.experience'), href: "#experience" },
+    { name: tCommon('nav.projects'), href: "#projects" }
   ];
 
   return (
@@ -59,11 +62,10 @@ const Footer: React.FC = () => {
           >
             <div className="flex items-center gap-2">
               <FaRocket className="text-2xl text-purple-400" />
-              <h3 className="text-xl font-bold text-slate-200">Tech Lead Software Engineer</h3>
+              <h3 className="text-xl font-bold text-slate-200">{t('brand')}</h3>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Transformando código em experiências extraordinárias. 
-              Tech Lead Full Stack especializado em IA e automação.
+              {t('description')}
             </p>
             <div className="flex gap-3 pt-2">
               {socialLinks.map((link, index) => (
@@ -91,7 +93,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold text-slate-200">Navegação</h4>
+            <h4 className="text-lg font-semibold text-slate-200">{t('navigation')}</h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -116,7 +118,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h4 className="text-lg font-semibold text-slate-200">Expertise</h4>
+            <h4 className="text-lg font-semibold text-slate-200">{t('expertise')}</h4>
             <div className="flex flex-wrap gap-2">
               {['Next.js', 'TypeScript', 'Python', 'IA', 'React', 'Node.js'].map((skill) => (
                 <span
@@ -139,14 +141,13 @@ const Footer: React.FC = () => {
           >
             <div className="flex items-center gap-2 mb-3">
               <FaCode className="text-xl text-purple-400" />
-              <h4 className="text-lg font-semibold text-slate-200">Vamos Conversar?</h4>
+              <h4 className="text-lg font-semibold text-slate-200">{t('cta.title')}</h4>
             </div>
             <p className="text-slate-400 text-sm mb-4">
-              Pronto para transformar ideias em realidade digital? 
-              Entre em contato e vamos construir algo extraordinário juntos.
+              {t('cta.description')}
             </p>
             <MagicButton
-              title="Enviar Mensagem"
+              title={t('cta.button')}
               icon={<FaEnvelope />}
               position="right"
               onClick={() => window.open('mailto:seu-email@dominio.com', '_blank')}
@@ -165,20 +166,18 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm">
-              © 2025 Wesley Santos. Todos os direitos reservados.
+              {t('copyright')}
             </p>
             <div className="flex items-center gap-2 text-slate-400 text-sm">
-              <span>Feito com</span>
-              <span className="text-red-500">❤️</span>
-              <span>e</span>
-              <FaCode className="text-purple-400" />
-              <span>no Deep Space</span>
+              {t('madeWith')}
             </div>
           </div>
         </motion.div>
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;

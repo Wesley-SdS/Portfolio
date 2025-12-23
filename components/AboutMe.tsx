@@ -2,10 +2,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import MagicButton from "./MagicButton";
-import { FaBriefcase, FaCode, FaUsers, FaRocket } from "react-icons/fa";
+import { FaRocket, FaCode } from "react-icons/fa";
 
-const AboutMe: React.FC = () => {
+const AboutMe: React.FC = React.memo(() => {
+  const t = useTranslations('about');
+
   return (
     <section id="about" className="py-20 px-6 lg:px-20 deep-space-gradient w-full">
       <div className="max-w-7xl mx-auto">
@@ -16,7 +19,7 @@ const AboutMe: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Sobre <span className="text-purple">Mim</span>
+          {t('title', { highlight: t('highlight') })}
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -37,19 +40,26 @@ const AboutMe: React.FC = () => {
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 256px, 320px"
+                  priority
+                  loading="eager"
                 />
               </div>
             </div>
 
             <h3 className="text-2xl font-bold text-slate-200 mb-4">
-              Wesley Santos
+              {t('name')}
             </h3>
             <p className="text-xl text-slate-400 mb-6">
-              Tech Lead Software Engineer
+              {t('role')}
             </p>
             
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-              {['9+ Anos', 'IA & Automação', 'Liderança', 'Full Stack'].map((tag) => (
+              {[
+                t('tags.experience'),
+                t('tags.ai'),
+                t('tags.leadership'),
+                t('tags.fullstack')
+              ].map((tag) => (
                 <span key={tag} className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-300">
                   {tag}
                 </span>
@@ -68,20 +78,20 @@ const AboutMe: React.FC = () => {
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
               <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
                 <FaRocket className="text-purple-400" />
-                Minha Missão
+                {t('sections.mission.title')}
               </h4>
               <p className="text-slate-300 leading-relaxed">
-                Com mais de nove anos de experiência em tecnologia, atuo como Programador Sênior e Líder Técnico na Adalink, onde conduzo o desenvolvimento de soluções avançadas em Inteligência Artificial e automação. Minha missão é transformar ideias complexas em sistemas inteligentes e escaláveis.
+                {t('sections.mission.content')}
               </p>
             </div>
 
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
               <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
                 <FaCode className="text-purple-400" />
-                Expertise Técnica
+                {t('sections.expertise.title')}
               </h4>
               <p className="text-slate-300 leading-relaxed mb-4">
-                Trabalho com uma stack moderna que inclui Next.js, TypeScript, Python, Node.js e Go, explorando o melhor de cada linguagem para construir aplicações robustas e de alta performance.
+                {t('sections.expertise.content')}
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'PostgreSQL'].map((tech) => (
@@ -95,20 +105,20 @@ const AboutMe: React.FC = () => {
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
               <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
                 <FaCode className="text-purple-400" />
-                Liderança & Inovação
+                {t('sections.leadership.title')}
               </h4>
               <p className="text-slate-300 leading-relaxed">
-                Na Adalink, lidero iniciativas de automações inteligentes e orquestração de agentes. Participo ativamente de decisões de arquitetura e guio o time na implementação de práticas sólidas como clean code, testes e CI/CD.
+                {t('sections.leadership.content')}
               </p>
             </div>
 
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
               <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
                 <FaCode className="text-purple-400" />
-                Visão & Valores
+                {t('sections.vision.title')}
               </h4>
               <p className="text-slate-300 leading-relaxed">
-                Sou entusiasta de Inteligência Artificial aplicada a negócios, com experiência em integrações com LLMs como OpenAI, Anthropic e Gemini. Minha abordagem une técnica e propósito, buscando sempre entender o contexto do problema.
+                {t('sections.vision.content')}
               </p>
             </div>
 
@@ -120,7 +130,7 @@ const AboutMe: React.FC = () => {
               transition={{ delay: 0.8, duration: 1 }}
             >
               <MagicButton
-                title="Ver Experiência"
+                title={t('cta')}
                 icon={<></>}
                 position="right"
                 onClick={() => {
@@ -135,6 +145,8 @@ const AboutMe: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+AboutMe.displayName = 'AboutMe';
 
 export default AboutMe;

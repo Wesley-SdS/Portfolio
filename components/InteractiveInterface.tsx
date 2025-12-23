@@ -30,7 +30,7 @@ interface NeuralNode {
   connections: number[];
 }
 
-const InteractiveInterface: React.FC = () => {
+const InteractiveInterface: React.FC = React.memo(() => {
   const [activeDemo, setActiveDemo] = useState<string>("particles");
   const [particles, setParticles] = useState<Particle[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -655,6 +655,8 @@ const InteractiveInterface: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+InteractiveInterface.displayName = 'InteractiveInterface';
 
 export default InteractiveInterface;

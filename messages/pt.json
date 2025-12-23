@@ -1,0 +1,161 @@
+{
+  "common": {
+    "nav": {
+      "home": "Início",
+      "about": "Sobre",
+      "experience": "Experiência",
+      "projects": "Projetos",
+      "solutions": "Soluções",
+      "gallery": "Galeria",
+      "contact": "Contato"
+    },
+    "buttons": {
+      "seeMore": "Ver Mais",
+      "contact": "Contato",
+      "viewProject": "Ver Projeto",
+      "viewGitHub": "Ver GitHub",
+      "sendMessage": "Enviar Mensagem"
+    }
+  },
+  "hero": {
+    "title": "Tech Lead Software Engineer",
+    "subtitle": "Transformando código em experiências extraordinárias",
+    "description": "Tech Lead Full Stack com {years} anos de experiência em Inteligência Artificial, automação e desenvolvimento de plataformas escaláveis. Líder técnico na Adalink, transformando ideias complexas em sistemas inteligentes.",
+    "cta": {
+      "primary": "Entre nessa Imersão",
+      "secondary": "Conheça o meu trabalho"
+    },
+    "stats": {
+      "experience": "Anos de Experiência",
+      "projects": "Projetos Entregues",
+      "quality": "Foco em Qualidade"
+    }
+  },
+  "about": {
+    "title": "Sobre {highlight}",
+    "highlight": "Mim",
+    "name": "Wesley Santos",
+    "role": "Tech Lead Software Engineer",
+    "tags": {
+      "experience": "9+ Anos",
+      "ai": "IA & Automação",
+      "leadership": "Liderança",
+      "fullstack": "Full Stack"
+    },
+    "sections": {
+      "mission": {
+        "title": "Minha Missão",
+        "content": "Com mais de nove anos de experiência em tecnologia, atuo como Programador Sênior e Líder Técnico na Adalink, onde conduzo o desenvolvimento de soluções avançadas em Inteligência Artificial e automação. Minha missão é transformar ideias complexas em sistemas inteligentes e escaláveis."
+      },
+      "expertise": {
+        "title": "Expertise Técnica",
+        "content": "Trabalho com uma stack moderna que inclui Next.js, TypeScript, Python, Node.js e Go, explorando o melhor de cada linguagem para construir aplicações robustas e de alta performance."
+      },
+      "leadership": {
+        "title": "Liderança & Inovação",
+        "content": "Na Adalink, lidero iniciativas de automações inteligentes e orquestração de agentes. Participo ativamente de decisões de arquitetura e guio o time na implementação de práticas sólidas como clean code, testes e CI/CD."
+      },
+      "vision": {
+        "title": "Visão & Valores",
+        "content": "Sou entusiasta de Inteligência Artificial aplicada a negócios, com experiência em integrações com LLMs como OpenAI, Anthropic e Gemini. Minha abordagem une técnica e propósito, buscando sempre entender o contexto do problema."
+      }
+    },
+    "cta": "Ver Experiência"
+  },
+  "experience": {
+    "title": "Experiência",
+    "subtitle": "Jornada profissional e evolução técnica",
+    "technicalSkills": "Habilidades Técnicas",
+    "leadershipSkills": "Liderança & Soft Skills",
+    "cta": "Ver Projetos",
+    "viewAll": "Ver Experiência Completa"
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Árvore de projetos inovadores crescendo com minha evolução como desenvolvedor. Cada galho representa uma nova conquista tecnológica.",
+    "status": {
+      "completed": "Maduro",
+      "inProgress": "Crescendo",
+      "planned": "Semente"
+    },
+    "stats": {
+      "total": "Projetos",
+      "completed": "Frutos Maduros",
+      "growing": "Crescendo",
+      "technologies": "Tecnologias"
+    },
+    "cta": {
+      "viewGitHub": "Ver GitHub",
+      "clearSelection": "Limpar Seleção",
+      "contact": "Vamos Conversar"
+    },
+    "description": "Cada galho representa uma conquista. Da semente inicial aos frutos maduros, minha jornada reflete crescimento contínuo e evolução tecnológica."
+  },
+  "solutions": {
+    "title": "Soluções",
+    "subtitle": "Transformando desafios complexos em soluções digitais inovadoras com tecnologia de ponta e melhores práticas do mercado.",
+    "cta": {
+      "consultation": "Agendar Consultoria",
+      "viewProjects": "Ver Projetos"
+    },
+    "ready": "Pronto para transformar seu negócio?",
+    "description": "Vamos discutir como minhas soluções podem ajudar sua empresa a alcançar seus objetivos tecnológicos e de negócios."
+  },
+  "gallery": {
+    "title": "Galeria",
+    "subtitle": "Visualização do processo criativo e resultados finais. Do design inicial à entrega final, cada detalhe importa.",
+    "categories": {
+      "all": "Todos",
+      "screenshots": "Screenshots",
+      "design": "Design Process",
+      "mockups": "Mockups",
+      "devices": "Responsive"
+    },
+    "stats": {
+      "total": "Imagens Totais",
+      "categories": "Categorias",
+      "original": "Design Original",
+      "resolution": "Alta Resolução"
+    },
+    "cta": {
+      "viewGitHub": "Ver GitHub",
+      "customize": "Personalizar Visualização"
+    },
+    "description": "Navegue pelos projetos em diferentes estágios. Do conceito inicial ao produto final, cada etapa do processo criativo está documentada aqui."
+  },
+  "footer": {
+    "brand": "Tech Lead Software Engineer",
+    "description": "Transformando código em experiências extraordinárias. Tech Lead Full Stack especializado em IA e automação.",
+    "navigation": "Navegação",
+    "expertise": "Expertise",
+    "cta": {
+      "title": "Vamos Conversar?",
+      "description": "Pronto para transformar ideias em realidade digital? Entre em contato e vamos construir algo extraordinário juntos.",
+      "button": "Enviar Mensagem"
+    },
+    "copyright": "© 2025 Wesley Santos. Todos os direitos reservados.",
+    "madeWith": "Feito com ❤️ e código no Deep Space"
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "description": "Pronto para transformar ideias em realidade? Envie uma mensagem e vamos conversar sobre seu próximo projeto.",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Seu nome completo",
+      "email": "Email",
+      "emailPlaceholder": "seu@email.com",
+      "subject": "Assunto",
+      "subjectPlaceholder": "Sobre o que você gostaria de conversar?",
+      "message": "Mensagem",
+      "messagePlaceholder": "Conte-me mais sobre seu projeto...",
+      "submit": "Enviar Mensagem",
+      "submitting": "Enviando...",
+      "success": "Mensagem enviada com sucesso! Entrarei em contato em breve.",
+      "error": "Erro ao enviar mensagem. Tente novamente mais tarde."
+    }
+  },
+  "search": {
+    "placeholder": "Buscar projetos, tecnologias..."
+  }
+}
+

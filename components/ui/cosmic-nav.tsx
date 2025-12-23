@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { ThemeToggle } from "@/src/components/ui/ThemeToggle";
+import { SearchBar } from "@/components/SearchBar";
 
 interface NavItem {
   name: string;
@@ -61,23 +64,23 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
   }, [lastScrollY, navItems]);
 
   const navVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: -20,
       scale: 0.95
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.23, 1, 0.32, 1],
+        ease: [0.23, 1, 0.32, 1] as [number, number, number, number],
         staggerChildren: 0.1
       }
     },
-    exit: { 
-      opacity: 0, 
+    exit: {
+      opacity: 0,
       y: -20,
       scale: 0.95,
       transition: { duration: 0.3 }
@@ -86,12 +89,12 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: -10 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.23, 1, 0.32, 1]
+        ease: [0.23, 1, 0.32, 1] as [number, number, number, number]
       }
     }
   };
@@ -124,7 +127,7 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
             className
           )}
         >
-          <nav className="flex items-center gap-0.5 flex-nowrap relative overflow-x-auto scrollbar-hide">
+          <nav className="flex items-center gap-2 flex-nowrap relative overflow-x-auto scrollbar-hide">
             {navItems.map((item, index) => {
               const isActive = activeSection === item.link.replace("#", "");
               
@@ -162,6 +165,13 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
                 </motion.div>
               );
             })}
+            <div className="flex-shrink-0 ml-2 border-l border-indigo-500/20 pl-2 flex items-center gap-2">
+              <div className="hidden md:block w-48">
+                <SearchBar />
+              </div>
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
           </nav>
 
           <motion.div

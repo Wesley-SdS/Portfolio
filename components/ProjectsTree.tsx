@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaStar, FaPlay, FaEye } from "react-icons/fa";
 import { projectsData } from "@/src/constants/modernProjects";
 import { Project } from "@/src/types/project";
@@ -14,6 +15,7 @@ interface ProjectCardProps {
   setSelectedProject: (project: Project) => void;
   getCategoryBorder: (category: Project['category']) => string;
   getProjectIcon: (category: Project['category']) => string;
+  t: ReturnType<typeof useTranslations>;
 }
 
 const ProjectCard = React.memo<ProjectCardProps>(({
@@ -23,7 +25,8 @@ const ProjectCard = React.memo<ProjectCardProps>(({
   setHoveredProject,
   setSelectedProject,
   getCategoryBorder,
-  getProjectIcon
+  getProjectIcon,
+  t
 }) => (
   <motion.div
     key={project.id}
@@ -56,7 +59,7 @@ const ProjectCard = React.memo<ProjectCardProps>(({
       onClick={() => setSelectedProject(project)}
     >
       <div className="flex gap-2 mb-6">
-        <span className={`px-3 py-1 text-xs rounded-full border ${
+          <span className={`px-3 py-1 text-xs rounded-full border ${
           project.status === 'completed'
             ? 'border-green-500 text-green-300 bg-green-500/10'
             : project.status === 'in-progress'
@@ -66,8 +69,8 @@ const ProjectCard = React.memo<ProjectCardProps>(({
           {project.status === 'completed' ? '🌳' :
            project.status === 'in-progress' ? '🌱' : '🌰'}
           <span className="ml-1">
-            {project.status === 'completed' ? 'Maduro' :
-             project.status === 'in-progress' ? 'Crescendo' : 'Semente'}
+            {project.status === 'completed' ? t('status.completed') :
+             project.status === 'in-progress' ? t('status.inProgress') : t('status.planned')}
           </span>
         </span>
 
@@ -202,7 +205,8 @@ const ProjectCard = React.memo<ProjectCardProps>(({
 
 ProjectCard.displayName = 'ProjectCard';
 
-const ProjectsTree: React.FC = () => {
+const ProjectsTree: React.FC = React.memo(() => {
+  const t = useTranslations('projects');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
@@ -244,11 +248,10 @@ const ProjectsTree: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className="heading mb-6">
-            <span className="text-purple">Projetos</span>
+            <span className="text-purple">{t('title')}</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Árvore de projetos inovadores crescendo com minha evolução como desenvolvedor.
-            Cada galho representa uma nova conquista tecnológica.
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -263,6 +266,7 @@ const ProjectsTree: React.FC = () => {
               setSelectedProject={setSelectedProject}
               getCategoryBorder={getCategoryBorder}
               getProjectIcon={getProjectIcon}
+              t={t}
             />
           ))}
         </div>
@@ -278,7 +282,7 @@ const ProjectsTree: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10" />
             <div className="relative z-10">
               <div className="text-3xl font-bold text-purple-400 mb-2">{projectsData.length}</div>
-              <div className="text-slate-400 text-sm">Projetos</div>
+              <div className="text-slate-400 text-sm">{t('stats.total')}</div>
               <div className="text-xs text-slate-500 mt-1">🌳 Árvore Completa</div>
             </div>
           </div>
@@ -289,7 +293,7 @@ const ProjectsTree: React.FC = () => {
               <div className="text-3xl font-bold text-green-400 mb-2">
                 {projectsData.filter(p => p.status === 'completed').length}
               </div>
-              <div className="text-slate-400 text-sm">Frutos Maduros</div>
+              <div className="text-slate-400 text-sm">{t('stats.completed')}</div>
               <div className="text-xs text-slate-500 mt-1">🌳 Produzindo Valor</div>
             </div>
           </div>
@@ -300,7 +304,7 @@ const ProjectsTree: React.FC = () => {
               <div className="text-3xl font-bold text-yellow-400 mb-2">
                 {projectsData.filter(p => p.status === 'in-progress').length}
               </div>
-              <div className="text-slate-400 text-sm">Crescendo</div>
+              <div className="text-slate-400 text-sm">{t('stats.growing')}</div>
               <div className="text-xs text-slate-500 mt-1">🌱 Potencial Máximo</div>
             </div>
           </div>
@@ -311,7 +315,7 @@ const ProjectsTree: React.FC = () => {
               <div className="text-3xl font-bold text-blue-400 mb-2">
                 {new Set(projectsData.flatMap(p => p.technologies)).size}
               </div>
-              <div className="text-slate-400 text-sm">Tecnologias</div>
+              <div className="text-slate-400 text-sm">{t('stats.technologies')}</div>
               <div className="text-xs text-slate-500 mt-1">🌳 Solo Rico</div>
             </div>
           </div>
@@ -334,13 +338,12 @@ const ProjectsTree: React.FC = () => {
               </div>
 
               <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-                Cada galho representa uma conquista. Da semente inicial aos frutos maduros,
-                minha jornada reflete crescimento contínuo e evolução tecnológica.
+                {t('description')}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <MagicButton
-                  title="Ver GitHub"
+                  title={t('cta.viewGitHub')}
                   icon={<FaGithub />}
                   position="right"
                   onClick={() => window.open('https://github.com/seu-usuario', '_blank')}
@@ -354,7 +357,7 @@ const ProjectsTree: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Limpar Seleção
+                    {t('cta.clearSelection')}
                   </motion.button>
                 )}
 
@@ -368,7 +371,7 @@ const ProjectsTree: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <FaRocket className="text-sm" />
-                  Vamos Conversar
+                  {t('cta.contact')}
                 </motion.button>
               </div>
 
@@ -397,6 +400,8 @@ const ProjectsTree: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+ProjectsTree.displayName = 'ProjectsTree';
 
 export default ProjectsTree;

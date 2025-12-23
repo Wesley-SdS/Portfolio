@@ -1,6 +1,7 @@
 "use client";
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { debounce } from '@/lib/utils/debounce';
 
 interface TechPlanet {
   name: string;
@@ -25,18 +26,28 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
     { name: 'PostgreSQL', color: '#336791', size: 0.5, orbitRadius: 220, orbitSpeed: 0.15, initialAngle: 135 },
   ];
 
-  useEffect(() => {
-    const handleResize = () => {
+  const debouncedResize = useMemo(
+    () => debounce(() => {
       if (canvasRef.current?.parentElement) {
         const { clientWidth, clientHeight } = canvasRef.current.parentElement;
         setDimensions({ width: clientWidth, height: clientHeight });
       }
-    };
+    }, 250),
+    []
+  );
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  useEffect(() => {
+    // Initial resize
+    if (canvasRef.current?.parentElement) {
+      const { clientWidth, clientHeight } = canvasRef.current.parentElement;
+      setDimensions({ width: clientWidth, height: clientHeight });
+    }
+
+    window.addEventListener('resize', debouncedResize);
+    return () => {
+      window.removeEventListener('resize', debouncedResize);
+    };
+  }, [debouncedResize]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -77,6 +88,11 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
     }
 
     const animate = () => {
+      // Pause animation if not visible
+      if (!isVisible) {
+        return;
+      }
+
       ctx.fillStyle = '#0A0E1A';
       ctx.fillRect(0, 0, dimensions.width, dimensions.height);
 
@@ -139,7 +155,9 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
       });
 
       time += 1;
-      animationId = requestAnimationFrame(animate);
+      if (isVisible) {
+        animationId = requestAnimationFrame(animate);
+      }
     };
 
     animate();

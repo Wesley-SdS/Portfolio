@@ -1,6 +1,8 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { useTranslations } from 'next-intl';
 import { FaCode, FaLocationCrosshairs, FaRocket } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
@@ -10,7 +12,9 @@ const DigitalGalaxy = dynamic(() => import("./3d/DigitalGalaxy"), {
   loading: () => <div className="absolute inset-0 w-full h-full bg-slate-900/20" />
 });
 
-const Hero = () => {
+const Hero = React.memo(() => {
+  const t = useTranslations('hero');
+
   return (
     <section id="home" className="relative min-h-screen deep-space-gradient overflow-hidden w-full">
       {/* Background Effects */}
@@ -74,7 +78,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 1 }}
             >
-              <span className="text-purple">Tech Lead Software Engineer</span>
+              <span className="text-purple">{t('title')}</span>
             </motion.h1>
             
             {/* Subtitle */}
@@ -84,7 +88,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
             >
-              Transformando código em experiências extraordinárias
+              {t('subtitle')}
             </motion.p>
 
             {/* Description */}
@@ -94,9 +98,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
             >
-              Tech Lead Full Stack com <span className="text-purple font-semibold">9+ anos</span> de experiência em 
-              Inteligência Artificial, automação e desenvolvimento de plataformas escaláveis. 
-              Líder técnico na Adalink, transformando ideias complexas em sistemas inteligentes.
+              {t('description', { years: '9+' })}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -107,7 +109,7 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12"
             >
               <MagicButton
-                title="Entre nessa Imersão"
+                title={t('cta.primary')}
                 icon={<FaLocationCrosshairs />}
                 position="right"
                 onClick={() => {
@@ -127,7 +129,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaRocket className="text-sm" />
-                Conheça o meu trabalho
+                {t('cta.secondary')}
               </motion.button>
             </motion.div>
 
@@ -161,15 +163,15 @@ const Hero = () => {
             >
               <div className="text-center mb-10">
                 <div className="text-3xl font-bold text-purple-400 mb-2">9+</div>
-                <div className="text-slate-400 text-sm">Anos de Experiência</div>
+                <div className="text-slate-400 text-sm">{t('stats.experience')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-400 mb-2">50+</div>
-                <div className="text-slate-400 text-sm">Projetos Entregues</div>
+                <div className="text-slate-400 text-sm">{t('stats.projects')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-400 mb-2">100%</div>
-                <div className="text-slate-400 text-sm">Foco em Qualidade</div>
+                <div className="text-slate-400 text-sm">{t('stats.quality')}</div>
               </div>
             </motion.div>
           </motion.div>
@@ -197,6 +199,8 @@ const Hero = () => {
       </motion.div>
     </section>
   );
-};
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero;

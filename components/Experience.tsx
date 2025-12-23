@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import { workExperience } from "@/data";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "./ui/moving-border";
@@ -80,7 +82,8 @@ const LeadershipSkillBar = React.memo<{ skill: LeadershipSkill; index: number }>
 
 LeadershipSkillBar.displayName = 'LeadershipSkillBar';
 
-const Experience = () => {
+const Experience = React.memo(() => {
+  const t = useTranslations('experience');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const techSkills = [
@@ -117,7 +120,7 @@ const Experience = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="text-purple">Experiências</span>
+          <span className="text-purple">{t('title')}</span>
         </motion.h1>
 
         {/* 3D Timeline Experience */}
@@ -129,7 +132,7 @@ const Experience = () => {
           transition={{ delay: 0.2, duration: 0.8 }}
         >
           <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
-            Jornada Profissional 3D
+            {t('subtitle')}
           </h2>
           <ExperienceTimeline />
         </motion.div>
@@ -158,11 +161,13 @@ const Experience = () => {
                 onClick={() => setIsDialogOpen(true)}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-lg overflow-hidden">
-                    <img
+                  <div className="w-12 h-12 rounded-lg overflow-hidden relative">
+                    <Image
                       src={card.thumbnail}
                       alt={card.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="48px"
+                      className="object-cover"
                     />
                   </div>
                   <div>
@@ -210,7 +215,7 @@ const Experience = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
-            Liderança & Soft Skills
+            {t('leadershipSkills')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {leadershipSkills.map((skill, index) => (
@@ -228,7 +233,7 @@ const Experience = () => {
           transition={{ delay: 1.4, duration: 0.8 }}
         >
           <MagicButton
-            title="Ver Projetos"
+            title={t('cta')}
             icon={<></>}
             position="right"
             onClick={() => {
@@ -244,16 +249,18 @@ const Experience = () => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-4xl max-h-[80vh] glassmorphism">
           <DialogHeader>
-            <DialogTitle className="text-slate-200">Experiência Completa</DialogTitle>
+            <DialogTitle className="text-slate-200">{t('viewAll')}</DialogTitle>
           </DialogHeader>
           <ScrollArea className="h-[60vh]">
             <div className="grid grid-cols-1 gap-6">
               {workExperience.map((card) => (
                 <div key={card.id} className="glassmorphism rounded-lg p-6">
                   <div className="flex items-center gap-4 mb-4">
-                    <img
+                    <Image
                       src={card.thumbnail}
                       alt={card.company}
+                      width={64}
+                      height={64}
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div>
@@ -277,6 +284,8 @@ const Experience = () => {
       </Dialog>
     </section>
   );
-};
+});
+
+Experience.displayName = 'Experience';
 
 export default Experience;

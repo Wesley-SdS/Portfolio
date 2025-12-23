@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 import { FaRocket, FaCode, FaBrain, FaCloud, FaShieldAlt, FaChartLine } from "react-icons/fa";
 
 interface Solution {
@@ -13,7 +14,8 @@ interface Solution {
   gradient: string;
 }
 
-const Solutions: React.FC = () => {
+const Solutions: React.FC = React.memo(() => {
+  const t = useTranslations('solutions');
   const solutions: Solution[] = [
     {
       id: 1,
@@ -112,11 +114,10 @@ const Solutions: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="heading mb-6">
-            <span className="text-purple">Soluções</span>
+            <span className="text-purple">{t('title')}</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Transformando desafios complexos em soluções digitais inovadoras 
-            com tecnologia de ponta e melhores práticas do mercado.
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -199,11 +200,10 @@ const Solutions: React.FC = () => {
         >
           <div className="glassmorphism rounded-2xl p-8 max-w-4xl mx-auto">
             <h2 className="text-2xl font-bold text-slate-200 mb-4">
-              Pronto para transformar seu negócio?
+              {t('ready')}
             </h2>
             <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
-              Vamos discutir como minhas soluções podem ajudar sua empresa a alcançar 
-              seus objetivos tecnológicos e de negócios.
+              {t('description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
@@ -212,7 +212,7 @@ const Solutions: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.open('mailto:seu-email@dominio.com', '_blank')}
               >
-                Agendar Consultoria
+                {t('cta.consultation')}
               </motion.button>
               <motion.button
                 className="px-8 py-3 rounded-lg glassmorphism text-slate-200 font-medium hover:bg-indigo-500/10 transition-all duration-300 hover:scale-105"
@@ -223,7 +223,7 @@ const Solutions: React.FC = () => {
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Ver Projetos
+                {t('cta.viewProjects')}
               </motion.button>
             </div>
           </div>
@@ -231,6 +231,8 @@ const Solutions: React.FC = () => {
       </div>
     </section>
   );
-};
+});
+
+Solutions.displayName = 'Solutions';
 
 export default Solutions;

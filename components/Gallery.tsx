@@ -20,77 +20,354 @@ const Gallery: React.FC = React.memo(() => {
   ];
 
   const galleryImages = [
+    // FSJPII - Sistema Check-in
     {
       id: 1,
       category: 'screenshots',
-      title: 'Adalink Dashboard',
-      description: 'Painel principal da plataforma de automação',
-      image: '/gallery-1.jpg',
-      fullImage: '/gallery-1.jpg'
+      title: 'FSJPII - Login',
+      description: 'Sistema de check-in com geolocalização para formações paroquiais',
+      image: '/projects/fsjpii/Login.png',
+      fullImage: '/projects/fsjpii/Login.png'
     },
+    // OrbitFinance - Finanças Pessoais
     {
       id: 2,
-      category: 'design',
-      title: 'UI/UX Design Process',
-      description: 'Processo de design da interface de usuários',
-      image: '/gallery-2.jpg',
-      fullImage: '/gallery-2.jpg'
+      category: 'screenshots',
+      title: 'OrbitFinance - Dashboard',
+      description: 'Painel principal da plataforma de finanças pessoais com IA',
+      image: '/projects/orbitfinance/Inicio.png',
+      fullImage: '/projects/orbitfinance/Inicio.png'
     },
     {
       id: 3,
-      category: 'mockups',
-      title: 'Mobile App Mockup',
-      description: 'Mockup do aplicativo mobile',
-      image: '/project-1.jpg',
-      fullImage: '/project-1.jpg'
+      category: 'screenshots',
+      title: 'OrbitFinance - Painel',
+      description: 'Painel de controle financeiro com insights personalizados',
+      image: '/projects/orbitfinance/Painel.png',
+      fullImage: '/projects/orbitfinance/Painel.png'
     },
     {
       id: 4,
-      category: 'devices',
-      title: 'Responsive Design',
-      description: 'Design responsivo em múltiplos dispositivos',
-      image: '/project-2.jpg',
-      fullImage: '/project-2.jpg'
+      category: 'screenshots',
+      title: 'OrbitFinance - Relatórios',
+      description: 'Relatórios e analytics financeiros em tempo real',
+      image: '/projects/orbitfinance/Relatorios.png',
+      fullImage: '/projects/orbitfinance/Relatorios.png'
     },
     {
       id: 5,
       category: 'screenshots',
-      title: 'E-commerce Platform',
-      description: 'Plataforma de e-commerce completa',
-      image: '/project-3.jpg',
-      fullImage: '/project-3.jpg'
+      title: 'OrbitFinance - Organizador',
+      description: 'Organizador financeiro com categorização automática',
+      image: '/projects/orbitfinance/Organizador.png',
+      fullImage: '/projects/orbitfinance/Organizador.png'
     },
     {
       id: 6,
-      category: 'design',
-      title: 'Color Palette & Typography',
-      description: 'Paleta de cores e tipografia do design system',
-      image: '/project-4.jpg',
-      fullImage: '/project-4.jpg'
+      category: 'screenshots',
+      title: 'OrbitFinance - Login',
+      description: 'Tela de autenticação da plataforma',
+      image: '/projects/orbitfinance/Login.png',
+      fullImage: '/projects/orbitfinance/Login.png'
     },
     {
       id: 7,
-      category: 'mockups',
-      title: 'Desktop Application',
-      description: 'Mockup do aplicativo desktop',
-      image: '/project-5.jpg',
-      fullImage: '/project-5.jpg'
+      category: 'screenshots',
+      title: 'OrbitFinance - Recursos',
+      description: 'Recursos e funcionalidades da plataforma',
+      image: '/projects/orbitfinance/Recurso.png',
+      fullImage: '/projects/orbitfinance/Recurso.png'
     },
     {
       id: 8,
-      category: 'devices',
-      title: 'Tablet Experience',
-      description: 'Experiência otimizada para tablets',
-      image: '/project-6.jpg',
-      fullImage: '/project-6.jpg'
+      category: 'screenshots',
+      title: 'OrbitFinance - Relatos',
+      description: 'Sistema de relatos e transações',
+      image: '/projects/orbitfinance/Relatos.png',
+      fullImage: '/projects/orbitfinance/Relatos.png'
     },
+    // OrbitMind - Plataforma SaaS
     {
       id: 9,
       category: 'screenshots',
-      title: 'Admin Dashboard',
-      description: 'Painel administrativo com métricas em tempo real',
-      image: '/project-7.jpg',
-      fullImage: '/project-7.jpg'
+      title: 'OrbitMind - Home',
+      description: 'Página inicial da plataforma SaaS multi-agentes',
+      image: '/projects/orbitmind/Inicio.png',
+      fullImage: '/projects/orbitmind/Inicio.png'
+    },
+    {
+      id: 10,
+      category: 'screenshots',
+      title: 'OrbitMind - Multi-Agentes',
+      description: 'Sistema de multi-agentes especializados de IA',
+      image: '/projects/orbitmind/Multi-agents.png',
+      fullImage: '/projects/orbitmind/Multi-agents.png'
+    },
+    {
+      id: 11,
+      category: 'screenshots',
+      title: 'OrbitMind - Analytics',
+      description: 'Dashboard de analytics e métricas',
+      image: '/projects/orbitmind/Analytics.png',
+      fullImage: '/projects/orbitmind/Analytics.png'
+    },
+    {
+      id: 12,
+      category: 'screenshots',
+      title: 'OrbitMind - Billing',
+      description: 'Sistema de billing e assinaturas integrado',
+      image: '/projects/orbitmind/Billings.png',
+      fullImage: '/projects/orbitmind/Billings.png'
+    },
+    {
+      id: 13,
+      category: 'screenshots',
+      title: 'OrbitMind - Catálogo',
+      description: 'Catálogo de agentes e recursos disponíveis',
+      image: '/projects/orbitmind/Catalogo.png',
+      fullImage: '/projects/orbitmind/Catalogo.png'
+    },
+    {
+      id: 14,
+      category: 'screenshots',
+      title: 'OrbitMind - Kanban',
+      description: 'Sistema Kanban para gestão de projetos e financeiro',
+      image: '/projects/orbitmind/Kanban.png',
+      fullImage: '/projects/orbitmind/Kanban.png'
+    },
+    {
+      id: 15,
+      category: 'screenshots',
+      title: 'OrbitMind - Tickets',
+      description: 'Sistema de tickets de suporte com categorização',
+      image: '/projects/orbitmind/Tickets.png',
+      fullImage: '/projects/orbitmind/Tickets.png'
+    },
+    {
+      id: 16,
+      category: 'screenshots',
+      title: 'OrbitMind - Workflow Builder',
+      description: 'Construtor visual de workflows para orquestração',
+      image: '/projects/orbitmind/flow.png',
+      fullImage: '/projects/orbitmind/flow.png'
+    },
+    {
+      id: 17,
+      category: 'screenshots',
+      title: 'OrbitMind - Agentes',
+      description: 'Painel de gerenciamento de agentes de IA',
+      image: '/projects/orbitmind/Agents.png',
+      fullImage: '/projects/orbitmind/Agents.png'
+    },
+    {
+      id: 18,
+      category: 'screenshots',
+      title: 'OrbitMind - Membros',
+      description: 'Gestão de membros e permissões',
+      image: '/projects/orbitmind/Membros.png',
+      fullImage: '/projects/orbitmind/Membros.png'
+    },
+    {
+      id: 19,
+      category: 'screenshots',
+      title: 'OrbitMind - Organizações',
+      description: 'Gestão de organizações multi-tenant',
+      image: '/projects/orbitmind/Organizacoes.png',
+      fullImage: '/projects/orbitmind/Organizacoes.png'
+    },
+    {
+      id: 20,
+      category: 'screenshots',
+      title: 'OrbitMind - Recursos',
+      description: 'Painel de recursos e configurações',
+      image: '/projects/orbitmind/Recursos.png',
+      fullImage: '/projects/orbitmind/Recursos.png'
+    },
+    {
+      id: 21,
+      category: 'screenshots',
+      title: 'OrbitMind - Templates',
+      description: 'Biblioteca de templates e modelos',
+      image: '/projects/orbitmind/tempates.png',
+      fullImage: '/projects/orbitmind/tempates.png'
+    },
+    {
+      id: 22,
+      category: 'screenshots',
+      title: 'OrbitMind - Logs',
+      description: 'Sistema de logs e auditoria',
+      image: '/projects/orbitmind/Logs.png',
+      fullImage: '/projects/orbitmind/Logs.png'
+    },
+    {
+      id: 23,
+      category: 'screenshots',
+      title: 'OrbitMind - Footer',
+      description: 'Rodapé e navegação da plataforma',
+      image: '/projects/orbitmind/Footer.png',
+      fullImage: '/projects/orbitmind/Footer.png'
+    },
+    // OrbitMind VibeCoding
+    {
+      id: 24,
+      category: 'screenshots',
+      title: 'VibeCoding - Home',
+      description: 'Página inicial da plataforma de geração de código com IA',
+      image: '/projects/orbitmind-vibecoding/Inicio.png',
+      fullImage: '/projects/orbitmind-vibecoding/Inicio.png'
+    },
+    {
+      id: 25,
+      category: 'screenshots',
+      title: 'VibeCoding - Editor',
+      description: 'Editor de código com preview ao vivo',
+      image: '/projects/orbitmind-vibecoding/Editor-.png',
+      fullImage: '/projects/orbitmind-vibecoding/Editor-.png'
+    },
+    {
+      id: 26,
+      category: 'screenshots',
+      title: 'VibeCoding - Geração',
+      description: 'Interface de geração de código assistida por IA',
+      image: '/projects/orbitmind-vibecoding/Geracao-.png',
+      fullImage: '/projects/orbitmind-vibecoding/Geracao-.png'
+    },
+    {
+      id: 27,
+      category: 'screenshots',
+      title: 'VibeCoding - Features',
+      description: 'Recursos e funcionalidades da plataforma',
+      image: '/projects/orbitmind-vibecoding/Features.png',
+      fullImage: '/projects/orbitmind-vibecoding/Features.png'
+    },
+    {
+      id: 28,
+      category: 'screenshots',
+      title: 'VibeCoding - Arquitetura',
+      description: 'Arquitetura e estrutura do sistema',
+      image: '/projects/orbitmind-vibecoding/Arquitetura.png',
+      fullImage: '/projects/orbitmind-vibecoding/Arquitetura.png'
+    },
+    {
+      id: 29,
+      category: 'screenshots',
+      title: 'VibeCoding - Boas Práticas',
+      description: 'Documentação de boas práticas de desenvolvimento',
+      image: '/projects/orbitmind-vibecoding/Boas-praticas.png',
+      fullImage: '/projects/orbitmind-vibecoding/Boas-praticas.png'
+    },
+    {
+      id: 30,
+      category: 'screenshots',
+      title: 'VibeCoding - Segurança',
+      description: 'Sistema de segurança e credenciais encriptadas',
+      image: '/projects/orbitmind-vibecoding/Seguranca.png',
+      fullImage: '/projects/orbitmind-vibecoding/Seguranca.png'
+    },
+    {
+      id: 31,
+      category: 'screenshots',
+      title: 'VibeCoding - Usuários',
+      description: 'Gestão de usuários e permissões',
+      image: '/projects/orbitmind-vibecoding/Usuarios.png',
+      fullImage: '/projects/orbitmind-vibecoding/Usuarios.png'
+    },
+    {
+      id: 32,
+      category: 'screenshots',
+      title: 'VibeCoding - Planos',
+      description: 'Planos e assinaturas da plataforma',
+      image: '/projects/orbitmind-vibecoding/Planos.png',
+      fullImage: '/projects/orbitmind-vibecoding/Planos.png'
+    },
+    {
+      id: 33,
+      category: 'screenshots',
+      title: 'VibeCoding - Demo',
+      description: 'Demonstração interativa da plataforma',
+      image: '/projects/orbitmind-vibecoding/Demo.png',
+      fullImage: '/projects/orbitmind-vibecoding/Demo.png'
+    },
+    {
+      id: 34,
+      category: 'screenshots',
+      title: 'VibeCoding - Documentação',
+      description: 'Documentação completa da API e recursos',
+      image: '/projects/orbitmind-vibecoding/Doc.png',
+      fullImage: '/projects/orbitmind-vibecoding/Doc.png'
+    },
+    {
+      id: 35,
+      category: 'screenshots',
+      title: 'VibeCoding - Changelog',
+      description: 'Histórico de versões e atualizações',
+      image: '/projects/orbitmind-vibecoding/changelog.png',
+      fullImage: '/projects/orbitmind-vibecoding/changelog.png'
+    },
+    {
+      id: 36,
+      category: 'screenshots',
+      title: 'VibeCoding - História',
+      description: 'História e evolução da plataforma',
+      image: '/projects/orbitmind-vibecoding/Historia.png',
+      fullImage: '/projects/orbitmind-vibecoding/Historia.png'
+    },
+    {
+      id: 37,
+      category: 'screenshots',
+      title: 'VibeCoding - Valores',
+      description: 'Valores e princípios da plataforma',
+      image: '/projects/orbitmind-vibecoding/Valores.png',
+      fullImage: '/projects/orbitmind-vibecoding/Valores.png'
+    },
+    {
+      id: 38,
+      category: 'screenshots',
+      title: 'VibeCoding - Recursos',
+      description: 'Recursos e funcionalidades avançadas',
+      image: '/projects/orbitmind-vibecoding/recursos.png',
+      fullImage: '/projects/orbitmind-vibecoding/recursos.png'
+    },
+    // Portfolio/Blog Gerado com IA
+    {
+      id: 39,
+      category: 'screenshots',
+      title: 'Portfolio - Home',
+      description: 'Página inicial do portfolio gerado com IA',
+      image: '/projects/dev-portfolio/Inicio.png',
+      fullImage: '/projects/dev-portfolio/Inicio.png'
+    },
+    {
+      id: 40,
+      category: 'screenshots',
+      title: 'Portfolio - Portfolio',
+      description: 'Seção de projetos do portfolio',
+      image: '/projects/dev-portfolio/Portfolio.png',
+      fullImage: '/projects/dev-portfolio/Portfolio.png'
+    },
+    {
+      id: 41,
+      category: 'screenshots',
+      title: 'Portfolio - Blog',
+      description: 'Seção de blog e artigos',
+      image: '/projects/dev-portfolio/blog.png',
+      fullImage: '/projects/dev-portfolio/blog.png'
+    },
+    {
+      id: 42,
+      category: 'screenshots',
+      title: 'Portfolio - Contatos',
+      description: 'Formulário de contato',
+      image: '/projects/dev-portfolio/Contatos.png',
+      fullImage: '/projects/dev-portfolio/Contatos.png'
+    },
+    {
+      id: 43,
+      category: 'screenshots',
+      title: 'Portfolio - Sobre',
+      description: 'Página sobre o desenvolvedor',
+      image: '/projects/dev-portfolio/Sobre.png',
+      fullImage: '/projects/dev-portfolio/Sobre.png'
     },
   ];
 

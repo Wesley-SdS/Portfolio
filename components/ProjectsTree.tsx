@@ -92,32 +92,32 @@ const ProjectCard = React.memo<ProjectCardProps>(({
           {getProjectIcon(project.category)}
         </div>
         <div>
-          <h3 className="text-base font-bold text-slate-200">
+          <h3 className="text-base font-bold text-foreground">
             {project.title}
           </h3>
-          <p className="text-xs text-slate-400">{project.category}</p>
+          <p className="text-xs text-muted-foreground">{project.category}</p>
         </div>
       </div>
 
       {/* Description */}
-      <p className="text-slate-300 text-sm mb-4 line-clamp-2 flex-shrink-0">
+      <p className="text-foreground/80 text-sm mb-4 line-clamp-2 flex-shrink-0">
         {project.description}
       </p>
 
       {/* Technologies */}
       <div className="mb-4">
-        <div className="text-xs text-slate-400 mb-2">Stack:</div>
+        <div className="text-xs text-muted-foreground mb-2">Stack:</div>
         <div className="flex flex-wrap gap-1">
           {project.technologies.slice(0, 4).map((tech, techIndex) => (
             <span
               key={techIndex}
-              className="px-2 py-1 text-xs rounded-full bg-slate-800/50 text-slate-300 border border-slate-700/50"
+              className="px-2 py-1 text-xs rounded-full bg-secondary/50 dark:bg-slate-800/50 text-foreground/80 border border-border"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="px-2 py-1 text-xs rounded-full bg-slate-800/50 text-slate-400">
+            <span className="px-2 py-1 text-xs rounded-full bg-secondary/50 dark:bg-slate-800/50 text-muted-foreground">
               +{project.technologies.length - 4}
             </span>
           )}
@@ -127,8 +127,8 @@ const ProjectCard = React.memo<ProjectCardProps>(({
       {/* Achievement */}
       {project.achievements && project.achievements.length > 0 && (
         <div className="mt-auto">
-          <div className="text-xs text-slate-400 mb-1">Destaque:</div>
-          <div className="text-xs text-slate-300 line-clamp-2">
+          <div className="text-xs text-muted-foreground mb-1">Destaque:</div>
+          <div className="text-xs text-foreground/80 line-clamp-2">
             {project.achievements[0]}
           </div>
         </div>
@@ -308,25 +308,25 @@ const ProjectsTree: React.FC = React.memo(() => {
               <h1 className="heading mb-4">
                 <span className="text-purple">{t('title')}</span>
               </h1>
-              <p className="text-lg text-slate-300 max-w-2xl">
+              <p className="text-lg text-foreground/80 max-w-2xl">
                 {t('subtitle')}
               </p>
             </div>
 
             {/* Campo de busca */}
             <div className="relative w-full md:w-80 flex-shrink-0">
-              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 text-sm" />
+              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground text-sm" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('searchPlaceholder') || 'Buscar projetos...'}
-                className="w-full pl-11 pr-10 py-3 rounded-xl glassmorphism border border-indigo-500/20 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500/40 transition-colors text-sm"
+                className="w-full pl-11 pr-10 py-3 rounded-xl glassmorphism border border-primary/20 text-foreground placeholder-muted-foreground focus:outline-none focus:border-purple-500/40 transition-colors text-sm"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-200 transition-colors"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <FaTimes className="text-sm" />
                 </button>
@@ -341,9 +341,9 @@ const ProjectsTree: React.FC = React.memo(() => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center md:text-left mb-4"
             >
-              <span className="text-sm text-slate-400">
+              <span className="text-sm text-muted-foreground">
                 {filteredProjects.length} {filteredProjects.length === 1 ? 'projeto encontrado' : 'projetos encontrados'}
-                {searchQuery && <span className="text-purple-400"> para "{searchQuery}"</span>}
+                {searchQuery && <span className="text-purple-500 dark:text-purple-400"> para "{searchQuery}"</span>}
               </span>
             </motion.div>
           )}
@@ -357,9 +357,9 @@ const ProjectsTree: React.FC = React.memo(() => {
               className="col-span-full text-center py-16"
             >
               <div className="glassmorphism rounded-xl p-8 max-w-md mx-auto">
-                <FaSearch className="text-4xl text-slate-500 mx-auto mb-4" />
-                <p className="text-slate-400 text-lg mb-2">Nenhum projeto encontrado</p>
-                <p className="text-slate-500 text-sm">Tente buscar por outro termo</p>
+                <FaSearch className="text-4xl text-muted-foreground mx-auto mb-4" />
+                <p className="text-muted-foreground text-lg mb-2">Nenhum projeto encontrado</p>
+                <p className="text-muted-foreground/70 text-sm">Tente buscar por outro termo</p>
               </div>
             </motion.div>
           ) : filteredProjects.map((project, index) => (
@@ -385,42 +385,42 @@ const ProjectsTree: React.FC = React.memo(() => {
           <div className="glassmorphism rounded-lg p-6 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10" />
             <div className="relative z-10">
-              <div className="text-3xl font-bold text-purple-400 mb-2">{projectsData.length}</div>
-              <div className="text-slate-400 text-sm">{t('stats.total')}</div>
-              <div className="text-xs text-slate-500 mt-1">🌳 Árvore Completa</div>
+              <div className="text-3xl font-bold text-purple-500 dark:text-purple-400 mb-2">{projectsData.length}</div>
+              <div className="text-muted-foreground text-sm">{t('stats.total')}</div>
+              <div className="text-xs text-muted-foreground/70 mt-1">🌳 Árvore Completa</div>
             </div>
           </div>
 
           <div className="glassmorphism rounded-lg p-6 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-teal-500/10" />
             <div className="relative z-10">
-              <div className="text-3xl font-bold text-green-400 mb-2">
+              <div className="text-3xl font-bold text-green-500 dark:text-green-400 mb-2">
                 {projectsData.filter(p => p.status === 'completed').length}
               </div>
-              <div className="text-slate-400 text-sm">{t('stats.completed')}</div>
-              <div className="text-xs text-slate-500 mt-1">🌳 Produzindo Valor</div>
+              <div className="text-muted-foreground text-sm">{t('stats.completed')}</div>
+              <div className="text-xs text-muted-foreground/70 mt-1">🌳 Produzindo Valor</div>
             </div>
           </div>
 
           <div className="glassmorphism rounded-lg p-6 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-orange-500/10" />
             <div className="relative z-10">
-              <div className="text-3xl font-bold text-yellow-400 mb-2">
+              <div className="text-3xl font-bold text-yellow-500 dark:text-yellow-400 mb-2">
                 {projectsData.filter(p => p.status === 'in-progress').length}
               </div>
-              <div className="text-slate-400 text-sm">{t('stats.growing')}</div>
-              <div className="text-xs text-slate-500 mt-1">🌱 Potencial Máximo</div>
+              <div className="text-muted-foreground text-sm">{t('stats.growing')}</div>
+              <div className="text-xs text-muted-foreground/70 mt-1">🌱 Potencial Máximo</div>
             </div>
           </div>
 
           <div className="glassmorphism rounded-lg p-6 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-indigo-500/10" />
             <div className="relative z-10">
-              <div className="text-3xl font-bold text-blue-400 mb-2">
+              <div className="text-3xl font-bold text-blue-500 dark:text-blue-400 mb-2">
                 {new Set(projectsData.flatMap(p => p.technologies)).size}
               </div>
-              <div className="text-slate-400 text-sm">{t('stats.technologies')}</div>
-              <div className="text-xs text-slate-500 mt-1">🌳 Solo Rico</div>
+              <div className="text-muted-foreground text-sm">{t('stats.technologies')}</div>
+              <div className="text-xs text-muted-foreground/70 mt-1">🌳 Solo Rico</div>
             </div>
           </div>
         </motion.div>
@@ -437,11 +437,11 @@ const ProjectsTree: React.FC = React.memo(() => {
 
             <div className="relative z-10">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <FaCode className="text-2xl text-purple-400" />
-                <h2 className="text-2xl font-bold text-slate-200">Explore a Árvore de Projetos</h2>
+                <FaCode className="text-2xl text-purple-500 dark:text-purple-400" />
+                <h2 className="text-2xl font-bold text-foreground">Explore a Árvore de Projetos</h2>
               </div>
 
-              <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+              <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
                 {t('description')}
               </p>
 
@@ -457,7 +457,7 @@ const ProjectsTree: React.FC = React.memo(() => {
                 {selectedProject && (
                   <motion.button
                     onClick={() => setSelectedProject(null)}
-                    className="px-8 py-3 rounded-lg glassmorphism text-slate-200 font-medium border border-indigo-500/20 hover:bg-red-500/10 hover:border-red-500/40 transition-all duration-300"
+                    className="px-8 py-3 rounded-lg glassmorphism text-foreground font-medium border border-primary/20 hover:bg-red-500/10 hover:border-red-500/40 transition-all duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -470,7 +470,7 @@ const ProjectsTree: React.FC = React.memo(() => {
                     const element = document.getElementById('contact');
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-8 py-3 rounded-lg glassmorphism text-slate-200 font-medium border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center gap-2"
+                  className="px-8 py-3 rounded-lg glassmorphism text-foreground font-medium border border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 flex items-center gap-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

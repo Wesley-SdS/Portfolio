@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { ThemeToggle } from "@/src/components/ui/ThemeToggle";
 
 interface NavItem {
   name: string;
@@ -128,9 +127,9 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
           exit="exit"
           className={cn(
             "fixed top-8 left-0 right-0 mx-auto z-[9999] px-4 py-2",
-            "backdrop-blur-xl bg-slate-950/80",
-            "border border-indigo-500/30 rounded-2xl",
-            "shadow-[0_8px_32px_rgba(99,102,241,0.2),inset_0_1px_0_rgba(255,255,255,0.1)]",
+            "backdrop-blur-xl bg-card/90 dark:bg-card/80",
+            "border border-primary/30 rounded-2xl",
+            "shadow-[0_8px_32px_hsl(var(--primary)/0.15),inset_0_1px_0_rgba(255,255,255,0.1)]",
             "w-fit max-w-[90vw]",
             className
           )}
@@ -152,8 +151,8 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
                       "relative block px-2 md:px-3 py-2 text-xs md:text-sm font-medium transition-all duration-300",
                       "flex items-center gap-1.5 md:gap-2 whitespace-nowrap z-10",
                       isActive
-                        ? "text-indigo-300"
-                        : "text-slate-400 hover:text-indigo-200"
+                        ? "text-primary dark:text-indigo-300"
+                        : "text-muted-foreground hover:text-primary dark:hover:text-indigo-200"
                     )}
                   >
                     <span className="text-sm md:text-base">{iconMap[item.name] || "✦"}</span>
@@ -163,7 +162,7 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
                   {isActive && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute inset-0 bg-indigo-500/15 rounded-lg border border-indigo-500/30"
+                      className="absolute inset-0 bg-primary/15 rounded-lg border border-primary/30"
                       transition={{ 
                         type: "spring", 
                         bounce: 0.2, 
@@ -174,15 +173,14 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
                 </motion.div>
               );
             })}
-            <div className="flex-shrink-0 ml-2 border-l border-indigo-500/20 pl-2 flex items-center gap-2">
+            <div className="flex-shrink-0 ml-2 border-l border-primary/20 pl-2 flex items-center gap-2">
               <LanguageSwitcher />
-              <ThemeToggle />
             </div>
           </nav>
 
           {/* Glow effect estático - sem animação infinita */}
           <div
-            className="absolute -inset-px bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl opacity-30 blur-sm -z-10"
+            className="absolute -inset-px bg-gradient-to-r from-primary to-accent rounded-2xl opacity-20 dark:opacity-30 blur-sm -z-10"
           />
         </motion.div>
       )}

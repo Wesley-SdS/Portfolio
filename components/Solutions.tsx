@@ -117,7 +117,7 @@ const Solutions: React.FC = React.memo(() => {
           <h1 className="heading mb-6">
             <span className="text-purple">{t('title')}</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -158,23 +158,23 @@ const Solutions: React.FC = React.memo(() => {
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-r ${solution.gradient} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     {solution.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-slate-200 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
                     {solution.title}
                   </h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-slate-300 mb-6 relative z-10 leading-relaxed">
+                <p className="text-foreground/80 mb-6 relative z-10 leading-relaxed">
                   {solution.description}
                 </p>
 
                 {/* Features */}
                 <div className="mb-6 relative z-10">
-                  <h4 className="text-sm font-semibold text-slate-200 mb-3">Principais Recursos:</h4>
+                  <h4 className="text-sm font-semibold text-foreground mb-3">Principais Recursos:</h4>
                   <ul className="space-y-2">
                     {solution.features.slice(0, 3).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-2 text-sm text-slate-400">
-                        <span className="text-purple-400 mt-1 text-xs">▸</span>
+                      <li key={featureIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-purple-500 dark:text-purple-400 mt-1 text-xs">▸</span>
                         {feature}
                       </li>
                     ))}
@@ -183,18 +183,18 @@ const Solutions: React.FC = React.memo(() => {
 
                 {/* Technologies */}
                 <div className="relative z-10">
-                  <h4 className="text-sm font-semibold text-slate-200 mb-3">Tecnologias:</h4>
+                  <h4 className="text-sm font-semibold text-foreground mb-3">Tecnologias:</h4>
                   <div className="flex flex-wrap gap-2">
                     {solution.technologies.slice(0, 4).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 text-xs rounded-full glassmorphism text-slate-300 border border-indigo-500/20 hover:border-purple-500/40 transition-colors duration-300"
+                        className="px-2 py-1 text-xs rounded-full glassmorphism text-foreground/80 border border-primary/20 hover:border-purple-500/40 transition-colors duration-300"
                       >
                         {tech}
                       </span>
                     ))}
                     {solution.technologies.length > 4 && (
-                      <span className="px-2 py-1 text-xs rounded-full glassmorphism text-slate-400">
+                      <span className="px-2 py-1 text-xs rounded-full glassmorphism text-muted-foreground">
                         +{solution.technologies.length - 4}
                       </span>
                     )}
@@ -217,10 +217,10 @@ const Solutions: React.FC = React.memo(() => {
           transition={{ delay: 0.8 }}
         >
           <div className="glassmorphism rounded-2xl p-8 max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-200 mb-4">
+            <h2 className="text-2xl font-bold text-foreground mb-4">
               {t('ready')}
             </h2>
-            <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+            <p className="text-foreground/80 mb-6 max-w-2xl mx-auto">
               {t('description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -233,7 +233,7 @@ const Solutions: React.FC = React.memo(() => {
                 {t('cta.consultation')}
               </motion.button>
               <motion.button
-                className="px-8 py-3 rounded-lg glassmorphism text-slate-200 font-medium hover:bg-indigo-500/10 transition-all duration-300 hover:scale-105"
+                className="px-8 py-3 rounded-lg glassmorphism text-foreground font-medium hover:bg-primary/10 transition-all duration-300 hover:scale-105"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => {

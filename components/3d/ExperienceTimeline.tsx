@@ -261,15 +261,15 @@ const ExperienceTimeline: React.FC = React.memo(() => {
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <div 
+                <div
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: exp.color }}
                 />
-                <h4 className="font-semibold text-slate-200 text-sm">{exp.title}</h4>
+                <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{exp.title}</h4>
               </div>
-              <p className="text-xs text-slate-400 mb-1">{exp.company}</p>
-              <p className="text-xs text-slate-500 mb-2">{exp.period}</p>
-              <p className="text-xs text-slate-300 line-clamp-2">{exp.description}</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-1">{exp.company}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-500 mb-2">{exp.period}</p>
+              <p className="text-xs text-slate-700 dark:text-slate-300 line-clamp-2">{exp.description}</p>
             </motion.div>
           ))}
         </div>

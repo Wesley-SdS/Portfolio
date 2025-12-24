@@ -55,13 +55,13 @@ const AboutMe: React.FC = React.memo(() => {
               </div>
             </div>
 
-            <h3 className="text-2xl font-bold text-slate-200 mb-4">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
               {t('name')}
             </h3>
-            <p className="text-xl text-slate-400 mb-6">
+            <p className="text-xl text-muted-foreground mb-6">
               {t('role')}
             </p>
-            
+
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               {[
                 t('tags.experience'),
@@ -69,7 +69,7 @@ const AboutMe: React.FC = React.memo(() => {
                 t('tags.leadership'),
                 t('tags.fullstack')
               ].map((tag) => (
-                <span key={tag} className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-300">
+                <span key={tag} className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-700 dark:text-slate-300 border border-slate-300/30 dark:border-transparent">
                   {tag}
                 </span>
               ))}
@@ -85,26 +85,26 @@ const AboutMe: React.FC = React.memo(() => {
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
-              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
-                <FaRocket className="text-purple-400" />
+              <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                <FaRocket className="text-purple-500 dark:text-purple-400" />
                 {t('sections.mission.title')}
               </h4>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed">
                 {t('sections.mission.content')}
               </p>
             </div>
 
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
-              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
-                <FaCode className="text-purple-400" />
+              <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                <FaCode className="text-purple-500 dark:text-purple-400" />
                 {t('sections.expertise.title')}
               </h4>
-              <p className="text-slate-300 leading-relaxed mb-4">
+              <p className="text-foreground/80 leading-relaxed mb-4">
                 {t('sections.expertise.content')}
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'PostgreSQL'].map((tech) => (
-                  <span key={tech} className="text-xs px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full">
+                  <span key={tech} className="text-xs px-3 py-1 bg-primary/20 text-indigo-700 dark:text-indigo-300 rounded-full">
                     {tech}
                   </span>
                 ))}
@@ -112,21 +112,21 @@ const AboutMe: React.FC = React.memo(() => {
             </div>
 
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
-              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
-                <FaCode className="text-purple-400" />
+              <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                <FaCode className="text-purple-500 dark:text-purple-400" />
                 {t('sections.leadership.title')}
               </h4>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed">
                 {t('sections.leadership.content')}
               </p>
             </div>
 
             <div className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300">
-              <h4 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
-                <FaCode className="text-purple-400" />
+              <h4 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
+                <FaCode className="text-purple-500 dark:text-purple-400" />
                 {t('sections.vision.title')}
               </h4>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed">
                 {t('sections.vision.content')}
               </p>
             </div>

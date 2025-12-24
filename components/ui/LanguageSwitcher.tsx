@@ -33,15 +33,15 @@ export const LanguageSwitcher: React.FC = React.memo(() => {
 
   return (
     <Select value={locale} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-[140px] h-9 glassmorphism border-indigo-500/20 text-slate-300">
+      <SelectTrigger className="w-[140px] h-9 glassmorphism border-primary/20 text-foreground dark:text-slate-300">
         <SelectValue placeholder={currentLanguage?.label || "Select language"} />
       </SelectTrigger>
-      <SelectContent className="glassmorphism border-indigo-500/20 bg-slate-950/95">
+      <SelectContent className="glassmorphism border-primary/20 bg-card/95 dark:bg-slate-950/95">
         {languages.map((lang) => (
           <SelectItem
             key={lang.code}
             value={lang.code}
-            className="text-slate-300 hover:text-purple-400 focus:text-purple-400 cursor-pointer"
+            className="text-foreground dark:text-slate-300 hover:text-purple-500 dark:hover:text-purple-400 focus:text-purple-500 dark:focus:text-purple-400 cursor-pointer"
           >
             {lang.label}
           </SelectItem>

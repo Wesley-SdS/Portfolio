@@ -9,7 +9,7 @@ import { Spotlight } from "./ui/Spotlight";
 
 const DigitalGalaxy = dynamic(() => import("./3d/DigitalGalaxy"), {
   ssr: false,
-  loading: () => <div className="absolute inset-0 w-full h-full bg-slate-900/20" />
+  loading: () => <div className="absolute inset-0 w-full h-full bg-card/20" />
 });
 
 const Hero = React.memo(() => {
@@ -23,8 +23,8 @@ const Hero = React.memo(() => {
         <DigitalGalaxy className="absolute inset-0 w-full h-full opacity-60" />
 
         {/* Additional gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/10 via-transparent to-background/10" />
       </div>
 
       {/* Spotlight Effects */}
@@ -60,8 +60,8 @@ const Hero = React.memo(() => {
               transition={{ delay: 0.2, duration: 0.5 }}
             >
               <div className="relative">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 glow-effect bg-slate-800">
-                  <div className="w-full h-full flex items-center justify-center text-purple-400 text-4xl font-bold">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 glow-effect bg-secondary dark:bg-slate-800">
+                  <div className="w-full h-full flex items-center justify-center text-purple-400 dark:text-purple-400 text-4xl font-bold">
                     WS
                   </div>
                 </div>
@@ -82,8 +82,8 @@ const Hero = React.memo(() => {
             </motion.h1>
             
             {/* Subtitle */}
-            <motion.p 
-              className="text-xl md:text-2xl text-slate-300 mb-6 font-light"
+            <motion.p
+              className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 mb-6 font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
@@ -92,8 +92,8 @@ const Hero = React.memo(() => {
             </motion.p>
 
             {/* Description */}
-            <motion.p 
-              className="text-lg text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+            <motion.p
+              className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
@@ -124,7 +124,7 @@ const Hero = React.memo(() => {
                   const element = document.getElementById('projects');
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="h-12 px-8 rounded-xl glassmorphism text-slate-300 font-medium text-sm border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center justify-center gap-2"
+                className="h-12 px-8 rounded-xl glassmorphism text-slate-700 dark:text-slate-300 font-medium text-sm border border-slate-400/30 dark:border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -134,7 +134,7 @@ const Hero = React.memo(() => {
             </motion.div>
 
             {/* Tech Stack Floating Pills */}
-            <motion.div 
+            <motion.div
               className="flex flex-wrap gap-3 justify-center mb-12"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -143,7 +143,7 @@ const Hero = React.memo(() => {
               {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'AI/ML'].map((tech, index) => (
                 <motion.span
                   key={tech}
-                  className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-300 border border-indigo-500/20 hover:border-purple-500/40 hover:bg-purple-500/10 transition-all duration-300"
+                  className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-700 dark:text-slate-300 border border-slate-400/30 dark:border-primary/20 hover:border-purple-500/40 hover:bg-purple-500/10 transition-all duration-300"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.4 + index * 0.1, duration: 0.5 }}
@@ -155,23 +155,23 @@ const Hero = React.memo(() => {
             </motion.div>
 
             {/* Stats */}
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.6, duration: 1 }}
             >
               <div className="text-center mb-10">
-                <div className="text-3xl font-bold text-purple-400 mb-2">9+</div>
-                <div className="text-slate-400 text-sm">{t('stats.experience')}</div>
+                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">9+</div>
+                <div className="text-slate-600 dark:text-slate-400 text-sm">{t('stats.experience')}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400 mb-2">50+</div>
-                <div className="text-slate-400 text-sm">{t('stats.projects')}</div>
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
+                <div className="text-slate-600 dark:text-slate-400 text-sm">{t('stats.projects')}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-2">100%</div>
-                <div className="text-slate-400 text-sm">{t('stats.quality')}</div>
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">100%</div>
+                <div className="text-slate-600 dark:text-slate-400 text-sm">{t('stats.quality')}</div>
               </div>
             </motion.div>
           </motion.div>

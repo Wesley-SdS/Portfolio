@@ -37,7 +37,7 @@ const Footer: React.FC = React.memo(() => {
   ];
 
   return (
-    <footer id="contact" className="relative border-t border-indigo-500/20">
+    <footer id="contact" className="relative border-t border-primary/20">
       {/* Background Effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl" />
@@ -53,7 +53,7 @@ const Footer: React.FC = React.memo(() => {
           transition={{ duration: 0.5 }}
         >
           {/* Brand Section */}
-          <motion.div 
+          <motion.div
             className="space-y-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -61,10 +61,10 @@ const Footer: React.FC = React.memo(() => {
             transition={{ delay: 0.1 }}
           >
             <div className="flex items-center gap-2">
-              <FaRocket className="text-2xl text-purple-400" />
-              <h3 className="text-xl font-bold text-slate-200">{t('brand')}</h3>
+              <FaRocket className="text-2xl text-purple-500 dark:text-purple-400" />
+              <h3 className="text-xl font-bold text-foreground dark:text-slate-200">{t('brand')}</h3>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-muted-foreground text-sm leading-relaxed">
               {t('description')}
             </p>
             <div className="flex gap-3 pt-2">
@@ -75,7 +75,7 @@ const Footer: React.FC = React.memo(() => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className={`w-10 h-10 rounded-lg glassmorphism flex items-center justify-center text-slate-400 transition-all duration-300 ${link.color} hover:glow-effect`}
+                  className={`w-10 h-10 rounded-lg glassmorphism flex items-center justify-center text-muted-foreground transition-all duration-300 ${link.color} hover:glow-effect`}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -86,20 +86,20 @@ const Footer: React.FC = React.memo(() => {
           </motion.div>
 
           {/* Quick Links */}
-          <motion.div 
+          <motion.div
             className="space-y-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h4 className="text-lg font-semibold text-slate-200">{t('navigation')}</h4>
+            <h4 className="text-lg font-semibold text-foreground dark:text-slate-200">{t('navigation')}</h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <motion.a
                     href={link.href}
-                    className="text-slate-400 hover:text-purple-400 transition-colors duration-300 flex items-center gap-2"
+                    className="text-muted-foreground hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300 flex items-center gap-2"
                     whileHover={{ x: 5 }}
                   >
                     <span className="text-xs">▸</span>
@@ -111,19 +111,19 @@ const Footer: React.FC = React.memo(() => {
           </motion.div>
 
           {/* Expertise */}
-          <motion.div 
+          <motion.div
             className="space-y-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h4 className="text-lg font-semibold text-slate-200">{t('expertise')}</h4>
+            <h4 className="text-lg font-semibold text-foreground dark:text-slate-200">{t('expertise')}</h4>
             <div className="flex flex-wrap gap-2">
               {['Next.js', 'TypeScript', 'Python', 'IA', 'React', 'Node.js'].map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1 text-xs rounded-full glassmorphism text-slate-300 border border-indigo-500/20"
+                  className="px-3 py-1 text-xs rounded-full glassmorphism text-foreground/80 dark:text-slate-300 border border-primary/20"
                 >
                   {skill}
                 </span>
@@ -132,7 +132,7 @@ const Footer: React.FC = React.memo(() => {
           </motion.div>
 
           {/* CTA Section */}
-          <motion.div 
+          <motion.div
             className="space-y-4"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -140,10 +140,10 @@ const Footer: React.FC = React.memo(() => {
             transition={{ delay: 0.4 }}
           >
             <div className="flex items-center gap-2 mb-3">
-              <FaCode className="text-xl text-purple-400" />
-              <h4 className="text-lg font-semibold text-slate-200">{t('cta.title')}</h4>
+              <FaCode className="text-xl text-purple-500 dark:text-purple-400" />
+              <h4 className="text-lg font-semibold text-foreground dark:text-slate-200">{t('cta.title')}</h4>
             </div>
-            <p className="text-slate-400 text-sm mb-4">
+            <p className="text-muted-foreground text-sm mb-4">
               {t('cta.description')}
             </p>
             <MagicButton
@@ -157,18 +157,18 @@ const Footer: React.FC = React.memo(() => {
         </motion.div>
 
         {/* Bottom Section */}
-        <motion.div 
-          className="mt-16 pt-8 border-t border-indigo-500/20"
+        <motion.div
+          className="mt-16 pt-8 border-t border-primary/20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-sm">
+            <p className="text-muted-foreground text-sm">
               {t('copyright')}
             </p>
-            <div className="flex items-center gap-2 text-slate-400 text-sm">
+            <div className="flex items-center gap-2 text-muted-foreground text-sm">
               {t('madeWith')}
             </div>
           </div>

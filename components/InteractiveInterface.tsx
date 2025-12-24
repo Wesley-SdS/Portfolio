@@ -22,10 +22,10 @@ interface InteractiveDemo {
 
 // Loading fallback component
 const DemoLoading: React.FC = () => (
-  <div className="h-80 glassmorphism rounded-xl flex items-center justify-center bg-slate-900/50">
+  <div className="h-80 glassmorphism rounded-xl flex items-center justify-center bg-card/50 dark:bg-slate-900/50">
     <div className="flex flex-col items-center gap-3">
       <div className="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
-      <span className="text-slate-400 text-sm">Loading demo...</span>
+      <span className="text-muted-foreground text-sm">Loading demo...</span>
     </div>
   </div>
 );
@@ -139,7 +139,7 @@ const InteractiveInterface: React.FC = React.memo(() => {
           <h1 className="heading mb-6">
             <span className="text-purple">Interactive Lab</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-xl text-foreground/80 dark:text-slate-300 max-w-3xl mx-auto">
             Experiências interativas avançadas demonstrando domínio técnico em
             física, animações, redes neurais e renderização em tempo real.
           </p>
@@ -164,7 +164,7 @@ const InteractiveInterface: React.FC = React.memo(() => {
               <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r ${demo.color} text-white mb-2`}>
                 {demo.icon}
               </div>
-              <h3 className="text-sm font-semibold text-slate-200">{demo.title}</h3>
+              <h3 className="text-sm font-semibold text-foreground dark:text-slate-200">{demo.title}</h3>
             </motion.button>
           ))}
         </div>
@@ -180,11 +180,11 @@ const InteractiveInterface: React.FC = React.memo(() => {
           <div className="mb-6">
             <div className="flex items-center gap-3">
               <FaRocket className="text-xl text-purple-400" />
-              <h2 className="text-xl font-bold text-slate-200">
+              <h2 className="text-xl font-bold text-foreground dark:text-slate-200">
                 {currentDemo?.title}
               </h2>
             </div>
-            <p className="text-slate-400 mt-2 text-sm">
+            <p className="text-muted-foreground mt-2 text-sm">
               {currentDemo?.description}
             </p>
           </div>

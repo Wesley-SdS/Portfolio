@@ -12,7 +12,7 @@ import MagicButton from "./MagicButton";
 
 const ExperienceTimeline = dynamic(() => import("./3d/ExperienceTimeline"), {
   ssr: false,
-  loading: () => <div className="w-full h-96 mb-8 animate-pulse bg-slate-800/20 rounded-lg" />
+  loading: () => <div className="w-full h-96 mb-8 animate-pulse bg-secondary/20 rounded-lg" />
 });
 
 interface TechSkill {
@@ -35,10 +35,10 @@ const TechSkillBar = React.memo<{ skill: TechSkill; index: number }>(({ skill, i
     transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
   >
     <div className="flex items-center justify-between mb-2">
-      <span className="text-slate-200 font-medium">{skill.name}</span>
-      <span className="text-slate-400 text-sm">{skill.level}%</span>
+      <span className="text-foreground font-medium">{skill.name}</span>
+      <span className="text-muted-foreground text-sm">{skill.level}%</span>
     </div>
-    <div className="w-full bg-slate-700 rounded-full h-2">
+    <div className="w-full bg-secondary dark:bg-slate-700 rounded-full h-2">
       <motion.div
         className="h-2 rounded-full"
         style={{ backgroundColor: skill.color }}
@@ -62,10 +62,10 @@ const LeadershipSkillBar = React.memo<{ skill: LeadershipSkill; index: number }>
     transition={{ delay: 0.8 + index * 0.1, duration: 0.4 }}
   >
     <div className="flex items-center justify-between mb-2">
-      <span className="text-slate-200 font-medium">{skill.name}</span>
-      <span className="text-slate-400 text-sm">{skill.level}%</span>
+      <span className="text-foreground font-medium">{skill.name}</span>
+      <span className="text-muted-foreground text-sm">{skill.level}%</span>
     </div>
-    <div className="w-full bg-slate-700 rounded-full h-2">
+    <div className="w-full bg-secondary dark:bg-slate-700 rounded-full h-2">
       <motion.div
         className="h-2 rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
         style={{
@@ -132,7 +132,7 @@ const Experience = React.memo(() => {
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
             {t('subtitle')}
           </h2>
           <ExperienceTimeline />
@@ -146,7 +146,7 @@ const Experience = React.memo(() => {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
             Posições Destacadas
           </h2>
           <div className="grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -193,14 +193,14 @@ const Experience = React.memo(() => {
                     />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-200">{card.title}</h3>
-                    <p className="text-sm text-slate-400">{card.company}</p>
+                    <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
+                    <p className="text-sm text-muted-foreground">{card.company}</p>
                   </div>
                 </div>
-                <p className="text-sm text-slate-300 mb-4">{card.desc}</p>
+                <p className="text-sm text-foreground/80 mb-4">{card.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {card.skills?.slice(0, 3).map((tech, i) => (
-                    <span key={i} className="text-xs px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded-full">
+                    <span key={i} className="text-xs px-2 py-1 bg-primary/20 text-indigo-700 dark:text-indigo-300 rounded-full">
                       {tech}
                     </span>
                   ))}
@@ -219,7 +219,7 @@ const Experience = React.memo(() => {
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
             Stack Tecnológico
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -237,7 +237,7 @@ const Experience = React.memo(() => {
           viewport={{ once: true }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          <h2 className="text-2xl font-bold text-slate-200 mb-8 text-center">
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
             {t('leadershipSkills')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -272,7 +272,7 @@ const Experience = React.memo(() => {
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-4xl max-h-[80vh] glassmorphism">
           <DialogHeader>
-            <DialogTitle className="text-slate-200">{t('viewAll')}</DialogTitle>
+            <DialogTitle className="text-foreground">{t('viewAll')}</DialogTitle>
           </DialogHeader>
           <ScrollArea className="h-[60vh]">
             <div className="grid grid-cols-1 gap-6">
@@ -287,14 +287,14 @@ const Experience = React.memo(() => {
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div>
-                      <h3 className="text-xl font-semibold text-slate-200">{card.title}</h3>
-                      <p className="text-slate-400">{card.company}</p>
+                      <h3 className="text-xl font-semibold text-foreground">{card.title}</h3>
+                      <p className="text-muted-foreground">{card.company}</p>
                     </div>
                   </div>
-                  <p className="text-slate-300 mb-4">{card.desc}</p>
+                  <p className="text-foreground/80 mb-4">{card.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {card.skills?.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-sm">
+                      <span key={i} className="px-3 py-1 bg-primary/20 text-indigo-700 dark:text-indigo-300 rounded-full text-sm">
                         {tech}
                       </span>
                     ))}

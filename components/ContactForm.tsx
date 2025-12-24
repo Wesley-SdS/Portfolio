@@ -67,74 +67,74 @@ const ContactForm: React.FC = React.memo(() => {
       transition={{ duration: 0.5 }}
     >
       <div className="flex items-center gap-3 mb-6">
-        <FaEnvelope className="text-2xl text-purple-400" />
-        <h2 className="text-2xl font-bold text-slate-200">{t('title')}</h2>
+        <FaEnvelope className="text-2xl text-purple-500 dark:text-purple-400" />
+        <h2 className="text-2xl font-bold text-foreground dark:text-slate-200">{t('title')}</h2>
       </div>
 
-      <p className="text-slate-300 mb-6">{t('description')}</p>
+      <p className="text-foreground/80 dark:text-slate-300 mb-6">{t('description')}</p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-foreground/80 dark:text-slate-300 mb-2">
             {t('form.name')}
           </label>
           <input
             {...register('name')}
             type="text"
             id="name"
-            className="w-full px-4 py-3 rounded-lg glassmorphism border border-indigo-500/20 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500/40 transition-colors"
+            className="w-full px-4 py-3 rounded-lg glassmorphism border border-primary/20 text-foreground dark:text-slate-200 placeholder-muted-foreground focus:outline-none focus:border-purple-500/40 transition-colors"
             placeholder={t('form.namePlaceholder')}
           />
           {errors.name && (
-            <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+            <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.name.message}</p>
           )}
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-foreground/80 dark:text-slate-300 mb-2">
             {t('form.email')}
           </label>
           <input
             {...register('email')}
             type="email"
             id="email"
-            className="w-full px-4 py-3 rounded-lg glassmorphism border border-indigo-500/20 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500/40 transition-colors"
+            className="w-full px-4 py-3 rounded-lg glassmorphism border border-primary/20 text-foreground dark:text-slate-200 placeholder-muted-foreground focus:outline-none focus:border-purple-500/40 transition-colors"
             placeholder={t('form.emailPlaceholder')}
           />
           {errors.email && (
-            <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+            <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.email.message}</p>
           )}
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="subject" className="block text-sm font-medium text-foreground/80 dark:text-slate-300 mb-2">
             {t('form.subject')}
           </label>
           <input
             {...register('subject')}
             type="text"
             id="subject"
-            className="w-full px-4 py-3 rounded-lg glassmorphism border border-indigo-500/20 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500/40 transition-colors"
+            className="w-full px-4 py-3 rounded-lg glassmorphism border border-primary/20 text-foreground dark:text-slate-200 placeholder-muted-foreground focus:outline-none focus:border-purple-500/40 transition-colors"
             placeholder={t('form.subjectPlaceholder')}
           />
           {errors.subject && (
-            <p className="mt-1 text-sm text-red-400">{errors.subject.message}</p>
+            <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.subject.message}</p>
           )}
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
+          <label htmlFor="message" className="block text-sm font-medium text-foreground/80 dark:text-slate-300 mb-2">
             {t('form.message')}
           </label>
           <textarea
             {...register('message')}
             id="message"
             rows={6}
-            className="w-full px-4 py-3 rounded-lg glassmorphism border border-indigo-500/20 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500/40 transition-colors resize-none"
+            className="w-full px-4 py-3 rounded-lg glassmorphism border border-primary/20 text-foreground dark:text-slate-200 placeholder-muted-foreground focus:outline-none focus:border-purple-500/40 transition-colors resize-none"
             placeholder={t('form.messagePlaceholder')}
           />
           {errors.message && (
-            <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+            <p className="mt-1 text-sm text-red-500 dark:text-red-400">{errors.message.message}</p>
           )}
         </div>
 

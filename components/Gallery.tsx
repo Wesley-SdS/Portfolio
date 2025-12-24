@@ -406,7 +406,7 @@ const Gallery: React.FC = React.memo(() => {
           <h1 className="heading mb-6">
             <span className="text-purple">{t('title')}</span>
           </h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-8">
             {t('subtitle')}
           </p>
 
@@ -417,9 +417,9 @@ const Gallery: React.FC = React.memo(() => {
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-2 rounded-full glassmorphism text-sm font-medium transition-all duration-300 border ${
-                  selectedCategory === category.id 
-                    ? 'border-purple-500 text-purple-300 bg-purple-500/10' 
-                    : 'border-indigo-500/20 text-slate-400 hover:border-purple-500/40 hover:text-purple-300'
+                  selectedCategory === category.id
+                    ? 'border-purple-500 text-purple-500 dark:text-purple-300 bg-purple-500/10'
+                    : 'border-primary/20 text-muted-foreground hover:border-purple-500/40 hover:text-purple-500 dark:hover:text-purple-300'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -468,7 +468,7 @@ const Gallery: React.FC = React.memo(() => {
 
                 {/* Category Badge */}
                 <div className="absolute top-2 left-2">
-                  <span className="px-2 py-1 text-xs rounded-full glassmorphism text-slate-300 border border-purple-500/20">
+                  <span className="px-2 py-1 text-xs rounded-full glassmorphism text-foreground/80 dark:text-slate-300 border border-purple-500/20">
                     {image.category}
                   </span>
                 </div>
@@ -476,10 +476,10 @@ const Gallery: React.FC = React.memo(() => {
 
               {/* Info */}
               <div className="p-4">
-                <h3 className="text-sm font-semibold text-slate-200 mb-1 group-hover:text-purple-400 transition-colors duration-300">
+                <h3 className="text-sm font-semibold text-foreground dark:text-slate-200 mb-1 group-hover:text-purple-400 transition-colors duration-300">
                   {image.title}
                 </h3>
-                <p className="text-xs text-slate-400 line-clamp-2">
+                <p className="text-xs text-muted-foreground dark:text-slate-400 line-clamp-2">
                   {image.description}
                 </p>
               </div>
@@ -496,23 +496,23 @@ const Gallery: React.FC = React.memo(() => {
           transition={{ delay: 0.6, duration: 0.5 }}
         >
           <div className="glassmorphism rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-purple-400 mb-2">{galleryImages.length}</div>
-            <div className="text-slate-400 text-sm">{t('stats.total')}</div>
-          </div>
-          
-          <div className="glassmorphism rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-green-400 mb-2">{categories.length}</div>
-            <div className="text-slate-400 text-sm">{t('stats.categories')}</div>
+            <div className="text-3xl font-bold text-purple-500 dark:text-purple-400 mb-2">{galleryImages.length}</div>
+            <div className="text-muted-foreground text-sm">{t('stats.total')}</div>
           </div>
 
           <div className="glassmorphism rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-blue-400 mb-2">100%</div>
-            <div className="text-slate-400 text-sm">{t('stats.original')}</div>
+            <div className="text-3xl font-bold text-green-500 dark:text-green-400 mb-2">{categories.length}</div>
+            <div className="text-muted-foreground text-sm">{t('stats.categories')}</div>
           </div>
 
           <div className="glassmorphism rounded-lg p-6 text-center">
-            <div className="text-3xl font-bold text-yellow-400 mb-2">4K</div>
-            <div className="text-slate-400 text-sm">{t('stats.resolution')}</div>
+            <div className="text-3xl font-bold text-blue-500 dark:text-blue-400 mb-2">100%</div>
+            <div className="text-muted-foreground text-sm">{t('stats.original')}</div>
+          </div>
+
+          <div className="glassmorphism rounded-lg p-6 text-center">
+            <div className="text-3xl font-bold text-yellow-500 dark:text-yellow-400 mb-2">4K</div>
+            <div className="text-muted-foreground text-sm">{t('stats.resolution')}</div>
           </div>
         </motion.div>
 
@@ -526,11 +526,11 @@ const Gallery: React.FC = React.memo(() => {
         >
           <div className="glassmorphism rounded-2xl p-8 max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <FaSearch className="text-2xl text-purple-400" />
-              <h2 className="text-2xl font-bold text-slate-200">Explore a Galeria Completa</h2>
+              <FaSearch className="text-2xl text-purple-500 dark:text-purple-400" />
+              <h2 className="text-2xl font-bold text-foreground dark:text-slate-200">Explore a Galeria Completa</h2>
             </div>
-            
-            <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+
+            <p className="text-foreground/80 dark:text-slate-300 mb-6 max-w-2xl mx-auto">
               {t('description')}
             </p>
 
@@ -542,13 +542,13 @@ const Gallery: React.FC = React.memo(() => {
                 onClick={() => window.open('https://github.com/seu-usuario', '_blank')}
                 otherClasses="glassmorphism hover:glow-effect transition-all duration-300"
               />
-              
+
               <motion.button
                 onClick={() => {
                   const element = document.getElementById('contact');
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-8 py-3 rounded-lg glassmorphism text-slate-200 font-medium border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center gap-2"
+                className="px-8 py-3 rounded-lg glassmorphism text-foreground dark:text-slate-200 font-medium border border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -596,7 +596,7 @@ const Gallery: React.FC = React.memo(() => {
             
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full glassmorphism text-slate-300 hover:text-white flex items-center justify-center transition-colors duration-300 z-10"
+              className="absolute top-4 right-4 w-10 h-10 rounded-full glassmorphism text-foreground/80 dark:text-slate-300 hover:text-foreground dark:hover:text-white flex items-center justify-center transition-colors duration-300 z-10"
             >
               ✕
             </button>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from 'next-intl';
 import { FaRocket, FaCode, FaBrain, FaCloud, FaShieldAlt, FaChartLine } from "react-icons/fa";
@@ -16,6 +16,7 @@ interface Solution {
 
 const Solutions: React.FC = React.memo(() => {
   const t = useTranslations('solutions');
+  const [hoveredSolution, setHoveredSolution] = useState<number | null>(null);
   const solutions: Solution[] = [
     {
       id: 1,
@@ -130,8 +131,25 @@ const Solutions: React.FC = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
+              onMouseEnter={() => setHoveredSolution(solution.id)}
+              onMouseLeave={() => setHoveredSolution(null)}
             >
-              <div className="glassmorphism rounded-xl p-8 h-full hover:glow-effect transition-all duration-300 relative overflow-hidden">
+              <div className="glassmorphism rounded-xl p-8 h-full hover:glow-effect transition-all duration-300 relative" style={{ overflow: 'visible' }}>
+                {/* Barra deslizante da esquerda para direita */}
+                <motion.div
+                  className="absolute bottom-0 left-0 h-3 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400"
+                  style={{
+                    borderRadius: '0 0 0.75rem 0.75rem',
+                    boxShadow: '0 -2px 12px rgba(139, 92, 246, 0.7), 0 0 20px rgba(168, 85, 247, 0.4)',
+                    zIndex: 60
+                  }}
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ 
+                    width: hoveredSolution === solution.id ? '100%' : 0,
+                    opacity: hoveredSolution === solution.id ? 1 : 0
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                />
                 {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${solution.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`} />
                 

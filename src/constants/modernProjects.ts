@@ -218,7 +218,6 @@ export const projectsData: Project[] = [
       'Sistema pronto para produção'
     ],
     metrics: {
-      tests: '69 passing',
       performance: '95+ Lighthouse',
       customMetric: [
         { label: 'Testes Automatizados', value: '69' },
@@ -260,7 +259,6 @@ export const projectsData: Project[] = [
       'Suporte multilíngue (pt/es/en)'
     ],
     metrics: {
-      tests: '102 passing',
       languages: '3 idiomas',
       customMetric: [
         { label: 'Testes Automatizados', value: '102' },
@@ -304,7 +302,6 @@ export const projectsData: Project[] = [
       'Suporte multilíngue'
     ],
     metrics: {
-      agents: '30 agentes',
       scalability: 'Multi-tenant',
       customMetric: [
         { label: 'Agentes Especializados', value: '30' },
@@ -376,8 +373,6 @@ export const projectsData: Project[] = [
       'Histórico e comentários'
     ],
     metrics: {
-      sectors: '3 setores',
-      categories: '6 categorias',
       customMetric: [
         { label: 'Setores', value: '3' },
         { label: 'Categorias', value: '6' },
@@ -457,8 +452,6 @@ export const projectsData: Project[] = [
       'Type-safe 100%'
     ],
     metrics: {
-      providers: '6+ providers',
-      security: 'AES-256-GCM',
       customMetric: [
         { label: 'Providers de IA', value: '6+' },
         { label: 'Idiomas Suportados', value: '3' },
@@ -498,7 +491,6 @@ export const projectsData: Project[] = [
       'Sistema de blog completo'
     ],
     metrics: {
-      architecture: 'FSD',
       customMetric: [
         { label: 'Arquitetura', value: 'FSD' },
         { label: 'Gerado por', value: 'VibeCoding' }

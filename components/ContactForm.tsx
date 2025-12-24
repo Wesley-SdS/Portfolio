@@ -17,7 +17,7 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-export const ContactForm: React.FC = React.memo(() => {
+const ContactForm: React.FC = React.memo(() => {
   const t = useTranslations('contact');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -174,3 +174,4 @@ export const ContactForm: React.FC = React.memo(() => {
 
 ContactForm.displayName = 'ContactForm';
 
+export default ContactForm;

@@ -163,22 +163,6 @@ const ProjectCard = React.memo<ProjectCardProps>(({
         </div>
       )}
 
-      <div className="flex gap-2 mt-auto">
-        {project.links.map((link, linkIndex) => (
-          <motion.button
-            key={linkIndex}
-            onClick={(e) => {
-              e.stopPropagation();
-              window.open(link.url, '_blank');
-            }}
-            className="flex-1 px-3 py-2 rounded-lg glassmorphism text-xs text-slate-300 border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center justify-center gap-1"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {link.type === 'github' ? <FaGithub /> : <FaExternalLinkAlt />}
-          </motion.button>
-        ))}
-      </div>
 
       {hoveredProject === project.id && (
         <motion.div

@@ -85,6 +85,7 @@ LeadershipSkillBar.displayName = 'LeadershipSkillBar';
 const Experience = React.memo(() => {
   const t = useTranslations('experience');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const techSkills = [
     { name: "Next.js", level: 95, color: "#ffffff" },
@@ -152,14 +153,35 @@ const Experience = React.memo(() => {
             {workExperience.slice(0, 6).map((card, index) => (
               <motion.div
                 key={card.id}
-                className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300 cursor-pointer"
+                className="relative group"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                onClick={() => setIsDialogOpen(true)}
+                onMouseEnter={() => setHoveredCard(card.id)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
+                <motion.div
+                  className="glassmorphism rounded-xl p-6 hover:glow-effect transition-all duration-300 cursor-pointer relative"
+                  style={{ overflow: 'visible' }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  onClick={() => setIsDialogOpen(true)}
+                >
+                  {/* Barra deslizante da esquerda para direita */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-3 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400"
+                    style={{
+                      borderRadius: '0 0 0.75rem 0.75rem',
+                      boxShadow: '0 -2px 12px rgba(139, 92, 246, 0.7), 0 0 20px rgba(168, 85, 247, 0.4)',
+                      zIndex: 60
+                    }}
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ 
+                      width: hoveredCard === card.id ? '100%' : 0,
+                      opacity: hoveredCard === card.id ? 1 : 0
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  />
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-lg overflow-hidden relative">
                     <Image
@@ -183,6 +205,7 @@ const Experience = React.memo(() => {
                     </span>
                   ))}
                 </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>

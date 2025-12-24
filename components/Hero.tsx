@@ -124,7 +124,7 @@ const Hero = React.memo(() => {
                   const element = document.getElementById('projects');
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-8 py-3 rounded-full glassmorphism text-slate-300 font-medium border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center gap-2"
+                className="px-8 py-3 rounded-lg glassmorphism text-slate-300 font-medium border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center gap-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >

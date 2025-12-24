@@ -54,10 +54,13 @@ const ContactForm = dynamic(() => import("@/components/ContactForm"), {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-black">
+    <div className="relative min-h-screen w-full overflow-x-hidden">
+      {/* Background fixo único - evita bugs de repaint durante scroll */}
+      <div className="deep-space-fixed" />
+
       <CosmicNav navItems={navItems} />
-      
-      <main className="w-full">
+
+      <main className="relative z-10 w-full">
         <Hero />
         <AboutMe />
         <Experience />
@@ -65,7 +68,7 @@ export default function Home() {
         <Solutions />
         <InteractiveInterface />
         <Gallery />
-        <section id="contact" className="py-20 deep-space-gradient">
+        <section id="contact" className="py-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-20">
             <ContactForm />
           </div>

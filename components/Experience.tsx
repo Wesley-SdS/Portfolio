@@ -106,7 +106,7 @@ const Experience = React.memo(() => {
   ];
 
   return (
-    <section id="experience" className="w-full py-20 deep-space-gradient">
+    <section id="experience" className="w-full py-20">
       <motion.div 
         className="max-w-7xl mx-auto px-6 lg:px-20"
         initial={{ opacity: 0 }}

@@ -387,7 +387,7 @@ const Gallery: React.FC = React.memo(() => {
   };
 
   return (
-    <section id="gallery" className="py-20 deep-space-gradient relative overflow-hidden">
+    <section id="gallery" className="py-20 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full filter blur-3xl animate-pulse" />

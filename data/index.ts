@@ -14,9 +14,30 @@ export const navItems = [
 export const workExperience = [
   {
     id: 1,
+    title: "Tech Lead & Senior Software Engineer",
+    company: "REVOLUNA",
+    location: "São Paulo, Brasil (Remota)",
+    period: "Out 2025 - Presente",
+    desc: "Líder técnico em plataforma médica inovadora focada em otimização de plantões hospitalares. Responsável por arquitetura, decisões técnicas e mentoria de equipe.",
+    responsibilities: [
+      "Liderança técnica e arquitetura de sistemas",
+      "Desenvolvimento full-stack de plataforma inteligente",
+      "Implementação de agentes de IA e automações avançadas",
+      "Arquitetura de APIs robustas e integrações SaaS (Zapster)",
+      "Orquestração de workflows complexos",
+    ],
+    skills: [
+      "Next.js", "React", "TypeScript", "Node.js", "Prisma",
+      "PostgreSQL", "Supabase", "Docker", "AI Agents"
+    ],
+    thumbnail: "/revoluna_logo.jpg",
+    className: "glassmorphism",
+  },
+  {
+    id: 2,
     title: "Líder Técnico Sênior",
     company: "Adalink",
-    location: "Barueri, SP (Híbrida)",
+    location: "São Paulo, Brasil (Híbrida)",
     period: "Jun 2025 - Presente",
     desc: "Líder técnico com mais de 9 anos de experiência em desenvolvimento full stack e IA. Liderando projetos de automação inteligente e arquitetura moderna com Next.js, TypeScript, Python, Node.js e Go.",
     responsibilities: [
@@ -27,86 +48,89 @@ export const workExperience = [
       "Implementação de best practices e clean code",
     ],
     skills: [
-      "Leadership", "Architecture", "Next.js", "TypeScript", 
-      "Python", "AI/ML", "Node.js", "Team Management"
+      "Leadership", "Architecture", "Next.js", "TypeScript",
+      "Python", "AI/ML", "Node.js", "Go"
     ],
-    thumbnail: "/adalink-logo.png",
-    className: "glassmorphism",
-  },
-  {
-    id: 2,
-    title: "Programador Sênior",
-    company: "Adalink",
-    location: "Barueri, SP (Híbrida)",
-    period: "Fev 2025 - Jun 2025",
-    desc: "Desenvolvimento full stack de soluções em inteligência artificial e automação, com promoção para liderança técnica após 4 meses por desempenho excepcional.",
-    responsibilities: [
-      "Desenvolvimento de sistemas IA e automação",
-      "Integração com múltiplos serviços e APIs",
-      "Arquitetura de aplicações escaláveis",
-      "Otimização de performance e segurança",
-    ],
-    skills: [
-      "Next.js", "TypeScript", "Python", "AI/ML", "APIs"
-    ],
-    thumbnail: "/adalink-logo.png",
+    thumbnail: "/Adalink.png",
     className: "glassmorphism",
   },
   {
     id: 3,
-    title: "Desenvolvedor Full Stack",
-    company: "Love Startup",
-    location: "São Paulo (Remota)",
-    period: "Dez 2024 - Jan 2025",
-    desc: "MVP de marketplace multi-vendedor para validação de ideias, com backend Python e frontend Next.js.",
+    title: "Programador Sênior",
+    company: "Adalink",
+    location: "São Paulo, Brasil (Híbrida)",
+    period: "Fev 2025 - Jun 2025",
+    desc: "Desenvolvimento full stack de soluções em inteligência artificial e automação. Participação ativa em decisões técnicas, implementação de boas práticas e evolução da arquitetura do produto, resultando em promoção para liderança técnica.",
     responsibilities: [
-      "Desenvolvimento full stack do MVP",
-      "Arquitetura de APIs RESTful",
-      "Design de banco de dados PostgreSQL",
-      "Interface responsiva com UX otimizada",
+      "Desenvolvimento de sistemas IA e automação",
+      "Criação de sistemas escaláveis, seguros e de alta performance",
+      "Integração de serviços e APIs para otimizar fluxos de dados",
+      "Participação em decisões técnicas e evolução da arquitetura",
     ],
     skills: [
-      "Python", "Next.js", "PostgreSQL", "FastAPI", "Django"
+      "Next.js", "TypeScript", "Node.js", "Python", "APIs"
     ],
-    thumbnail: "/love-startup-logo.png",
+    thumbnail: "/Adalink.png",
     className: "glassmorphism",
   },
   {
     id: 4,
-    title: "Desenvolvedor Full Stack",
-    company: "Freelancer.com",
-    location: "São Paulo (Remota)",
-    period: "Out 2023 - Dez 2024",
-    desc: "E-commerce customizado de ponta a ponta com Next.js, Node.js, PostgreSQL e integrações completas.",
+    title: "Tech Lead & Senior Software Engineer",
+    company: "Melhor do Grão",
+    location: "São Paulo, Brasil (Remota)",
+    period: "Jan 2023 - Jul 2023",
+    desc: "Liderança técnica de equipe, definição de arquitetura de sistemas escaláveis e decisões estratégicas. Coordenação de projetos multidisciplinares: e-commerce, marketplace, ERP, módulos financeiros, gestão de estoque, integração NFe, IA e landing pages.",
     responsibilities: [
-      "Desenvolvimento completo de e-commerce",
-      "Arquitetura full stack escalável",
-      "Integração com gateways de pagamento",
-      "Painel administrativo completo",
+      "Liderança técnica de equipe",
+      "Definição de arquitetura de sistemas escaláveis",
+      "Coordenação de projetos multidisciplinares",
+      "Mentoria, code review e garantia de qualidade técnica",
+      "Integração com NFe e módulos financeiros",
     ],
     skills: [
-      "Next.js", "Node.js", "PostgreSQL", "Payment Gateway"
+      "JavaScript", "React", "TypeScript", "Node.js",
+      "Python", "PostgreSQL", "Docker", "CI/CD", "AWS"
     ],
-    thumbnail: "/freelancer-logo.png",
+    thumbnail: "/MG.png",
     className: "glassmorphism",
   },
   {
     id: 5,
-    title: "Programador Sênior",
+    title: "Full Stack Developer",
     company: "Melhor do Grão",
-    location: "São Paulo",
-    period: "Out 2015 - Out 2023",
-    desc: "8 anos evoluindo de Frontend para Full Stack e liderança técnica, desenvolvendo e-commerce, marketplace e ERP completo.",
+    location: "São Paulo, Brasil",
+    period: "Jan 2020 - Dez 2022",
+    desc: "Transição para full-stack, expandindo expertise para backend. Arquitetura de APIs robustas e integração de módulos complexos (financeiro, estoque, integração NFe). Desenvolvimento full-stack de plataforma e-commerce e marketplace.",
     responsibilities: [
-      "Evolução para Full Stack e liderança",
-      "Desenvolvimento de ERP completo",
-      "Arquitetura de e-commerce e marketplace",
-      "Integrações com sistemas financeiros",
+      "Desenvolvimento full-stack de e-commerce e marketplace",
+      "Arquitetura de APIs robustas",
+      "Integração de módulos complexos (financeiro, estoque, NFe)",
+      "Expansão de expertise para backend",
     ],
     skills: [
-      "React", "Next.js", "Node.js", "Python", "ERP Systems"
+      "JavaScript", "React", "TypeScript", "Node.js",
+      "Python", "PostgreSQL", "Docker"
     ],
-    thumbnail: "/melhor-do-grao-logo.png",
+    thumbnail: "/MG.png",
+    className: "glassmorphism",
+  },
+  {
+    id: 6,
+    title: "Frontend Developer",
+    company: "Melhor do Grão",
+    location: "São Paulo, Brasil",
+    period: "Out 2015 - Dez 2019",
+    desc: "Início da carreira como desenvolvedor frontend, evoluindo constantemente em tecnologias web modernas. Base sólida em JavaScript, React e desenvolvimento de interfaces responsivas.",
+    responsibilities: [
+      "Desenvolvimento de interfaces responsivas",
+      "Implementação de componentes React",
+      "Otimização de performance frontend",
+      "Colaboração em equipe multidisciplinar",
+    ],
+    skills: [
+      "JavaScript", "React", "HTML", "CSS", "jQuery"
+    ],
+    thumbnail: "/MG.png",
     className: "glassmorphism",
   },
 ];

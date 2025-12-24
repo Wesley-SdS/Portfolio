@@ -37,7 +37,7 @@ const Footer: React.FC = React.memo(() => {
   ];
 
   return (
-    <footer id="contact" className="relative deep-space-gradient border-t border-indigo-500/20">
+    <footer id="contact" className="relative border-t border-indigo-500/20">
       {/* Background Effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl" />

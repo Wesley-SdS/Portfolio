@@ -73,6 +73,7 @@
   "projects": {
     "title": "Projects",
     "subtitle": "Tree of innovative projects growing with my evolution as a developer. Each branch represents a new technological achievement.",
+    "searchPlaceholder": "Search projects...",
     "status": {
       "completed": "Mature",
       "inProgress": "Growing",

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from 'next-intl';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaStar, FaPlay, FaEye, FaCalendar, FaUsers, FaTrophy, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaStar, FaPlay, FaEye, FaCalendar, FaUsers, FaTrophy, FaChevronLeft, FaChevronRight, FaSearch, FaTimes } from "react-icons/fa";
 import { projectsData } from "@/src/constants/modernProjects";
 import { Project } from "@/src/types/project";
 import MagicButton from "./MagicButton";
@@ -13,8 +13,6 @@ import Image from "next/image";
 interface ProjectCardProps {
   project: Project;
   index: number;
-  hoveredProject: string | null;
-  setHoveredProject: (id: string | null) => void;
   setSelectedProject: (project: Project) => void;
   getCategoryBorder: (category: Project['category']) => string;
   getProjectIcon: (category: Project['category']) => string;
@@ -24,68 +22,53 @@ interface ProjectCardProps {
 const ProjectCard = React.memo<ProjectCardProps>(({
   project,
   index,
-  hoveredProject,
-  setHoveredProject,
   setSelectedProject,
   getCategoryBorder,
   getProjectIcon,
   t
-}) => (
-  <motion.div
-    key={project.id}
-    className="relative group"
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.1, duration: 0.4 }}
-    onMouseEnter={() => setHoveredProject(project.id)}
-    onMouseLeave={() => setHoveredProject(null)}
-  >
-    {index > 0 && (
-      <motion.div
-        className="absolute -top-4 left-1/2 w-0.5 h-4 bg-gradient-to-b from-purple-500/30 to-transparent transform -translate-x-1/2"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.15, duration: 0.3 }}
-      />
-    )}
+}) => {
+  const [isHovered, setIsHovered] = React.useState(false);
 
+  return (
     <motion.div
-      className="glassmorphism rounded-xl p-8 hover:glow-effect transition-all duration-300 relative cursor-pointer h-[480px] flex flex-col"
-      style={{ overflow: 'visible' }}
-      whileHover={{
-        y: -5,
-        scale: 1.02,
-        boxShadow: "0 20px 40px rgba(99, 102, 241, 0.3)"
-      }}
-      whileTap={{ scale: 0.98 }}
-      onClick={() => setSelectedProject(project)}
+      key={project.id}
+      className="relative group"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.4 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Barra deslizante da esquerda para direita */}
       <motion.div
-        className="absolute bottom-0 left-0 h-3 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400"
-        style={{
-          borderRadius: '0 0 0.75rem 0.75rem',
-          boxShadow: '0 -2px 12px rgba(139, 92, 246, 0.7), 0 0 20px rgba(168, 85, 247, 0.4)',
-          zIndex: 60
-        }}
-        initial={{ width: 0, opacity: 0 }}
-        animate={{ 
-          width: hoveredProject === project.id ? '100%' : 0,
-          opacity: hoveredProject === project.id ? 1 : 0
-        }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-      />
-      
-      <div className="relative flex-1 flex flex-col overflow-hidden">
-      <div className="flex gap-2 mb-6">
-          <span className={`px-3 py-1 text-xs rounded-full border ${
+        className="glassmorphism rounded-xl p-6 cursor-pointer h-[380px] flex flex-col hover:glow-effect transition-all duration-300 relative"
+        style={{ overflow: 'visible' }}
+        whileHover={{ y: -5, scale: 1.02 }}
+        onClick={() => setSelectedProject(project)}
+      >
+        {/* Barra deslizante da esquerda para direita */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-3 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400"
+          style={{
+            borderRadius: '0 0 0.75rem 0.75rem',
+            boxShadow: '0 -2px 12px rgba(139, 92, 246, 0.7), 0 0 20px rgba(168, 85, 247, 0.4)',
+            zIndex: 60
+          }}
+          initial={{ width: 0, opacity: 0 }}
+          animate={{
+            width: isHovered ? '100%' : 0,
+            opacity: isHovered ? 1 : 0
+          }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+        />
+      {/* Status badges */}
+      <div className="flex gap-2 mb-4">
+        <span className={`px-3 py-1 text-xs rounded-full border ${
           project.status === 'completed'
-            ? 'border-green-500 text-green-300 bg-green-500/10'
+            ? 'border-green-500/50 text-green-300 bg-green-500/10'
             : project.status === 'in-progress'
-            ? 'border-yellow-500 text-yellow-300 bg-yellow-500/10'
-            : 'border-blue-500 text-blue-300 bg-blue-500/10'
+            ? 'border-yellow-500/50 text-yellow-300 bg-yellow-500/10'
+            : 'border-blue-500/50 text-blue-300 bg-blue-500/10'
         }`}>
           {project.status === 'completed' ? '🌳' :
            project.status === 'in-progress' ? '🌱' : '🌰'}
@@ -96,128 +79,64 @@ const ProjectCard = React.memo<ProjectCardProps>(({
         </span>
 
         {project.featured && (
-          <span className="px-3 py-1 text-xs rounded-full border border-yellow-500 text-yellow-300 bg-yellow-500/10 flex items-center gap-1">
+          <span className="px-3 py-1 text-xs rounded-full border border-yellow-500/50 text-yellow-300 bg-yellow-500/10 flex items-center gap-1">
             <FaStar className="text-xs" />
             Estrela
           </span>
         )}
       </div>
 
-      <div className="relative mb-4">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg" />
-
-        <div className="relative flex items-center gap-3">
-          <div className={`w-12 h-12 rounded-xl border-2 ${getCategoryBorder(project.category)} flex items-center justify-center text-white text-lg shadow-lg`}>
-            {getProjectIcon(project.category)}
-          </div>
-          <div className="relative z-10">
-            <h3 className={`text-lg font-bold transition-all duration-300 ${
-              hoveredProject === project.id
-                ? 'text-transparent bg-clip-text'
-                : 'text-slate-200'
-            }`}
-            style={hoveredProject === project.id ? {
-              background: 'linear-gradient(to right, #818cf8, #a78bfa, #f472b6)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            } : {}}>
-              {project.title}
-            </h3>
-            <p className="text-xs text-slate-400">{project.category}</p>
-          </div>
+      {/* Title and icon */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className={`w-10 h-10 rounded-lg border ${getCategoryBorder(project.category)} flex items-center justify-center text-lg`}>
+          {getProjectIcon(project.category)}
+        </div>
+        <div>
+          <h3 className="text-base font-bold text-slate-200">
+            {project.title}
+          </h3>
+          <p className="text-xs text-slate-400">{project.category}</p>
         </div>
       </div>
 
-      <p className="text-slate-300 text-sm mb-4 line-clamp-2">
+      {/* Description */}
+      <p className="text-slate-300 text-sm mb-4 line-clamp-2 flex-shrink-0">
         {project.description}
       </p>
 
+      {/* Technologies */}
       <div className="mb-4">
-        <div className="text-xs text-slate-400 mb-2">Stack Tecnológico:</div>
+        <div className="text-xs text-slate-400 mb-2">Stack:</div>
         <div className="flex flex-wrap gap-1">
           {project.technologies.slice(0, 4).map((tech, techIndex) => (
-            <motion.div
+            <span
               key={techIndex}
-              className="px-2 py-1 text-xs rounded-full glassmorphism text-slate-300 border border-purple-500/20 hover:border-purple-500/40 transition-colors duration-300"
-              whileHover={{ scale: 1.1 }}
-              style={{ marginLeft: techIndex > 0 ? '-4px' : '0', zIndex: techIndex }}
+              className="px-2 py-1 text-xs rounded-full bg-slate-800/50 text-slate-300 border border-slate-700/50"
             >
               {tech}
-            </motion.div>
+            </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="px-2 py-1 text-xs rounded-full glassmorphism text-slate-400">
+            <span className="px-2 py-1 text-xs rounded-full bg-slate-800/50 text-slate-400">
               +{project.technologies.length - 4}
             </span>
           )}
         </div>
       </div>
 
+      {/* Achievement */}
       {project.achievements && project.achievements.length > 0 && (
-        <div className="mb-4">
-          <div className="text-xs text-slate-400 mb-2">Frutos:</div>
+        <div className="mt-auto">
+          <div className="text-xs text-slate-400 mb-1">Destaque:</div>
           <div className="text-xs text-slate-300 line-clamp-2">
             {project.achievements[0]}
           </div>
         </div>
       )}
-
-
-      {hoveredProject === project.id && (
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        />
-      )}
-
-      {hoveredProject === project.id && (
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-purple-400 rounded-full"
-              initial={{
-                opacity: 0,
-                scale: 0,
-                x: Math.random() * 100 - 50,
-                y: Math.random() * 100 - 50
-              }}
-              animate={{
-                opacity: [0, 1, 0],
-                scale: [0, 1.5, 0],
-                y: [0, -30, -60]
-              }}
-              transition={{
-                duration: 1.5,
-                delay: i * 0.1,
-                repeat: Infinity,
-                ease: "easeOut"
-              }}
-              style={{
-                left: `${20 + Math.random() * 60}%`,
-                top: `${20 + Math.random() * 60}%`,
-              }}
-            />
-          ))}
-        </div>
-      )}
-      </div>
+      </motion.div>
     </motion.div>
-
-    {index < projectsData.length - 1 && (
-      <motion.div
-        className="absolute -bottom-8 left-1/2 w-0.5 h-8 bg-gradient-to-b from-purple-500/30 to-transparent transform -translate-x-1/2 z-0"
-        initial={{ scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: index * 0.2, duration: 0.4 }}
-      />
-    )}
-  </motion.div>
-));
+  );
+});
 
 ProjectCard.displayName = 'ProjectCard';
 
@@ -331,7 +250,20 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ images }) => {
 const ProjectsTree: React.FC = React.memo(() => {
   const t = useTranslations('projects');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filtrar projetos baseado na busca
+  const filteredProjects = React.useMemo(() => {
+    if (!searchQuery.trim()) return projectsData;
+
+    const query = searchQuery.toLowerCase();
+    return projectsData.filter(project =>
+      project.title.toLowerCase().includes(query) ||
+      project.description.toLowerCase().includes(query) ||
+      project.technologies.some(tech => tech.toLowerCase().includes(query)) ||
+      project.category.toLowerCase().includes(query)
+    );
+  }, [searchQuery]);
 
   const getProjectIcon = React.useCallback((category: Project['category']) => {
     switch (category) {
@@ -356,7 +288,7 @@ const ProjectsTree: React.FC = React.memo(() => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 deep-space-gradient relative overflow-hidden">
+    <section id="projects" className="py-20 relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full filter blur-3xl animate-pulse" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
@@ -364,28 +296,77 @@ const ProjectsTree: React.FC = React.memo(() => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
         <motion.div
-          className="text-center mb-16"
+          className="mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="heading mb-6">
-            <span className="text-purple">{t('title')}</span>
-          </h1>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            {t('subtitle')}
-          </p>
+          {/* Header com título e busca */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+            <div className="text-center md:text-left">
+              <h1 className="heading mb-4">
+                <span className="text-purple">{t('title')}</span>
+              </h1>
+              <p className="text-lg text-slate-300 max-w-2xl">
+                {t('subtitle')}
+              </p>
+            </div>
+
+            {/* Campo de busca */}
+            <div className="relative w-full md:w-80 flex-shrink-0">
+              <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 text-sm" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={t('searchPlaceholder') || 'Buscar projetos...'}
+                className="w-full pl-11 pr-10 py-3 rounded-xl glassmorphism border border-indigo-500/20 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-purple-500/40 transition-colors text-sm"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-200 transition-colors"
+                >
+                  <FaTimes className="text-sm" />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Contador de resultados */}
+          {searchQuery && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center md:text-left mb-4"
+            >
+              <span className="text-sm text-slate-400">
+                {filteredProjects.length} {filteredProjects.length === 1 ? 'projeto encontrado' : 'projetos encontrados'}
+                {searchQuery && <span className="text-purple-400"> para "{searchQuery}"</span>}
+              </span>
+            </motion.div>
+          )}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {projectsData.map((project, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {filteredProjects.length === 0 ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="col-span-full text-center py-16"
+            >
+              <div className="glassmorphism rounded-xl p-8 max-w-md mx-auto">
+                <FaSearch className="text-4xl text-slate-500 mx-auto mb-4" />
+                <p className="text-slate-400 text-lg mb-2">Nenhum projeto encontrado</p>
+                <p className="text-slate-500 text-sm">Tente buscar por outro termo</p>
+              </div>
+            </motion.div>
+          ) : filteredProjects.map((project, index) => (
             <ProjectCard
               key={project.id}
               project={project}
               index={index}
-              hoveredProject={hoveredProject}
-              setHoveredProject={setHoveredProject}
               setSelectedProject={setSelectedProject}
               getCategoryBorder={getCategoryBorder}
               getProjectIcon={getProjectIcon}

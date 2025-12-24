@@ -16,12 +16,12 @@ const Hero = React.memo(() => {
   const t = useTranslations('hero');
 
   return (
-    <section id="home" className="relative min-h-screen deep-space-gradient overflow-hidden w-full">
+    <section id="home" className="relative min-h-screen overflow-hidden w-full">
       {/* Background Effects */}
       <div className="absolute inset-0 w-full">
         {/* 3D Galaxy Background */}
         <DigitalGalaxy className="absolute inset-0 w-full h-full opacity-60" />
-        
+
         {/* Additional gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
@@ -124,7 +124,7 @@ const Hero = React.memo(() => {
                   const element = document.getElementById('projects');
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-8 py-3 rounded-lg glassmorphism text-slate-300 font-medium border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center gap-2"
+                className="h-12 px-8 rounded-xl glassmorphism text-slate-300 font-medium text-sm border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >

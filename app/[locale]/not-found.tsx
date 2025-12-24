@@ -6,7 +6,7 @@ import { FaRocket } from 'react-icons/fa';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen deep-space-gradient flex items-center justify-center px-6">
+    <div className="min-h-screen bg-slate-950 flex items-center justify-center px-6">
       <motion.div
         className="text-center max-w-2xl mx-auto"
         initial={{ opacity: 0, y: 20 }}

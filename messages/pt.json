@@ -73,6 +73,7 @@
   "projects": {
     "title": "Projetos",
     "subtitle": "Árvore de projetos inovadores crescendo com minha evolução como desenvolvedor. Cada galho representa uma nova conquista tecnológica.",
+    "searchPlaceholder": "Buscar projetos...",
     "status": {
       "completed": "Maduro",
       "inProgress": "Crescendo",

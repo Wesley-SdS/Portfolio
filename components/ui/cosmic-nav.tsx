@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "@/src/components/ui/ThemeToggle";
-import { SearchBar } from "@/components/SearchBar";
 
 interface NavItem {
   name: string;
@@ -23,6 +22,15 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("");
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
+    e.preventDefault();
+    const sectionId = link.replace("#", "");
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
@@ -139,11 +147,12 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
                 >
                   <Link
                     href={item.link}
+                    onClick={(e) => handleNavClick(e, item.link)}
                     className={cn(
                       "relative block px-2 md:px-3 py-2 text-xs md:text-sm font-medium transition-all duration-300",
                       "flex items-center gap-1.5 md:gap-2 whitespace-nowrap z-10",
-                      isActive 
-                        ? "text-indigo-300" 
+                      isActive
+                        ? "text-indigo-300"
                         : "text-slate-400 hover:text-indigo-200"
                     )}
                   >
@@ -166,9 +175,6 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
               );
             })}
             <div className="flex-shrink-0 ml-2 border-l border-indigo-500/20 pl-2 flex items-center gap-2">
-              <div className="hidden md:block w-48">
-                <SearchBar />
-              </div>
               <LanguageSwitcher />
               <ThemeToggle />
             </div>

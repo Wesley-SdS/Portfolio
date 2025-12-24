@@ -105,7 +105,7 @@ const Solutions: React.FC = React.memo(() => {
   ];
 
   return (
-    <section id="solutions" className="py-20 deep-space-gradient">
+    <section id="solutions" className="py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-20">
         <motion.div 
           className="text-center mb-16"

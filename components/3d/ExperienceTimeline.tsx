@@ -30,6 +30,15 @@ const ExperienceTimeline: React.FC = React.memo(() => {
   const experiences: ExperienceNode[] = useMemo(() => [
     {
       id: 1,
+      title: "Tech Lead",
+      company: "REVOLUNA",
+      period: "Out 2025 - Presente",
+      description: "Plataforma médica para otimização de plantões",
+      position: { x: 250, y: 80 },
+      color: "#8B5CF6"
+    },
+    {
+      id: 2,
       title: "Líder Técnico Sênior",
       company: "Adalink",
       period: "Jun 2025 - Presente",
@@ -38,40 +47,40 @@ const ExperienceTimeline: React.FC = React.memo(() => {
       color: "#6366F1"
     },
     {
-      id: 2,
+      id: 3,
       title: "Programador Sênior",
       company: "Adalink",
       period: "Fev 2025 - Jun 2025",
       description: "Desenvolvimento full stack de soluções em IA",
       position: { x: 150, y: 200 },
-      color: "#8B5CF6"
-    },
-    {
-      id: 3,
-      title: "Desenvolvedor Full Stack",
-      company: "Love Startup",
-      period: "Dez 2024 - Jan 2025",
-      description: "MVP de marketplace multi-vendedor",
-      position: { x: 100, y: 300 },
-      color: "#EC4899"
+      color: "#818CF8"
     },
     {
       id: 4,
-      title: "Desenvolvedor Full Stack",
-      company: "Freelancer.com",
-      period: "Out 2023 - Dez 2024",
-      description: "E-commerce customizado de ponta a ponta",
-      position: { x: 50, y: 400 },
-      color: "#F59E0B"
+      title: "Tech Lead",
+      company: "Melhor do Grão",
+      period: "Jan 2023 - Jul 2023",
+      description: "Liderança técnica e arquitetura de sistemas",
+      position: { x: 100, y: 300 },
+      color: "#10B981"
     },
     {
       id: 5,
-      title: "Programador Sênior",
+      title: "Full Stack Developer",
       company: "Melhor do Grão",
-      period: "Out 2015 - Out 2023",
+      period: "Jan 2020 - Dez 2022",
       description: "E-commerce, marketplace e ERP completo",
+      position: { x: 50, y: 400 },
+      color: "#34D399"
+    },
+    {
+      id: 6,
+      title: "Frontend Developer",
+      company: "Melhor do Grão",
+      period: "Out 2015 - Dez 2019",
+      description: "Desenvolvimento de interfaces responsivas",
       position: { x: 0, y: 500 },
-      color: "#10B981"
+      color: "#6EE7B7"
     }
   ], []);
 
@@ -103,7 +112,7 @@ const ExperienceTimeline: React.FC = React.memo(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d', { alpha: false });
+    const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
     const updateCanvas = () => {
@@ -134,9 +143,8 @@ const ExperienceTimeline: React.FC = React.memo(() => {
 
       const centerY = canvas.height / 2;
 
-      // Clear com cor de fundo (mais rápido para canvas opaco)
-      ctx.fillStyle = '#0f172a';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Clear com transparência
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Draw DNA-like helix structure (otimizado)
       ctx.strokeStyle = 'rgba(99, 102, 241, 0.2)';

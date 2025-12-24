@@ -73,6 +73,7 @@
   "projects": {
     "title": "Proyectos",
     "subtitle": "Árbol de proyectos innovadores creciendo con mi evolución como desarrollador. Cada rama representa una nueva conquista tecnológica.",
+    "searchPlaceholder": "Buscar proyectos...",
     "status": {
       "completed": "Maduro",
       "inProgress": "Creciendo",

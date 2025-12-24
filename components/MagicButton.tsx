@@ -19,7 +19,7 @@ const MagicButton = ({
 }) => {
   return (
     <button
-      className={`relative inline-flex h-12 w-full overflow-hidden rounded-xl p-[1px] focus:outline-none md:mt-10 md:w-60 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+      className={`relative inline-flex h-12 overflow-hidden rounded-xl p-[1px] focus:outline-none ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       onClick={onClick}
       type={type}
       disabled={disabled}

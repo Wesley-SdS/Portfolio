@@ -1,17 +1,26 @@
 "use client";
 import React from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from 'next-intl';
 import MagicButton from "./MagicButton";
 import { FaRocket, FaCode } from "react-icons/fa";
 
+const InteractiveBackground = dynamic(
+  () => import("@/components/ui/InteractiveBackground"),
+  { ssr: false }
+);
+
 const AboutMe: React.FC = React.memo(() => {
   const t = useTranslations('about');
 
   return (
-    <section id="about" className="py-20 px-6 lg:px-20 deep-space-gradient w-full">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="relative py-20 px-6 lg:px-20 w-full overflow-hidden section-fade-top section-fade-bottom">
+      {/* Background 3D interativo apenas nesta seção */}
+      <InteractiveBackground />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <motion.h2 
           className="heading mb-16"
           initial={{ opacity: 0, y: 20 }}

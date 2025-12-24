@@ -63,3 +63,5 @@ export function searchAll(query: string): SearchResult[] {
   return projectResults;
 }
 
+
+

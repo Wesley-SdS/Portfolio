@@ -87,3 +87,5 @@ export const SearchBar: React.FC = React.memo(() => {
 
 SearchBar.displayName = 'SearchBar';
 
+
+

@@ -570,24 +570,33 @@ const Gallery: React.FC = React.memo(() => {
           onClick={closeLightbox}
         >
           <motion.div
-            className="relative max-w-6xl max-h-[90vh] mx-auto"
+            className="relative w-full h-full max-w-[90vw] max-h-[90vh] flex items-center justify-center"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.3 }}
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
-              src={lightboxImage}
-              alt="Gallery image"
-              fill
-              sizes="90vw"
-              className="object-contain rounded-xl"
-              quality={90}
-            />
+            <div className="relative w-full h-full max-w-full max-h-full flex items-center justify-center">
+              <Image
+                src={lightboxImage}
+                alt="Gallery image"
+                width={1920}
+                height={1080}
+                className="object-contain rounded-xl"
+                quality={90}
+                style={{ 
+                  maxWidth: '90vw', 
+                  maxHeight: '90vh', 
+                  width: 'auto', 
+                  height: 'auto',
+                  objectFit: 'contain'
+                }}
+              />
+            </div>
             
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full glassmorphism text-slate-300 hover:text-white flex items-center justify-center transition-colors duration-300"
+              className="absolute top-4 right-4 w-10 h-10 rounded-full glassmorphism text-slate-300 hover:text-white flex items-center justify-center transition-colors duration-300 z-10"
             >
               ✕
             </button>

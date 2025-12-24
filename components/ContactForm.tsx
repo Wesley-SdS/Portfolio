@@ -174,5 +174,3 @@ export const ContactForm: React.FC = React.memo(() => {
 
 ContactForm.displayName = 'ContactForm';
 
-export default ContactForm;
-

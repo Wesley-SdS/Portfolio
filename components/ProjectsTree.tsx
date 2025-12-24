@@ -1,11 +1,14 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from 'next-intl';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaStar, FaPlay, FaEye } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaStar, FaPlay, FaEye, FaCalendar, FaUsers, FaTrophy, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { projectsData } from "@/src/constants/modernProjects";
 import { Project } from "@/src/types/project";
 import MagicButton from "./MagicButton";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;
@@ -49,7 +52,8 @@ const ProjectCard = React.memo<ProjectCardProps>(({
     )}
 
     <motion.div
-      className="glassmorphism rounded-xl p-8 hover:glow-effect transition-all duration-300 relative overflow-hidden cursor-pointer h-[480px] flex flex-col"
+      className="glassmorphism rounded-xl p-8 hover:glow-effect transition-all duration-300 relative cursor-pointer h-[480px] flex flex-col"
+      style={{ overflow: 'visible' }}
       whileHover={{
         y: -5,
         scale: 1.02,
@@ -58,6 +62,23 @@ const ProjectCard = React.memo<ProjectCardProps>(({
       whileTap={{ scale: 0.98 }}
       onClick={() => setSelectedProject(project)}
     >
+      {/* Barra deslizante da esquerda para direita */}
+      <motion.div
+        className="absolute bottom-0 left-0 h-3 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400"
+        style={{
+          borderRadius: '0 0 0.75rem 0.75rem',
+          boxShadow: '0 -2px 12px rgba(139, 92, 246, 0.7), 0 0 20px rgba(168, 85, 247, 0.4)',
+          zIndex: 60
+        }}
+        initial={{ width: 0, opacity: 0 }}
+        animate={{ 
+          width: hoveredProject === project.id ? '100%' : 0,
+          opacity: hoveredProject === project.id ? 1 : 0
+        }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+      />
+      
+      <div className="relative flex-1 flex flex-col overflow-hidden">
       <div className="flex gap-2 mb-6">
           <span className={`px-3 py-1 text-xs rounded-full border ${
           project.status === 'completed'
@@ -89,8 +110,18 @@ const ProjectCard = React.memo<ProjectCardProps>(({
           <div className={`w-12 h-12 rounded-xl border-2 ${getCategoryBorder(project.category)} flex items-center justify-center text-white text-lg shadow-lg`}>
             {getProjectIcon(project.category)}
           </div>
-          <div>
-            <h3 className="text-lg font-bold text-slate-200 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+          <div className="relative z-10">
+            <h3 className={`text-lg font-bold transition-all duration-300 ${
+              hoveredProject === project.id
+                ? 'text-transparent bg-clip-text'
+                : 'text-slate-200'
+            }`}
+            style={hoveredProject === project.id ? {
+              background: 'linear-gradient(to right, #818cf8, #a78bfa, #f472b6)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            } : {}}>
               {project.title}
             </h3>
             <p className="text-xs text-slate-400">{project.category}</p>
@@ -151,7 +182,7 @@ const ProjectCard = React.memo<ProjectCardProps>(({
 
       {hoveredProject === project.id && (
         <motion.div
-          className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -189,6 +220,7 @@ const ProjectCard = React.memo<ProjectCardProps>(({
           ))}
         </div>
       )}
+      </div>
     </motion.div>
 
     {index < projectsData.length - 1 && (
@@ -204,6 +236,113 @@ const ProjectCard = React.memo<ProjectCardProps>(({
 ));
 
 ProjectCard.displayName = 'ProjectCard';
+
+// Componente de Carrossel
+interface ProjectCarouselProps {
+  images: Project['images'];
+}
+
+const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000); // Muda a cada 4 segundos
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  return (
+    <div className="flex justify-center w-full">
+      <div className="relative w-full max-w-[70%] mx-auto">
+        <div className="relative rounded-xl overflow-hidden glassmorphism border border-purple-500/20 bg-slate-900/50 inline-block w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="relative w-full flex items-center justify-center"
+            >
+              <div className="relative w-full" style={{ maxHeight: '70vh' }}>
+                <Image
+                  src={images[currentIndex].src}
+                  alt={images[currentIndex].alt}
+                  width={1920}
+                  height={1080}
+                  className="object-contain w-full h-auto max-h-[70vh]"
+                  style={{ width: '100%', height: 'auto' }}
+                  priority={currentIndex === 0}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Botões de Navegação */}
+          {images.length > 1 && (
+            <>
+              <button
+                onClick={goToPrevious}
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glassmorphism text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 z-20 hover:scale-110"
+                aria-label="Imagem anterior"
+              >
+                <FaChevronLeft />
+              </button>
+              <button
+                onClick={goToNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glassmorphism text-slate-300 hover:text-white flex items-center justify-center transition-all duration-300 z-20 hover:scale-110"
+                aria-label="Próxima imagem"
+              >
+                <FaChevronRight />
+              </button>
+            </>
+          )}
+
+          {/* Indicadores */}
+          {images.length > 1 && (
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-purple-400 w-8'
+                      : 'bg-slate-500/50 hover:bg-slate-400'
+                  }`}
+                  aria-label={`Ir para imagem ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Contador de Imagens */}
+          {images.length > 1 && (
+            <div className="absolute top-4 right-4 px-3 py-1 rounded-full glassmorphism text-xs text-slate-300 border border-purple-500/20 z-20">
+              {currentIndex + 1} / {images.length}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ProjectsTree: React.FC = React.memo(() => {
   const t = useTranslations('projects');
@@ -375,29 +514,185 @@ const ProjectsTree: React.FC = React.memo(() => {
                 </motion.button>
               </div>
 
-              {selectedProject && (
-                <motion.div
-                  className="mt-6 p-6 glassmorphism rounded-xl border border-purple-500/20"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-8 h-8 rounded-lg border-2 border-purple-500 flex items-center justify-center text-white">
-                      {getProjectIcon(selectedProject.category)}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-slate-200">{selectedProject.title}</h3>
-                      <p className="text-xs text-slate-400">{selectedProject.category}</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-slate-300 line-clamp-3">{selectedProject.description}</p>
-                </motion.div>
-              )}
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* Modal de Detalhes do Projeto */}
+      <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] w-full glassmorphism border-purple-500/20 p-0 overflow-hidden">
+          {selectedProject && (
+            <>
+              <DialogHeader className="p-6 border-b border-purple-500/20">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-4 flex-1">
+                    <div className={`w-16 h-16 rounded-xl border-2 ${getCategoryBorder(selectedProject.category)} flex items-center justify-center text-white text-2xl shadow-lg`}>
+                      {getProjectIcon(selectedProject.category)}
+                    </div>
+                    <div className="flex-1">
+                      <DialogTitle className="text-2xl font-bold text-slate-200 mb-2">
+                        {selectedProject.title}
+                      </DialogTitle>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="px-3 py-1 text-xs rounded-full border border-purple-500/30 text-purple-300 bg-purple-500/10">
+                          {selectedProject.category}
+                        </span>
+                        <span className={`px-3 py-1 text-xs rounded-full border ${
+                          selectedProject.status === 'completed'
+                            ? 'border-green-500 text-green-300 bg-green-500/10'
+                            : selectedProject.status === 'in-progress'
+                            ? 'border-yellow-500 text-yellow-300 bg-yellow-500/10'
+                            : 'border-blue-500 text-blue-300 bg-blue-500/10'
+                        }`}>
+                          {selectedProject.status === 'completed' ? '🌳 ' + t('status.completed') :
+                           selectedProject.status === 'in-progress' ? '🌱 ' + t('status.inProgress') : '🌰 ' + t('status.planned')}
+                        </span>
+                        {selectedProject.featured && (
+                          <span className="px-3 py-1 text-xs rounded-full border border-yellow-500 text-yellow-300 bg-yellow-500/10 flex items-center gap-1">
+                            <FaStar className="text-xs" />
+                            Estrela
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </DialogHeader>
+
+              <ScrollArea className="h-[calc(95vh-120px)]">
+                <div className="p-6 space-y-6">
+                  {/* Carrossel de Imagens */}
+                  {selectedProject.images && selectedProject.images.length > 0 && (
+                    <ProjectCarousel images={selectedProject.images} />
+                  )}
+
+                  {/* Descrição Completa */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-200 mb-3">Descrição</h3>
+                    <p className="text-slate-300 leading-relaxed">
+                      {selectedProject.longDescription || selectedProject.description}
+                    </p>
+                  </div>
+
+                  {/* Stack Tecnológico */}
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-200 mb-3">Stack Tecnológico</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-3 py-1 text-sm rounded-full glassmorphism text-slate-300 border border-purple-500/20 hover:border-purple-500/40 transition-colors duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Achievements */}
+                  {selectedProject.achievements && selectedProject.achievements.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                        <FaTrophy className="text-yellow-400" />
+                        Achievements
+                      </h3>
+                      <ul className="space-y-2">
+                        {selectedProject.achievements.map((achievement, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-slate-300">
+                            <span className="text-purple-400 mt-1">▸</span>
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Métricas */}
+                  {selectedProject.metrics && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-200 mb-3">Métricas</h3>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {selectedProject.metrics.customMetric && selectedProject.metrics.customMetric.map((metric, idx) => (
+                          <div key={idx} className="glassmorphism rounded-lg p-4 border border-purple-500/20">
+                            <div className="text-2xl font-bold text-purple-400 mb-1">{metric.value}</div>
+                            <div className="text-xs text-slate-400">{metric.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Informações Adicionais */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {selectedProject.startDate && (
+                      <div className="glassmorphism rounded-lg p-4 border border-purple-500/20">
+                        <div className="flex items-center gap-2 text-slate-400 mb-2">
+                          <FaCalendar className="text-sm" />
+                          <span className="text-xs">Início</span>
+                        </div>
+                        <div className="text-slate-200 font-semibold">
+                          {new Date(selectedProject.startDate).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long' })}
+                        </div>
+                      </div>
+                    )}
+                    {selectedProject.endDate && (
+                      <div className="glassmorphism rounded-lg p-4 border border-purple-500/20">
+                        <div className="flex items-center gap-2 text-slate-400 mb-2">
+                          <FaCalendar className="text-sm" />
+                          <span className="text-xs">Conclusão</span>
+                        </div>
+                        <div className="text-slate-200 font-semibold">
+                          {new Date(selectedProject.endDate).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long' })}
+                        </div>
+                      </div>
+                    )}
+                    {selectedProject.teamSize && (
+                      <div className="glassmorphism rounded-lg p-4 border border-purple-500/20">
+                        <div className="flex items-center gap-2 text-slate-400 mb-2">
+                          <FaUsers className="text-sm" />
+                          <span className="text-xs">Equipe</span>
+                        </div>
+                        <div className="text-slate-200 font-semibold">{selectedProject.teamSize} {selectedProject.teamSize === 1 ? 'pessoa' : 'pessoas'}</div>
+                      </div>
+                    )}
+                  </div>
+
+                  {selectedProject.role && (
+                    <div className="glassmorphism rounded-lg p-4 border border-purple-500/20">
+                      <div className="text-xs text-slate-400 mb-1">Função</div>
+                      <div className="text-slate-200 font-semibold">{selectedProject.role}</div>
+                    </div>
+                  )}
+
+                  {/* Links */}
+                  {selectedProject.links && selectedProject.links.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-semibold text-slate-200 mb-3">Links</h3>
+                      <div className="flex flex-wrap gap-3">
+                        {selectedProject.links.map((link, linkIndex) => (
+                          <motion.a
+                            key={linkIndex}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 rounded-lg glassmorphism text-slate-200 border border-indigo-500/20 hover:bg-indigo-500/10 hover:border-indigo-500/40 transition-all duration-300 flex items-center gap-2"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            {link.type === 'github' ? <FaGithub /> : <FaExternalLinkAlt />}
+                            <span>{link.label}</span>
+                          </motion.a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </ScrollArea>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 });

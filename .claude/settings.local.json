@@ -7,7 +7,9 @@
       "Bash(pnpm build:*)",
       "Bash(tree:*)",
       "Bash(cat:*)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(NODE_OPTIONS='--stack-trace-limit=100' pnpm build:*)",
+      "Bash(pnpm next build:*)"
     ],
     "deny": [],
     "ask": []

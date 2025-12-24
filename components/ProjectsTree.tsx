@@ -343,7 +343,7 @@ const ProjectsTree: React.FC = React.memo(() => {
             >
               <span className="text-sm text-muted-foreground">
                 {filteredProjects.length} {filteredProjects.length === 1 ? 'projeto encontrado' : 'projetos encontrados'}
-                {searchQuery && <span className="text-purple-500 dark:text-purple-400"> para "{searchQuery}"</span>}
+                {searchQuery && <span className="text-purple-500 dark:text-purple-400"> para &quot;{searchQuery}&quot;</span>}
               </span>
             </motion.div>
           )}

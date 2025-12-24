@@ -239,40 +239,40 @@ const ExperienceTimeline: React.FC = React.memo(() => {
   }, [experiences, hoveredNode, isVisible, helixCache]);
 
   return (
-    <div className="relative w-full h-96 mb-8">
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
-        style={{ cursor: hoveredNode ? 'pointer' : 'default' }}
-      />
-      
-      {/* Experience Cards Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto p-4">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={exp.id}
-              className="glassmorphism rounded-lg p-4 hover:glow-effect transition-all duration-300 cursor-pointer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              onMouseEnter={() => setHoveredNode(exp.id)}
-              onMouseLeave={() => setHoveredNode(null)}
-              whileHover={{ y: -5 }}
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <div
-                  className="w-3 h-3 rounded-full"
-                  style={{ backgroundColor: exp.color }}
-                />
-                <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{exp.title}</h4>
-              </div>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mb-1">{exp.company}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-500 mb-2">{exp.period}</p>
-              <p className="text-xs text-slate-700 dark:text-slate-300 line-clamp-2">{exp.description}</p>
-            </motion.div>
-          ))}
-        </div>
+    <div className="w-full mb-8">
+      {/* Experience Cards - Em cima */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto p-4">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={exp.id}
+            className="glassmorphism rounded-lg p-4 hover:glow-effect transition-all duration-300 cursor-pointer"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            onMouseEnter={() => setHoveredNode(exp.id)}
+            onMouseLeave={() => setHoveredNode(null)}
+            whileHover={{ y: -5 }}
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <div
+                className="w-3 h-3 rounded-full"
+                style={{ backgroundColor: exp.color }}
+              />
+              <h4 className="font-semibold text-white text-sm">{exp.title}</h4>
+            </div>
+            <p className="text-xs text-slate-300 mb-1">{exp.company}</p>
+            <p className="text-xs text-slate-400 mb-2">{exp.period}</p>
+            <p className="text-xs text-slate-200 line-clamp-2">{exp.description}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* DNA Animation - Abaixo dos cards */}
+      <div className="relative w-full h-40 mt-8">
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full"
+        />
       </div>
     </div>
   );

@@ -83,7 +83,7 @@ const Hero = React.memo(() => {
             
             {/* Subtitle */}
             <motion.p
-              className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 mb-6 font-light"
+              className="text-xl md:text-2xl text-slate-200 mb-6 font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 1 }}
@@ -93,7 +93,7 @@ const Hero = React.memo(() => {
 
             {/* Description */}
             <motion.p
-              className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
@@ -124,7 +124,7 @@ const Hero = React.memo(() => {
                   const element = document.getElementById('projects');
                   element?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="h-12 px-8 rounded-xl glassmorphism text-slate-700 dark:text-slate-300 font-medium text-sm border border-slate-400/30 dark:border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-all duration-300 flex items-center justify-center gap-2"
+                className="h-12 px-8 rounded-xl glassmorphism text-white font-medium text-sm border border-purple-500/30 hover:bg-primary/10 hover:border-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -143,7 +143,7 @@ const Hero = React.memo(() => {
               {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'AI/ML'].map((tech, index) => (
                 <motion.span
                   key={tech}
-                  className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-700 dark:text-slate-300 border border-slate-400/30 dark:border-primary/20 hover:border-purple-500/40 hover:bg-purple-500/10 transition-all duration-300"
+                  className="px-4 py-2 rounded-full glassmorphism text-sm text-white border border-purple-500/30 hover:border-purple-500/50 hover:bg-purple-500/10 transition-all duration-300"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.4 + index * 0.1, duration: 0.5 }}
@@ -162,16 +162,16 @@ const Hero = React.memo(() => {
               transition={{ delay: 1.6, duration: 1 }}
             >
               <div className="text-center mb-10">
-                <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">9+</div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">{t('stats.experience')}</div>
+                <div className="text-3xl font-bold text-purple-400 mb-2">9+</div>
+                <div className="text-slate-300 text-sm">{t('stats.experience')}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">50+</div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">{t('stats.projects')}</div>
+                <div className="text-3xl font-bold text-blue-400 mb-2">50+</div>
+                <div className="text-slate-300 text-sm">{t('stats.projects')}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">100%</div>
-                <div className="text-slate-600 dark:text-slate-400 text-sm">{t('stats.quality')}</div>
+                <div className="text-3xl font-bold text-green-400 mb-2">100%</div>
+                <div className="text-slate-300 text-sm">{t('stats.quality')}</div>
               </div>
             </motion.div>
           </motion.div>

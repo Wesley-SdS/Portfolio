@@ -69,7 +69,7 @@ const AboutMe: React.FC = React.memo(() => {
                 t('tags.leadership'),
                 t('tags.fullstack')
               ].map((tag) => (
-                <span key={tag} className="px-4 py-2 rounded-full glassmorphism text-sm text-slate-700 dark:text-slate-300 border border-slate-300/30 dark:border-transparent">
+                <span key={tag} className="px-4 py-2 rounded-full glassmorphism text-sm text-white border border-purple-500/30">
                   {tag}
                 </span>
               ))}
@@ -104,7 +104,7 @@ const AboutMe: React.FC = React.memo(() => {
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Next.js', 'TypeScript', 'Python', 'React', 'Node.js', 'PostgreSQL'].map((tech) => (
-                  <span key={tech} className="text-xs px-3 py-1 bg-primary/20 text-indigo-700 dark:text-indigo-300 rounded-full">
+                  <span key={tech} className="text-xs px-3 py-1 bg-purple-500/20 text-white rounded-full border border-purple-500/30">
                     {tech}
                   </span>
                 ))}

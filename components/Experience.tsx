@@ -200,7 +200,7 @@ const Experience = React.memo(() => {
                 <p className="text-sm text-foreground/80 mb-4">{card.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {card.skills?.slice(0, 3).map((tech, i) => (
-                    <span key={i} className="text-xs px-2 py-1 bg-primary/20 text-indigo-700 dark:text-indigo-300 rounded-full">
+                    <span key={i} className="text-xs px-2 py-1 bg-purple-500/20 text-white rounded-full border border-purple-500/30">
                       {tech}
                     </span>
                   ))}
@@ -294,7 +294,7 @@ const Experience = React.memo(() => {
                   <p className="text-foreground/80 mb-4">{card.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {card.skills?.map((tech, i) => (
-                      <span key={i} className="px-3 py-1 bg-primary/20 text-indigo-700 dark:text-indigo-300 rounded-full text-sm">
+                      <span key={i} className="px-3 py-1 bg-purple-500/20 text-white rounded-full text-sm border border-purple-500/30">
                         {tech}
                       </span>
                     ))}

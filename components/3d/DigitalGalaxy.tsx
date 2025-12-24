@@ -1,6 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { debounce } from '@/lib/utils/debounce';
 
 interface TechPlanet {
@@ -12,19 +11,27 @@ interface TechPlanet {
   initialAngle: number;
 }
 
+// Configurações de performance
+const TARGET_FPS = 30;
+const FRAME_INTERVAL = 1000 / TARGET_FPS;
+
 const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const lastFrameTimeRef = useRef<number>(0);
+  const timeRef = useRef<number>(0);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [isVisible, setIsVisible] = useState(false);
 
-  const technologies: TechPlanet[] = [
+  // Memoizar tecnologias para evitar recriação
+  const technologies: TechPlanet[] = useMemo(() => [
     { name: 'React', color: '#61DAFB', size: 0.8, orbitRadius: 120, orbitSpeed: 0.5, initialAngle: 0 },
     { name: 'Next.js', color: '#000000', size: 0.7, orbitRadius: 160, orbitSpeed: 0.3, initialAngle: 45 },
     { name: 'TypeScript', color: '#3178C6', size: 0.6, orbitRadius: 200, orbitSpeed: 0.2, initialAngle: 90 },
     { name: 'Node.js', color: '#339933', size: 0.7, orbitRadius: 140, orbitSpeed: 0.4, initialAngle: 180 },
     { name: 'Python', color: '#3776AB', size: 0.7, orbitRadius: 180, orbitSpeed: 0.25, initialAngle: 270 },
     { name: 'PostgreSQL', color: '#336791', size: 0.5, orbitRadius: 220, orbitSpeed: 0.15, initialAngle: 135 },
-  ];
+  ], []);
 
   const debouncedResize = useMemo(
     () => debounce(() => {
@@ -62,86 +69,92 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
     return () => observer.disconnect();
   }, []);
 
+  // Memoizar estrelas para evitar recriação a cada frame
+  const stars = useMemo(() => {
+    const starsCount = dimensions.width > 768 ? 50 : 25; // Reduzido de 80/40
+    return Array.from({ length: starsCount }, () => ({
+      x: Math.random() * dimensions.width,
+      y: Math.random() * dimensions.height,
+      size: Math.random() * 2,
+      brightness: Math.random()
+    }));
+  }, [dimensions.width, dimensions.height]);
+
+  // Cache do gradiente central
+  const coreGradientRef = useRef<CanvasGradient | null>(null);
+
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !isVisible) return;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
     canvas.width = dimensions.width;
     canvas.height = dimensions.height;
 
-    let animationId: number;
-    let time = 0;
+    const centerX = dimensions.width / 2;
+    const centerY = dimensions.height / 2;
 
-    // Background stars
-    const starsCount = dimensions.width > 768 ? 80 : 40;
-    const stars: Array<{ x: number; y: number; size: number; brightness: number }> = [];
-    for (let i = 0; i < starsCount; i++) {
-      stars.push({
-        x: Math.random() * dimensions.width,
-        y: Math.random() * dimensions.height,
-        size: Math.random() * 2,
-        brightness: Math.random()
-      });
-    }
+    // Cache do gradiente central (criado apenas uma vez)
+    coreGradientRef.current = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 30);
+    coreGradientRef.current.addColorStop(0, '#6366F1');
+    coreGradientRef.current.addColorStop(0.5, '#8B5CF6');
+    coreGradientRef.current.addColorStop(1, 'rgba(139, 92, 246, 0)');
 
-    const animate = () => {
-      // Pause animation if not visible
+    const animate = (currentTime: number) => {
+      // Parar animação se não estiver visível
       if (!isVisible) {
+        animationRef.current = null;
         return;
       }
 
+      // Throttle para TARGET_FPS
+      const elapsed = currentTime - lastFrameTimeRef.current;
+      if (elapsed < FRAME_INTERVAL) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrameTimeRef.current = currentTime - (elapsed % FRAME_INTERVAL);
+
+      // Clear com fillRect (mais rápido que clearRect para canvas opaco)
       ctx.fillStyle = '#0A0E1A';
       ctx.fillRect(0, 0, dimensions.width, dimensions.height);
 
-      // Draw stars
+      // Draw stars (batch drawing)
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
       stars.forEach(star => {
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.brightness * 0.8})`;
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      const centerX = dimensions.width / 2;
-      const centerY = dimensions.height / 2;
-
-      // Draw orbit paths
+      // Draw orbit paths (uma única cor, batch)
+      ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
+      ctx.lineWidth = 1;
       technologies.forEach(tech => {
-        ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
-        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(centerX, centerY, tech.orbitRadius, 0, Math.PI * 2);
         ctx.stroke();
       });
 
-      // Draw center core
-      const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 30);
-      gradient.addColorStop(0, '#6366F1');
-      gradient.addColorStop(0.5, '#8B5CF6');
-      gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, 30, 0, Math.PI * 2);
-      ctx.fill();
+      // Draw center core (usando gradiente cacheado)
+      if (coreGradientRef.current) {
+        ctx.fillStyle = coreGradientRef.current;
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, 30, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
       // Draw tech planets
-      technologies.forEach((tech, index) => {
-        const angle = (time * tech.orbitSpeed + tech.initialAngle) * Math.PI / 180;
+      ctx.font = '12px sans-serif';
+      ctx.textAlign = 'center';
+      technologies.forEach((tech) => {
+        const angle = (timeRef.current * tech.orbitSpeed + tech.initialAngle) * Math.PI / 180;
         const x = centerX + Math.cos(angle) * tech.orbitRadius;
         const y = centerY + Math.sin(angle) * tech.orbitRadius;
 
-        // Planet glow
-        const glowGradient = ctx.createRadialGradient(x, y, 0, x, y, tech.size * 20);
-        glowGradient.addColorStop(0, tech.color + '40');
-        glowGradient.addColorStop(1, 'transparent');
-        ctx.fillStyle = glowGradient;
-        ctx.beginPath();
-        ctx.arc(x, y, tech.size * 20, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Planet
+        // Planet (sem glow para performance - simplificado)
         ctx.fillStyle = tech.color;
         ctx.beginPath();
         ctx.arc(x, y, tech.size * 10, 0, Math.PI * 2);
@@ -149,25 +162,25 @@ const DigitalGalaxy: React.FC<{ className?: string }> = ({ className }) => {
 
         // Tech label
         ctx.fillStyle = '#ffffff';
-        ctx.font = '12px sans-serif';
-        ctx.textAlign = 'center';
         ctx.fillText(tech.name, x, y + tech.size * 10 + 15);
       });
 
-      time += 1;
-      if (isVisible) {
-        animationId = requestAnimationFrame(animate);
-      }
+      timeRef.current += 1;
+      animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    // Iniciar animação apenas se visível
+    if (isVisible) {
+      animationRef.current = requestAnimationFrame(animate);
+    }
 
     return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
       }
     };
-  }, [dimensions, technologies, isVisible]);
+  }, [dimensions, technologies, isVisible, stars]);
 
   return (
     <div className={`relative ${className}`}>

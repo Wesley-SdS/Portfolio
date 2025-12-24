@@ -1,6 +1,12 @@
 "use client";
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
+
+// Configurações de performance
+const TARGET_FPS = 30;
+const FRAME_INTERVAL = 1000 / TARGET_FPS;
+const HELIX_STEP = 8; // Aumentado de 5 para reduzir pontos
+const RUNG_STEP = 60; // Aumentado de 50
 
 interface ExperienceNode {
   id: number;
@@ -12,12 +18,16 @@ interface ExperienceNode {
   color: string;
 }
 
-const ExperienceTimeline: React.FC = () => {
+const ExperienceTimeline: React.FC = React.memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const lastFrameTimeRef = useRef<number>(0);
+  const timeRef = useRef<number>(0);
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const experiences: ExperienceNode[] = [
+  // Memoizar experiências
+  const experiences: ExperienceNode[] = useMemo(() => [
     {
       id: 1,
       title: "Líder Técnico Sênior",
@@ -63,7 +73,7 @@ const ExperienceTimeline: React.FC = () => {
       position: { x: 0, y: 500 },
       color: "#10B981"
     }
-  ];
+  ], []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -78,11 +88,22 @@ const ExperienceTimeline: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Pre-calcular valores de seno/cosseno para performance
+  const helixCache = useMemo(() => {
+    const cache: { sin: number[]; cos: number[] } = { sin: [], cos: [] };
+    // Cache para 1000 valores (suficiente para a maioria das telas)
+    for (let i = 0; i < 1000; i++) {
+      cache.sin[i] = Math.sin(i * 0.01);
+      cache.cos[i] = Math.cos(i * 0.01);
+    }
+    return cache;
+  }, []);
+
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || !isVisible) return;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { alpha: false });
     if (!ctx) return;
 
     const updateCanvas = () => {
@@ -93,24 +114,39 @@ const ExperienceTimeline: React.FC = () => {
     updateCanvas();
     window.addEventListener('resize', updateCanvas);
 
-    let animationId: number;
-    let time = 0;
+    const amplitude = 80; // Reduzido de 100
+    const frequency = 0.01;
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const animate = (currentTime: number) => {
+      // Parar animação se não estiver visível
+      if (!isVisible) {
+        animationRef.current = null;
+        return;
+      }
 
-      // Draw DNA-like helix structure
+      // Throttle para TARGET_FPS
+      const elapsed = currentTime - lastFrameTimeRef.current;
+      if (elapsed < FRAME_INTERVAL) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      lastFrameTimeRef.current = currentTime - (elapsed % FRAME_INTERVAL);
+
       const centerY = canvas.height / 2;
-      const amplitude = 100;
-      const frequency = 0.01;
 
+      // Clear com cor de fundo (mais rápido para canvas opaco)
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw DNA-like helix structure (otimizado)
       ctx.strokeStyle = 'rgba(99, 102, 241, 0.2)';
       ctx.lineWidth = 2;
 
-      // First helix strand
+      // First helix strand - usando cache e step maior
       ctx.beginPath();
-      for (let x = 0; x < canvas.width; x += 5) {
-        const y = centerY + Math.sin((x + time) * frequency) * amplitude;
+      for (let x = 0; x < canvas.width; x += HELIX_STEP) {
+        const cacheIndex = Math.floor((x + timeRef.current) % 1000);
+        const y = centerY + (helixCache.sin[cacheIndex] || Math.sin((x + timeRef.current) * frequency)) * amplitude;
         if (x === 0) {
           ctx.moveTo(x, y);
         } else {
@@ -121,8 +157,9 @@ const ExperienceTimeline: React.FC = () => {
 
       // Second helix strand
       ctx.beginPath();
-      for (let x = 0; x < canvas.width; x += 5) {
-        const y = centerY + Math.cos((x + time) * frequency) * amplitude;
+      for (let x = 0; x < canvas.width; x += HELIX_STEP) {
+        const cacheIndex = Math.floor((x + timeRef.current) % 1000);
+        const y = centerY + (helixCache.cos[cacheIndex] || Math.cos((x + timeRef.current) * frequency)) * amplitude;
         if (x === 0) {
           ctx.moveTo(x, y);
         } else {
@@ -131,69 +168,67 @@ const ExperienceTimeline: React.FC = () => {
       }
       ctx.stroke();
 
-      // Draw connecting rungs
-      for (let x = 0; x < canvas.width; x += 50) {
-        const y1 = centerY + Math.sin((x + time) * frequency) * amplitude;
-        const y2 = centerY + Math.cos((x + time) * frequency) * amplitude;
-        
-        ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
-        ctx.beginPath();
+      // Draw connecting rungs (menos linhas)
+      ctx.strokeStyle = 'rgba(99, 102, 241, 0.1)';
+      ctx.beginPath();
+      for (let x = 0; x < canvas.width; x += RUNG_STEP) {
+        const cacheIndex = Math.floor((x + timeRef.current) % 1000);
+        const y1 = centerY + (helixCache.sin[cacheIndex] || Math.sin((x + timeRef.current) * frequency)) * amplitude;
+        const y2 = centerY + (helixCache.cos[cacheIndex] || Math.cos((x + timeRef.current) * frequency)) * amplitude;
         ctx.moveTo(x, y1);
         ctx.lineTo(x, y2);
-        ctx.stroke();
       }
+      ctx.stroke();
 
       // Draw experience nodes
+      ctx.font = '12px sans-serif';
+      ctx.textAlign = 'center';
+
       experiences.forEach((exp, index) => {
         const x = (canvas.width / experiences.length) * index + (canvas.width / experiences.length) / 2;
-        const baseY = centerY + Math.sin((x + time) * frequency) * amplitude;
+        const cacheIndex = Math.floor((x + timeRef.current) % 1000);
+        const baseY = centerY + (helixCache.sin[cacheIndex] || Math.sin((x + timeRef.current) * frequency)) * amplitude;
         const y = baseY + (index % 2 === 0 ? -20 : 20);
 
-        // Node glow effect
-        if (hoveredNode === exp.id) {
-          const gradient = ctx.createRadialGradient(x, y, 0, x, y, 40);
-          gradient.addColorStop(0, exp.color + '60');
-          gradient.addColorStop(1, 'transparent');
-          ctx.fillStyle = gradient;
-          ctx.beginPath();
-          ctx.arc(x, y, 40, 0, Math.PI * 2);
-          ctx.fill();
-        }
+        const isHovered = hoveredNode === exp.id;
+        const nodeSize = isHovered ? 12 : 8;
 
         // Node circle
         ctx.fillStyle = exp.color;
         ctx.beginPath();
-        ctx.arc(x, y, hoveredNode === exp.id ? 12 : 8, 0, Math.PI * 2);
+        ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
         ctx.fill();
 
         // Node border
         ctx.strokeStyle = exp.color;
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.arc(x, y, hoveredNode === exp.id ? 12 : 8, 0, Math.PI * 2);
+        ctx.arc(x, y, nodeSize, 0, Math.PI * 2);
         ctx.stroke();
 
         // Year label
         ctx.fillStyle = '#ffffff';
-        ctx.font = '12px sans-serif';
-        ctx.textAlign = 'center';
         const year = exp.period.split(' - ')[0];
         ctx.fillText(year, x, y - 20);
       });
 
-      time += 2;
-      animationId = requestAnimationFrame(animate);
+      timeRef.current += 1.5; // Reduzido de 2 para animação mais suave
+      animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    // Iniciar animação apenas se visível
+    if (isVisible) {
+      animationRef.current = requestAnimationFrame(animate);
+    }
 
     return () => {
       window.removeEventListener('resize', updateCanvas);
-      if (animationId) {
-        cancelAnimationFrame(animationId);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
       }
     };
-  }, [experiences, hoveredNode, isVisible]);
+  }, [experiences, hoveredNode, isVisible, helixCache]);
 
   return (
     <div className="relative w-full h-96 mb-8">
@@ -233,6 +268,8 @@ const ExperienceTimeline: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+ExperienceTimeline.displayName = 'ExperienceTimeline';
 
 export default ExperienceTimeline;

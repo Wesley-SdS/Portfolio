@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -174,16 +174,9 @@ const CosmicNav: React.FC<CosmicNavProps> = ({ navItems, className }) => {
             </div>
           </nav>
 
-          <motion.div
+          {/* Glow effect estático - sem animação infinita */}
+          <div
             className="absolute -inset-px bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl opacity-30 blur-sm -z-10"
-            animate={{
-              opacity: [0.3, 0.4, 0.3],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
           />
         </motion.div>
       )}

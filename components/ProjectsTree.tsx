@@ -450,7 +450,7 @@ const ProjectsTree: React.FC = React.memo(() => {
                   title={t('cta.viewGitHub')}
                   icon={<FaGithub />}
                   position="right"
-                  onClick={() => window.open('https://github.com/seu-usuario', '_blank')}
+                  onClick={() => window.open('https://github.com/Wesley-SdS', '_blank')}
                   otherClasses="glassmorphism hover:glow-effect transition-all duration-300"
                 />
 

@@ -10,13 +10,13 @@ const Footer: React.FC = React.memo(() => {
   const socialLinks = [
     {
       icon: <FaGithub className="text-2xl" />,
-      href: "https://github.com/seu-usuario",
+      href: "https://github.com/Wesley-SdS",
       label: "GitHub",
       color: "hover:text-white"
     },
     {
       icon: <FaLinkedin className="text-2xl" />,
-      href: "https://linkedin.com/in/seu-usuario",
+      href: "https://www.linkedin.com/in/wesley-sds/",
       label: "LinkedIn", 
       color: "hover:text-blue-400"
     },

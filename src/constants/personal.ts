@@ -23,8 +23,8 @@ export const personalInfo: PersonalInfo = {
     },
     {
       platform: 'linkedin',
-      url: 'https://linkedin.com/in/wesley-santos-dev',
-      username: 'wesley-santos-dev',
+      url: 'https://www.linkedin.com/in/wesley-sds/',
+      username: 'wesley-sds',
       icon: '/icons/linkedin.svg'
     },
     {

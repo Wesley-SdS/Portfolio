@@ -18,7 +18,7 @@ const Hero = React.memo(() => {
   return (
     <section id="home" className="relative min-h-screen overflow-hidden w-full">
       {/* Background Effects */}
-      <div className="absolute inset-0 w-full">
+      <div className="absolute inset-0 w-full overflow-hidden">
         {/* 3D Galaxy Background */}
         <DigitalGalaxy className="absolute inset-0 w-full h-full opacity-60" />
 
@@ -59,26 +59,26 @@ const Hero = React.memo(() => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
             >
-              <div className="relative">
+              <div className="relative overflow-visible">
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-purple-500/30 glow-effect bg-secondary dark:bg-slate-800">
                   <div className="w-full h-full flex items-center justify-center text-purple-400 dark:text-purple-400 text-4xl font-bold">
                     WS
                   </div>
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                  <FaCode className="text-white text-sm" />
+                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center z-10 shadow-lg shadow-purple-500/50 ring-2 ring-purple-400/50">
+                  <FaCode className="text-yellow-300 text-sm drop-shadow-lg" />
                 </div>
               </div>
             </motion.div>
 
             {/* Main Title */}
             <motion.h1 
-              className="heading mb-6"
+              className="heading mb-6 overflow-visible"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 1 }}
             >
-              <span className="text-purple">{t('title')}</span>
+              <span className="text-purple block overflow-visible">{t('title')}</span>
             </motion.h1>
             
             {/* Subtitle */}

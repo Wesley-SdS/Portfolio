@@ -76,6 +76,9 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    overflow: visible;
+    line-height: 1.2;
+    padding: 0.5rem 0;
   }
 
   .deep-space-gradient {

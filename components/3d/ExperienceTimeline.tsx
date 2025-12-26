@@ -268,7 +268,7 @@ const ExperienceTimeline: React.FC = React.memo(() => {
       </div>
 
       {/* DNA Animation - Abaixo dos cards */}
-      <div className="relative w-full h-40 mt-8">
+      <div className="relative w-full h-64 md:h-80 mt-8 overflow-visible">
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full"

@@ -1,41 +1,21 @@
-import { MetadataRoute } from 'next';
-import { routing } from '@/i18n/routing';
+import type { MetadataRoute } from "next";
+import { routing } from "@/i18n/routing";
+import { languageAlternates, localePath } from "@/i18n/paths";
+import { CASE_SLUGS } from "@/src/content/projects";
+import { SITE } from "@/src/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wesley-santos.dev';
-  
-  const routes = ['', '/about', '/experience', '/projects', '/solutions', '/gallery', '/contact'];
-  
-  const sitemapEntries: MetadataRoute.Sitemap = [];
-
-  // Generate entries for each locale
-  routing.locales.forEach((locale) => {
-    routes.forEach((route) => {
-      const url = locale === routing.defaultLocale && route === ''
-        ? baseUrl
-        : `${baseUrl}/${locale}${route}`;
-      
-      sitemapEntries.push({
-        url,
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: route === '' ? 1.0 : 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            routing.locales.map((loc) => [
-              loc,
-              loc === routing.defaultLocale && route === ''
-                ? baseUrl
-                : `${baseUrl}/${loc}${route}`
-            ])
-          ),
-        },
-      });
-    });
-  });
-
-  return sitemapEntries;
+  const paths = ["/", "/contratar", "/privacidade", ...CASE_SLUGS.map((s) => `/projetos/${s}`)];
+  const abs = (p: string) => `${SITE.url}${p === "/" ? "" : p}`;
+  return paths.flatMap((path) =>
+    routing.locales.map((locale) => ({
+      url: abs(localePath(locale, path)),
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: path === "/" ? 1 : 0.8,
+      alternates: {
+        languages: Object.fromEntries(Object.entries(languageAlternates(path)).map(([k, v]) => [k, abs(v)])),
+      },
+    })),
+  );
 }
-
-
-

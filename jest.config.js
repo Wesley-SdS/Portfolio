@@ -9,6 +9,9 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
+    // tsconfig maps "@/*" to the repo root: resolve root folders first (Órbita tests import
+    // "@/lib/...", "@/src/content", "@/messages/*.json"); the legacy "@/x" → src/x rule stays below.
+    '^@/(lib|components|app|i18n|messages|src)/(.*)$': '<rootDir>/$1/$2',
     // Handle module aliases (this will be automatically configured for you based on your tsconfig.json paths)
     '^@/(.*)$': '<rootDir>/src/$1',
   },
@@ -28,6 +31,8 @@ const customJestConfig = {
       statements: 70,
     },
   },
+  // local screenshot/build scratch (gitignored) — keep jest-haste-map out of it
+  modulePathIgnorePatterns: ['<rootDir>/.tmp-shots/'],
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',

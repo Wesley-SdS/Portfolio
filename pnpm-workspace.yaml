@@ -1,0 +1,6 @@
+allowBuilds:
+  '@parcel/watcher': false
+  '@swc/core': false
+  '@vercel/speed-insights': false
+  sharp: false
+  unrs-resolver: false

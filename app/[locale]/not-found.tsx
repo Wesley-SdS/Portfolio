@@ -1,57 +1,29 @@
-"use client";
+import { useTranslations } from "next-intl";
+import { ButtonLink } from "@/components/ui-v3/Button";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FaRocket } from 'react-icons/fa';
-
+/** 404 inside a locale (paper, no effects). */
 export default function NotFound() {
+  const t = useTranslations("notFound");
+  const tm = useTranslations("meta");
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-6">
-      <motion.div
-        className="text-center max-w-2xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <motion.div
-          className="mb-8"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-        >
-          <FaRocket className="text-8xl text-purple-500 dark:text-purple-400 mx-auto mb-4" />
-        </motion.div>
-
-        <h1 className="text-6xl font-bold text-foreground dark:text-slate-200 mb-4">
-          404
-        </h1>
-
-        <h2 className="text-2xl font-semibold text-foreground/80 dark:text-slate-300 mb-4">
-          Página não encontrada
-        </h2>
-
-        <p className="text-muted-foreground mb-8">
-          A página que você está procurando não existe ou foi movida.
+    <section className="sec">
+      {/* not-found cannot export generateMetadata; React 19 hoists this <title> into <head> */}
+      <title>{tm("notFoundTitle")}</title>
+      <div className="inner py-24">
+        <p className="eb" style={{ color: "var(--accent-ink)" }}>
+          {t("code")}
         </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href="/"
-            className="px-6 py-3 rounded-lg glassmorphism text-foreground dark:text-slate-200 font-medium border border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-all duration-300"
-          >
-            Voltar ao Início
-          </Link>
-          <Link
-            href="/#projects"
-            className="px-6 py-3 rounded-lg glassmorphism text-foreground dark:text-slate-200 font-medium border border-primary/20 hover:bg-primary/10 hover:border-primary/40 transition-all duration-300"
-          >
-            Ver Projetos
-          </Link>
+        <h1 className="h2 mt-4">{t("title")}</h1>
+        <p className="lead mt-4 max-w-lead">{t("text")}</p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <ButtonLink href="/" arrow>
+            {t("home")}
+          </ButtonLink>
+          <ButtonLink href="/#todos-os-produtos" variant="secondary">
+            {t("products")}
+          </ButtonLink>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 }
-
-
-

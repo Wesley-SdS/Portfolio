@@ -1,0 +1,47 @@
+/* process section styles — owned by the services + process agent (see docs/REDESIGN.md).
+   Processo: v3/Main.dc.html (4000–4440) + v3/Mobile.dc.html (3880–4360). */
+
+.home-proc { padding-bottom: 28px; }
+.home-proc .proc-head { border-top: 1px solid var(--line); padding-top: 24px; }
+.home-proc .proc-head .meta { margin-top: 4px; }
+
+/* vertical ladder (mobile/tablet) */
+.home-proc .proc-steps { position: relative; list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.home-proc .proc-hline { display: none; }
+.home-proc .proc-step { position: relative; padding-left: 36px; }
+.home-proc .pnode { position: absolute; left: 0; top: 4px; display: block; width: 16px; height: 16px; border: 1px solid var(--line-strong); background: var(--bg); }
+.home-proc .pnode.fill { border-color: var(--accent); background: var(--accent); }
+/* segment from this node down to the next one (gap 12 + node offset) */
+.home-proc .proc-vseg { position: absolute; left: 7.5px; top: 20px; bottom: -16px; width: 1px; background: var(--line-strong); }
+.home-proc .proc-txt { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: baseline; }
+.home-proc .proc-num { color: var(--accent-ink); }
+.home-proc .proc-t { margin: 0; font: 600 17px/24px var(--font-body); color: var(--ink); }
+.home-proc .proc-x { grid-column: 1 / -1; margin: 2px 0 0; font: 400 14px/20px var(--font-body); color: var(--ink-2); }
+
+/* Método AI-native strip */
+.home-proc .proc-note { margin-top: 24px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 20px; border-radius: 20px; background: var(--mat); }
+.home-proc .proc-note-txt { display: flex; flex-direction: column; gap: 6px; max-width: 920px; }
+.home-proc .proc-note-p { margin: 0; font: 400 15px/22px var(--font-body); color: var(--ink); }
+.home-proc .proc-note-btn { flex: none; }
+
+@media (min-width: 768px) {
+  .home-proc { padding-bottom: 64px; }
+  .home-proc .proc-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+  .home-proc .proc-head .meta { margin-top: 0; }
+  .home-proc .proc-note { flex-direction: row; align-items: center; justify-content: space-between; gap: 32px; padding: 20px 24px; }
+}
+
+@media (min-width: 1024px) {
+  .home-proc { padding-top: 40px; padding-bottom: 72px; }
+  .home-proc .proc-head { border-top: 0; padding-top: 0; }
+  .home-proc .proc-steps { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 0; margin-top: 40px; }
+  /* line through the node centres, first node → last node */
+  .home-proc .proc-hline { display: block; position: absolute; left: 8px; top: 8px; height: 1px; width: calc((100% - 11 * 24px) * .75 + 9 * 24px + 6px); background: var(--line-strong); }
+  .home-proc .proc-step { grid-column: span 3; padding: 40px 0 0; }
+  .home-proc .pnode { top: 0; }
+  .home-proc .proc-vseg { display: none; }
+  .home-proc .proc-txt { display: block; }
+  .home-proc .proc-t { margin-top: 8px; font-size: 18px; line-height: 26px; }
+  .home-proc .proc-x { margin-top: 6px; font-size: 16px; line-height: 26px; }
+  .home-proc .proc-note { margin-top: 40px; }
+}

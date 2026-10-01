@@ -1,0 +1,75 @@
+/* numbers section styles — owned by the numbers agent (see docs/REDESIGN.md).
+   "Em números": v3/Main.dc.html (1624–1904, 4 cells in a row) and v3/Mobile.dc.html (2×2). */
+
+.home-nums { padding-top: 22px; padding-bottom: 24px; }
+.home-nums .eb { margin-bottom: 0; }
+.home-nums .nums-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 12px; }
+.home-nums .nwhy { margin: 6px 0 0; font: 400 13px/19px var(--font-body); color: var(--ink-3); }
+/* issue → review A → merge */
+.home-nums .flow { position: relative; display: flex; justify-content: space-between; width: 168px; max-width: 100%; height: 24px; }
+.home-nums .flow-line { position: absolute; left: 4px; right: 4px; top: 4px; height: 1px; background: var(--line); }
+.home-nums .flow-line > i { display: block; height: 100%; background: var(--ink-2); transform-origin: 0 50%; }
+.home-nums .flow-node { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.home-nums .flow-node > i { display: block; width: 9px; height: 9px; border-radius: 999px; border: 1px solid var(--ink-2); background: var(--bg); }
+.home-nums .flow-node > i.is-end { border-color: var(--accent); background: var(--accent); }
+.home-nums .flow-node > b { font: 500 9px/11px var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+/* four regions */
+.home-nums .geo { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.home-nums .geo-i { display: inline-flex; align-items: center; gap: 5px; font: 500 10px/14px var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+.home-nums .geo-i > i { display: block; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+.home-nums .nums-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.home-nums .nc { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding: 12px 0 12px 14px; border-left: 1px solid var(--line); }
+.home-nums .nc:nth-child(odd) { padding-left: 0; padding-right: 14px; border-left: 0; }
+.home-nums .nc:nth-child(n+3) { border-top: 1px solid var(--line); }
+
+.home-nums .nnum { margin: 0; display: flex; align-items: baseline; font: 600 32px/32px var(--font-display); letter-spacing: -.02em; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.home-nums .nnum-rest { font-size: 22px; }
+.home-nums .nvis { display: flex; align-items: flex-end; min-height: 24px; margin-top: 8px; max-width: 100%; }
+.home-nums .nlab { margin: 4px 0 0; font: 400 13px/18px var(--font-body); color: var(--ink-2); }
+.home-nums .nsrc { margin-top: auto; padding-top: 6px; font: 400 11px/16px var(--font-mono); color: var(--ink-3); text-decoration: none; transition: color var(--dur-instant); }
+.home-nums .nsrc:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* 102 ticks (1px, ~1.5px pitch on mobile, 2px on desktop), --ink overlays fading in at 8ms */
+.home-nums .tks { position: relative; display: block; width: 153px; max-width: 100%; height: 12px; margin-bottom: 6px; }
+.home-nums .tk-row { position: absolute; inset: 0; display: flex; justify-content: space-between; }
+.home-nums .tk-row > i { display: block; width: 1px; height: 12px; background: var(--line); }
+.home-nums .tk-row.on > i { background: var(--ink); }
+
+/* RAG bars */
+.home-nums .rag { display: flex; flex-direction: column; gap: 4px; width: 120px; }
+.home-nums .rag-bars { display: flex; flex-direction: column; gap: 4px; }
+.home-nums .trk { position: relative; display: block; height: 6px; background: var(--line); }
+.home-nums .trk > i { position: absolute; left: 0; top: 0; display: block; height: 6px; }
+.home-nums .ncap { margin: 0; font: 400 10px/13px var(--font-mono); color: var(--ink-3); white-space: normal; text-align: right; }
+
+/* Suíte Nex split bar */
+.home-nums .split { display: flex; flex-direction: column; gap: 4px; width: 120px; }
+.home-nums .split-bar { display: flex; width: 100%; height: 6px; }
+.home-nums .split-bar > i { display: block; height: 6px; }
+.home-nums .split .ncap { text-align: left; }
+
+/* staircase: 3 ink steps + the accent top step (a promotion) */
+.home-nums .stair { display: flex; align-items: flex-end; gap: 4px; height: 24px; }
+.home-nums .stair > i { display: block; width: 10px; background: var(--ink-2); transform-origin: 50% 100%; }
+.home-nums .stair > i.is-top { background: var(--accent); }
+
+@media (min-width: 1024px) {
+  .home-nums { padding-top: 32px; padding-bottom: 40px; }
+  .home-nums .nums-head { margin-bottom: 16px; }
+  .home-nums .nwhy { font-size: 13.5px; line-height: 20px; }
+  .home-nums .flow { width: 200px; }
+  .home-nums .nums-grid { grid-template-columns: 302fr 326fr 326fr 326fr; }
+  .home-nums .nc, .home-nums .nc:nth-child(odd) { padding: 18px 24px; border-left: 1px solid var(--line); border-top: 0; }
+  .home-nums .nc:first-child { padding-left: 0; border-left: 0; }
+  .home-nums .nc:nth-child(n+3) { border-top: 0; }
+  .home-nums .nnum { font-size: 48px; line-height: 48px; }
+  .home-nums .nnum-rest { font-size: inherit; }
+  .home-nums .nvis { min-height: 24px; margin-top: 12px; }
+  .home-nums .nlab { padding-top: 10px; margin: 0; font-size: 15px; line-height: 20px; }
+  .home-nums .nsrc { margin-top: 10px; padding-top: 0; font-size: 12px; line-height: 16px; }
+  .home-nums .tks { width: 203px; }
+  .home-nums .rag { flex-direction: row; align-items: flex-end; gap: 12px; width: auto; padding-bottom: 3px; }
+  .home-nums .rag-bars { gap: 6px; width: 160px; }
+  .home-nums .ncap { font-size: 11px; line-height: 14px; white-space: nowrap; }
+  .home-nums .split { width: 200px; }
+}

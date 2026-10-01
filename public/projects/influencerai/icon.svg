@@ -1,0 +1,7 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect fill="oklch(0.75 0.18 200)" width="180" height="180" rx="37"/>
+  <!-- Main sparkle -->
+  <path fill="white" d="M85 30 Q93 83 150 92 Q93 101 85 154 Q77 101 20 92 Q77 83 85 30Z"/>
+  <!-- Small accent sparkle -->
+  <path fill="white" d="M146 18 Q149 34 164 38 Q149 42 146 58 Q143 42 128 38 Q143 34 146 18Z"/>
+</svg>

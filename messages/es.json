@@ -1,162 +1,3039 @@
 {
+  "meta": {
+    "title": "Wesley Santos — Tech Lead & Senior Software Engineer · IA, automatización y full-stack",
+    "description": "Desarrollo continuo, proyectos a medida y consultoría en IA, agentes y plataformas. Habla con Órbita y agenda una conversación.",
+    "ogAlt": "Wesley Santos — ingeniero de software e IA",
+    "hireTitle": "Cómo trabajar conmigo — Wesley Santos",
+    "hireDescription": "Desarrollo continuo, proyecto específico o consultoría técnica. Arquitectura pensada para durar, pruebas desde el primer día e IA usada con criterio.",
+    "caseOrbitaTitle": "Órbita — asistente personal de IA · Wesley Santos",
+    "caseOrbitaDescription": "Caso de estudio: un asistente personal de IA local-first, voz primero y privado, con 102 herramientas y aprobación humana.",
+    "notFoundTitle": "Página no encontrada — Wesley Santos",
+    "caseOrbitmindTitle": "OrbitMind — squads de agentes de IA · Wesley Santos",
+    "caseOrbitmindDescription": "Caso de estudio: un agente Arquitecto arma, conversando, squads de IA con checkpoints humanos y 39 integraciones nativas.",
+    "caseNexTitle": "Suite Nex — agentes de IA omnicanal · Wesley Santos",
+    "caseNexDescription": "Caso de estudio: NexBot y NexConnect, con la IA separada del transporte de mensajes, 10+ canales y 1.258 casos de prueba.",
+    "caseOrbitfinanceTitle": "OrbitFinance — finanzas personales con IA · Wesley Santos",
+    "caseOrbitfinanceDescription": "Caso de estudio: gastos registrados por mensaje o audio en WhatsApp, con insights y previsiones generados con Gemini.",
+    "caseVektusTitle": "Vektus — documentos que se vuelven respuestas · Wesley Santos",
+    "caseVektusDescription": "Caso de estudio: extracción, OCR híbrido y búsqueda vectorial convierten documentos en respuestas con cita.",
+    "privacyTitle": "Política de privacidad — Wesley Santos",
+    "privacyDescription": "Qué datos recogen el formulario de cotización, el contacto y Órbita (chat con IA), para qué, con quién se comparten y cómo ejercer tus derechos (LGPD)."
+  },
   "common": {
-    "nav": {
-      "home": "Inicio",
-      "about": "Sobre",
-      "experience": "Experiencia",
-      "projects": "Proyectos",
-      "solutions": "Soluciones",
-      "gallery": "Galería",
-      "contact": "Contacto"
+    "skipLink": "Saltar al contenido",
+    "present": "actual",
+    "status": {
+      "inDevelopment": "En desarrollo",
+      "beta": "Beta",
+      "mvpDone": "MVP terminado",
+      "done": "Terminado",
+      "prototypeDone": "Prototipo terminado",
+      "inProduction": "En producción",
+      "current": "Actual",
+      "available": "Disponible para proyectos"
     },
-    "buttons": {
-      "seeMore": "Ver Más",
-      "contact": "Contacto",
-      "viewProject": "Ver Proyecto",
-      "viewGitHub": "Ver GitHub",
-      "sendMessage": "Enviar Mensaje"
-    }
+    "links": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "orbitmind": "OrbitMind",
+      "orbitmindSite": "Sitio de OrbitMind",
+      "site": "Sitio",
+      "caseStudy": "Caso de estudio",
+      "privateCode": "Código privado",
+      "email": "Correo",
+      "none": "—"
+    },
+    "actions": {
+      "requestQuote": "Solicitar presupuesto",
+      "talkToOrbita": "Hablar con Órbita",
+      "copy": "Copiar",
+      "copied": "Copiado",
+      "close": "Cerrar",
+      "menu": "Menú",
+      "back": "Volver",
+      "continue": "Continuar",
+      "backToTop": "Volver arriba",
+      "pause": "Pausar",
+      "play": "Reproducir",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "clear": "Borrar",
+      "askOrbita": "Preguntar a Órbita",
+      "bookCall": "Agendar una llamada"
+    },
+    "theme": {
+      "label": "Tema",
+      "toLight": "Cambiar al tema claro",
+      "toDark": "Cambiar al tema oscuro",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    },
+    "language": {
+      "label": "Idioma",
+      "pt": "PT",
+      "en": "EN",
+      "es": "ES",
+      "ptName": "Português",
+      "enName": "English",
+      "esName": "Español"
+    },
+    "clock": {
+      "city": "São Paulo",
+      "utc": "UTC−3",
+      "label": "Hora de São Paulo"
+    },
+    "source": "fuente: {name}",
+    "capturePending": "[captura pendiente]",
+    "illustrative": "esquema ilustrativo",
+    "investmentOnRequest": "Inversión a consultar",
+    "proof": "Prueba:",
+    "opensInNewTab": "(se abre en una pestaña nueva)",
+    "you": "Tú",
+    "loadingCase": "Abriendo el estudio de caso"
+  },
+  "nav": {
+    "aria": "Principal",
+    "footerAria": "Pie de página",
+    "home": "Inicio",
+    "products": "Productos",
+    "orbita": "Órbita",
+    "services": "Servicios",
+    "experience": "Experiencia",
+    "contact": "Contacto",
+    "hire": "Contratar",
+    "openMenu": "Abrir menú",
+    "menuTitle": "Menú"
   },
   "hero": {
-    "title": "Tech Lead Software Engineer",
-    "subtitle": "Transformando código en experiencias extraordinarias",
-    "description": "Tech Lead Full Stack con {years} años de experiencia en Inteligencia Artificial, automatización y desarrollo de plataformas escalables. Líder técnico en Adalink, transformando ideas complejas en sistemas inteligentes.",
-    "cta": {
-      "primary": "Entra en esta Inmersión",
-      "secondary": "Conoce mi trabajo"
+    "avatarAlt": "Foto de Wesley Santos",
+    "name": "Wesley Santos",
+    "role": "Tech Lead & Senior Software Engineer · IA/LLMs · Automatización · Full-Stack",
+    "eyebrow": "Tech Lead & Senior Software Engineer · São Paulo, BR",
+    "h1": {
+      "l1": "Pongo ideas",
+      "l2": "complejas",
+      "l3": "en órbita.",
+      "plain": "Pongo ideas complejas en órbita."
     },
+    "lead": "Soy Wesley Santos, ingeniero full-stack sénior con más de 10 años de experiencia. Llevo plataformas de IA, automatización y productos web del prototipo a producción. Hoy lidero la ingeniería en Companhia de Estágios y en Adalink, y construyo productos propios en OrbitMind.",
     "stats": {
-      "experience": "Años de Experiencia",
-      "projects": "Proyectos Entregados",
-      "quality": "Enfoque en Calidad"
+      "years": "años de experiencia",
+      "teams": "equipos que lidero hoy",
+      "projects": "productos y proyectos",
+      "companies": "empresas en la trayectoria"
+    },
+    "ticker": {
+      "label": "construyendo ahora",
+      "items": [
+        "agentes de IA con aprobación humana",
+        "plataformas de IA corporativas",
+        "bots de atención en WhatsApp",
+        "RAG con cita de fuente"
+      ]
+    },
+    "ask": {
+      "eyebrow": "Órbita, mi IA personal, atiende aquí",
+      "placeholder": "Pregunta sobre mí o sobre un proyecto…",
+      "inputAria": "Pregunta a Órbita",
+      "sendAria": "Enviar la pregunta y abrir la conversación con Órbita"
+    },
+    "orbit": {
+      "navAria": "Productos en órbita",
+      "orbAria": "Núcleo de Órbita, en vivo"
+    }
+  },
+  "marquee": {
+    "stackAria": "Stack",
+    "capabilitiesAria": "Lo que construyo",
+    "capabilities": [
+      "Agentes de IA",
+      "RAG con citas",
+      "Voz en tiempo real",
+      "Aprobación humana",
+      "Bots de WhatsApp",
+      "Workflows de agentes",
+      "OCR de documentos",
+      "Pruebas automatizadas",
+      "Observabilidad",
+      "Arquitectura de software"
+    ]
+  },
+  "stage": {
+    "srTitle": "01 — Productos destacados",
+    "ariaLabel": "Productos destacados",
+    "roledescription": "carrusel",
+    "slideRoledescription": "diapositiva",
+    "topbar": "01 — Productos · destacados",
+    "allProducts": "Todos los productos",
+    "counter": "{current} / {total}",
+    "announce": "{n} de {total}: {name}",
+    "chapterLabel": "{n} de {total}: {name}",
+    "pause": "Pausar destacados",
+    "play": "Reproducir destacados",
+    "ctaCase": "Caso de estudio",
+    "ctaQuote": "Quiero algo así",
+    "cursorCase": "Abrir caso de estudio →",
+    "cursorQuote": "Quiero algo así →",
+    "railAria": "Elegir producto",
+    "paused": "En pausa",
+    "resume": "Reanudar destacados",
+    "prev": "Producto anterior",
+    "next": "Producto siguiente",
+    "counterSr": "Producto",
+    "frontCase": "Abrir caso de estudio: {name}",
+    "frontQuote": "Quiero algo así: {name}",
+    "chapters": {
+      "orbita": {
+        "rail": {
+          "name": "Órbita",
+          "desc": "Asistente personal de IA"
+        },
+        "announceName": "Órbita",
+        "tag": "En desarrollo",
+        "meta": "Producto propio · IA y Agentes · Jul – Sep 2026",
+        "name": "Órbita",
+        "descriptor": "Asistente personal de IA · local-first, voz primero",
+        "descriptorShort": "Asistente personal de IA",
+        "outcome": "Un asistente de IA con 102 herramientas, voz en tiempo real y memoria propia. Nada con efecto externo sucede sin tu aprobación.",
+        "metrics": {
+          "m1": "herramientas",
+          "m2": "acierto top-5 en el RAG (era 50,0%)",
+          "m3": "proveedores de LLM con failover"
+        },
+        "extraLink": "Ella atiende en este sitio: pruébala",
+        "fig": {
+          "front": "fig. 01 — Órbita · vista general, modo oscuro"
+        },
+        "mech": {
+          "header": "PEDIDO → PROPUESTA → APROBACIÓN · esquema ilustrativo",
+          "bubble": "agenda 30 min con Ana el jueves a las 10",
+          "tool": "↳ crear_evento · riesgo: efecto_externo",
+          "eventTitle": "Reunión con Ana",
+          "eventWhen": "jue 01/10 · 10:00–10:30",
+          "approve": "Aprobar",
+          "discard": "Descartar",
+          "insight": "✓ aprobado por voz: “dale”",
+          "core": {
+            "idle": "Núcleo activo",
+            "listening": "Escuchando",
+            "thinking": "Pensando",
+            "attention": "Tu decisión",
+            "success": "Listo"
+          }
+        }
+      },
+      "orbitmind": {
+        "rail": {
+          "name": "OrbitMind",
+          "desc": "Equipos de agentes de IA"
+        },
+        "announceName": "OrbitMind",
+        "tag": "En desarrollo",
+        "meta": "Producto propio · IA y Agentes · Sep 2025 – actual",
+        "name": "OrbitMind",
+        "descriptor": "Equipos de agentes de IA",
+        "outcome": "Un agente Arquitecto arma, conversando, equipos de IA que investigan, crean, revisan y publican, con checkpoints humanos y 39 integraciones nativas.",
+        "metrics": {
+          "m1": "integraciones nativas",
+          "m2": "equipos listos",
+          "m3": "proveedores de LLM"
+        },
+        "extraLink": "Sitio de OrbitMind",
+        "fig": {
+          "front": "fig. 02 — OrbitMind · pipeline de un equipo · esquema ilustrativo",
+          "backTag": "v1 · 2025 · constructor de workflows",
+          "peekTag": "v1",
+          "loupeHeader": "↳ MÓDULOS · APP ACTUAL",
+          "aria": "Esquema ilustrativo: el Arquitecto propone un equipo de 7 agentes (Investigación, Estrategia, Redacción, Diseño, SEO, Revisión, Publicación); la Revisión puede vetar y devolver a Redacción hasta 3 ciclos, y un checkpoint humano precede a la Publicación",
+          "ariaShort": "Esquema ilustrativo: el Arquitecto arma un equipo de 7 agentes, de Investigación a Publicación",
+          "mobileCap": "pipeline de un equipo · esquema ilustrativo"
+        },
+        "mech": {
+          "architect": "ARQUITECTO",
+          "bubble": "¿Puedo crear este equipo exactamente así?",
+          "nodes": [
+            "Investigación",
+            "Estrategia",
+            "Redacción",
+            "Diseño",
+            "SEO",
+            "Revisión",
+            "Publicación"
+          ],
+          "nodesShort": [
+            "Inv",
+            "Estr",
+            "Red",
+            "Dis",
+            "SEO",
+            "Rev",
+            "Pub"
+          ],
+          "veto": "veto",
+          "checkpoint": "checkpoint",
+          "loop": "revisión · hasta 3 ciclos",
+          "log": [
+            "▸ Investigación terminada",
+            "▸ Redacción · intento 2 (veto del revisor)",
+            "▸ Checkpoint · esperando tu aprobación",
+            "✓ Aprobado · publicando"
+          ],
+          "footer": "pipeline estándar de marketing · 7 agentes · nombres y flujo ilustrativos"
+        }
+      },
+      "nex": {
+        "rail": {
+          "name": "Suite Nex",
+          "desc": "Agentes omnicanal"
+        },
+        "announceName": "Suite Nex",
+        "tag": "Beta",
+        "eyebrow": "NexBot + NexConnect ·",
+        "meta": "Productos propios · Atención con IA · Mar – May 2026",
+        "name": "Suite Nex",
+        "descriptor": "Agentes de IA omnicanal",
+        "outcome": "NexBot se encarga de la IA, los flujos, la base de conocimiento y el traspaso a una persona; NexConnect, del transporte de WhatsApp y la mensajería, aislado en un servicio propio.",
+        "outcomeShort": "NexBot se encarga de la IA, los flujos, la base de conocimiento y el traspaso a una persona.",
+        "metrics": {
+          "m1": "casos de prueba",
+          "m2": "canales",
+          "m3": "etapas por mensaje"
+        },
+        "fig": {
+          "front": "fig. 03 — Suite Nex · un mensaje, del canal a la respuesta · esquema ilustrativo",
+          "aria": "Esquema ilustrativo: un mensaje llega por uno de los canales, pasa por 7 etapas de transporte en NexConnect y 8 etapas de IA en NexBot, y la respuesta vuelve al cliente, con traspaso a una persona disponible",
+          "ariaShort": "Esquema ilustrativo: un mensaje pasa por 7 etapas de transporte en NexConnect y 8 etapas de IA en NexBot hasta la respuesta",
+          "mobileCap": "mensaje y respuesta ficticios · esquema ilustrativo"
+        },
+        "mech": {
+          "channelsLabel": "CANALES",
+          "channels": [
+            "WhatsApp",
+            "Telegram",
+            "Instagram",
+            "Messenger",
+            "Slack",
+            "Discord",
+            "Teams",
+            "Web",
+            "Voz"
+          ],
+          "laneA": "NEXCONNECT · TRANSPORTE",
+          "laneAPills": [
+            "dedup",
+            "clasifica",
+            "buffer",
+            "medios · STT",
+            "enriquece",
+            "presencia",
+            "webhook HMAC"
+          ],
+          "laneB": "NEXBOT · IA",
+          "laneBPills": [
+            "agente",
+            "usuario",
+            "conversación",
+            "guarda",
+            "RAG",
+            "LLM",
+            "respuesta",
+            "post"
+          ],
+          "question": "¿abren el sábado?",
+          "reply": "Abrimos el sábado, de 9 a 13 h. ¿Quieres que te agende un horario?",
+          "note": "traspaso a una persona disponible · mensaje y respuesta ficticios",
+          "arch": [
+            {
+              "title": "NexBot",
+              "sub": "api · web · socket · worker"
+            },
+            {
+              "title": "NexConnect",
+              "sub": "gateway · pool WhatsApp · 30/pod"
+            },
+            {
+              "title": "Vektus",
+              "sub": "RAG y OCR"
+            }
+          ],
+          "archFooter": "RLS en Postgres · OTEL + Prometheus + Loki · K8s HPA 2–50",
+          "archHeader": "ARQUITECTURA · SERVICIOS",
+          "loupeHeader": "INGENIERÍA · NÚMEROS DEL REPOSITORIO",
+          "loupeRows": [
+            {
+              "label": "pruebas",
+              "value": "757 + 501"
+            },
+            {
+              "label": "ADRs",
+              "value": "8 + 11"
+            },
+            {
+              "label": "contrato",
+              "value": "Pact + Testcontainers"
+            },
+            {
+              "label": "escala",
+              "value": "HPA 2–50 pods"
+            }
+          ]
+        }
+      },
+      "orbitfinance": {
+        "rail": {
+          "name": "OrbitFinance",
+          "desc": "Finanzas personales con IA"
+        },
+        "announceName": "OrbitFinance",
+        "tag": "MVP terminado",
+        "meta": "Producto propio · Fintech · Oct – Dic 2025",
+        "name": "OrbitFinance",
+        "descriptor": "Finanzas personales con IA",
+        "outcome": "Gastos registrados por mensaje o audio en WhatsApp, con insights, previsiones y alertas financieras generados con Gemini.",
+        "metrics": {
+          "m1": "pruebas automatizadas",
+          "m2": "proveedores de WhatsApp",
+          "m3": "idiomas"
+        },
+        "fig": {
+          "front": "fig. 04 — OrbitFinance · página de inicio"
+        },
+        "mech": {
+          "header": "MENSAJE → REGISTRO · esquema ilustrativo",
+          "bubble": "gasté 42,90 en el súper",
+          "rows": [
+            {
+              "label": "intención",
+              "value": "gasto (regla)"
+            },
+            {
+              "label": "valor",
+              "value": "R$ 42,90"
+            },
+            {
+              "label": "categoría",
+              "value": "Alimentación"
+            },
+            {
+              "label": "tipo",
+              "value": "gasto"
+            }
+          ],
+          "insight": "✓ insight generado con Gemini"
+        }
+      },
+      "vibecoding": {
+        "rail": {
+          "name": "VibeCoding",
+          "desc": "Generación de código con IA"
+        },
+        "announceName": "OrbitMind VibeCoding",
+        "tag": "Prototipo terminado",
+        "eyebrow": "OrbitMind ·",
+        "meta": "Lab OrbitMind · Generación de código · Dic 2025",
+        "name": "VibeCoding",
+        "descriptor": "Generación de código con IA",
+        "outcome": "Genera aplicaciones a partir de lenguaje natural, con 6 proveedores de IA intercambiables y credenciales cifradas con AES-256-GCM. Construido en 4 días.",
+        "metrics": {
+          "m1": "proveedores de IA",
+          "m2": "commits en 4 días",
+          "m3": "credenciales cifradas"
+        },
+        "fig": {
+          "front": "fig. 05 — VibeCoding · editor con árbol de archivos, código TypeScript y prompt"
+        },
+        "mech": {
+          "header": "COMANDO → CÓDIGO · formulario-cadastro.tsx",
+          "prompt": "Crie um componente de formulário de cadastro com campo de email e botão de enviar. Use React Hook Form para validação.",
+          "promptNote": "texto reproducido de la captura (Demo.png)",
+          "codeAria": "Fragmento del código generado"
+        }
+      },
+      "vektus": {
+        "rail": {
+          "name": "Vektus",
+          "desc": "Inteligencia documental"
+        },
+        "announceName": "Vektus",
+        "tag": "En desarrollo",
+        "meta": "Producto propio · RAG y documentos · Mar – May 2026",
+        "name": "Vektus",
+        "descriptor": "Inteligencia documental con RAG",
+        "outcome": "Extracción, OCR híbrido y búsqueda vectorial convierten documentos en respuestas con cita, en un chat multimodelo con conectores para Drive, SharePoint y Notion.",
+        "metrics": {
+          "m1": "casos de prueba",
+          "m2": "proveedores de LLM",
+          "m3": "conectores"
+        },
+        "fig": {
+          "front": "fig. 06 — Vektus · del documento a la respuesta con cita · esquema ilustrativo",
+          "aria": "Esquema ilustrativo: la pregunta sobre el plazo de rescisión recorre el documento, la extracción con OCR híbrido, los fragmentos y los vectores HNSW, y vuelve como respuesta con cita de la página del contrato",
+          "ariaShort": "Esquema ilustrativo: la pregunta pasa por documento, OCR, fragmentos y vectores y vuelve como respuesta con cita",
+          "mobileCap": "documento y respuesta ficticios · esquema ilustrativo"
+        },
+        "mech": {
+          "question": "¿Cuál es el plazo de rescisión?",
+          "columns": [
+            "documento",
+            "extracción + OCR híbrido",
+            "fragmentos",
+            "vectores · HNSW",
+            "respuesta"
+          ],
+          "file": "contrato.pdf · 12 p.",
+          "ocr": [
+            "Tesseract",
+            "visión por IA"
+          ],
+          "answer": "El plazo de rescisión es de 30 días.",
+          "cite": "contrato.pdf · p. 4",
+          "footer": "documento y respuesta ficticios",
+          "back": [
+            {
+              "title": "Conectores",
+              "sub": "Google Drive · SharePoint · Notion"
+            },
+            {
+              "title": "Chat multimodelo",
+              "sub": "OpenAI · Anthropic · Gemini"
+            },
+            {
+              "title": "Plataforma",
+              "sub": "multi-tenant · API keys · MCP · Skills"
+            }
+          ],
+          "loupeHeader": "PRUEBAS · REPOSITORIO PÚBLICO",
+          "loupeValue": "1.000+",
+          "loupeCaption": "casos de prueba en 96 archivos",
+          "loupeLink": "github.com/Wesley-SdS/Vektus",
+          "columnsShort": [
+            "doc",
+            "OCR",
+            "fragmentos",
+            "HNSW",
+            "respuesta"
+          ]
+        }
+      }
+    }
+  },
+  "numbers": {
+    "title": "Lo que entrega",
+    "lead": "Números de producto y de negocio, con fuente.",
+    "cells": {
+      "connectors": {
+        "label": "conectores nativos en Adaflow",
+        "why": "CRMs, ERPs, WhatsApp, Google y Microsoft listos: el cliente conecta lo que ya usa, sin proyecto de integración.",
+        "source": "fuente: Adaflow"
+      },
+      "merge": {
+        "unit": "h",
+        "label": "del issue al merge, mediana de los últimos 30 PRs",
+        "why": "Pipeline autónomo con revisión en 8 ejes y nota A obligatoria: entrega continua sin cola de revisión.",
+        "steps": {
+          "issue": "issue",
+          "review": "revisión A",
+          "merge": "merge"
+        },
+        "source": "fuente: Pipeline OrbitMind"
+      },
+      "clients": {
+        "label": "clientes atendidos por las plataformas que lidero",
+        "why": "Sistemas de contratos, finanzas, selección y aprendizaje para empresas y multinacionales en cuatro regiones.",
+        "regions": {
+          "br": "Brasil",
+          "us": "EE. UU.",
+          "it": "Italia",
+          "latam": "América Latina"
+        },
+        "source": "fuente: Experiencia"
+      },
+      "tests": {
+        "label": "tests automatizados en el backend de Adaflow",
+        "why": "Cambiar rápido sin romper lo que está en producción: cada release pasa por {suites} suites antes de salir.",
+        "split": "{suites} suites · 20 microservicios",
+        "source": "fuente: Adaflow"
+      }
+    }
+  },
+  "products": {
+    "title": "Todos los productos y proyectos",
+    "filterAria": "Filtrar por categoría",
+    "chips": {
+      "all": "Todos",
+      "ai": "IA y Agentes",
+      "messaging": "Atención y Mensajería",
+      "fintech": "Fintech",
+      "custom": "Por encargo"
+    },
+    "search": {
+      "label": "Buscar productos y proyectos",
+      "placeholder": "Buscar proyectos",
+      "clear": "Borrar búsqueda"
+    },
+    "columns": {
+      "period": "Período",
+      "project": "Proyecto",
+      "highlight": "Destacado",
+      "status": "Estado",
+      "link": "Enlace"
+    },
+    "tableAria": "Todos los productos y proyectos, del más reciente al más antiguo",
+    "shown": "Mostrando {shown} de {total} · productos propios y trabajos por encargo",
+    "previewHint": "Pasa el cursor sobre un proyecto para ver la pantalla.",
+    "empty": {
+      "title": "No se encontraron proyectos",
+      "clear": "Borrar selección"
+    },
+    "items": {
+      "orbita": {
+        "name": "Órbita",
+        "type": "Producto propio · IA y Agentes",
+        "tagline": "Asistente personal de IA: local-first, voz primero, privado.",
+        "oneLiner": "Asistente personal de IA con 102 herramientas, voz y aprobación humana.",
+        "outcome": "Un asistente de IA con 102 herramientas, voz en tiempo real y memoria propia. Nada con efecto externo sucede sin tu aprobación.",
+        "highlight": "86,7% top-5 RAG",
+        "stack": "Next.js 16 · NestJS · Expo · Python · Postgres + pgvector · Vercel AI SDK"
+      },
+      "waworkspace": {
+        "name": "Workspace de WhatsApp con IA",
+        "type": "Prueba de concepto · para Adalink",
+        "oneLiner": "Atención multi-tenant en WhatsApp: bandeja compartida, cola humana, copiloto de IA, campañas con guardas anti-ban y exportación probatoria.",
+        "highlight": "800 tests · 27 pantallas",
+        "stack": "NestJS · Next.js 16 · BullMQ · PostgreSQL + pgvector · Redis · Go (whatsmeow)"
+      },
+      "adaflow": {
+        "name": "Adaflow",
+        "type": "Plataforma de IA corporativa · Adalink",
+        "oneLiner": "SaaS white-label de infraestructura de IA: chat con asistentes, RAG con OCR, agentes autónomos, procesos con aprobación humana, 114 conectores nativos, gobernanza y FinOps.",
+        "highlight": "114 conectores · 20 servicios",
+        "stack": "NestJS 11 · Next.js 16 · Prisma · PostgreSQL + pgvector · RabbitMQ · Trigger.dev · Nango"
+      },
+      "orbitpipeline": {
+        "name": "Pipeline OrbitMind",
+        "type": "Entrega autónoma con agentes · Adalink",
+        "oneLiner": "Del issue al deploy sin intervención humana: un agente implementa, un revisor califica en 8 ejes de A a F, autofix corrige, merge automático, changelog y release notes.",
+        "highlight": "100% de los PRs con nota A · 0,5 h hasta el merge",
+        "stack": "GitHub Actions · Claude Code · GitHub App · bash con autotests"
+      },
+      "vektus": {
+        "name": "Vektus",
+        "type": "Producto propio · RAG y documentos",
+        "tagline": "Documentos que se convierten en respuestas, con cita.",
+        "oneLiner": "Documentos que se convierten en respuestas con cita: OCR híbrido y búsqueda vectorial.",
+        "outcome": "Extracción, OCR híbrido y búsqueda vectorial convierten documentos en respuestas con cita, en un chat multimodelo con conectores para Drive, SharePoint y Notion.",
+        "highlight": "1.000+ pruebas",
+        "stack": "pgvector (HNSW) · Tesseract + visión por IA · Inngest · E2B · MCP"
+      },
+      "orbitmind": {
+        "name": "OrbitMind",
+        "type": "Producto propio (buque insignia de OrbitMind) · IA y Agentes",
+        "tagline": "Equipos de agentes de IA armados conversando.",
+        "oneLiner": "Equipos de agentes de IA armados por un Arquitecto, con checkpoints humanos.",
+        "outcome": "Un agente Arquitecto arma, conversando, equipos de IA que investigan, crean, revisan y publican, con checkpoints humanos y 39 integraciones nativas.",
+        "highlight": "39 integraciones",
+        "stack": "Next.js 15 · TypeScript · PostgreSQL · Drizzle · Vercel AI SDK · React Three Fiber",
+        "modules": "Chat con el Arquitecto · Pipeline con checkpoints · Tablero Kanban · Oficina virtual 3D · Marketplace · API pública",
+        "honestNote": "Aún sin pruebas automatizadas ni cobros; próximos pasos: deploy, pruebas E2E y facturación."
+      },
+      "nex": {
+        "name": "Suite Nex",
+        "type": "Productos propios de OrbitMind · Atención con IA",
+        "tagline": "Un agente configurado una vez, publicado en más de 10 canales.",
+        "oneLiner": "NexBot + NexConnect: agentes de IA omnicanal y el motor de mensajería que los sostiene.",
+        "outcome": "NexBot se encarga de la IA, los flujos, la base de conocimiento y el traspaso a una persona; NexConnect, del transporte de WhatsApp y la mensajería, aislado en un servicio propio.",
+        "highlight": "1.258 pruebas",
+        "stack": "NestJS 11 · Fastify 5 · Next.js 16 · BullMQ · PostgreSQL (RLS) · Vercel AI Gateway"
+      },
+      "nexbot": {
+        "name": "NexBot",
+        "type": "Producto propio · Atención con IA",
+        "oneLiner": "SaaS de agentes de IA omnicanal con flujos visuales, RAG, traspaso a personas con SLA y analytics.",
+        "highlight": "757 pruebas",
+        "stack": "NestJS 11 · Fastify 5 · Next.js 16 · BullMQ · PostgreSQL (RLS) · Vercel AI Gateway"
+      },
+      "nexconnect": {
+        "name": "NexConnect",
+        "type": "Producto propio · Mensajería",
+        "oneLiner": "Motor de mensajería multi-tenant: sesiones de WhatsApp, 10+ canales, webhooks firmados y envíos masivos A/B.",
+        "highlight": "501 pruebas",
+        "stack": "NestJS 11 · Fastify 5 · Next.js 16 · BullMQ · PostgreSQL (RLS) · Vercel AI Gateway"
+      },
+      "plantoes": {
+        "name": "Plataforma de guardias",
+        "type": "A medida · Revoluna",
+        "oneLiner": "Reescritura de la gestión de guardias hospitalarias: vacantes, turnos, check-in, mensajes en tiempo real, informes y WhatsApp con tres proveedores intercambiables.",
+        "highlight": "121+ endpoints · 175 archivos de test",
+        "stack": "NestJS 10 · Next.js 16 · Prisma 6 · PostgreSQL 16 · Socket.IO · Better Auth · Turborepo"
+      },
+      "influencerai": {
+        "name": "InfluencerAI",
+        "type": "Producto propio · IA generativa",
+        "oneLiner": "Personas de IA con rostro consistente que generan imagen, video con voz y lip-sync, y publican en redes.",
+        "highlight": "20+ modelos",
+        "stack": "Next.js 16 · Prisma 7 · Replicate · ElevenLabs · Stripe"
+      },
+      "vibecoding": {
+        "name": "OrbitMind VibeCoding",
+        "type": "Lab OrbitMind · Generación de código",
+        "tagline": "Aplicaciones generadas a partir de lenguaje natural.",
+        "oneLiner": "Aplicaciones generadas con lenguaje natural, 6 proveedores de IA.",
+        "outcome": "Genera aplicaciones a partir de lenguaje natural, con 6 proveedores de IA intercambiables y credenciales cifradas con AES-256-GCM. Construido en 4 días.",
+        "highlight": "4 días",
+        "stack": "Next.js 16 · React 19 · TypeScript · Prisma 7 · Better Auth · Zustand"
+      },
+      "orbitfinance": {
+        "name": "OrbitFinance",
+        "type": "Producto propio · Fintech",
+        "tagline": "Finanzas personales con IA, directo desde WhatsApp.",
+        "oneLiner": "Finanzas personales por WhatsApp, con insights y previsiones con IA.",
+        "outcome": "Gastos registrados por mensaje o audio en WhatsApp, con insights, previsiones y alertas financieras generados con Gemini.",
+        "highlight": "102 pruebas",
+        "stack": "Next.js 15 · React 19 · Prisma · BullMQ · Redis · Gemini · Better Auth"
+      },
+      "fsjpii": {
+        "name": "FSJPII",
+        "type": "Por encargo (parroquia)",
+        "oneLiner": "Sistema de check-in con asistencia validada por geolocalización, hecho con Flavio Alves.",
+        "highlight": "~140 pruebas",
+        "stack": "Next.js 14 · TypeScript · PostgreSQL · Prisma · Playwright"
+      },
+      "love-startup": {
+        "name": "Love Startup",
+        "type": "Por encargo (contrato)",
+        "oneLiner": "MVP de marketplace para validar ideas y productos digitales, con catálogo multivendedor.",
+        "highlight": "—",
+        "stack": "Python · FastAPI · Next.js"
+      },
+      "ecommerce": {
+        "name": "E-commerce Personalizado",
+        "type": "Por encargo (freelance)",
+        "oneLiner": "E-commerce a medida de punta a punta, enfocado en rendimiento, SEO y conversión.",
+        "highlight": "—",
+        "stack": "Next.js · Node.js · PostgreSQL · Tailwind"
+      }
+    }
+  },
+  "lab": {
+    "eyebrow": "Órbita · producto propio",
+    "h2": "Órbita, en vivo.",
+    "lead": "Este núcleo es el mismo código de Órbita, funcionando en tu navegador. Diez estados cuentan lo que está haciendo. Es ella quien te atiende en este sitio.",
+    "stageEyebrow": "Una presencia, no solo una IA",
+    "statesTitle": "Diez estados, un lenguaje de movimiento",
+    "statesAria": "Estados del núcleo",
+    "tour": "Recorrer una conversación",
+    "hint": "Mueve / haz clic",
+    "orbAria": "Núcleo de Órbita: mueve el cursor para orientarlo, haz clic para energizarlo",
+    "states": {
+      "idle": {
+        "label": "Presencia",
+        "status": "Núcleo activo · esperando tu orden",
+        "title": "¿Qué hacemos hoy?",
+        "description": "Una idea, un plan o solo una conversación. Estoy contigo.",
+        "note": "Respiración, flotación, impulsos espaciados y atención al cursor."
+      },
+      "listening": {
+        "label": "Escuchando",
+        "status": "Canal de escucha abierto",
+        "title": "Puedes hablar. Estoy aquí.",
+        "description": "Escucha demostrativa. Tu micrófono sigue apagado.",
+        "note": "Un estiramiento delicado y ondas que convergen hacia dentro."
+      },
+      "thinking": {
+        "label": "Pensando",
+        "status": "Procesando · conectando posibilidades",
+        "title": "Déjame unir los puntos.",
+        "description": "Buscando sentido entre lo que dijiste y lo que importa.",
+        "note": "Grupos de vetas se encienden en secuencia, con ondulaciones localizadas."
+      },
+      "speaking": {
+        "label": "Hablando",
+        "status": "Transmitiendo la respuesta",
+        "title": "Encontré un buen camino.",
+        "description": "Toda la estructura sigue el ritmo de un habla demostrativa.",
+        "note": "Expansiones irregulares, señales sincronizadas y ondas hacia fuera."
+      },
+      "searching": {
+        "label": "Buscando",
+        "status": "Barrido de contexto en curso",
+        "title": "Una mirada un poco más lejos.",
+        "description": "Recorriendo las fuentes del escenario de demostración.",
+        "note": "Una lámina de luz atraviesa el volumen y activa regiones internas."
+      },
+      "connecting": {
+        "label": "Conectando",
+        "status": "Estableciendo conexiones",
+        "title": "Todo empieza a conectarse.",
+        "description": "Canales separados encuentran un mismo centro.",
+        "note": "Señales entre regiones y arcos leves de aproximación."
+      },
+      "executing": {
+        "label": "Ejecutando",
+        "status": "Comando en ejecución",
+        "title": "Convirtiendo intención en acción.",
+        "description": "Sigue la ejecución visual. Ninguna máquina real está conectada.",
+        "note": "Impulsos más rápidos y secuencias coordinadas de activación."
+      },
+      "success": {
+        "label": "Listo",
+        "status": "Ejecución completada",
+        "title": "Hecho. Más espacio en tu día.",
+        "description": "Un pulso de confirmación. Lista para el siguiente comando.",
+        "note": "Expansión, una pequeña elevación y una onda luminosa."
+      },
+      "attention": {
+        "label": "Tu decisión",
+        "status": "Esperando autorización",
+        "title": "El siguiente paso es tuyo.",
+        "description": "Antes de actuar, quiero estar segura de que estás de acuerdo.",
+        "note": "El volumen se recoge, el pulso se hace lento y queda un contorno ámbar."
+      },
+      "error": {
+        "label": "Imprevisto",
+        "status": "Interrupción detectada · recuperación disponible",
+        "title": "Una pausa. No un punto final.",
+        "description": "Algo no salió como esperaba. ¿Vamos por otro camino?",
+        "note": "Una retracción breve, un tono cálido y una desaceleración, sin destellos."
+      }
+    },
+    "features": {
+      "voice": {
+        "title": "Voz en tiempo real",
+        "text": "Palabra de activación “Ei Órbita”, habla y escucha locales y conversación en tiempo real con todas las herramientas."
+      },
+      "rag": {
+        "title": "RAG y memoria",
+        "text": "Búsqueda híbrida con pgvector y rerank: 86,7% de acierto top-5 (antes 50,0%), con cita de página."
+      },
+      "tools": {
+        "title": "102 herramientas",
+        "text": "En portugués, elegidas por relevancia en cada pedido."
+      },
+      "gate": {
+        "title": "Aprobación humana",
+        "text": "El modelo solo propone. Nada con efecto externo ocurre sin tu aprobación."
+      },
+      "channels": {
+        "title": "WhatsApp y Telegram",
+        "text": "Lee, escucha los audios y responde por ti, siempre con aprobación."
+      },
+      "home": {
+        "title": "Casa y cámaras",
+        "text": "Home Assistant como herramienta; voz y rostro reconocidos localmente."
+      },
+      "finance": {
+        "title": "Finanzas",
+        "text": "“¿Puedo gastar hoy?”, facturas, metas y previsión del mes."
+      },
+      "providers": {
+        "title": "7 proveedores de LLM",
+        "text": "Local con Ollama y failover a la nube, sin tocar código."
+      }
+    },
+    "screens": {
+      "map": "Mapa del conocimiento",
+      "memory": "Memoria y documentos",
+      "meetings": "Reuniones con transcripción"
+    },
+    "tagRight": "Contexto conectado"
+  },
+  "services": {
+    "index": "04",
+    "indexLabel": "Servicios",
+    "indexMeta": "Liderazgo técnico · Continuo · Proyecto · Consultoría",
+    "h2": "Cómo puedo ayudar",
+    "hireLink": "Ver cómo funciona la contratación",
+    "lead": "Hoy soy Tech Lead en dos empresas. Puedes contratarme como líder técnico de tu equipo, en CLT o PJ, o a través de OrbitMind: equipo continuo, proyecto cerrado o consultoría. En todos los formatos, quien diseña y revisa soy yo.",
+    "includes": "Incluye",
+    "howItWorks": "Cómo funciona",
+    "idealFor": "Ideal para",
+    "models": {
+      "techlead": {
+        "title": "Liderazgo técnico",
+        "oneLiner": "Asumo tu equipo como Tech Lead: arquitectura, gestión y entrega, dentro de la empresa.",
+        "items": [
+          "Dirección técnica y arquitectura del producto",
+          "Gestión del equipo: rituales, prioridades y contratación",
+          "Pipeline de desarrollo con IA y code review",
+          "Puente con el negocio: requisitos, plazos y homologación",
+          "Estándares, ADRs, seguridad y calidad"
+        ],
+        "how": "Dedicación completa o parcial, CLT o PJ, remoto o híbrido en São Paulo.",
+        "ideal": "Empresas que necesitan un líder técnico sénior sin montar el liderazgo desde cero.",
+        "terms": "CLT o PJ · completa o parcial"
+      },
+      "continuous": {
+        "title": "Desarrollo continuo",
+        "oneLiner": "Un equipo de ingeniería sénior haciendo evolucionar tu producto cada mes.",
+        "items": [
+          "Planificación mensual del roadmap contigo",
+          "Entregas continuas con demo en cada ciclo",
+          "Code review, pruebas y CI/CD en cada PR",
+          "Observabilidad y mantenimiento de lo que está en producción",
+          "Decisiones registradas (ADRs) e informe de avance"
+        ],
+        "how": "Contrato mensual, con capacidad definida junto contigo.",
+        "ideal": "Productos en evolución sin liderazgo técnico sénior dedicado."
+      },
+      "project": {
+        "title": "Proyecto específico",
+        "oneLiner": "Alcance, plazo y entregables cerrados, del diagnóstico a la entrega.",
+        "items": [
+          "Diagnóstico y diseño de la solución",
+          "Propuesta con alcance, hitos y cronograma",
+          "Construcción en ciclos, con demo en cada hito",
+          "Pruebas automatizadas y deploy",
+          "Documentación y transferencia de conocimiento"
+        ],
+        "how": "Propuesta cerrada por hitos, con aceptación en cada entrega.",
+        "ideal": "MVPs, agentes de IA, bots de WhatsApp, integraciones y reescrituras de legado."
+      },
+      "consulting": {
+        "title": "Consultoría técnica",
+        "oneLiner": "Decisiones de arquitectura e IA con quien ya las tomó en producción.",
+        "items": [
+          "Revisión de arquitectura y de código",
+          "Estrategia de adopción de IA y agentes",
+          "Pipeline de desarrollo con agentes de IA",
+          "Due diligence técnica y plan de evolución",
+          "Mentoría de equipo y definición de prácticas"
+        ],
+        "how": "Sesiones sueltas o paquete de horas, con informe escrito.",
+        "ideal": "Equipos que necesitan una segunda opinión, dirección técnica o acelerar con IA."
+      }
+    },
+    "buildTitle": "Lo que construyo",
+    "solutions": {
+      "web_platform": {
+        "title": "Plataformas SaaS y apps",
+        "desc": "Sistemas multi-tenant con paneles, APIs y apps preparados para crecer: de 20 microservicios a una app Expo.",
+        "stack": "Next.js · NestJS · Prisma · PostgreSQL · Expo",
+        "proofs": {
+          "adaflow": "Adaflow, 20 microservicios",
+          "plantoes": "Plataforma de guardias",
+          "orbitaExpo": "Órbita, app Expo"
+        }
+      },
+      "ai_agents": {
+        "title": "Agentes de IA con aprobación humana",
+        "desc": "Agentes con herramientas, memoria y una puerta humana antes de cualquier acción con efecto externo.",
+        "stack": "Vercel AI SDK · Mastra · MCP · pgvector",
+        "proofs": {
+          "orbita": "Órbita, 102 herramientas",
+          "adaflow": "Adaflow, agentes autónomos",
+          "orbitmind": "OrbitMind, squads"
+        }
+      },
+      "rag": {
+        "title": "RAG y búsqueda en documentos",
+        "desc": "Del PDF escaneado a la respuesta con cita: OCR híbrido, búsqueda híbrida con rerank y precisión medida.",
+        "stack": "pgvector · OCR (Tesseract + visión) · rerank",
+        "proofs": {
+          "vektus": "Vektus",
+          "orbitaRag": "Órbita, 86,7% top-5",
+          "adaflowOcr": "Adaflow, RAG con OCR"
+        }
+      },
+      "workflows": {
+        "title": "Automatización de procesos",
+        "desc": "Workflows visuales con 10 tipos de nodo, ejecución durable y paso de aprobación humana; del lenguaje natural al proceso compilado.",
+        "stack": "Trigger.dev · RabbitMQ · @xyflow · Kestra",
+        "proofs": {
+          "adaflowNodes": "Adaflow, procesos con aprobación",
+          "kestra": "Adalink, workflows con Kestra"
+        }
+      },
+      "whatsapp_bots": {
+        "title": "Atención y bots en WhatsApp",
+        "desc": "Bandeja compartida, cola humana, copiloto de IA, campañas con guardas anti-ban y proveedores intercambiables.",
+        "stack": "Meta Cloud API · Baileys · BullMQ · Kafka",
+        "proofs": {
+          "nex": "Suite Nex",
+          "waworkspace": "Workspace de WhatsApp",
+          "orbitfinance": "OrbitFinance"
+        }
+      },
+      "integrations": {
+        "title": "Integraciones y conectores",
+        "desc": "Catálogo de conectores con OAuth gestionado, límites por conector y guarda contra SSRF: CRMs, ERPs, bases de datos, ads y mensajería.",
+        "stack": "Nango · OAuth2 · webhooks · MCP",
+        "proofs": {
+          "adaflowConnectors": "Adaflow, 114 conectores nativos",
+          "orbitmind": "OrbitMind, 700+ vía Nango"
+        }
+      },
+      "security": {
+        "title": "Seguridad, RBAC y SSO",
+        "desc": "Permisos por alcance, SSO OIDC por organización, 2FA, auditoría obligatoria en 870 endpoints de escritura, DLP y cifrado AES-256-GCM.",
+        "stack": "Better Auth · OIDC · JWT/JWKS · helmet · rate limit",
+        "proofs": {
+          "adaflowSecurity": "Adaflow, gobernanza",
+          "orbitaCrypto": "Órbita, tokens cifrados"
+        }
+      },
+      "finops": {
+        "title": "Billing, créditos y FinOps de IA",
+        "desc": "Cartera de créditos, costo por llamada de LLM, chargeback por centro de costo y cobro con PIX, boleto y tarjeta.",
+        "stack": "Asaas · ledger de costos · Conta Azul",
+        "proofs": {
+          "adaflowCredits": "Adaflow, créditos y cobro",
+          "orbitaSpend": "Órbita, gastos por flujo"
+        }
+      },
+      "pipeline": {
+        "title": "Pipeline de entrega con agentes",
+        "desc": "Del issue al deploy sin cola de revisión: un agente implementa, un revisor califica en 8 ejes, autofix corrige y el merge es automático con nota A.",
+        "stack": "GitHub Actions · Claude Code · GitHub App",
+        "proofs": {
+          "orbitpipeline": "Pipeline OrbitMind, 100% nota A"
+        }
+      },
+      "quality": {
+        "title": "Calidad y observabilidad",
+        "desc": "Tests que corren de verdad, CI con 16 puertas y telemetría de punta a punta: métricas, traces, logs y perfiles.",
+        "stack": "Jest · Vitest · Playwright · OpenTelemetry · Grafana",
+        "proofs": {
+          "adaflowTests": "Adaflow, 25.937 tests",
+          "nexTests": "Suite Nex, 1.258 tests"
+        }
+      },
+      "voice": {
+        "title": "Voz y tiempo real",
+        "desc": "Wake word, transcripción, síntesis y conversación en tiempo real, local o en la nube, con detección de voz.",
+        "stack": "Vosk · Whisper · ElevenLabs · Socket.IO",
+        "proofs": {
+          "orbitaVoice": "Órbita, “Ei Órbita”",
+          "adaflowVoice": "Adaflow, voz en los agentes"
+        }
+      },
+      "legacy_evolution": {
+        "title": "Evolución de legado",
+        "desc": "Reescritura gradual con tests, observabilidad y proveedores intercambiables, sin big bang y sin parar la operación.",
+        "stack": "Clean Architecture · Strategy · CI",
+        "proofs": {
+          "plantoes": "Plataforma de guardias, reescritura",
+          "mg": "Melhor do Grão, ERP y e-commerce"
+        }
+      }
+    },
+    "carouselAria": "Formas de contratación",
+    "slideLabel": "{n} de {total}: {title}",
+    "buildLead": "Doce frentes ya entregados en producción, desde la plataforma de IA corporativa de Adalink hasta mis propios productos. Cada uno con prueba."
+  },
+  "process": {
+    "title": "Cómo se desarrolla un trabajo",
+    "meta": "de la primera conversación a la entrega",
+    "steps": {
+      "call": {
+        "title": "Conversación inicial",
+        "text": "30 minutos para entender el problema. Órbita la agenda directo en mi calendario."
+      },
+      "proposal": {
+        "title": "Diagnóstico y propuesta",
+        "text": "Alcance, arquitectura, riesgos y cronograma por escrito. La inversión se define aquí."
+      },
+      "build": {
+        "title": "Construcción en ciclos",
+        "text": "Repositorio a tu nombre, demo en cada ciclo, pruebas y CI desde el primer día."
+      },
+      "delivery": {
+        "title": "Entrega y evolución",
+        "text": "Deploy, documentación y transferencia de conocimiento. O seguimos juntos en el modelo continuo."
+      }
+    },
+    "method": {
+      "eyebrow": "Método AI-native",
+      "text": "Escribo la especificación, decido la arquitectura, oriento agentes de código y reviso cada entrega. Los gates de CI y las pruebas sostienen la calidad de lo que produce la IA."
+    }
+  },
+  "leadership": {
+    "index": "03",
+    "indexLabel": "Sobre mí y experiencia",
+    "h2": "De front-end a liderazgo técnico.",
+    "bio": "Ingeniero full-stack sénior con más de 10 años de experiencia y un historial consistente de liderazgo técnico. Especialista en arquitectura de sistemas escalables, IA generativa, agentes inteligentes y automatización de workflows complejos. Lidero con mentoría, code review, decisiones de arquitectura y entregas de alto impacto.",
+    "meta": "7 empresas · 10+ años · São Paulo, Brasil",
+    "linkedin": "Perfil completo en LinkedIn",
+    "timelineAria": "Línea de tiempo de la carrera",
+    "stackTitle": "Stack técnico",
+    "stackLead": "Lo que el currículum lista y lo que los repositorios prueban, con un número por frente.",
+    "stack": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "ai": "IA y automatización",
+      "data": "Bases de datos",
+      "devops": "DevOps y cloud",
+      "integrations": "Integraciones",
+      "security": "Seguridad",
+      "quality": "Calidad"
+    },
+    "stackMeta": {
+      "frontend": "páginas en el front de Adaflow",
+      "backend": "microservicios en producción",
+      "ai": "herramientas en Órbita, con riesgo declarado",
+      "data": "modelos de datos en 18 schemas",
+      "devops": "puertas de CI por release",
+      "integrations": "conectores nativos en Adaflow",
+      "security": "endpoints de escritura con auditoría obligatoria",
+      "quality": "tests corriendo en el backend de Adaflow"
+    },
+    "educationTitle": "Formación",
+    "education": [
+      "Desarrollo Full Stack · Rocketseat (en curso)",
+      "JavaScript & Angular + Java con AWS · DIO.me",
+      "Lógica de programación, TIC, front/back y UX · SENAI"
+    ],
+    "companies": {
+      "cia": {
+        "name": "Companhia de Estágios",
+        "role": "Tech Lead",
+        "mode": "São Paulo, Brasil",
+        "paragraph": "Lidero técnicamente al equipo de desarrollo, soy la referencia en IA para toda la compañía y el puente entre tecnología y las áreas de negocio: Contratos, Finanzas, Reclutamiento, Aprendizaje, Atención y RR. HH.",
+        "bullets": [
+          "Gestión de proyectos de gran escala que atienden a más de 600 clientes en Brasil, EE. UU., Italia y América Latina, incluidas multinacionales",
+          "Desarrollo full-stack y mantenimiento de los sistemas internos y productos de la empresa: SGCE, SICE, Conecta, apps móviles y OpenEdX",
+          "Estándares de desarrollo, code review, decisiones de arquitectura y organización del flujo de trabajo del equipo",
+          "Levantamiento de demandas, refinamiento de requisitos y homologación con las áreas de negocio",
+          "Mejoras de proceso con un board por área y automatizaciones en Jira"
+        ],
+        "stack": "PHP (Laravel, Zend) · APIs REST · Jira · Bitbucket"
+      },
+      "adalink": {
+        "name": "Adalink",
+        "role": "Senior Software Engineer & Technical Lead",
+        "mode": "São Paulo, Brasil",
+        "paragraph": "Líder técnico responsable de la arquitectura y el desarrollo de una plataforma inteligente de automatizaciones y agentes de IA.",
+        "bullets": [
+          "Liderazgo de equipo, definición de estrategia técnica y revisión de código",
+          "Desarrollo full-stack de interfaces web modernas y APIs robustas",
+          "Integraciones con servicios externos (Airtable, Salesforce) y orquestación de workflows con Kestra",
+          "Infraestructura de deploy con Cloudflare (CDN, Workers, DNS) para rendimiento y seguridad en producción"
+        ],
+        "stack": "Next.js · React · TypeScript · Node.js · PostgreSQL · Docker · Kestra · Cloudflare",
+        "roles": {
+          "lead": {
+            "title": "Technical Lead",
+            "text": "Ascendido en 4 meses: arquitectura, estrategia técnica y liderazgo del equipo."
+          },
+          "senior": {
+            "title": "Senior Software Engineer",
+            "text": "Desarrollo full-stack de la plataforma de automatizaciones y agentes de IA."
+          }
+        }
+      },
+      "chatguru": {
+        "name": "ChatGuru",
+        "role": "Senior Software Engineer",
+        "mode": "Remoto · contratista",
+        "paragraph": "Desarrollo y evolución de una plataforma SaaS de atención y automatización de conversaciones por WhatsApp, que sirve a empresas a escala con chat multiagente, chatbots e integraciones de IA.",
+        "bullets": [
+          "Servicios asíncronos en Python (Flask), con consumers y producers en Kafka y SQS para mensajería de alto volumen",
+          "Integraciones con la API oficial de WhatsApp (Meta), OpenAI (transcripción de audio y GPT) y MessageFy",
+          "Frontend en React para el panel de atención",
+          "Persistencia y analítica con MongoDB, con pipelines de agregación para métricas de atención",
+          "Infraestructura en Docker y Nginx, con observabilidad en Grafana (Loki/Prometheus)"
+        ],
+        "stack": "Python (Flask) · React · Kafka · SQS · MongoDB · OpenAI API · WhatsApp API (Meta) · Docker · Grafana"
+      },
+      "alura": {
+        "name": "Alura",
+        "role": "Senior Full-Stack Developer",
+        "mode": "Remoto · empleado",
+        "paragraph": "Desarrollo full-stack de una plataforma educativa de gran escala, que sirve a millones de alumnos.",
+        "bullets": [
+          "Microservicios en Python y Node.js con deploy en AWS (ECS, Lambda, S3, CloudFront)",
+          "Frontend de alto rendimiento con Next.js, React y TypeScript, con SSR y foco en Core Web Vitals",
+          "Sistema de recomendación de contenido con IA generativa para personalizar rutas de aprendizaje",
+          "APIs con FastAPI y NestJS, caché con Redis y colas con SQS"
+        ],
+        "stack": "Next.js · React · TypeScript · Python · FastAPI · Node.js · NestJS · AWS · PostgreSQL · Redis · Docker"
+      },
+      "revoluna": {
+        "name": "Revoluna",
+        "role": "Tech Lead",
+        "mode": "São Paulo, Brasil",
+        "paragraph": "Líder técnico de una plataforma médica enfocada en optimizar guardias hospitalarias, que conecta médicos con oportunidades de guardia.",
+        "bullets": [
+          "Arquitectura, decisiones técnicas y mentoría del equipo de desarrollo",
+          "Desarrollo full-stack de la plataforma",
+          "Agentes de IA y automatizaciones para acelerar procesos críticos",
+          "APIs con Supabase, integraciones SaaS y orquestación de workflows"
+        ],
+        "stack": "Next.js · React · TypeScript · Node.js · Prisma · PostgreSQL · Supabase · Docker"
+      },
+      "love": {
+        "name": "Love · startup internacional",
+        "role": "Full-Stack Developer",
+        "mode": "Remoto",
+        "period": "3 meses",
+        "paragraph": "Desarrollador full-stack responsable del MVP de un marketplace que conecta influencers con ventas directas.",
+        "bullets": [
+          "Arquitectura e implementación completas: frontend con Next.js y React, backend con Python y FastAPI",
+          "Integraciones con servicios externos y pipeline de CI/CD para deploy continuo"
+        ],
+        "stack": "Next.js · React · TypeScript · Python · FastAPI · PostgreSQL · Docker"
+      },
+      "mg": {
+        "name": "Melhor do Grão",
+        "role": "De Front-end a Tech Lead",
+        "mode": "São Paulo, Brasil",
+        "paragraph": "Una trayectoria de 8 años en e-commerce, marketplace y ERP: de desarrollador front-end a líder técnico.",
+        "bullets": [
+          "Liderazgo técnico, definición de arquitectura de sistemas y mentoría de equipo",
+          "Arquitectura de APIs e integración de módulos complejos: finanzas, inventario y facturación electrónica (NFe)",
+          "E-commerce, marketplace, ERP, módulos financieros e implementación de IA"
+        ],
+        "stack": "JavaScript · React · TypeScript · Node.js · Python · PostgreSQL · Docker",
+        "roles": {
+          "lead": {
+            "title": "Tech Lead",
+            "text": "Liderazgo técnico, arquitectura y mentoría del equipo."
+          },
+          "fullstack": {
+            "title": "Full-Stack Developer",
+            "text": "APIs e integración de los módulos de finanzas, inventario y facturación."
+          },
+          "frontend": {
+            "title": "Front-end Developer",
+            "text": "Inicio de la carrera, construyendo las interfaces del e-commerce y del marketplace."
+          }
+        }
+      }
     }
   },
   "about": {
-    "title": "Sobre {highlight}",
-    "highlight": "Mí",
-    "name": "Wesley Santos",
-    "role": "Tech Lead Software Engineer",
-    "tags": {
-      "experience": "9+ Años",
-      "ai": "IA y Automatización",
-      "leadership": "Liderazgo",
-      "fullstack": "Full Stack"
-    },
-    "sections": {
-      "mission": {
-        "title": "Mi Misión",
-        "content": "Con más de nueve años de experiencia en tecnología, actúo como Programador Senior y Líder Técnico en Adalink, donde conduzco el desarrollo de soluciones avanzadas en Inteligencia Artificial y automatización. Mi misión es transformar ideas complejas en sistemas inteligentes y escalables."
+    "paragraphs": {
+      "trajectory": {
+        "head": "Trayectoria.",
+        "text": "Empecé en 2015 como desarrollador front-end y crecí hasta liderar la ingeniería de e-commerce, marketplace y ERP en Melhor do Grão. Después pasé por Adalink, Revoluna, Alura y ChatGuru. Hoy soy Tech Lead en Companhia de Estágios y en Adalink, y fundador de OrbitMind, donde construyo productos de IA."
       },
-      "expertise": {
-        "title": "Experiencia Técnica",
-        "content": "Trabajo con una stack moderna que incluye Next.js, TypeScript, Python, Node.js y Go, explorando lo mejor de cada lenguaje para construir aplicaciones robustas y de alto rendimiento."
+      "work": {
+        "head": "Cómo trabajo.",
+        "text": "De forma AI-native: escribo la especificación, decido la arquitectura, oriento agentes de código y reviso cada entrega, con pruebas y gates de CI sosteniendo la calidad."
       },
-      "leadership": {
-        "title": "Liderazgo e Innovación",
-        "content": "En Adalink, lidero iniciativas de automatizaciones inteligentes y orquestación de agentes. Participo activamente en decisiones de arquitectura y guío al equipo en la implementación de prácticas sólidas como clean code, pruebas y CI/CD."
-      },
-      "vision": {
-        "title": "Visión y Valores",
-        "content": "Soy entusiasta de la Inteligencia Artificial aplicada a negocios, con experiencia en integraciones con LLMs como OpenAI, Anthropic y Gemini. Mi enfoque une técnica y propósito, buscando siempre entender el contexto del problema."
+      "drive": {
+        "head": "Lo que me mueve.",
+        "text": "IA que tiene que ser confiable: agentes con aprobación humana, RAG medido, costos bajo control y datos protegidos (LGPD)."
       }
-    },
-    "cta": "Ver Experiencia"
-  },
-  "experience": {
-    "title": "Experiencia",
-    "subtitle": "Trayectoria profesional y evolución técnica",
-    "technicalSkills": "Habilidades Técnicas",
-    "leadershipSkills": "Liderazgo y Habilidades Blandas",
-    "cta": "Ver Proyectos",
-    "viewAll": "Ver Experiencia Completa"
-  },
-  "projects": {
-    "title": "Proyectos",
-    "subtitle": "Árbol de proyectos innovadores creciendo con mi evolución como desarrollador. Cada rama representa una nueva conquista tecnológica.",
-    "searchPlaceholder": "Buscar proyectos...",
-    "status": {
-      "completed": "Maduro",
-      "inProgress": "Creciendo",
-      "planned": "Semilla"
-    },
-    "stats": {
-      "total": "Proyectos",
-      "completed": "Frutos Maduros",
-      "growing": "Creciendo",
-      "technologies": "Tecnologías"
-    },
-    "cta": {
-      "viewGitHub": "Ver GitHub",
-      "clearSelection": "Limpiar Selección",
-      "contact": "Hablemos"
-    },
-    "description": "Cada rama representa una conquista. De la semilla inicial a los frutos maduros, mi trayectoria refleja crecimiento continuo y evolución tecnológica."
-  },
-  "solutions": {
-    "title": "Soluciones",
-    "subtitle": "Transformando desafíos complejos en soluciones digitales innovadoras con tecnología de punta y mejores prácticas del mercado.",
-    "cta": {
-      "consultation": "Agendar Consultoría",
-      "viewProjects": "Ver Proyectos"
-    },
-    "ready": "¿Listo para transformar tu negocio?",
-    "description": "Hablemos de cómo mis soluciones pueden ayudar a tu empresa a alcanzar sus objetivos tecnológicos y de negocio."
-  },
-  "gallery": {
-    "title": "Galería",
-    "subtitle": "Visualización del proceso creativo y resultados finales. Del diseño inicial a la entrega final, cada detalle importa.",
-    "categories": {
-      "all": "Todos",
-      "screenshots": "Capturas",
-      "design": "Proceso de Diseño",
-      "mockups": "Maquetas",
-      "devices": "Responsive"
-    },
-    "stats": {
-      "total": "Imágenes Totales",
-      "categories": "Categorías",
-      "original": "Diseño Original",
-      "resolution": "Alta Resolución"
-    },
-    "cta": {
-      "viewGitHub": "Ver GitHub",
-      "customize": "Personalizar Visualización"
-    },
-    "description": "Navega por los proyectos en diferentes etapas. Del concepto inicial al producto final, cada etapa del proceso creativo está documentada aquí."
-  },
-  "footer": {
-    "brand": "Tech Lead Software Engineer",
-    "description": "Transformando código en experiencias extraordinarias. Tech Lead Full Stack especializado en IA y automatización.",
-    "navigation": "Navegación",
-    "expertise": "Experiencia",
-    "cta": {
-      "title": "¿Hablemos?",
-      "description": "¿Listo para transformar ideas en realidad digital? Ponte en contacto y construyamos algo extraordinario juntos.",
-      "button": "Enviar Mensaje"
-    },
-    "copyright": "© 2025 Wesley Santos. Todos los derechos reservados.",
-    "madeWith": "Hecho con ❤️ y código en Deep Space"
-  },
-  "contact": {
-    "title": "Ponte en Contacto",
-    "description": "¿Listo para transformar ideas en realidad? Envía un mensaje y hablemos sobre tu próximo proyecto.",
-    "form": {
-      "name": "Nombre",
-      "namePlaceholder": "Tu nombre completo",
-      "email": "Correo",
-      "emailPlaceholder": "tu@email.com",
-      "subject": "Asunto",
-      "subjectPlaceholder": "¿Sobre qué te gustaría conversar?",
-      "message": "Mensaje",
-      "messagePlaceholder": "Cuéntame más sobre tu proyecto...",
-      "submit": "Enviar Mensaje",
-      "submitting": "Enviando...",
-      "success": "¡Mensaje enviado con éxito! Te contactaré pronto.",
-      "error": "Error al enviar mensaje. Intenta de nuevo más tarde."
     }
   },
-  "search": {
-    "placeholder": "Buscar proyectos, tecnologías..."
+  "contact": {
+    "index": "05",
+    "indexLabel": "Contacto",
+    "indexMeta": "respuesta por correo · São Paulo, UTC−3",
+    "h2a": "¿Ponemos tu proyecto",
+    "h2b": "en órbita?",
+    "h2": "¿Ponemos tu proyecto en órbita?",
+    "lead": "Órbita encuentra un horario libre en mi agenda y envía la invitación de Google Meet. Treinta minutos, sin compromiso.",
+    "orbitaNote": "Órbita es una asistente de IA. Solo ve los horarios libres de mi calendario.",
+    "linksAria": "Canales directos",
+    "quoteEyebrow": "Solicitar presupuesto",
+    "quoteTitle": "¿Lo prefieres por escrito?",
+    "quoteLead": "Describe el proyecto en cinco pasos y recibe una propuesta por correo.",
+    "channels": {
+      "email": {
+        "dt": "Correo"
+      },
+      "linkedin": {
+        "dt": "LinkedIn"
+      },
+      "github": {
+        "dt": "GitHub"
+      },
+      "orbitmind": {
+        "dt": "OrbitMind",
+        "dd": "Sitio de OrbitMind"
+      },
+      "status": {
+        "dt": "Estado",
+        "dd": "Disponible para proyectos"
+      }
+    },
+    "copyEmail": "Copiar correo",
+    "emailCopied": "Correo copiado"
+  },
+  "quote": {
+    "eyebrow": "Solicitar presupuesto",
+    "stepOf": "Paso {n} de {total}",
+    "sent": "Solicitud enviada",
+    "microcopy": "Sin compromiso · inversión a consultar · tus datos solo para esta solicitud",
+    "prefill": "Completar ejemplo",
+    "back": "Volver",
+    "continue": "Continuar",
+    "send": "Enviar solicitud",
+    "sending": "Enviando",
+    "steps": {
+      "s1": {
+        "title": "¿Cómo quieres contratar?",
+        "helper": "Elige el formato más cercano. Se puede cambiar después.",
+        "options": {
+          "continuous": {
+            "title": "Desarrollo continuo",
+            "sub": "Equipo sénior haciendo evolucionar tu producto cada mes."
+          },
+          "project": {
+            "title": "Proyecto específico",
+            "sub": "Alcance y plazo cerrados, del diagnóstico a la entrega."
+          },
+          "consulting": {
+            "title": "Consultoría técnica",
+            "sub": "Arquitectura, IA y dirección técnica a demanda."
+          },
+          "unsure": {
+            "title": "Aún no lo sé",
+            "sub": "Quiero conversar para entender el mejor formato."
+          }
+        },
+        "error": "Elige una opción para continuar."
+      },
+      "s2": {
+        "title": "¿Qué necesitas construir?",
+        "helper": "Marca todo lo que aplique.",
+        "options": {
+          "web_platform": "Plataforma web",
+          "mobile_app": "App móvil",
+          "ai_agents": "Agentes de IA",
+          "whatsapp_bots": "Bot de WhatsApp",
+          "integrations": "Integraciones",
+          "legacy_evolution": "Evolución de sistema legado",
+          "other": "Otro"
+        },
+        "otherLabel": "¿Cuál?",
+        "otherPlaceholder": "Descríbelo en pocas palabras",
+        "error": "Marca al menos una opción.",
+        "otherError": "Cuéntanos cuál es la otra necesidad."
+      },
+      "s3": {
+        "title": "Cuenta el contexto",
+        "helper": "El problema, quién lo va a usar y qué existe hoy. Cuanto más concreto, mejor la conversación.",
+        "descriptionLabel": "Descripción",
+        "descriptionPlaceholder": "Ej.: Queremos un agente de IA que responda a pacientes por WhatsApp, agende citas y pase a recepción cuando haga falta.",
+        "startLabel": "Punto de partida",
+        "starts": {
+          "zero": "Desde cero",
+          "existing": "Ya existe un sistema",
+          "prototype": "Tengo un prototipo"
+        },
+        "linkLabel": "Enlace (opcional)",
+        "linkPlaceholder": "https://",
+        "prefillDescription": "Atención con IA por WhatsApp para una clínica: responder dudas, agendar citas y pasar a recepción.",
+        "error": "Cuéntanos un poco más (mínimo 20 caracteres)."
+      },
+      "s4": {
+        "title": "Plazo e inversión",
+        "helper": "No trabajo con tabla de precios: la inversión se define en la propuesta, después de la conversación.",
+        "deadlineLabel": "¿Para cuándo?",
+        "deadlines": {
+          "asap": "Lo antes posible",
+          "1_3_months": "En 1 a 3 meses",
+          "no_date": "Sin fecha definida"
+        },
+        "budgetLabel": "Inversión",
+        "budgets": {
+          "discuss_on_call": "Prefiero hablarlo en la conversación",
+          "has_budget": "Ya tengo un presupuesto definido (lo cuento en la conversación)",
+          "estimating": "Todavía lo estoy estimando"
+        },
+        "error": "Elige un plazo."
+      },
+      "s5": {
+        "title": "¿Cómo te contacto?",
+        "nameLabel": "Nombre",
+        "companyLabel": "Empresa",
+        "emailLabel": "Correo",
+        "whatsappLabel": "WhatsApp (opcional)",
+        "whatsappPlaceholder": "+55 11 90000-0000",
+        "consent": "Autorizo el uso de estos datos para responder a esta solicitud.",
+        "privacy": "Política de privacidad",
+        "honeypotLabel": "Deja este campo en blanco"
+      }
+    },
+    "errors": {
+      "name": "El nombre debe tener al menos 2 caracteres",
+      "email": "Correo inválido",
+      "consent": "Confirma la autorización para continuar.",
+      "link": "Enlace inválido",
+      "send": "No se pudo enviar ahora. Inténtalo de nuevo o escribe a wesleysantos.0095@gmail.com.",
+      "rateLimit": "Demasiados intentos en poco tiempo. Inténtalo de nuevo en un momento."
+    },
+    "success": {
+      "title": "Recibido, {name}.",
+      "helper": "Envié la confirmación a {email}. Próximo paso: 30 minutos en el calendario de Wesley.",
+      "summary": {
+        "engagement": "Formato",
+        "solutions": "Solución",
+        "deadline": "Plazo",
+        "budget": "Inversión"
+      },
+      "confirm": "Confirmar horario",
+      "wait": "Prefiero esperar el correo",
+      "helperNoConfirm": "Responderé a {email}. Próximo paso: 30 minutos en el calendario de Wesley.",
+      "summaryAria": "Resumen de la solicitud"
+    },
+    "confirmed": {
+      "text": "La invitación se creó en el calendario de Wesley. Para reprogramar, usa el enlace de la invitación.",
+      "waitingWhen": "Jue, 01/10 · 10:00 (Brasilia) · esperando la confirmación de Wesley",
+      "waitingText": "La invitación con el enlace de Google Meet llega por correo en cuanto él confirme."
+    },
+    "waitEmail": {
+      "text": "Perfecto. Recibirás una respuesta por correo en un plazo de [PLAZO DE RESPUESTA].",
+      "backToSlots": "Volver a los horarios",
+      "title": "Perfecto.",
+      "helper": "Recibirás una respuesta por correo en un plazo de [PLAZO DE RESPUESTA]."
+    },
+    "ref": "Referencia: {name}",
+    "refRemove": "Quitar referencia",
+    "progressAria": "Progreso de la solicitud",
+    "stepAnnounce": "Paso {n} de {total}: {title}",
+    "sendingAnnounce": "Enviando solicitud",
+    "restart": "Nueva solicitud",
+    "booking": {
+      "when": "{day} · {start}–{end} (hora de Brasilia)",
+      "waitingWhen": "{day} · {time} (hora de Brasilia) · esperando la confirmación de Wesley",
+      "whereMeet": "Google Meet · {url}",
+      "whereInvite": "Google Meet · enlace en la invitación",
+      "demoNote": "Horarios ilustrativos: Wesley confirma el horario por correo.",
+      "error": "No se pudo confirmar el horario ahora. Elige otro o espera el correo.",
+      "taken": "Ese horario se acaba de ocupar. Elige otro.",
+      "slotsError": "No pude cargar los horarios ahora.",
+      "empty": "Sin horarios libres en los próximos días.",
+      "retry": "Reintentar",
+      "confirming": "Confirmando",
+      "linkCopied": "Enlace copiado",
+      "icsTitle": "Conversación con Wesley Santos",
+      "icsDescription": "Conversación inicial de 30 minutos por Google Meet."
+    },
+    "email": {
+      "subject": "Recibí tu solicitud de presupuesto",
+      "greeting": "Hola, {name}.",
+      "intro": "Recibí tu solicitud y respondo por correo. Si quieres adelantar, elige 30 minutos en mi calendario desde el sitio.",
+      "summaryTitle": "Resumen",
+      "footer": "Recibes este correo porque enviaste una solicitud en {site}. Tus datos se usan solo para responderla."
+    }
+  },
+  "orbita": {
+    "name": "Órbita",
+    "chip": "Asistente de IA",
+    "launcher": {
+      "title": "Pregúntale a Órbita",
+      "close": "Cerrar conversación",
+      "fabAria": "Hablar con Órbita, asistente de IA",
+      "unread": "1 mensaje nuevo de Órbita"
+    },
+    "panelAria": "Conversación con Órbita, asistente de IA",
+    "srTitle": "Conversación con Órbita, la asistente de IA de Wesley",
+    "header": {
+      "status": {
+        "online": "en línea · responde al instante",
+        "typing": "escribiendo…",
+        "calendar": "consultando el calendario…",
+        "invite": "creando la invitación…"
+      },
+      "restart": "Reiniciar conversación",
+      "close": "Cerrar"
+    },
+    "disclosure": {
+      "text": "Estás hablando con una IA. Puede equivocarse; las confirmaciones llegan por correo.",
+      "privacy": "Privacidad"
+    },
+    "composer": {
+      "placeholder": "Escribe tu mensaje…",
+      "aria": "Mensaje para Órbita",
+      "send": "Enviar mensaje",
+      "hint": "Enter envía · las conversaciones de visitantes se borran en [RETENCIÓN]"
+    },
+    "log": {
+      "you": "Tú:",
+      "typing": "Órbita está escribiendo",
+      "aria": "Mensajes de la conversación",
+      "quickReplies": "Respuestas rápidas"
+    },
+    "chips": {
+      "seeProjects": "Conocer los proyectos",
+      "haveProject": "Tengo un proyecto",
+      "bookCall": "Agendar una conversación",
+      "project": "Proyecto específico",
+      "continuous": "Desarrollo continuo",
+      "unsure": "Aún no lo sé",
+      "asap": "Lo antes posible",
+      "oneToThree": "En 1 a 3 meses",
+      "noDate": "Sin fecha definida"
+    },
+    "script": {
+      "b0": {
+        "text": "¡Hola! Soy Órbita, la asistente de IA de Wesley. Puedo contarte sobre sus proyectos, entender lo que necesitas y agendar una conversación de 30 minutos con él. ¿Por dónde empezamos?"
+      },
+      "b1a": {
+        "text": "¡Qué bien! Cuéntame en una frase qué quieres construir.",
+        "draft": "Vi NexBot aquí en el sitio. ¿Se puede hacer algo parecido para el WhatsApp de mi clínica?"
+      },
+      "b1b": {
+        "text": "Estos son tres productos que él construyó:",
+        "followUp": "¿Quieres algo parecido para tu empresa?"
+      },
+      "b3": {
+        "text": "Sí, se puede. NexBot es un producto propio de Wesley, hoy en beta: un agente de IA configurado una vez y publicado en varios canales, con base de conocimiento y traspaso a una persona del equipo cuando hace falta. WhatsApp funciona en un motor separado, NexConnect."
+      },
+      "b4": {
+        "text": "Para pasarle el contexto correcto a Wesley: ¿imaginas un proyecto con principio y fin, o a alguien haciéndolo evolucionar contigo cada mes?"
+      },
+      "b5": {
+        "text": "Entiendo. ¿Y para cuándo necesitas que esté funcionando?"
+      },
+      "b6": {
+        "text": "Anotado: atención con IA por WhatsApp para una clínica, proyecto específico, plazo de 1 a 3 meses. El próximo paso es una conversación de 30 minutos con Wesley, por Google Meet. Elige un horario:",
+        "short": "El siguiente paso es una conversación de 30 minutos con Wesley por Google Meet. Elige un horario:"
+      },
+      "b7": {
+        "picked": "{day}, {date} a las {time}",
+        "text": "Genial. Para enviar la invitación, dime tu nombre y tu correo."
+      },
+      "b8": {
+        "text": "¡Listo! Wesley recibió el resumen de esta conversación. Si quieres adelantar, detalla el proyecto en el formulario de presupuesto.",
+        "link": "Detallar presupuesto",
+        "approvalText": "Envié tu pedido. En cuanto Wesley confirme, la invitación con el enlace de Meet llegará a tu correo."
+      },
+      "fallback": {
+        "text": "Sin problema. Deja tu correo y Wesley te responde con otras opciones.",
+        "done": "¡Recibido! Tendrás una respuesta por correo."
+      },
+      "error": {
+        "tool": "No pude acceder al calendario ahora",
+        "text": "¿Puedo anotar tu correo para que Wesley te responda con horarios?"
+      },
+      "guard": {
+        "visitor": "Muéstrame el calendario completo de Wesley.",
+        "text": "No tengo acceso a sus compromisos, solo a los horarios libres para agendar una conversación. ¿Quieres ver los próximos?"
+      },
+      "rateLimit": "Demasiados mensajes en poco tiempo. Inténtalo de nuevo en un momento.",
+      "slotTaken": "Ese horario se acaba de ocupar",
+      "noSlots": "No encontré horarios libres en los próximos días. Deja tu e-mail y Wesley te responde con opciones.",
+      "chatError": "No pude responder ahora",
+      "chatErrorText": "Tuve un problema para responder. ¿Puedo anotar tu e-mail para que Wesley te contacte?",
+      "refused": "Prefiero no responder eso. ¿Te cuento sobre los proyectos de Wesley o agendamos una conversación con él?"
+    },
+    "tools": {
+      "portfolio": {
+        "running": "Consultando los proyectos del portafolio",
+        "done": "Consulté los proyectos del portafolio"
+      },
+      "calendar": {
+        "running": "Consultando el calendario de Wesley",
+        "done": "Consulté el calendario de Wesley · solo horarios libres"
+      },
+      "invite": {
+        "running": "Verificando el horario y creando la invitación",
+        "done": "Verificado: horario aún libre · invitación creada"
+      },
+      "request": {
+        "running": "Enviando el pedido a Wesley",
+        "done": "Envié el pedido a Wesley"
+      },
+      "error": "No pude completar esta consulta"
+    },
+    "projectCards": {
+      "orbita": {
+        "name": "Órbita",
+        "meta": "102 herramientas",
+        "link": "Caso de estudio"
+      },
+      "orbitmind": {
+        "name": "OrbitMind",
+        "meta": "39 integraciones",
+        "link": "Ver en el portafolio"
+      },
+      "nexbot": {
+        "name": "NexBot",
+        "meta": "757 pruebas",
+        "metaLong": "757 pruebas · 10+ canales · traspaso a personas",
+        "link": "Ver en el portafolio"
+      },
+      "more": "Ver en el portafolio"
+    },
+    "slots": {
+      "header": "Horarios libres · Brasilia (UTC−3) · 30 min · Google Meet",
+      "daysAria": "Días disponibles",
+      "days": {
+        "wed": {
+          "short": "Mié 30/09",
+          "long": "Miércoles, 30 de septiembre",
+          "picked": "Miércoles",
+          "date": "30/09"
+        },
+        "thu": {
+          "short": "Jue 01/10",
+          "long": "Jueves, 1 de octubre",
+          "picked": "Jueves",
+          "date": "01/10"
+        },
+        "fri": {
+          "short": "Vie 02/10",
+          "long": "Viernes, 2 de octubre",
+          "picked": "Viernes",
+          "date": "02/10"
+        }
+      },
+      "slotAria": "{day}, {time}",
+      "noneFits": "¿Ningún horario te sirve? Deja tu correo",
+      "loading": "Cargando horarios",
+      "tzName": "Brasília"
+    },
+    "contactCard": {
+      "name": "Nombre",
+      "email": "Correo",
+      "micro": "Uso tus datos solo para esta conversación.",
+      "confirm": "Confirmar horario",
+      "send": "Enviar",
+      "consent": "Acepto enviar mi nombre y e-mail a Wesley para recibir la invitación.",
+      "consentCallback": "Acepto enviar mi nombre y e-mail a Wesley para recibir una respuesta.",
+      "sending": "Enviando",
+      "errors": {
+        "name": "El nombre debe tener al menos 2 caracteres",
+        "email": "E-mail inválido",
+        "consent": "Marca para continuar"
+      }
+    },
+    "booking": {
+      "title": "Conversación agendada",
+      "whenLabel": "Cuándo",
+      "when": "Jue, 1 de octubre · 10:00–10:30 (Brasilia)",
+      "whereLabel": "Dónde",
+      "where": "Google Meet · [ENLACE DE GOOGLE MEET]",
+      "inviteLabel": "Invitación",
+      "invite": "enviada a {email}",
+      "addToCalendar": "Añadir al calendario",
+      "copyLink": "Copiar enlace",
+      "copied": "Copiado",
+      "waitingTitle": "Pedido enviado · esperando a Wesley",
+      "waitingWhere": "el enlace de Meet llega por correo al confirmar",
+      "whenValue": "{date} · {start}–{end} ({tz})",
+      "meet": "Google Meet",
+      "icsTitle": "Conversación con Wesley Santos",
+      "icsDescription": "Conversación de 30 minutos agendada por Órbita, la asistente de IA de Wesley."
+    },
+    "demo": {
+      "note": "Modo demostración · conversación guionizada; horarios e invitación son ficticios.",
+      "reply": "Estoy en modo demostración, así que sigo un guion fijo. Elige una de las opciones para continuar.",
+      "bookingNote": "Demostración: no se envió ninguna invitación."
+    }
+  },
+  "hire": {
+    "breadcrumb": {
+      "home": "Inicio",
+      "current": "Contratar",
+      "aria": "Ruta de navegación"
+    },
+    "h1": "Cómo trabajar conmigo",
+    "lead": "Tres formatos, el mismo estándar: arquitectura pensada para durar, pruebas desde el primer día e IA usada con criterio. Hablas directo con quien construye.",
+    "jump": {
+      "techlead": "Liderazgo técnico",
+      "continuous": "Continuo",
+      "project": "Proyecto",
+      "consulting": "Consultoría",
+      "aria": "Ir al formato",
+      "label": "Ir directo al formato:"
+    },
+    "proof": {
+      "title": "Prueba rápida",
+      "rows": {
+        "tools": {
+          "value": "102",
+          "label": "herramientas en Órbita"
+        },
+        "commits": {
+          "value": "~70%",
+          "label": "de los commits humanos en la plataforma de IA que lidero"
+        },
+        "tests": {
+          "value": "1.258",
+          "label": "casos de prueba en la Suite Nex"
+        }
+      },
+      "source": "fuente"
+    },
+    "comparison": {
+      "h2": "Modelos de contratación",
+      "rows": {
+        "oneLiner": "En una frase",
+        "ideal": "Ideal para",
+        "includes": "Qué incluye",
+        "how": "Cómo funciona",
+        "cadence": "Cadencia",
+        "deliverables": "Recibes",
+        "investment": "Inversión"
+      },
+      "models": {
+        "techlead": {
+          "oneLiner": "Asumo tu equipo como Tech Lead: arquitectura, gestión y entrega.",
+          "ideal": "Empresas que necesitan liderazgo técnico sénior en casa.",
+          "how": "CLT o PJ, completa o parcial, remoto o híbrido en São Paulo.",
+          "cadence": "Rituales semanales con el equipo e informe mensual a la dirección.",
+          "deliverables": "Roadmap técnico, equipo rindiendo, pipeline con IA y métricas de entrega.",
+          "investment": "A consultar"
+        },
+        "continuous": {
+          "oneLiner": "Un equipo sénior haciendo evolucionar tu producto cada mes.",
+          "ideal": "Productos en evolución sin liderazgo técnico sénior dedicado.",
+          "how": "Contrato mensual, con capacidad definida junto contigo.",
+          "cadence": "Planificación mensual, demo en cada ciclo.",
+          "deliverables": "Roadmap vivo, código en tu repositorio, informes y ADRs.",
+          "investment": "A consultar"
+        },
+        "project": {
+          "oneLiner": "Alcance, plazo y entregables cerrados.",
+          "ideal": "MVPs, agentes de IA, bots de WhatsApp, integraciones y reescrituras de legado.",
+          "how": "Propuesta cerrada por hitos, con aceptación en cada entrega.",
+          "cadence": "Demo y aceptación en cada hito.",
+          "deliverables": "Sistema entregado, probado y documentado, con transferencia de conocimiento.",
+          "investment": "A consultar"
+        },
+        "consulting": {
+          "oneLiner": "Decisiones de arquitectura e IA con quien ya las tomó en producción.",
+          "ideal": "Segunda opinión, dirección técnica o acelerar al equipo con IA.",
+          "how": "Sesiones sueltas o paquete de horas.",
+          "cadence": "Informe escrito al final de cada sesión o paquete.",
+          "deliverables": "Diagnóstico, recomendaciones priorizadas y plan de acción.",
+          "investment": "A consultar"
+        }
+      },
+      "cta": "Quiero este formato",
+      "hint": "pasa el cursor para comparar",
+      "caption": "Comparación de los tres modelos de contratación: desarrollo continuo, proyecto específico y consultoría técnica",
+      "ctaAria": "Quiero este formato: {model}",
+      "action": "Acción",
+      "pickAria": "Elige el formato para comparar"
+    },
+    "build": {
+      "title": "Lo que construyo"
+    },
+    "aiMethod": {
+      "title": "Cómo uso la IA en el desarrollo",
+      "body": "Especifico con un PRD, decido la arquitectura y registro las decisiones en ADRs. Los agentes de código implementan bajo reglas y gates de CI; yo reviso e integro cada entrega. En la plataforma de IA que lidero, este pipeline revisa PRs en 8 ejes y llega al merge con una mediana inferior a 1 hora.",
+      "rows": {
+        "tests": "Pruebas desde el primer commit",
+        "ownership": "Código y repositorio a tu nombre",
+        "observability": "Observabilidad antes del lanzamiento",
+        "lgpd": "Privacidad (LGPD) por defecto"
+      }
+    },
+    "quote": {
+      "eyebrow": "Solicitar presupuesto",
+      "h2": "Cuéntame qué necesitas",
+      "lead": "Toma unos 3 minutos. Recibes la confirmación por correo y ya puedes elegir un horario.",
+      "afterTitle": "Qué pasa después",
+      "after": [
+        "Envías la solicitud.",
+        "Recibes la confirmación por correo.",
+        "Conversamos 30 minutos por Google Meet.",
+        "Recibes una propuesta por escrito."
+      ],
+      "note": "¿Prefieres conversar antes? Órbita responde ahora y agenda un horario."
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": {
+        "price": {
+          "q": "¿Cuánto cuesta?",
+          "a": "Depende del formato, del alcance y del plazo. Por eso no publico tabla: después de la conversación inicial recibes una propuesta por escrito, con alcance e inversión definidos."
+        },
+        "firstCall": {
+          "q": "¿La conversación inicial tiene costo?",
+          "a": "No. Son 30 minutos para entender el problema y ver si tiene sentido trabajar juntos."
+        },
+        "who": {
+          "q": "¿Quién hace el trabajo?",
+          "a": "Yo diseño la arquitectura, reviso y respondo por todo. Trabajo de forma AI-native, con agentes de código bajo reglas, pruebas y revisión."
+        },
+        "nda": {
+          "q": "¿Firmas NDA?",
+          "a": "Sí, antes de cualquier detalle sensible."
+        },
+        "code": {
+          "q": "¿De quién es el código?",
+          "a": "Tuyo. El repositorio queda en tu organización desde el primer día."
+        },
+        "remote": {
+          "q": "¿Trabajas fuera de São Paulo?",
+          "a": "Sí, el trabajo es remoto. Huso horario de referencia: Brasilia (UTC−3)."
+        }
+      },
+      "lead": "¿No encontraste la tuya? Órbita responde ahora, o escríbeme."
+    },
+    "sections": {
+      "models": {
+        "index": "01",
+        "label": "Formatos"
+      },
+      "build": {
+        "index": "02",
+        "label": "Soluciones",
+        "meta": "6 tipos de solución · cada una con prueba en el portafolio"
+      },
+      "process": {
+        "index": "03",
+        "label": "Proceso"
+      },
+      "quote": {
+        "index": "04",
+        "label": "Solicitar presupuesto"
+      },
+      "faq": {
+        "index": "05",
+        "label": "Dudas",
+        "meta": "6 preguntas · respuestas directas"
+      }
+    }
+  },
+  "caseOrbita": {
+    "breadcrumb": {
+      "products": "Productos",
+      "current": "Órbita"
+    },
+    "tag": "En desarrollo",
+    "meta": "Producto propio · IA y Agentes · Jul – Sep 2026",
+    "h1": "Órbita",
+    "descriptor": "Asistente personal de IA · local-first, voz primero",
+    "ctaArchitecture": "Ver arquitectura",
+    "fig": {
+      "front": "fig. 01 · Órbita · vista general, modo oscuro",
+      "phone": "fig. 02 · app, modo claro",
+      "spend": "fig. 03 · Gastos por flujo (datos reales de uso personal, 7 días)",
+      "phoneOverview": "fig. 04 · app, vista general"
+    },
+    "lead": "Un asistente personal de IA que corre en la máquina de su dueño: conversa por texto y voz, usa 102 herramientas elegidas por relevancia y solo actúa en el mundo con aprobación. Construido de punta a punta por una persona, en unas 10 semanas.",
+    "metaGrid": {
+      "role": {
+        "label": "Rol",
+        "value": "Autor único · producto, arquitectura y código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Jul – Sep 2026 · en curso"
+      },
+      "status": {
+        "label": "Estado",
+        "value": "En desarrollo · uso personal diario"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · licencia MIT"
+      }
+    },
+    "stack": "Next.js 16 · React 19 · NestJS 12 · Drizzle · Postgres 16 + pgvector · Vercel AI SDK 7 · Expo 54 · Python (FastAPI) · sherpa-onnx · Vitest · Docker Compose",
+    "tocTitle": "En esta página",
+    "toc": {
+      "premise": "Premisa",
+      "architecture": "Arquitectura",
+      "safety": "Seguridad por estructura",
+      "llm": "LLM pragmático",
+      "rag": "RAG medido",
+      "channels": "Multicanal",
+      "screens": "Pantallas",
+      "numbers": "Números",
+      "next": "Órbita en este sitio"
+    },
+    "sections": {
+      "premise": {
+        "body": "Un “Jarvis” personal, privado por diseño: agenda, correo, reuniones, documentos, finanzas y hogar en una sola presencia, corriendo en la máquina de su dueño. El punto de partida: una vida digital dispersa y asistentes en la nube que actúan sin control."
+      },
+      "architecture": {
+        "body": "Monorepo Turborepo con un proceso vivo (NestJS) y la interfaz (Next.js) en el mismo origen y sesión, dos servicios Python locales para voz y percepción, y Postgres con pgvector.",
+        "caption": "diagrama simplificado a partir del repositorio",
+        "pause": "Pausar diagrama",
+        "play": "Animar diagrama",
+        "nodes": {
+          "a1": {
+            "title": "Web",
+            "sub": "Next.js 16 · PWA"
+          },
+          "a2": {
+            "title": "App",
+            "sub": "Expo 54"
+          },
+          "a3": {
+            "title": "Voz",
+            "sub": "“Ei Órbita” · tiempo real"
+          },
+          "b1": {
+            "title": "API viva",
+            "sub": "NestJS 12 · Drizzle"
+          },
+          "c1": {
+            "title": "Herramientas",
+            "sub": "102 · riesgo declarado"
+          },
+          "c2": {
+            "title": "Capa LLM",
+            "sub": "7 proveedores · failover"
+          },
+          "c3": {
+            "title": "Cola de aprobación",
+            "sub": "“manda” (dale)"
+          },
+          "d1": {
+            "title": "Postgres 16",
+            "sub": "pgvector (HNSW)"
+          },
+          "d2": {
+            "title": "Voz local",
+            "sub": "faster-whisper · Piper · Vosk"
+          },
+          "d3": {
+            "title": "Percepción local",
+            "sub": "sherpa-onnx · MediaPipe"
+          },
+          "d4": {
+            "title": "Canales",
+            "sub": "WhatsApp · Telegram · push"
+          }
+        },
+        "tooltips": {
+          "c1": "Toda herramienta declara su riesgo; las de efecto solo encolan una propuesta.",
+          "c2": "Failover antes del primer token y enrutamiento por complejidad.",
+          "d3": "Biometría que nunca sale de casa.",
+          "d1": "RAG híbrido: vector + texto con RRF y rerank local."
+        },
+        "legendPacket": "pedido simulado",
+        "legendDashed": "servicio Python local",
+        "label": "aprobado por voz: “manda”",
+        "diagramTitle": "Arquitectura · Órbita"
+      },
+      "safety": {
+        "body": "La compuerta humana no depende de que el modelo obedezca: se deriva del riesgo que cada herramienta declara en el registro. Ninguna herramienta se aprueba a sí misma, y el contenido externo se trata como dato.",
+        "risks": [
+          "lectura",
+          "escritura",
+          "efecto_externo",
+          "peligroso"
+        ],
+        "risksLabel": "Riesgo declarado",
+        "risksAria": "Niveles de riesgo declarados por las herramientas",
+        "mech": {
+          "header": "PEDIDO → PROPUESTA → APROBACIÓN · esquema ilustrativo",
+          "bubble": "agenda 30 min con Ana el jueves a las 10",
+          "tool": "↳ criar_evento · riesgo: efeito_externo",
+          "title": "Reunión con Ana",
+          "time": "jue 01/10 · 10:00–10:30",
+          "approve": "Aprobar",
+          "discard": "Descartar",
+          "insight": "aprobado por voz: “manda”"
+        },
+        "caption": {
+          "title": "Pedido → propuesta → aprobación.",
+          "text": "Las herramientas con efecto solo encolan una propuesta; el dueño aprueba en pantalla, con el botón de Telegram o diciendo “manda”."
+        }
+      },
+      "llm": {
+        "body": "Siete proveedores detrás de una capa propia: el pedido del día a día va al modelo preferido y el complejo a un modelo potente, con failover antes del primer token. Un panel muestra cuánto gastó cada flujo y cuánto se ahorró corriendo en local."
+      },
+      "rag": {
+        "body": "Medido, no supuesto. El acervo está en portugués de Brasil y el embedding original era solo en inglés: la búsqueda vectorial pura acertaba la mitad. Con búsqueda híbrida (RRF) y un embedding multilingüe, el acierto subió.",
+        "rows": {
+          "top5": {
+            "label": "Acierto en el top 5",
+            "before": "50,0%",
+            "after": "86,7%"
+          },
+          "mrr": {
+            "label": "MRR@10",
+            "before": "0,345",
+            "after": "0,708"
+          }
+        },
+        "source": "fuente: bench/MEDICAO-RAG-OCR.md · 15 documentos reales · i7-10610U sin GPU · paso a paso de reproducción en el repositorio",
+        "aria": "El acierto en el top 5 subió de 50,0% a 86,7%; el MRR@10 subió de 0,345 a 0,708.",
+        "legendBefore": "antes · búsqueda vectorial pura, embedding solo en inglés",
+        "legendAfter": "después · búsqueda híbrida (RRF) + embedding multilingüe",
+        "axis": {
+          "zero": "0",
+          "half": "0,5 · 50%",
+          "one": "1,0 · 100%"
+        }
+      },
+      "channels": {
+        "body": "La misma capa de herramientas atiende el chat web, la app, la voz en tiempo real, WhatsApp personal y Telegram.",
+        "aria": "Canales de Órbita",
+        "items": {
+          "web": {
+            "name": "Web",
+            "detail": "PWA"
+          },
+          "app": {
+            "name": "App",
+            "detail": "Expo"
+          },
+          "voice": {
+            "name": "Voz",
+            "detail": "“Ei Órbita” · tiempo real"
+          },
+          "whatsapp": {
+            "name": "WhatsApp",
+            "detail": "personal"
+          },
+          "telegram": {
+            "name": "Telegram",
+            "detail": "bot propio"
+          },
+          "push": {
+            "name": "Notificaciones",
+            "detail": "web push"
+          }
+        }
+      },
+      "screens": {
+        "captions": {
+          "visaoGeral": "Vista general: núcleo “Presença” y el día en órbita",
+          "conexoes": "Conexiones: conectores con límites claros (cuenta de ejemplo)",
+          "gestao": "Gastos: costo por flujo: pago, suscripción y local",
+          "conhecimento": "Mapa: segundo cerebro: conversaciones, documentos, reuniones, tareas",
+          "reunioes": "Reuniones: escuchar, transcribir y separar quién habló",
+          "memoria": "Memoria: documentos, fragmentos indexados y hechos, con búsqueda verificable",
+          "login": "Acceso: correo, Google, GitHub o enlace por correo"
+        },
+        "open": "Ampliar imagen {n} de {total}",
+        "counter": "{n} / {total}",
+        "lightboxTitle": "Pantallas de Órbita",
+        "tablistAria": "Pantallas de Órbita"
+      },
+      "numbers": {
+        "items": {
+          "commits": "commits, 100% del autor",
+          "tools": "herramientas",
+          "tests": "pruebas automatizadas",
+          "migrations": "migraciones",
+          "routes": "rutas de API",
+          "providers": "proveedores de LLM"
+        },
+        "source": "conteos del repositorio al 29/09/2026"
+      },
+      "next": {
+        "title": "Órbita en este sitio",
+        "body": "Es ella quien te atiende aquí, en un modo visitante aislado: sin acceso a la memoria, el correo ni las finanzas del dueño, solo con tres herramientas, consultar horarios libres, agendar una conversación y registrar el contacto.",
+        "howLink": "Cómo funciona el agendamiento"
+      }
+    },
+    "end": {
+      "h2": "¿Quieres una asistente así en tu empresa?",
+      "lead": "Agentes con herramientas, aprobación humana y costos bajo control."
+    },
+    "cover": {
+      "metrics": {
+        "m1": "herramientas",
+        "m2": "acierto top-5 en el RAG (era 50,0%)",
+        "m3": "proveedores de LLM con failover"
+      }
+    }
+  },
+  "footer": {
+    "description": "Ingeniería de software e IA a medida. Tech Lead y fundador de OrbitMind.",
+    "navTitle": "Navegación",
+    "linksTitle": "Enlaces",
+    "langAria": "Idioma del pie de página",
+    "copyright": "© {year} Wesley Santos. Todos los derechos reservados.",
+    "colophon": "Bricolage Grotesque · Instrument Sans · JetBrains Mono — Next.js · next-intl · Resend",
+    "privacy": "Privacidad"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "text": "La página que buscas no existe o cambió de dirección.",
+    "home": "Volver al inicio",
+    "products": "Ver productos"
+  },
+  "images": {
+    "wesley": {
+      "avatar": "Foto de Wesley Santos",
+      "portrait": "Retrato de Wesley Santos"
+    },
+    "orbita": {
+      "visaoGeral": "Órbita, vista general en modo oscuro: saludo, núcleo “Presença” y el panel “Tu día en órbita”",
+      "conexoes": "Órbita, pantalla de conexiones: Google, Notion, Slack, Microsoft, Jira y Zoom con su estado",
+      "gestao": "Órbita, pantalla de gastos: costo por flujo, llamadas pagas, por suscripción y locales en 7 días",
+      "conhecimento": "Órbita, mapa del segundo cerebro: puntos de conversaciones, documentos, reuniones, tareas y personas",
+      "reunioes": "Órbita, pantalla de reuniones: lista para escuchar, transcribir y separar quién habló",
+      "memoria": "Órbita, pantalla de memoria: documentos, fragmentos indexados y hechos con búsqueda verificable",
+      "login": "Órbita, pantalla de acceso con correo, Google, GitHub o enlace por correo",
+      "phone": "Órbita en el celular, vista general en modo claro"
+    },
+    "orb": {
+      "idle": "Núcleo “Presença” de Órbita, en espera",
+      "thinking": "Núcleo “Presença” de Órbita, pensando",
+      "searching": "Núcleo “Presença” de Órbita, buscando",
+      "speaking": "Núcleo “Presença” de Órbita, hablando",
+      "success": "Núcleo “Presença” de Órbita, terminado"
+    },
+    "orbitmind": {
+      "flow": "OrbitMind v1 (2025): constructor visual de workflows",
+      "appNav": "OrbitMind, menú de la app actual: Dashboard, Chat, Board, Squads, Agentes, Pipeline, Marketplace, Integraciones, Configuración y Oficina"
+    },
+    "orbitfinance": {
+      "inicio": "OrbitFinance, página de inicio",
+      "recurso": "OrbitFinance, funciones del producto"
+    },
+    "vibecoding": {
+      "editor": "OrbitMind VibeCoding, editor con árbol de archivos, código TypeScript y prompt",
+      "geracao": "OrbitMind VibeCoding, generación de una aplicación a partir de un comando",
+      "demo": "OrbitMind VibeCoding, demostración de un comando y el código generado"
+    },
+    "fsjpii": {
+      "login": "FSJPII, pantalla de acceso con el escudo de la parroquia"
+    },
+    "ecommerce": {
+      "home": "E-commerce personalizado, página de inicio de la tienda"
+    },
+    "logos": {
+      "adalink": "Logo de Adalink",
+      "revoluna": "Logo de REVOLUNA",
+      "mg": "Logo de Melhor do Grão",
+      "influencerai": "Ícono de InfluencerAI"
+    }
+  },
+  "caseCommon": {
+    "tocTitle": "En esta página",
+    "stackLabel": "Stack",
+    "metaAria": "Ficha del proyecto",
+    "breadcrumbAria": "Ruta de navegación",
+    "breadcrumbProducts": "Productos",
+    "nextCase": "Siguiente caso de estudio",
+    "toScreens": "Ir a las pantallas de {name}",
+    "toArchitecture": "Ir a la arquitectura de {name}",
+    "siteSoon": "[URL DEL SITIO DE ORBITMIND]",
+    "fig": "fig. {n}",
+    "diagram": {
+      "hint": "Pasa el cursor o el foco sobre un componente para ver sus conexiones.",
+      "legendPacket": "pedido simulado",
+      "pause": "Pausar la animación del diagrama",
+      "play": "Reanudar la animación del diagrama"
+    },
+    "mech": {
+      "pause": "Pausar la animación del ejemplo",
+      "play": "Reanudar la animación del ejemplo"
+    },
+    "gallery": {
+      "open": "Ampliar: {caption}",
+      "thumb": "Pantalla {n}: {name}",
+      "prev": "Imagen anterior",
+      "next": "Imagen siguiente",
+      "counter": "{n} / {total}"
+    }
+  },
+  "caseOrbitmind": {
+    "meta": "Producto propio · IA y agentes · Sep 2025 – actual",
+    "h1": "OrbitMind",
+    "descriptor": "Squads de agentes de IA armados conversando",
+    "ctaArchitecture": "Ver arquitectura",
+    "fig": {
+      "front": "fig. 01 · OrbitMind · pipeline de un squad · esquema ilustrativo",
+      "backTag": "v1 · 2025 · constructor de workflows",
+      "loupeHeader": "↳ MÓDULOS · APP ACTUAL"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "integraciones nativas",
+        "m2": "squads listos en el marketplace",
+        "m3": "proveedores de LLM"
+      },
+      "schematic": {
+        "architect": "ARQUITECTO",
+        "bubble": "¿Creo este squad exactamente así?",
+        "nodes": [
+          "Investigación",
+          "Estrategia",
+          "Redacción",
+          "Diseño",
+          "SEO",
+          "Revisión",
+          "Publicación"
+        ],
+        "veto": "veto",
+        "checkpoint": "checkpoint",
+        "loop": "revisión · hasta 3 ciclos",
+        "log": [
+          "▸ Investigación terminada",
+          "▸ Redacción · intento 2 (veto del revisor)",
+          "▸ Checkpoint · esperando tu aprobación",
+          "✓ Aprobado · publicando"
+        ],
+        "footer": "pipeline de marketing por defecto · 7 agentes · nombres y flujo ilustrativos"
+      }
+    },
+    "lead": "Una plataforma en la que el cliente describe el objetivo y un agente Arquitecto arma, conversando, el equipo de agentes de IA que investiga, crea, revisa y publica, con checkpoints humanos en el camino. Reescrita desde cero en marzo de 2026, con 178 commits de un único autor.",
+    "metaGrid": {
+      "role": {
+        "label": "Rol",
+        "value": "Fundador · arquitectura, producto y código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Sep 2025 – actual · v2 desde mar 2026"
+      },
+      "status": {
+        "label": "Estado",
+        "value": "En desarrollo · sin deploy público"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · GitHub"
+      }
+    },
+    "stack": "Next.js 15 · React 19 · TypeScript · PostgreSQL 16 · Drizzle · NextAuth v5 · WebSocket · Vercel AI SDK · React Three Fiber · Turborepo",
+    "toc": {
+      "context": "Contexto",
+      "built": "Qué construí",
+      "architecture": "Arquitectura",
+      "pipeline": "Pipeline con checkpoints",
+      "screens": "Pantallas",
+      "numbers": "Números"
+    },
+    "sections": {
+      "context": {
+        "body": "OrbitMind nació como SaaS de agentes de IA en sep/2025 (catálogo de agentes, billing y Kanban). En mar/2026 se reescribió desde cero como monorepo, con otro enfoque: en lugar de un catálogo fijo, el cliente describe el objetivo y un agente Arquitecto arma el equipo."
+      },
+      "built": {
+        "body": "Un motor de pipeline propio, un chat con el Arquitecto que conduce el descubrimiento, un board Kanban, una oficina virtual 3D en React Three Fiber, un marketplace con 10 agentes y 6 squads, 39 integraciones con acciones tipadas (GitHub, Jira, Slack, Notion, HubSpot…), agendamiento cron y una API pública con tokens.",
+        "modules": [
+          {
+            "term": "Chat con el Arquitecto",
+            "desc": "Descubrimiento guiado por el LLM, propuesta de diseño, aprobación y creación del squad, con botón de detener y bloqueo contra ejecuciones simultáneas."
+          },
+          {
+            "term": "Pipeline con checkpoints",
+            "desc": "Etapas encadenadas, condiciones de veto evaluadas por LLM con reintentos, ciclos de revisión (hasta 3) y checkpoints de aprobar, elegir u omitir."
+          },
+          {
+            "term": "Board Kanban",
+            "desc": "Tablero con arrastrar y soltar (@dnd-kit)."
+          },
+          {
+            "term": "Oficina virtual 3D",
+            "desc": "Los agentes en una oficina hecha con React Three Fiber, drei y posprocesado."
+          },
+          {
+            "term": "Marketplace",
+            "desc": "10 agentes sueltos y 6 squads listos, como Instagram Carousel Factory, YouTube Content Machine y Customer Support."
+          },
+          {
+            "term": "API pública",
+            "desc": "`POST /api/v1/squads/:id/run` con tokens guardados como hash SHA-256, agendamientos cron y logs de auditoría."
+          }
+        ]
+      },
+      "architecture": {
+        "body": "Monorepo Turborepo con app Next.js, paquete engine, paquete shared y CLI. PostgreSQL con Drizzle (24 tablas), multi-tenant por organización con 4 roles, WebSocket para el estado en tiempo real y todas las llamadas de LLM pasando por el Vercel AI Gateway (Anthropic, OpenAI, Google), con presupuesto de tokens por agente y timeout estricto.",
+        "caption": "diagrama simplificado a partir del repositorio",
+        "legendPacket": "pedido simulado",
+        "label": "checkpoint aprobado",
+        "nodes": {
+          "a1": {
+            "title": "App web",
+            "sub": "Next.js 15 · React 19"
+          },
+          "a2": {
+            "title": "API pública",
+            "sub": "/api/v1 · tokens SHA-256"
+          },
+          "a3": {
+            "title": "Agendamientos",
+            "sub": "cron · schedules"
+          },
+          "b1": {
+            "title": "Engine",
+            "sub": "PipelineRunner · estados"
+          },
+          "c1": {
+            "title": "Arquitecto",
+            "sub": "descubrimiento · creación"
+          },
+          "c2": {
+            "title": "Squads y agentes",
+            "sub": "veto por LLM · revisiones"
+          },
+          "c3": {
+            "title": "Checkpoints",
+            "sub": "aprobar · elegir · omitir"
+          },
+          "d1": {
+            "title": "Vercel AI Gateway",
+            "sub": "Anthropic · OpenAI · Google"
+          },
+          "d2": {
+            "title": "PostgreSQL 16",
+            "sub": "Drizzle · 24 tablas"
+          },
+          "d3": {
+            "title": "Integraciones",
+            "sub": "39 nativas · acciones tipadas"
+          },
+          "d4": {
+            "title": "Tiempo real",
+            "sub": "WebSocket nativo"
+          }
+        },
+        "tooltips": {
+          "a2": "POST /api/v1/squads/:id/run, con tokens guardados como hash SHA-256.",
+          "c2": "Condiciones de veto evaluadas por LLM, con reintentos automáticos y hasta 3 ciclos de revisión.",
+          "d1": "Toda llamada de LLM pasa por el AI Gateway, con presupuesto de tokens por agente y timeout estricto de 120 s.",
+          "d2": "Multi-tenant por organización, con 4 roles: owner, admin, member y viewer."
+        },
+        "diagramTitle": "Arquitectura · OrbitMind"
+      },
+      "pipeline": {
+        "body": "El pipeline de marketing por defecto tiene 7 agentes. Cualquier etapa puede ser vetada por un evaluador LLM y rehecha; la revisión corre hasta 3 ciclos, y los checkpoints detienen la línea hasta que una persona apruebe, elija u omita.",
+        "lanes": [
+          {
+            "label": "Pipeline por defecto · 7 agentes",
+            "pills": [
+              "Investigación",
+              "Estrategia",
+              "Redacción",
+              "Diseño",
+              "SEO",
+              "Revisión",
+              "Publicación"
+            ]
+          },
+          {
+            "label": "Controles",
+            "pills": [
+              "veto por LLM",
+              "reintentos",
+              "revisión · hasta 3 ciclos",
+              "checkpoint humano",
+              "modo interactivo o autónomo",
+              "logs estructurados"
+            ],
+            "plain": true
+          }
+        ],
+        "note": "agentes del pipeline por defecto; en el producto, el Arquitecto crea los agentes de cada squad"
+      },
+      "screens": {
+        "navCaption": "fig. 02 · menú de la app actual (captura de QA)",
+        "navText": "Las capturas existentes son de QA y repiten la lista de conversaciones; por eso aquí solo aparece el menú. Las pantallas de abajo se capturarán con datos de ejemplo."
+      },
+      "numbers": {
+        "items": {
+          "integrations": "integraciones nativas",
+          "squads": "squads listos en el marketplace",
+          "commits": "commits, 100% del autor",
+          "tables": "tablas en el modelo de datos",
+          "routes": "rutas de API",
+          "locales": "idiomas (pt, en, es)"
+        },
+        "source": "conteos del repositorio al 29/09/2026"
+      }
+    },
+    "end": {
+      "h2": "¿Quieres un equipo de agentes en tu proceso?",
+      "lead": "Squads de IA con checkpoints humanos, integraciones y costo de tokens bajo control."
+    }
+  },
+  "caseNex": {
+    "meta": "Productos propios · Atención con IA · Mar – May 2026",
+    "h1": "Suite Nex",
+    "descriptor": "NexBot + NexConnect · agentes de IA omnicanal",
+    "ctaArchitecture": "Ver arquitectura",
+    "fig": {
+      "front": "fig. 01 · Suite Nex · un mensaje, del canal a la respuesta · esquema ilustrativo"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "casos de prueba",
+        "m2": "canales",
+        "m3": "etapas por mensaje"
+      },
+      "schematic": {
+        "channelsLabel": "CANALES",
+        "channels": [
+          "WhatsApp",
+          "Telegram",
+          "Instagram",
+          "Messenger",
+          "Slack",
+          "Discord",
+          "Teams",
+          "Web",
+          "Voz"
+        ],
+        "lanes": [
+          {
+            "label": "NEXCONNECT · TRANSPORTE",
+            "pills": [
+              "dedup",
+              "clasifica",
+              "buffer",
+              "medios · STT",
+              "enriquece",
+              "presencia",
+              "webhook HMAC"
+            ]
+          },
+          {
+            "label": "NEXBOT · IA",
+            "pills": [
+              "agente",
+              "usuario",
+              "conversación",
+              "guarda",
+              "RAG",
+              "LLM",
+              "respuesta",
+              "post"
+            ]
+          }
+        ],
+        "question": "¿abren el sábado?",
+        "reply": "Abrimos el sábado, de 9 a 13 h. ¿Quieres que agende un horario?",
+        "footer": "handoff humano disponible · mensaje y respuesta ficticios"
+      },
+      "back": [
+        {
+          "title": "NexBot",
+          "sub": "api · web · socket · worker"
+        },
+        {
+          "title": "NexConnect",
+          "sub": "gateway · pool WhatsApp · 30/pod"
+        },
+        {
+          "title": "Vektus",
+          "sub": "RAG y OCR"
+        }
+      ],
+      "backFooter": "RLS en Postgres · OTEL + Prometheus + Loki · K8s HPA 2–50",
+      "loupe": {
+        "header": "INGENIERÍA · NÚMEROS DEL REPOSITORIO",
+        "rows": [
+          {
+            "label": "pruebas",
+            "value": "757 + 501"
+          },
+          {
+            "label": "ADRs",
+            "value": "8 + 11"
+          },
+          {
+            "label": "contrato",
+            "value": "Pact + Testcontainers"
+          },
+          {
+            "label": "escala",
+            "value": "HPA 2–50 pods"
+          }
+        ]
+      }
+    },
+    "lead": "Dos piezas de una misma suite: NexBot, un SaaS multi-tenant en el que el agente se configura una vez y se publica en WhatsApp, Telegram, Slack, Discord, Instagram, Messenger, Teams, web y voz; y NexConnect, el motor de mensajería que mantiene ese transporte aislado de la IA.",
+    "metaGrid": {
+      "role": {
+        "label": "Rol",
+        "value": "Autor único · arquitectura y código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Mar – May 2026"
+      },
+      "status": {
+        "label": "Estado",
+        "value": "Beta · listo para piloto"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Privado · productos de OrbitMind"
+      }
+    },
+    "stack": "NestJS 11 · Fastify 5 · Next.js 16 · BullMQ · PostgreSQL (RLS) · Prisma 6 · Redis · Vercel AI Gateway · Baileys · OpenTelemetry · Kubernetes",
+    "toc": {
+      "context": "Contexto",
+      "architecture": "Arquitectura",
+      "message": "Un mensaje",
+      "engineering": "Ingeniería",
+      "numbers": "Números"
+    },
+    "sections": {
+      "context": {
+        "body": "Las pymes brasileñas necesitan chatbots con IA en varios canales sin pagar en dólares ni quedar atadas a un único proveedor de LLM. La suite divide el problema: NexBot se ocupa de la IA, los flujos, la base de conocimiento y el handoff humano; NexConnect, del transporte de WhatsApp y mensajería, aislado en un servicio propio."
+      },
+      "architecture": {
+        "body": "NexBot es un monorepo con 4 apps, API en NestJS 11 + Fastify 5, panel en Next.js 16, Socket.io y un worker BullMQ con 11 procesadores. Cada mensaje pasa por 8 etapas, los LLM salen por el Vercel AI Gateway con fallback y cada tenant queda aislado por RLS en Postgres. El transporte vive en NexConnect y el RAG en Vektus.",
+        "caption": "diagrama simplificado a partir de los repositorios",
+        "legendPacket": "mensaje simulado",
+        "legendDashed": "telemetría",
+        "label": "webhook firmado (HMAC)",
+        "nodes": {
+          "a1": {
+            "title": "Canales",
+            "sub": "10+ canales"
+          },
+          "a2": {
+            "title": "Panel",
+            "sub": "Next.js 16 · 39 páginas"
+          },
+          "a3": {
+            "title": "Agente humano",
+            "sub": "handoff con cola y SLA"
+          },
+          "b1": {
+            "title": "NexConnect",
+            "sub": "pool Baileys · 30 por pod"
+          },
+          "b2": {
+            "title": "NexBot API",
+            "sub": "NestJS 11 · Fastify 5"
+          },
+          "b3": {
+            "title": "Tiempo real",
+            "sub": "Socket.io + Redis"
+          },
+          "c1": {
+            "title": "Pipeline inbound",
+            "sub": "7 etapas · NexConnect"
+          },
+          "c2": {
+            "title": "Pipeline de mensaje",
+            "sub": "8 etapas · NexBot"
+          },
+          "c3": {
+            "title": "Worker",
+            "sub": "BullMQ · 11 procesadores"
+          },
+          "d1": {
+            "title": "AI Gateway",
+            "sub": "Anthropic · OpenAI · +2"
+          },
+          "d2": {
+            "title": "Vektus",
+            "sub": "RAG y OCR"
+          },
+          "d3": {
+            "title": "PostgreSQL",
+            "sub": "RLS · Prisma"
+          },
+          "d4": {
+            "title": "Observabilidad",
+            "sub": "OTEL · Prometheus · Loki"
+          }
+        },
+        "tooltips": {
+          "b1": "Reconexión automática, sesión persistida cifrada y HPA de 2 a 50 pods.",
+          "c1": "Deduplicación, clasificación, buffer adaptativo, medios y STT, enriquecimiento, presencia y webhook HMAC.",
+          "c2": "Agente, usuario, conversación, persistencia, RAG, LLM, respuesta y posprocesado.",
+          "d1": "Anthropic, OpenAI, Google y Mistral por el AI Gateway, con fallback automático (ADR-001).",
+          "d3": "tenantId en todas las queries más Row-Level Security en PostgreSQL (ADR-005)."
+        },
+        "diagramTitle": "Arquitectura · Suite Nex"
+      },
+      "message": {
+        "body": "Del lado del transporte, 7 etapas preparan el mensaje y lo entregan por webhook firmado; del lado de la IA, 8 etapas resuelven quién habla, buscan en la base de conocimiento, llaman al modelo y tratan la respuesta. Cada etapa de NexBot es un archivo con su propia prueba.",
+        "lanes": [
+          {
+            "label": "NexConnect · 7 etapas",
+            "pills": [
+              "deduplicación",
+              "clasificación",
+              "buffer adaptativo",
+              "medios · STT",
+              "enriquecimiento",
+              "presencia",
+              "webhook HMAC"
+            ]
+          },
+          {
+            "label": "NexBot · 8 etapas",
+            "pills": [
+              "AgentResolver",
+              "EndUserResolver",
+              "ConversationResolver",
+              "MessagePersistence",
+              "RAGSearch",
+              "LLMPipeline",
+              "ResponseProcessing",
+              "PostProcessing"
+            ]
+          }
+        ],
+        "note": "nombres de las etapas de NexBot tal como están en el código"
+      },
+      "engineering": {
+        "body": "Los dos servicios se hicieron para operar a escala y fallar de forma predecible.",
+        "columns": {
+          "a": {
+            "title": "NexConnect",
+            "items": [
+              "pool Baileys con 30 instancias por pod y HPA de 2 a 50",
+              "salud del número de 0 a 100, throttling progresivo y warm-up de números nuevos",
+              "broadcasts con balanceo entre instancias y pruebas A/B",
+              "webhooks HMAC-SHA256 con reintento exponencial, dead-letter y replay",
+              "Meta Cloud, Twilio, Telegram, Discord y Slack detrás de `IMessagingProvider`",
+              "pruebas de contrato con Pact y de integración con Testcontainers; SDK y CLI"
+            ]
+          },
+          "b": {
+            "title": "NexBot",
+            "items": [
+              "multi-tenant con `tenantId` en cada query y RLS en Postgres",
+              "IA sin acoplamiento a proveedor: AI Gateway con fallback",
+              "AES-256-GCM para credenciales de canales y redacción de PII",
+              "Pino con Loki, métricas Prometheus y trazas OpenTelemetry",
+              "CI con Postgres y Redis reales; Kubernetes con HPA y escenarios de carga k6",
+              "8 ADRs, 8 runbooks y 8 guías"
+            ]
+          }
+        }
+      },
+      "numbers": {
+        "items": {
+          "testsBot": "casos de prueba en NexBot",
+          "testsConnect": "casos de prueba en NexConnect",
+          "models": "modelos de datos (NexBot)",
+          "modules": "módulos NestJS (NexBot)",
+          "processors": "procesadores del worker",
+          "adrs": "ADRs en NexConnect"
+        },
+        "source": "conteos estáticos de los repositorios al 29/09/2026 · casos = llamadas it/test"
+      }
+    },
+    "end": {
+      "h2": "¿Necesitas atención con IA en varios canales?",
+      "lead": "Agentes con base de conocimiento, handoff humano y transporte aislado de la IA."
+    }
+  },
+  "caseOrbitfinance": {
+    "meta": "Producto propio · Fintech · Oct – Dic 2025",
+    "h1": "OrbitFinance",
+    "descriptor": "Finanzas personales con IA, directo desde WhatsApp",
+    "ctaArchitecture": "Ver arquitectura",
+    "fig": {
+      "front": "fig. 01 · OrbitFinance · página de inicio"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "pruebas automatizadas",
+        "m2": "proveedores de WhatsApp",
+        "m3": "idiomas"
+      }
+    },
+    "lead": "MVP de finanzas personales con asistente de WhatsApp: la persona escribe o manda un audio (“gasté 50 en el súper”) y la transacción queda registrada; los comprobantes pasan por OCR y los extractos en PDF se importan con IA.",
+    "metaGrid": {
+      "role": {
+        "label": "Rol",
+        "value": "Autor · producto y código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Oct – Dic 2025"
+      },
+      "status": {
+        "label": "Estado",
+        "value": "MVP terminado · sin deploy"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · GitHub"
+      }
+    },
+    "stack": "Next.js 15 · React 19 · TypeScript · Prisma 6 · PostgreSQL · Better Auth · BullMQ + Redis · next-intl · Gemini · Vitest",
+    "toc": {
+      "context": "Contexto",
+      "architecture": "Arquitectura",
+      "ai": "IA donde suma",
+      "screens": "Pantallas",
+      "numbers": "Números"
+    },
+    "sections": {
+      "context": {
+        "body": "El panel reúne cuentas, categorías, metas, suscripciones detectadas automáticamente, previsión de saldo, score financiero y desafíos de ahorro. El registro del día a día ocurre en WhatsApp, por mensaje o audio, y las colas se ocupan de recordatorios y resúmenes. La app es multilingüe (pt, en, es)."
+      },
+      "architecture": {
+        "body": "Next.js 15 con 23 páginas en el panel y 38 rutas de API, Prisma con 20 modelos y colas BullMQ para recordatorios y resúmenes. El asistente de WhatsApp organiza casos de uso, repositorios y proveedores detrás de interfaces: Evolution API (por defecto), Meta Cloud API y Twilio.",
+        "caption": "diagrama simplificado a partir del repositorio",
+        "legendPacket": "mensaje simulado",
+        "label": "intención: gasto (regla)",
+        "nodes": {
+          "a1": {
+            "title": "WhatsApp",
+            "sub": "Evolution · Meta · Twilio"
+          },
+          "a2": {
+            "title": "Panel web",
+            "sub": "Next.js 15 · 23 páginas"
+          },
+          "a3": {
+            "title": "Extracto en PDF",
+            "sub": "importación con IA"
+          },
+          "b1": {
+            "title": "Webhook",
+            "sub": "firma · rate limit"
+          },
+          "b2": {
+            "title": "API",
+            "sub": "38 rutas · Better Auth"
+          },
+          "c1": {
+            "title": "Intenciones",
+            "sub": "reglas · 10 intenciones"
+          },
+          "c2": {
+            "title": "Casos de uso",
+            "sub": "registrar · recordar"
+          },
+          "c3": {
+            "title": "IA",
+            "sub": "Gemini · GPT-4o-mini"
+          },
+          "d1": {
+            "title": "Transcripción y OCR",
+            "sub": "Whisper · OCR.space"
+          },
+          "d2": {
+            "title": "PostgreSQL",
+            "sub": "Prisma · 20 modelos"
+          },
+          "d3": {
+            "title": "Colas",
+            "sub": "BullMQ + Redis"
+          },
+          "d4": {
+            "title": "Insights",
+            "sub": "previsión · alertas · score"
+          }
+        },
+        "tooltips": {
+          "b1": "Webhook con validación de firma y rate limit.",
+          "c1": "Clasificador por reglas (regex + date-fns), no un LLM: 10 intenciones.",
+          "c3": "Gemini 1.5 Flash como modelo principal, con GPT-4o-mini de respaldo.",
+          "d3": "Workers BullMQ se ocupan de recordatorios y resúmenes."
+        },
+        "diagramTitle": "Arquitectura · OrbitFinance"
+      },
+      "ai": {
+        "body": "La intención de cada mensaje se clasifica por reglas, sin LLM. La IA entra donde suma: insights, chat, extracción de extractos en PDF, detección de suscripciones y recurrencias, previsión de saldo, alertas, score financiero y desafíos de ahorro.",
+        "mech": {
+          "header": "MENSAJE → TRANSACCIÓN · esquema ilustrativo",
+          "bubble": "gasté 42,90 en el súper",
+          "rows": [
+            {
+              "label": "intención",
+              "value": "gasto (regla)"
+            },
+            {
+              "label": "monto",
+              "value": "R$ 42,90"
+            },
+            {
+              "label": "categoría",
+              "value": "Alimentación"
+            },
+            {
+              "label": "tipo",
+              "value": "gasto"
+            }
+          ],
+          "insight": "insight generado con Gemini"
+        },
+        "caption": {
+          "title": "Mensaje → transacción.",
+          "text": "Una frase se vuelve una transacción con monto, categoría y tipo; después, el insight se genera con Gemini. Valores ficticios."
+        }
+      },
+      "screens": {
+        "tablistAria": "Pantallas de OrbitFinance",
+        "lightboxTitle": "Pantallas de OrbitFinance",
+        "captions": {
+          "inicio": "Página de inicio",
+          "recurso": "Funciones del producto"
+        }
+      },
+      "numbers": {
+        "items": {
+          "tests": "pruebas automatizadas",
+          "commits": "commits (59 del autor)",
+          "pages": "páginas en el panel",
+          "routes": "rutas de API",
+          "models": "modelos Prisma",
+          "intents": "intenciones reconocidas"
+        },
+        "source": "conteos del repositorio al 29/09/2026 · pruebas contadas estáticamente"
+      }
+    },
+    "end": {
+      "h2": "¿Quieres un asistente de WhatsApp en tu producto?",
+      "lead": "Mensajes, audios y documentos convertidos en datos estructurados, con IA donde suma."
+    }
+  },
+  "caseVektus": {
+    "meta": "Producto propio · RAG y documentos · Mar – May 2026",
+    "h1": "Vektus",
+    "descriptor": "Documentos que se vuelven respuestas, con cita",
+    "ctaArchitecture": "Ver pipeline",
+    "fig": {
+      "front": "fig. 01 · Vektus · del documento a la respuesta con cita · esquema ilustrativo"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "casos de prueba",
+        "m2": "proveedores de LLM",
+        "m3": "conectores"
+      },
+      "schematic": {
+        "question": "¿Cuál es el plazo de rescisión?",
+        "columns": [
+          "documento",
+          "extracción + OCR híbrido",
+          "fragmentos",
+          "vectores · HNSW",
+          "respuesta"
+        ],
+        "file": "contrato.pdf · 12 p.",
+        "ocr": [
+          "Tesseract",
+          "visión por IA"
+        ],
+        "answer": "El plazo de rescisión es de 30 días.",
+        "cite": "contrato.pdf · p. 4",
+        "footer": "documento y respuesta ficticios"
+      },
+      "back": [
+        {
+          "title": "Conectores",
+          "sub": "Google Drive · SharePoint · Notion"
+        },
+        {
+          "title": "Chat multimodelo",
+          "sub": "OpenAI · Anthropic · Gemini"
+        },
+        {
+          "title": "Plataforma",
+          "sub": "multi-tenant · API keys · MCP · Skills"
+        }
+      ],
+      "loupe": {
+        "header": "PRUEBAS · REPOSITORIO PÚBLICO",
+        "value": "1.000+",
+        "caption": "casos de prueba en 96 archivos",
+        "link": "github.com/Wesley-SdS/Vektus"
+      }
+    },
+    "lead": "Extracción, OCR híbrido y búsqueda vectorial convierten documentos en respuestas con cita, en un chat multimodelo con conectores para Drive, SharePoint y Notion.",
+    "metaGrid": {
+      "role": {
+        "label": "Rol",
+        "value": "Autor · arquitectura y código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Mar – May 2026"
+      },
+      "status": {
+        "label": "Estado",
+        "value": "En desarrollo"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · GitHub"
+      }
+    },
+    "stack": "pgvector (HNSW) · Tesseract + visión por IA · Inngest · E2B · MCP",
+    "toc": {
+      "premise": "Premisa",
+      "architecture": "Pipeline",
+      "platform": "Plataforma",
+      "numbers": "Números"
+    },
+    "sections": {
+      "premise": {
+        "body": "Los documentos solo ayudan cuando se puede preguntar y verificar. Vektus extrae el contenido, lo lee con OCR híbrido, lo indexa y responde en un chat multimodelo que cita la fuente de cada respuesta."
+      },
+      "architecture": {
+        "body": "Un pipeline lineal: carga, extracción, OCR híbrido (Tesseract + visión por IA), división en fragmentos, embeddings en pgvector con índice HNSW y un chat multimodelo, OpenAI, Anthropic o Gemini, que responde con cita.",
+        "caption": "diagrama simplificado a partir del repositorio",
+        "legendPacket": "documento simulado",
+        "label": "respuesta con cita",
+        "nodes": {
+          "a1": {
+            "title": "Carga",
+            "sub": "archivos y conectores"
+          },
+          "b1": {
+            "title": "Extracción",
+            "sub": "contenido del archivo"
+          },
+          "c1": {
+            "title": "OCR híbrido",
+            "sub": "Tesseract + visión por IA"
+          },
+          "d1": {
+            "title": "Fragmentos y vectores",
+            "sub": "pgvector · HNSW"
+          },
+          "e1": {
+            "title": "Chat",
+            "sub": "respuesta con cita"
+          },
+          "a2": {
+            "title": "Conectores",
+            "sub": "Drive, SharePoint, Notion"
+          },
+          "e2": {
+            "title": "LLMs",
+            "sub": "OpenAI, Anthropic, Gemini"
+          }
+        },
+        "tooltips": {
+          "a2": "Conectores para Google Drive, SharePoint y Notion.",
+          "c1": "Tesseract y visión por IA combinados en el OCR.",
+          "d1": "Búsqueda vectorial en pgvector con índice HNSW.",
+          "e1": "Chat multimodelo que responde citando la fuente."
+        },
+        "diagramTitle": "Pipeline · Vektus"
+      },
+      "platform": {
+        "body": "Alrededor del pipeline, Vektus es una plataforma. En el ecosistema Nex, NexBot usa Vektus como base de conocimiento mediante un cliente propio.",
+        "items": [
+          "multi-tenant con claves de API",
+          "Skills Engine",
+          "WhatsApp",
+          "Inngest, E2B y MCP",
+          "conectores: Google Drive, SharePoint y Notion",
+          "chat multimodelo: OpenAI, Anthropic y Gemini"
+        ]
+      },
+      "numbers": {
+        "items": {
+          "tests": "casos de prueba (cerca de 1.080)",
+          "files": "archivos de prueba",
+          "commits": "commits del autor",
+          "providers": "proveedores de LLM",
+          "connectors": "conectores",
+          "commitsTotal": "commits en total, con bots de release"
+        },
+        "source": "conteos del repositorio al 29/09/2026 · casos contados estáticamente"
+      }
+    },
+    "end": {
+      "h2": "¿Tienes documentos que necesitan volverse respuestas?",
+      "lead": "RAG con OCR híbrido, búsqueda vectorial y citas verificables."
+    }
+  },
+  "privacy": {
+    "breadcrumb": {
+      "aria": "Estás en",
+      "home": "Inicio",
+      "current": "Privacidad"
+    },
+    "eyebrow": "Privacidad · LGPD",
+    "h1": "Política de privacidad",
+    "lead": "Este sitio recoge lo mínimo necesario para responder a tu solicitud. Aquí está lo que recogen el formulario de cotización, el contacto y la conversación con Órbita, para qué, con quién se comparte y cómo puedes pedir acceso, corrección o eliminación.",
+    "updated": "Última actualización: [FECHA DE PUBLICACIÓN]",
+    "reviewNote": "Borrador para revisión del responsable. Los fragmentos entre corchetes, como [RETENCIÓN], deben completarse o confirmarse antes de publicar. Este texto no sustituye asesoría jurídica.",
+    "reviewLabel": "Revisar",
+    "tocTitle": "En esta página",
+    "sections": {
+      "controller": {
+        "title": "Quién es el responsable",
+        "text": "El responsable de los datos es Wesley Santos [ENTIDAD-CONTRATANTE: nombre/CPF o razón social/CNPJ]. Para cualquier asunto de privacidad, escribe al correo de abajo.",
+        "emailLabel": "Correo de privacidad"
+      },
+      "collect": {
+        "title": "Qué se recoge",
+        "intro": "Solo se recogen los datos que tú mismo envías, más los datos técnicos mínimos para que el sitio funcione.",
+        "items": {
+          "quote": {
+            "name": "Formulario de cotización",
+            "text": "Formato de contratación, soluciones, descripción del proyecto, plazo, rango de inversión, enlace opcional, nombre, empresa (opcional), correo, WhatsApp (opcional), idioma y tu consentimiento. Si eliges un horario, también la fecha y hora preferidas."
+          },
+          "orbita": {
+            "name": "Órbita (chat con IA)",
+            "text": "Los mensajes que escribes en la conversación. El sitio no guarda la conversación: tu navegador reenvía el historial reciente con cada mensaje y desaparece al cerrar la página. En modo demostración nada sale de tu navegador."
+          },
+          "booking": {
+            "name": "Agenda y contacto a través de Órbita",
+            "text": "Nombre, correo, el horario elegido y un resumen breve de la conversación, enviados solo cuando marcas la casilla de consentimiento y confirmas."
+          },
+          "email": {
+            "name": "Contacto directo",
+            "text": "Si escribes por correo o LinkedIn, lo que envíes queda en la bandeja de entrada correspondiente."
+          },
+          "technical": {
+            "name": "Datos técnicos",
+            "text": "Dirección IP usada solo en memoria para limitar abusos (sin guardarla), registros técnicos del hosting y métricas agregadas de visitas y rendimiento, sin cookies de seguimiento."
+          }
+        }
+      },
+      "purpose": {
+        "title": "Para qué se usan los datos",
+        "items": [
+          "Responder a tu solicitud de cotización y preparar la primera conversación.",
+          "Agendar la llamada y enviar la invitación o la confirmación por correo.",
+          "Generar las respuestas de Órbita durante la conversación.",
+          "Proteger el sitio contra spam y abuso.",
+          "Entender, de forma agregada, qué páginas se visitan y si el sitio es rápido."
+        ],
+        "never": "Los datos no se venden, no se usan para publicidad y no entran en listas de correo."
+      },
+      "legalBasis": {
+        "title": "Base legal",
+        "text": "Consentimiento (la casilla marcada en el formulario y en Órbita) y procedimientos preliminares a un posible contrato, a tu solicitud (LGPD, art. 7, I y V). La seguridad y las métricas agregadas se apoyan en el interés legítimo (art. 7, IX). [REVISAR: confirmar las bases legales]"
+      },
+      "processors": {
+        "title": "Con quién se comparten los datos",
+        "intro": "Solo con los proveedores que hacen funcionar el sitio, cada uno con lo estrictamente necesario. Todos están fuera de Brasil (principalmente en EE. UU.), lo que constituye una transferencia internacional de datos (LGPD, art. 33).",
+        "dataLabel": "Datos",
+        "purposeLabel": "Finalidad",
+        "rows": {
+          "resend": {
+            "name": "Resend",
+            "purpose": "Entrega de los correos del formulario de cotización, las solicitudes de horario y las confirmaciones.",
+            "data": "Contenido del formulario, nombre, correo y horario elegido."
+          },
+          "anthropic": {
+            "name": "Anthropic (Claude)",
+            "purpose": "Modelo de IA que genera las respuestas de Órbita.",
+            "data": "Los mensajes de la conversación. La retención por el proveedor sigue sus términos comerciales de la API. [REVISAR: plazo de retención de Anthropic]"
+          },
+          "google": {
+            "name": "Google (Calendar y Meet)",
+            "purpose": "Consultar horarios libres y crear el evento cuando confirmas un horario.",
+            "data": "Nombre, correo y horario, solo al confirmar. La consulta de horarios no envía ningún dato tuyo."
+          },
+          "vercel": {
+            "name": "Vercel",
+            "purpose": "Hosting del sitio, registros técnicos y métricas agregadas de visitas y rendimiento.",
+            "data": "Dirección IP y datos técnicos del navegador."
+          }
+        }
+      },
+      "retention": {
+        "title": "Por cuánto tiempo",
+        "text": "Las solicitudes de cotización y de horario quedan en el correo del responsable durante [RETENCIÓN] y después se eliminan, salvo que se conviertan en un contrato. El sitio no guarda la conversación con Órbita. Los registros técnicos del hosting siguen el plazo del proveedor. [REVISAR: plazos]"
+      },
+      "rights": {
+        "title": "Tus derechos",
+        "intro": "Según la LGPD (art. 18), puedes pedir en cualquier momento:",
+        "items": [
+          "confirmación de que existen datos tuyos y acceso a ellos;",
+          "corrección de datos incompletos, inexactos o desactualizados;",
+          "anonimización, bloqueo o eliminación de datos innecesarios;",
+          "portabilidad de los datos;",
+          "información sobre con quién se compartieron los datos;",
+          "revocación del consentimiento y eliminación de los datos tratados con esa base."
+        ],
+        "how": "Escribe al correo de privacidad. La respuesta llega en un plazo de [PLAZO DE RESPUESTA]. También puedes reclamar ante la Autoridad Nacional de Protección de Datos de Brasil (ANPD)."
+      },
+      "storage": {
+        "title": "Cookies y almacenamiento local",
+        "text": "El sitio no usa cookies de publicidad ni de seguimiento. Solo guarda en tu navegador la preferencia de tema (claro u oscuro) y puede grabar una cookie técnica de idioma cuando cambias de idioma. Las métricas de visitas son agregadas y no usan cookies."
+      },
+      "security": {
+        "title": "Seguridad",
+        "text": "Todo el tráfico usa HTTPS, las claves de los proveedores están solo en el servidor y los formularios se validan en el servidor con límite de envíos. Órbita no tiene acceso a datos privados: solo ve horarios libres de la agenda."
+      },
+      "changes": {
+        "title": "Cambios en esta política",
+        "text": "Cuando algo cambie, esta página se actualiza y la fecha de arriba cambia con ella."
+      }
+    },
+    "backHome": "Volver al inicio"
   }
 }
-

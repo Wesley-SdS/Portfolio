@@ -4,6 +4,8 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Optional isolated build dir (parallel builds/screenshots in one worktree); default .next
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   images: {
     domains: ["lh3.googleusercontent.com"],
   },

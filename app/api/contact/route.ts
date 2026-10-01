@@ -9,8 +9,6 @@ const contactSchema = z.object({
   message: z.string().min(10),
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -24,6 +22,9 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       );
     }
+
+    // Instantiated per request so builds without RESEND_API_KEY do not crash at import time
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Email para você (destinatário)
     const recipientEmail = process.env.CONTACT_EMAIL || 'wesleysantos.0095@gmail.com';

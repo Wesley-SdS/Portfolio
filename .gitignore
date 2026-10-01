@@ -37,3 +37,9 @@ next-env.d.ts
 
 # temp files
 nul
+
+# local screenshots
+.tmp-shots/
+
+# QA screenshots for the owner (integration pass)
+.qa-shots/

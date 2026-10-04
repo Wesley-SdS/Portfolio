@@ -77,7 +77,7 @@ export function Header() {
         </HomeAnchorLink>
 
         <nav aria-label={t("nav.aria")} className="hdr-desktop h-full items-center">
-          <ul className="m-0 flex list-none items-center gap-[34px] p-0">
+          <ul className="m-0 flex list-none items-center gap-7 p-0">
             {NAV_ITEMS.map((item) => (
               <li key={item.key}>
                 <HomeAnchorLink anchor={item.anchor} className="nv" aria-current={active === item.key ? (isHome ? "true" : "page") : undefined}>
@@ -88,10 +88,11 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hdr-desktop items-center gap-[18px]">
+        <div className="hdr-desktop items-center gap-2">
           <LocaleSwitcher />
           <ThemeToggle />
-          <OrbitaTrigger source="header" variant="primary" size="sm">
+          <span className="hdr-sep" aria-hidden="true" />
+          <OrbitaTrigger source="header" variant="primary" size="sm" className="hdr-cta">
             {t("common.actions.talkToOrbita")}
           </OrbitaTrigger>
         </div>

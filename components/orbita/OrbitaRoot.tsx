@@ -7,6 +7,7 @@ import { useOrbitaListener, type OrbitaAsk, type OrbitaOpenDetail } from "@/comp
 import { ORBITA_PANEL_ID } from "@/src/content/orbita";
 import { cn } from "@/lib/utils";
 import { OrbitaChat, type OrbitaChatHandle } from "./OrbitaChat";
+import { OrbitaMark } from "./OrbitaMark";
 import { useMedia, useReducedMotion } from "./hooks";
 
 /** In-content areas the floating launcher must never cover: the stage, the quote form (its step buttons sit
@@ -186,8 +187,8 @@ export function OrbitaRoot() {
         tabIndex={open || away ? -1 : undefined}
         onClick={() => doOpen({ source: "launcher", returnFocus: launcherRef.current })}
       >
-        <span className="fab-orb" aria-hidden="true" />
-        <span>{t("launcher.title")}</span>
+        <OrbitaMark size={26} className="fab-mark" />
+        <span className="fab-l">{t("launcher.title")}</span>
         {unread && (
           <>
             <span className="fab-badge" aria-hidden="true">

@@ -11,7 +11,7 @@ export type BookingMode = "auto" | "aprovacao";
 export type Effort = "low" | "medium" | "high" | "xhigh" | "max";
 
 /** Default Claude model (claude-api skill: latest capable model). Override with ORBITA_MODEL. */
-export const DEFAULT_MODEL = "claude-opus-5";
+export const DEFAULT_MODEL = "claude-opus-5-5";
 
 function int(name: string, fallback: number, min: number, max: number): number {
   const raw = process.env[name];
@@ -101,7 +101,7 @@ export function modelConfig() {
   const fallbacks = process.env.ORBITA_FALLBACKS?.trim().toLowerCase() !== "off" && /^claude-(opus-5|fable-5)/.test(model);
   // Adaptive thinking + output_config.effort exist on the 4.6+ generation (Opus 5/5.5, Sonnet 5,
   // Opus/Sonnet 4.6+). Haiku 4.5 and older models reject them (400), so they are omitted there.
-  // Cost trade-off (per 1M tokens in/out): Opus 5 $5/$25 · Sonnet 5 $2/$10 · Haiku 4.5 $1/$5.
+  // Cost trade-off (per 1M tokens in/out): Opus 5.5 $4/$20 · Sonnet 5.5 $2/$10 · Haiku 4.5 $1/$5.
   const reasoning = !/haiku|claude-3|-4-5|-4-1|-4-0|-4-2025/.test(model);
   return {
     model,

@@ -126,19 +126,22 @@
 .oc-hint { margin: 10px 4px 0 !important; font: 400 12px/16px var(--font-body); color: var(--ink-3); text-align: center; }
 .oc-hint .qlnk { color: var(--ink-2); }
 
-/* ========== floating bubble (artifact .fab) ========== */
-.orb-launch { position: fixed; right: 24px; bottom: 24px; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); max-width: calc(100vw - 32px); z-index: 65; display: inline-flex; align-items: center; gap: 12px; height: 56px; padding: 0 22px 0 14px; border-radius: 999px; background: var(--surface); border: 1px solid rgb(242 84 27 / .55); box-shadow: 0 14px 50px -12px rgb(242 84 27 / .65); font: 600 15px/20px var(--font-body); color: var(--ink); white-space: nowrap; cursor: pointer; transition: transform 350ms var(--ease-out-expo), opacity 300ms var(--ease-standard), visibility 0s linear 0s, box-shadow var(--dur-base) var(--ease-standard); }
-.orb-launch:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 60px -10px rgb(242 84 27 / .8); }
-.orb-launch:active { transform: translateY(0) scale(1); }
+/* ========== floating bubble: the Órbita mark + label, glass pill ========== */
+.orb-launch { position: fixed; right: 24px; bottom: 24px; right: calc(24px + env(safe-area-inset-right, 0px)); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); max-width: calc(100vw - 32px); z-index: 65; display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px 0 9px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 82%, transparent); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); border: 1px solid var(--line); box-shadow: 0 10px 30px -12px rgba(0, 0, 0, .35); font: 500 13.5px/18px var(--font-body); color: var(--ink); white-space: nowrap; cursor: pointer; transition: transform 350ms var(--ease-out-expo), opacity 300ms var(--ease-standard), visibility 0s linear 0s, border-color var(--dur-quick) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard); }
+.orb-launch:hover { transform: translateY(-2px); border-color: color-mix(in srgb, #C9F4B0 55%, var(--line)); box-shadow: 0 14px 36px -12px rgb(23 48 43 / .55); }
+.orb-launch:active { transform: none; }
 /* steps away while the chat is open, or while #projects / #cotacao / [data-orbita-avoid] reach its strip (OrbitaRoot) */
-.orb-launch.is-away { opacity: 0; transform: translateY(20px); visibility: hidden; pointer-events: none; transition: transform 300ms var(--ease-in-exit), opacity 200ms var(--ease-in-exit), visibility 0s linear 300ms; }
-.fab-orb { position: relative; display: block; flex: none; width: 28px; height: 28px; border-radius: 999px; background: radial-gradient(circle at 35% 30%, #EFFFF6, rgb(65 212 162) 45%, #0E3B2C 100%); animation: fab-breathe 3000ms ease-in-out infinite; }
-.fab-orb::after { content: ""; position: absolute; inset: -6px; border: 1.5px solid rgb(65 212 162 / .8); border-radius: 999px; transform: rotate(-25deg) scaleY(.4); animation: fab-wob 5000ms ease-in-out infinite; }
-@keyframes fab-breathe { 50% { transform: scale(1.12); } }
-@keyframes fab-wob { 50% { transform: rotate(30deg) scaleY(.42); } }
-.fab-badge { position: absolute; top: -4px; right: -2px; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 700 11px/12px var(--font-body); }
+.orb-launch.is-away { opacity: 0; transform: translateY(16px); visibility: hidden; pointer-events: none; transition: transform 300ms var(--ease-in-exit), opacity 200ms var(--ease-in-exit), visibility 0s linear 300ms; }
+.fab-mark { display: block; flex: none; border-radius: 8px; }
+.fab-mark .om-orbit { transform-origin: 32px 32px; animation: om-sway 6s ease-in-out infinite alternate; }
+.fab-mark .om-core { transform-origin: 32px 32px; animation: om-breathe 3s ease-in-out infinite; }
+@keyframes om-sway { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+@keyframes om-breathe { 50% { transform: scale(.82); } }
+.orb-launch:hover .fab-mark .om-orbit { animation-duration: 1.6s; }
+.fab-l { letter-spacing: -.005em; }
+.fab-badge { position: absolute; top: -4px; right: -2px; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font: 700 10px/12px var(--font-body); }
 @media (max-width: 767px) {
-  .orb-launch { right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); height: 52px; padding: 0 18px 0 12px; font-size: 14px; }
+  .orb-launch { right: calc(14px + env(safe-area-inset-right, 0px)); bottom: calc(14px + env(safe-area-inset-bottom, 0px)); height: 42px; padding: 0 14px 0 8px; }
 }
 
 /* ========== scrim + drawer (desktop) / sheet (mobile) ========== */

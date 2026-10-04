@@ -559,6 +559,12 @@
   },
   "products": {
     "title": "Todos los productos y proyectos",
+    "lead": "Productos propios y plataformas que construí y lidero. Cada uno en la etapa en la que está: de brote a árbol.",
+    "stages": {
+      "sprout": "Brote · en desarrollo",
+      "sapling": "Plantón · MVP o beta",
+      "tree": "Árbol · en producción"
+    },
     "filterAria": "Filtrar por categoría",
     "chips": {
       "all": "Todos",
@@ -832,9 +838,36 @@
       }
     },
     "screens": {
-      "map": "Mapa del conocimiento",
-      "memory": "Memoria y documentos",
-      "meetings": "Reuniones con transcripción"
+      "eyebrow": "Pantallas reales del producto",
+      "title": "Un día entero en órbita.",
+      "listAria": "Pantallas de Órbita",
+      "open": "Ampliar la pantalla",
+      "items": {
+        "overview": {
+          "title": "Visión general",
+          "text": "El núcleo, el resumen del día y lo que viene, en una sola pantalla."
+        },
+        "map": {
+          "title": "Mapa del conocimiento",
+          "text": "Conversaciones, documentos, reuniones, tareas y personas conectados en un segundo cerebro."
+        },
+        "memory": {
+          "title": "Memoria",
+          "text": "Documentos y hechos indexados, con búsqueda que muestra de dónde vino cada respuesta."
+        },
+        "meetings": {
+          "title": "Reuniones",
+          "text": "Escucha, transcribe, separa quién habló y lo convierte en próximos pasos."
+        },
+        "connections": {
+          "title": "Conexiones",
+          "text": "Google, Notion, Slack, Microsoft, Jira y Zoom, cada uno con un límite claro."
+        },
+        "spend": {
+          "title": "Gastos",
+          "text": "Costo por flujo y por llamada: pago, por suscripción o corriendo local."
+        }
+      }
     },
     "tagRight": "Contexto conectado"
   },

@@ -68,7 +68,7 @@
 .home-hero .hero-orbw { position: relative; display: inline-block; }
 .home-hero .hero-acc { color: var(--accent); }
 .home-hero .hero-swoosh { position: absolute; left: -6%; top: 12%; width: 112%; height: 86%; overflow: visible; pointer-events: none; transform: rotate(-5deg); }
-.home-hero .hero-swoosh ellipse { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-dasharray: 1600; stroke-dashoffset: 0; animation: hero-draw 1600ms var(--ease-inout) 1100ms both; }
+.home-hero .hero-swoosh ellipse { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-dasharray: 1600; stroke-dashoffset: 0; animation: hero-draw 1300ms var(--ease-inout) 700ms both; }
 @keyframes hero-draw { from { stroke-dashoffset: 1600; } to { stroke-dashoffset: 0; } }
 
 /* ---------- lead + rotating line ---------- */

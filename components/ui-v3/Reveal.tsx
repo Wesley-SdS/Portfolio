@@ -7,7 +7,7 @@ export type RevealProps = HTMLAttributes<HTMLElement> & {
   as?: "div" | "section" | "article" | "ul" | "ol" | "li" | "span" | "header" | "footer" | "aside" | "figure";
   /** IntersectionObserver rootMargin — default reveals slightly before the fold */
   rootMargin?: string;
-  /** visible fraction to trigger (default 0.15) */
+  /** visible fraction to trigger (default 0: a section taller than the viewport must still reveal) */
   threshold?: number;
   style?: CSSProperties;
   children?: ReactNode;
@@ -29,7 +29,7 @@ export type RevealProps = HTMLAttributes<HTMLElement> & {
  *   <h2 className="h2"><span className="mask"><span>Como posso ajudar</span></span></h2>
  * </Reveal>
  */
-export function Reveal({ as = "div", rootMargin = "0px 0px -10% 0px", threshold = 0.15, children, ...rest }: RevealProps) {
+export function Reveal({ as = "div", rootMargin = "0px 0px -12% 0px", threshold = 0, children, ...rest }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
 

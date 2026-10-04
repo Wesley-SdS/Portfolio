@@ -43,3 +43,6 @@ nul
 
 # QA screenshots for the owner (integration pass)
 .qa-shots/
+
+# local production build (NEXT_DIST_DIR=.next-prod)
+/.next-prod/

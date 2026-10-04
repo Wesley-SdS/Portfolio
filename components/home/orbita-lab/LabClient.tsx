@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui-v3/Button";
-import { Chip } from "@/components/ui-v3/Chip";
 import { LiveOrb } from "@/components/orbita/LiveOrb";
+import { ESTADOS } from "@/components/orbita/motor-webgl";
 import type { OrbMode } from "@/components/orbita/presence-orb";
 import { OrbitaTrigger } from "@/components/site/OrbitaTrigger";
 import { SmartLink } from "@/components/ui-v3/SmartLink";
@@ -142,17 +142,34 @@ export function LabClient({ states, copy }: { states: LabState[]; copy: LabCopy 
       </article>
 
       <aside className="lab-panel">
-        <p className="eb">{copy.statesTitle}</p>
-        <div className="lab-states" role="group" aria-label={copy.statesAria}>
-          {states.map((s) => (
-            <Chip key={s.id} pressed={mode === s.id} onClick={() => pick(s.id)}>
-              {s.label}
-            </Chip>
-          ))}
-        </div>
-        <p key={`n${pulse}`} className="lab-note">
-          {current.note}
-        </p>
+        <p className="eb lab-panel-t">{copy.statesTitle}</p>
+        <ol className="lab-states" role="group" aria-label={copy.statesAria}>
+          {states.map((s, i) => {
+            const on = mode === s.id;
+            return (
+              <li key={s.id}>
+                <button
+                  type="button"
+                  className="lab-st"
+                  aria-pressed={on}
+                  onClick={() => pick(s.id)}
+                  style={{ ["--h" as string]: ESTADOS[s.id].hue.join(" ") }}
+                >
+                  <span className="lab-st-dot" aria-hidden="true" />
+                  <span className="lab-st-l">{s.label}</span>
+                  <span className="lab-st-n" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </button>
+                {on ? (
+                  <p key={`n${pulse}`} className="lab-note">
+                    {s.note}
+                  </p>
+                ) : null}
+              </li>
+            );
+          })}
+        </ol>
       </aside>
     </div>
   );

@@ -559,6 +559,12 @@
   },
   "products": {
     "title": "All products and projects",
+    "lead": "My own products and the platforms I build and lead. Each at the stage it is in: from sprout to tree.",
+    "stages": {
+      "sprout": "Sprout · in development",
+      "sapling": "Sapling · MVP or beta",
+      "tree": "Tree · in production"
+    },
     "filterAria": "Filter by category",
     "chips": {
       "all": "All",
@@ -832,9 +838,36 @@
       }
     },
     "screens": {
-      "map": "Knowledge map",
-      "memory": "Memory and documents",
-      "meetings": "Meetings with transcription"
+      "eyebrow": "Real product screens",
+      "title": "A whole day in orbit.",
+      "listAria": "Órbita screens",
+      "open": "Expand the screen",
+      "items": {
+        "overview": {
+          "title": "Overview",
+          "text": "The core, the day's briefing and what comes next, on one screen."
+        },
+        "map": {
+          "title": "Knowledge map",
+          "text": "Conversations, documents, meetings, tasks and people linked in a second brain."
+        },
+        "memory": {
+          "title": "Memory",
+          "text": "Indexed documents and facts, with search that shows where each answer came from."
+        },
+        "meetings": {
+          "title": "Meetings",
+          "text": "Listens, transcribes, separates who spoke and turns it into next steps."
+        },
+        "connections": {
+          "title": "Connections",
+          "text": "Google, Notion, Slack, Microsoft, Jira and Zoom, each with a clear limit."
+        },
+        "spend": {
+          "title": "Spend",
+          "text": "Cost per flow and per call: paid, by subscription or running locally."
+        }
+      }
     },
     "tagRight": "Context connected"
   },

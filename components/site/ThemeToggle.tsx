@@ -29,9 +29,9 @@ export function ThemeToggle({ withText = false, className, tabIndex }: { withTex
       tabIndex={tabIndex}
       onClick={() => setTheme(dark ? "light" : "dark")}
     >
-      <span className="relative inline-block h-[18px] w-[18px]" aria-hidden="true">
-        <Sun className="ic ic-sun" width={18} height={18} strokeWidth={1.5} />
-        <Moon className="ic ic-moon" width={18} height={18} strokeWidth={1.5} />
+      <span className={withText ? "relative inline-block h-[18px] w-[18px]" : "relative inline-block h-4 w-4"} aria-hidden="true">
+        <Sun className="ic ic-sun" width={withText ? 18 : 16} height={withText ? 18 : 16} strokeWidth={1.5} />
+        <Moon className="ic ic-moon" width={withText ? 18 : 16} height={withText ? 18 : 16} strokeWidth={1.5} />
       </span>
       {withText ? <span aria-hidden="true">{mounted ? (dark ? t("dark") : t("light")) : t("label")}</span> : null}
     </button>

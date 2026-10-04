@@ -97,7 +97,7 @@ describe("POST /api/orbita/chat (mocked Claude)", () => {
     // request shape
     expect(calls).toHaveLength(2);
     const first = calls[0];
-    expect(first.model).toBe("claude-opus-5");
+    expect(first.model).toBe("claude-opus-5-5");
     expect(first.thinking).toEqual({ type: "adaptive" });
     expect(first.output_config).toEqual({ effort: "low" });
     expect(first.fallbacks).toBe("default");

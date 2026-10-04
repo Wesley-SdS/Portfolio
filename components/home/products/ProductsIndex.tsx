@@ -1,33 +1,27 @@
 "use client";
 
-import {
-  useCallback,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-  type CSSProperties,
-  type FocusEvent,
-  type MouseEvent,
-  type ReactNode,
-} from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties, type MouseEvent, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { Chip, Icon, Search, SmartLink, X } from "@/components/ui-v3";
-import type { ProductLight, ProjectCategory, StatusShape } from "@/src/content/types";
+import { Icon, Search, SmartLink, X } from "@/components/ui-v3";
+import type { ProductLight, ProjectCategory } from "@/src/content/types";
+
+/** Growth stage of a project (the "tree" status of the original site): sprout → sapling → tree. */
+export type Stage = "sprout" | "sapling" | "tree";
 
 export interface IndexRow {
   slug: string;
   category: ProjectCategory;
   name: string;
   oneLiner: string;
+  /** one verifiable number ("" when the project has none) */
   highlight: string;
-  period: string;
-  /** mobile line 2: "2026 · IA & Agentes · Em desenvolvimento" */
-  mobileMeta: string;
+  /** "2026", "2025–2026" */
+  year: string;
+  /** "Produto próprio · IA" */
+  type: string;
+  stage: Stage;
   statusLabel: string;
-  statusShape: StatusShape;
   light: ProductLight | null;
   kind: "case" | "gh" | "none";
   href: string | null;
@@ -42,11 +36,11 @@ export interface ProductsIndexProps {
   rows: IndexRow[];
   chips: { id: Cat; label: string; count: number }[];
   total: number;
-  /** one server-rendered preview layer per row (same order) */
-  previews: ReactNode[];
+  /** one server-rendered preview per row (same order), null when the project has no screen */
+  previews: (ReactNode | null)[];
+  stages: Record<Stage, string>;
 }
 
-const ROW_H_DESKTOP = 72;
 const CATS: Cat[] = ["all", "ai", "messaging", "fintech", "custom"];
 
 const norm = (s: string) =>
@@ -57,15 +51,43 @@ const norm = (s: string) =>
 
 const isCat = (v: string | null): v is Cat => v !== null && (CATS as string[]).includes(v);
 
+/** Hand-drawn growth glyphs (16×16, stroke = currentColor). */
+export function StageGlyph({ stage, className }: { stage: Stage; className?: string }) {
+  return (
+    <svg className={cn("stg", `stg-${stage}`, className)} width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path className="stg-ground" d="M3 16h12" />
+      {stage === "sprout" ? (
+        <g className="stg-plant">
+          <path d="M9 16v-5" />
+          <path d="M9 11.5c0-2.2-1.6-3.6-3.8-3.6 0 2.2 1.6 3.6 3.8 3.6z" />
+          <path d="M9 11c0-2.4 1.7-3.9 4.1-3.9 0 2.4-1.7 3.9-4.1 3.9z" />
+        </g>
+      ) : stage === "sapling" ? (
+        <g className="stg-plant">
+          <path d="M9 16V6.5" />
+          <path d="M9 12.5c0-2-1.5-3.3-3.6-3.3 0 2 1.5 3.3 3.6 3.3z" />
+          <path d="M9 10c0-2.1 1.5-3.5 3.7-3.5 0 2.1-1.5 3.5-3.7 3.5z" />
+          <path d="M9 6.5c0-1.7-1.2-2.8-3-2.8 0 1.7 1.2 2.8 3 2.8z" />
+        </g>
+      ) : (
+        <g className="stg-plant">
+          <path d="M9 16v-4.5" />
+          <path d="M9 12.2l-2-1.6M9 13l2.2-1.7" />
+          <path d="M5.2 10.4a3 3 0 0 1 .3-5.6 3.6 3.6 0 0 1 7-.1 3 3 0 0 1 .3 5.7c-.5.2-1 .3-1.6.3H6.8c-.6 0-1.1-.1-1.6-.3z" />
+        </g>
+      )}
+    </svg>
+  );
+}
+
 /**
- * <ProductsIndex> — the filterable index (v3spec §5.5 / v2 §7.6 recipe).
- * - chips (aria-pressed) synced to `?cat=` with history.replaceState (no navigation)
- * - live search (accent-insensitive, every term must match); "/" focuses it, Esc clears
- * - rows slide to their new slot (`--slot` × row height) inside a fixed `.ix-box`;
- *   filtered-out rows fade, keep their last slot and leave the tab order + a11y tree
- * - floating `.pv` preview follows the hovered/focused row at ≥1024 (pvX parallax off under reduced motion)
+ * <ProductsIndex> — the filterable index of every product and project.
+ * - category tabs synced to `?cat=` (history.replaceState), live accent-insensitive search ("/" focuses, Esc clears)
+ * - rows slide to their new slot inside a fixed box; filtered-out rows fade and leave the tab order
+ * - each row is one link (case study or external), with its growth stage (sprout · sapling · tree)
+ * - at ≥1024 with a fine pointer, the project's screen floats beside the cursor (rows that have one)
  */
-export function ProductsIndex({ rows, chips, total, previews }: ProductsIndexProps) {
+export function ProductsIndex({ rows, chips, total, previews, stages }: ProductsIndexProps) {
   const t = useTranslations("products");
   const tc = useTranslations("common");
   const countId = useId();
@@ -74,31 +96,20 @@ export function ProductsIndex({ rows, chips, total, previews }: ProductsIndexPro
   const [cat, setCat] = useState<Cat>("all");
   const [query, setQuery] = useState("");
   const [hover, setHover] = useState(-1);
-  const [lastRow, setLastRow] = useState(0);
-  const [pvX, setPvX] = useState(0);
-  const [pvY, setPvY] = useState(0);
-  const [flip, setFlip] = useState(false);
-
+  const [last, setLast] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
-  const colRef = useRef<HTMLDivElement>(null);
   const pvRef = useRef<HTMLDivElement>(null);
-  const lastMove = useRef(0);
-  const reduced = useRef(false);
   const ysRef = useRef<number[]>(rows.map((_, i) => i));
-  const first = useRef(true);
 
-  /* ?cat= → state on mount; reduced-motion flag */
   useEffect(() => {
     try {
       const fromUrl = new URLSearchParams(window.location.search).get("cat");
       if (isCat(fromUrl)) setCat(fromUrl);
-      reduced.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     } catch {
       /* ignore */
     }
   }, []);
 
-  /* "/" focuses the search (unless typing somewhere) */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== "/" || e.metaKey || e.ctrlKey || e.altKey) return;
@@ -128,14 +139,12 @@ export function ProductsIndex({ rows, chips, total, previews }: ProductsIndexPro
 
   const terms = useMemo(() => norm(query).split(/\s+/).filter(Boolean), [query]);
 
-  /* slots: matching rows get 0..n-1; hidden rows keep their last slot (they fade in place) */
   const { slots, shown } = useMemo(() => {
     let s = 0;
     const out = rows.map((r) => {
       const inCat = cat === "all" || r.category === cat;
       const hay = norm(r.search);
-      const hit = inCat && terms.every((term) => hay.includes(term));
-      return hit ? s++ : -1;
+      return inCat && terms.every((term) => hay.includes(term)) ? s++ : -1;
     });
     out.forEach((slot, i) => {
       if (slot >= 0) ysRef.current[i] = slot;
@@ -143,45 +152,18 @@ export function ProductsIndex({ rows, chips, total, previews }: ProductsIndexPro
     return { slots: out, shown: s };
   }, [rows, cat, terms]);
 
-  /* roll the count digits on change (not on first render) */
-  useEffect(() => {
-    if (first.current) {
-      first.current = false;
-      return;
-    }
-    setFlip((f) => !f);
-  }, [shown]);
+  /* the floating preview follows the pointer without re-rendering (CSS vars on the node) */
+  const onMove = (e: MouseEvent<HTMLDivElement>) => {
+    const pv = pvRef.current;
+    if (!pv) return;
+    pv.style.setProperty("--mx", `${e.clientX}px`);
+    pv.style.setProperty("--my", `${e.clientY}px`);
+  };
 
-  const placePreview = useCallback(
-    (i: number) => {
-      const slot = slots[i] >= 0 ? slots[i] : 0;
-      const colH = colRef.current?.offsetHeight ?? 832;
-      const pvH = pvRef.current?.offsetHeight ?? 257;
-      setPvY(Math.max(0, Math.min(colH - pvH, 40 + slot * ROW_H_DESKTOP - 96)));
-    },
-    [slots],
-  );
-
-  const enterRow = (i: number) => {
+  const enter = (i: number) => {
     if (slots[i] < 0) return;
     setHover(i);
-    setLastRow(i);
-    placePreview(i);
-  };
-
-  const onMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (reduced.current) return;
-    const now = Date.now();
-    if (now - lastMove.current < 32) return;
-    lastMove.current = now;
-    const r = e.currentTarget.getBoundingClientRect();
-    if (!r.width) return;
-    const px = Math.round((((e.clientX - r.left) / r.width) * 2 - 1) * 40);
-    setPvX(px);
-  };
-
-  const onBlurTable = (e: FocusEvent<HTMLDivElement>) => {
-    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setHover(-1);
+    if (previews[i]) setLast(i);
   };
 
   const clearAll = () => {
@@ -191,27 +173,28 @@ export function ProductsIndex({ rows, chips, total, previews }: ProductsIndexPro
   };
 
   const [countA, countB] = t("shown", { shown: "\u0000", total }).split("\u0000");
+  const showPv = hover >= 0 && previews[hover] != null;
 
   return (
     <>
-      {/* controls */}
-      <div className="prod-ctl">
-        <div role="group" aria-label={t("filterAria")} className="prod-chips">
+      <div className="px-ctl">
+        <div role="group" aria-label={t("filterAria")} className="px-tabs">
           {chips.map((c) => (
-            <Chip key={c.id} pressed={cat === c.id} count={c.count} onClick={() => pickCat(c.id)}>
+            <button key={c.id} type="button" className="px-tab" aria-pressed={cat === c.id} onClick={() => pickCat(c.id)}>
               {c.label}
-            </Chip>
+              <sup>{c.count}</sup>
+            </button>
           ))}
         </div>
-        <div className="prod-search" role="search">
+        <div className="px-search" role="search">
           <label htmlFor={searchId} className="sr">
             {t("search.label")}
           </label>
-          <Icon icon={Search} size={16} className="prod-search-ic" />
+          <Icon icon={Search} size={15} className="px-search-ic" />
           <input
             ref={inputRef}
             id={searchId}
-            className="srch"
+            className="px-srch"
             type="search"
             name="q"
             autoComplete="off"
@@ -230,152 +213,107 @@ export function ProductsIndex({ rows, chips, total, previews }: ProductsIndexPro
           {query ? (
             <button
               type="button"
-              className="btn btn-g prod-clear"
+              className="px-clear"
               aria-label={t("search.clear")}
               onClick={() => {
                 setQuery("");
                 inputRef.current?.focus();
               }}
             >
-              <Icon icon={X} size={16} />
+              <Icon icon={X} size={14} />
             </button>
           ) : (
-            <kbd className="kbd prod-kbd" aria-hidden="true">
+            <kbd className="kbd px-kbd" aria-hidden="true">
               /
             </kbd>
           )}
         </div>
       </div>
 
-      {/* body */}
-      <div className="prod-body">
-        <div className="prod-table" onMouseMove={onMove} onMouseLeave={() => setHover(-1)} onBlur={onBlurTable}>
-          <div role="table" aria-label={t("tableAria")} aria-describedby={countId}>
-            <div role="rowgroup" className="ix-headgroup">
-              <div role="row" className="ix-cols ix-head">
-                <span role="columnheader" className="eb">
-                  {t("columns.period")}
-                </span>
-                <span role="columnheader" className="eb">
-                  {t("columns.project")}
-                </span>
-                <span role="columnheader" className="eb">
-                  {t("columns.highlight")}
-                </span>
-                <span role="columnheader" className="eb">
-                  {t("columns.status")}
-                </span>
-                <span role="columnheader" className="eb ix-head-link">
-                  {t("columns.link")}
-                </span>
-              </div>
-            </div>
-            <div role="rowgroup" className="ix-box">
-              {rows.map((r, i) => {
-                const vis = slots[i] >= 0;
-                const hasLink = r.kind !== "none" && r.href !== null;
-                const glyph = r.kind === "case" ? "→" : r.kind === "gh" ? "↗" : "";
-                const linkSr =
-                  r.kind === "case" ? `, ${r.linkLabel}` : r.kind === "gh" ? `, ${r.linkLabel} ${tc("opensInNewTab")}` : "";
-                return (
-                  <div
-                    key={r.slug}
-                    role="row"
-                    className={cn("ix-row", `k-${r.kind}`, !vis && "is-hidden")}
-                    aria-hidden={vis ? undefined : true}
-                    style={{ ["--slot" as string]: ysRef.current[i], ["--i" as string]: vis ? slots[i] : 0 } as CSSProperties}
-                    onMouseEnter={() => enterRow(i)}
-                  >
-                    <span role="cell" className="ix-per">
-                      {r.period}
-                    </span>
-                    <span role="cell" className="ix-proj">
-                      <span className="ix-nm">
-                        {r.light ? (
-                          <span
-                            className="pdot"
-                            aria-hidden="true"
-                            style={{ background: `rgb(var(--l-${r.light}))` }}
-                          />
-                        ) : null}
-                        {hasLink ? (
-                          <SmartLink
-                            className="ix-name"
-                            href={r.href!}
-                            tabIndex={vis ? undefined : -1}
-                            onFocus={() => enterRow(i)}
-                          >
-                            {r.name}
-                            <span className="sr">{linkSr}</span>
-                          </SmartLink>
-                        ) : (
-                          <span className="ix-name">{r.name}</span>
-                        )}
-                      </span>
-                      <span className="ix-desc" title={r.oneLiner}>
-                        {r.oneLiner}
-                      </span>
-                      <span className="ix-mmeta">{r.mobileMeta}</span>
-                    </span>
-                    <span role="cell" className="ix-hi">
-                      {r.highlight}
-                    </span>
-                    <span role="cell" className="ix-st">
-                      <span className="tag tag-s">
-                        <span
-                          className={cn("dot", r.statusShape === "ring" && "dot-ring")}
-                          aria-hidden="true"
-                          style={{ color: r.statusShape === "ok" ? "var(--ok)" : "var(--accent)" }}
-                        />
-                        {r.statusLabel}
-                      </span>
-                    </span>
-                    <span role="cell" className="ix-link">
-                      {hasLink ? (
-                        <span aria-hidden="true">
-                          <span className="ix-lbl">{r.linkLabel} </span>
-                          <span className={cn("arr", r.kind === "case" ? "a-int" : "a-ext")}>{glyph}</span>
-                        </span>
-                      ) : (
-                        <span className="ix-none">{r.linkLabel}</span>
-                      )}
-                    </span>
-                  </div>
-                );
-              })}
-              {shown === 0 ? (
-                <div className="ix-empty">
-                  <p className="h4">{t("empty.title")}</p>
-                  <button type="button" className="btn btn-s btn-sm" onClick={clearAll}>
-                    {t("empty.clear")}
-                  </button>
-                </div>
-              ) : null}
-            </div>
-          </div>
-          <p id={countId} className="meta prod-count" aria-live="polite">
-            {countA}
-            <span className={cn("roll", flip ? "roll-a" : "roll-b")}>
-              <span>{shown}</span>
-            </span>
-            {countB}
-          </p>
-        </div>
+      <p className="px-legend" aria-hidden="true">
+        {(["sprout", "sapling", "tree"] as const).map((s, i) => (
+          <span key={s} className="px-leg">
+            {i > 0 ? <span className="px-leg-arr">→</span> : null}
+            <StageGlyph stage={s} />
+            {stages[s]}
+          </span>
+        ))}
+      </p>
 
-        {/* preview column (≥1024, pointer only) */}
-        <div className="prod-pvcol" aria-hidden="true" ref={colRef}>
-          <p className={cn("ph", hover >= 0 && "is-off")}>{t("previewHint")}</p>
-          <div
-            ref={pvRef}
-            className={cn("pv", hover >= 0 && "is-on")}
-            style={{ ["--py" as string]: `${pvY}px`, ["--px" as string]: `${hover >= 0 ? pvX : 0}px` } as CSSProperties}
-          >
-            {previews.map((node, i) => (
-              <div key={rows[i]?.slug ?? i} className={cn("xf", lastRow === i && "is-on")}>
+      <div className="px-list" onMouseMove={onMove} onMouseLeave={() => setHover(-1)}>
+        <div className="px-box" role="list" aria-label={t("tableAria")} aria-describedby={countId} style={{ ["--n" as string]: Math.max(shown, 1) } as CSSProperties}>
+          {rows.map((r, i) => {
+            const vis = slots[i] >= 0;
+            const hasLink = r.kind !== "none" && r.href !== null;
+            const linkSr = r.kind === "case" ? `, ${r.linkLabel}` : r.kind === "gh" ? `, ${r.linkLabel} ${tc("opensInNewTab")}` : "";
+            const body = (
+              <>
+                <span className="px-n" aria-hidden="true">
+                  {String((vis ? slots[i] : 0) + 1).padStart(2, "0")}
+                </span>
+                <span className="px-main">
+                  <span className="px-name">
+                    <span className="px-name-t">{r.name}</span>
+                    {r.light ? <i className="px-dot" aria-hidden="true" style={{ background: `rgb(var(--l-${r.light}))` }} /> : null}
+                  </span>
+                  <span className="px-desc">{r.oneLiner}</span>
+                  <span className="px-type">{r.type}</span>
+                </span>
+                <span className="px-hi">{r.highlight}</span>
+                <span className={cn("px-stage", `is-${r.stage}`)}>
+                  <StageGlyph stage={r.stage} />
+                  <span>{r.statusLabel}</span>
+                </span>
+                <span className="px-yr">{r.year}</span>
+                <span className={cn("px-go", !hasLink && "is-off")} aria-hidden="true">
+                  {hasLink ? (r.kind === "case" ? "→" : "↗") : ""}
+                </span>
+                {hasLink ? <span className="sr">{linkSr}</span> : null}
+              </>
+            );
+            return (
+              <div
+                key={r.slug}
+                role="listitem"
+                className={cn("px-row", !vis && "is-hidden", hover === i && "is-hover")}
+                aria-hidden={vis ? undefined : true}
+                style={{ ["--slot" as string]: ysRef.current[i], ["--i" as string]: vis ? slots[i] : 0 } as CSSProperties}
+                onMouseEnter={() => enter(i)}
+              >
+                {hasLink ? (
+                  <SmartLink className="px-a" href={r.href!} tabIndex={vis ? undefined : -1} onFocus={() => enter(i)} onBlur={() => setHover(-1)}>
+                    {body}
+                  </SmartLink>
+                ) : (
+                  <div className="px-a is-static">{body}</div>
+                )}
+              </div>
+            );
+          })}
+          {shown === 0 ? (
+            <div className="px-empty">
+              <p className="h4">{t("empty.title")}</p>
+              <button type="button" className="btn btn-s btn-sm" onClick={clearAll}>
+                {t("empty.clear")}
+              </button>
+            </div>
+          ) : null}
+        </div>
+        <p id={countId} className="meta px-count" aria-live="polite">
+          {countA}
+          {shown}
+          {countB}
+        </p>
+
+        {/* floating screen beside the cursor (decorative; the row carries the information) */}
+        <div ref={pvRef} className={cn("px-pv", showPv && "is-on")} aria-hidden="true">
+          {previews.map((node, i) =>
+            node ? (
+              <div key={rows[i]?.slug ?? i} className={cn("px-pv-l", last === i && "is-on")}>
                 {node}
               </div>
-            ))}
-          </div>
+            ) : null,
+          )}
         </div>
       </div>
     </>

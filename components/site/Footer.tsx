@@ -1,98 +1,105 @@
 import { useTranslations } from "next-intl";
+import { ArrowUp } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { NAV_ITEMS, ROUTES, SITE } from "@/src/content/site";
 import { ClockLine } from "@/components/ui-v3/Clock";
+import { StatusTag } from "@/components/ui-v3/StatusTag";
 import { Github, Icon, Linkedin, Mail, Orbit } from "@/components/ui-v3/Icon";
 import { HomeAnchorLink } from "./HomeAnchorLink";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 /**
- * Site footer (finalSpec §4.12 + v3spec §5.12), id="footer".
- * Row 1: wordmark + description + clock · NAVEGAÇÃO (5 items) · LINKS
- * (GitHub, LinkedIn, OrbitMind, E-mail) · PT·EN·ES + "Voltar ao topo".
- * Row 2: © year + Privacidade (/privacidade) + colophon (+ short SHA when VERCEL_GIT_COMMIT_SHA exists).
+ * Site footer (id="footer"): brand + one line + live status/clock on the left; the page nav as quiet
+ * links and the profiles as round icon buttons on the right; a thin bar with ©, privacy, colophon,
+ * language and a round "back to top"; the outlined wordmark closes the page (fills on hover).
  */
 export function Footer() {
   const t = useTranslations();
   const year = new Date().getFullYear();
   const sha = process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7);
 
+  const socials = [
+    { href: SITE.github, label: t("common.links.github"), icon: Github, ext: true },
+    { href: SITE.linkedin, label: t("common.links.linkedin"), icon: Linkedin, ext: true },
+    { href: SITE.orbitmindUrl, label: t("common.links.orbitmind"), icon: Orbit, ext: false },
+    { href: `mailto:${SITE.email}`, label: t("common.links.email"), icon: Mail, ext: false },
+  ];
+
   return (
-    <footer id="footer" className="tx overflow-hidden border-t border-line pb-8 pt-8">
+    <footer id="footer" className="ft tx">
       <div className="wrap">
-        <div className="g12 gap-y-8">
-          <div className="col-span-4 flex flex-col items-start gap-3 md:col-span-8 lg:col-span-5">
-            <HomeAnchorLink anchor="home" className="wordmark">
+        <div className="ft-top">
+          <div className="ft-brand">
+            <HomeAnchorLink anchor="home" className="wordmark wm-orbit">
+              <span className="wm-planet" aria-hidden="true" />
               Wesley Santos
             </HomeAnchorLink>
-            <p className="small m-0 max-w-[44ch] text-[15px] leading-[22px]">{t("footer.description")}</p>
-            <ClockLine />
+            <p className="ft-desc">{t("footer.description")}</p>
+            <div className="ft-live">
+              <StatusTag status="available" bare ping="loop" pingDelay="1400ms" className="ft-avail" />
+              <span className="ft-dot" aria-hidden="true" />
+              <ClockLine as="span" />
+            </div>
           </div>
-          <nav aria-label={t("nav.footerAria")} className="col-span-2 flex flex-col gap-3 md:col-span-2 lg:col-start-7">
-            <p className="eb">{t("footer.navTitle")}</p>
-            <ul className="m-0 flex list-none flex-col gap-2 p-0 leading-5">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.key}>
-                  <HomeAnchorLink anchor={item.anchor} className="flink">
-                    {t(`nav.${item.key}`)}
-                  </HomeAnchorLink>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div className="col-span-2 flex flex-col gap-3 md:col-span-2">
-            <p className="eb">{t("footer.linksTitle")}</p>
-            <ul className="m-0 flex list-none flex-col gap-2 p-0 leading-5">
-              <li>
-                <a className="flink flink-i" href={SITE.github} target="_blank" rel="noopener noreferrer">
-                  <Icon icon={Github} size={16} />
-                  {t("common.links.github")} ↗
-                </a>
-              </li>
-              <li>
-                <a className="flink flink-i" href={SITE.linkedin} target="_blank" rel="noopener noreferrer">
-                  <Icon icon={Linkedin} size={16} />
-                  {t("common.links.linkedin")} ↗
-                </a>
-              </li>
-              <li>
-                <a className="flink flink-i" href={SITE.orbitmindUrl} title={SITE.orbitmindUrlTitle}>
-                  <Icon icon={Orbit} size={16} />
-                  {t("common.links.orbitmind")} ↗
-                </a>
-              </li>
-              <li>
-                <a className="flink flink-i" href={`mailto:${SITE.email}`}>
-                  <Icon icon={Mail} size={16} />
-                  {t("common.links.email")}
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="col-span-4 flex flex-col items-start gap-4 md:col-span-4 lg:col-span-2">
-            <LocaleSwitcher ariaLabel={t("footer.langAria")} />
-            <HomeAnchorLink anchor="home" className="qlnk top-lnk ui">
-              {t("common.actions.backToTop")}{" "}
-              <span className="up" aria-hidden="true">
-                ↑
-              </span>
-            </HomeAnchorLink>
+
+          <div className="ft-cols">
+            <nav aria-label={t("nav.footerAria")} className="ft-col">
+              <p className="ft-h">{t("footer.navTitle")}</p>
+              <ul>
+                {NAV_ITEMS.map((item) => (
+                  <li key={item.key}>
+                    <HomeAnchorLink anchor={item.anchor} className="ft-a">
+                      {t(`nav.${item.key}`)}
+                    </HomeAnchorLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="ft-col">
+              <p className="ft-h">{t("footer.linksTitle")}</p>
+              <ul className="ft-social">
+                {socials.map((s) => (
+                  <li key={s.label}>
+                    <a
+                      className="ft-ic"
+                      href={s.href}
+                      {...(s.ext ? { target: "_blank", rel: "noopener noreferrer" } : null)}
+                      title={s.label}
+                      aria-label={s.ext ? `${s.label} ${t("common.opensInNewTab")}` : s.label}
+                    >
+                      <Icon icon={s.icon} size={17} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a className="ft-mail" href={`mailto:${SITE.email}`}>
+                {SITE.email}
+              </a>
+            </div>
           </div>
         </div>
-        <div className="mt-7 flex flex-col justify-between gap-2 border-t border-line pt-4 font-mono text-[12px] leading-4 text-ink-3 md:flex-row md:items-center">
-          <p className="m-0">
+
+        <div className="ft-bar">
+          <p className="ft-meta">
             {t("footer.copyright", { year })}
-            {" · "}
-            <Link className="inline-block py-1 text-ink-2 underline underline-offset-4 transition-colors hover:text-ink" href={ROUTES.privacy}>
+            <span aria-hidden="true"> · </span>
+            <Link className="ft-a ft-priv" href={ROUTES.privacy}>
               {t("footer.privacy")}
             </Link>
           </p>
-          <p className="m-0">
+          <p className="ft-meta ft-colo">
             {t("footer.colophon")}
             {sha ? ` · rev. ${sha}` : ""}
           </p>
+          <div className="ft-bar-r">
+            <LocaleSwitcher ariaLabel={t("footer.langAria")} />
+            <HomeAnchorLink anchor="home" className="ft-top-btn" aria-label={t("common.actions.backToTop")} title={t("common.actions.backToTop")}>
+              <ArrowUp width={16} height={16} strokeWidth={1.6} aria-hidden="true" />
+            </HomeAnchorLink>
+          </div>
         </div>
-        {/* closing wordmark: outlined, fills on hover (decorative — the name is already in the footer) */}
+
+        {/* closing wordmark: outlined, fills on hover (decorative; the name is already in the footer) */}
         <p className="ft-wm" aria-hidden="true">
           Wesley Santos
         </p>

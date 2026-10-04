@@ -1,11 +1,12 @@
 import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { Home, Layers, MessageCircle, Mic, Network, ShieldCheck, Wallet, Wrench, type LucideIcon } from "lucide-react";
-import { CropImage, Icon, Reveal, TextLink } from "@/components/ui-v3";
+import { Icon, Reveal, TextLink } from "@/components/ui-v3";
 import { ORB_MODE_LIST } from "@/components/orbita/presence-orb";
-import { crops } from "@/src/content/images";
+import { images } from "@/src/content/images";
 import { PROJECTS, caseLinkFor } from "@/src/content/projects";
 import { LabClient, type LabCopy, type LabState } from "./orbita-lab/LabClient";
+import { LabScreens } from "./orbita-lab/LabScreens";
 
 const v = (vars: Record<string, string | number>) => vars as CSSProperties;
 
@@ -21,10 +22,14 @@ const FEATURES: { id: string; icon: LucideIcon }[] = [
   { id: "providers", icon: Layers },
 ];
 
+/** whole screenshots from the product (16:10); copy: lab.screens.<id>.{title,text} · alt: images.orbita.<altKey> */
 const SCREENS = [
-  { id: "map", crop: crops.orbita.conhecimento.c },
-  { id: "memory", crop: crops.orbita.memoria.c },
-  { id: "meetings", crop: crops.orbita.reunioes.c },
+  { id: "overview", image: images.orbita.escuroVisaoGeral, altKey: "visaoGeral" },
+  { id: "map", image: images.orbita.escuroConhecimento, altKey: "conhecimento" },
+  { id: "memory", image: images.orbita.claroMemoria, altKey: "memoria" },
+  { id: "meetings", image: images.orbita.claroReunioes, altKey: "reunioes" },
+  { id: "connections", image: images.orbita.claroConexoes, altKey: "conexoes" },
+  { id: "spend", image: images.orbita.claroGestao, altKey: "gestao" },
 ] as const;
 
 /**
@@ -36,6 +41,7 @@ const SCREENS = [
 export function OrbitaLab() {
   const t = useTranslations("lab");
   const tc = useTranslations("common");
+  const ti = useTranslations("images");
   const github = PROJECTS.orbita.link;
 
   const states: LabState[] = ORB_MODE_LIST.map((id) => ({
@@ -92,7 +98,7 @@ export function OrbitaLab() {
           {FEATURES.map((f, i) => (
             <li key={f.id} className="rv" style={v({ "--i": i % 4 })}>
               {/* the reveal lives on the <li>; the card keeps its own hover transform */}
-              <div className="lab-card" data-spot="">
+              <div className="lab-card" data-spot="" style={v({ "--i": i })}>
                 <span className="lab-ico" aria-hidden="true">
                   <Icon icon={f.icon} size={20} />
                 </span>
@@ -103,18 +109,26 @@ export function OrbitaLab() {
           ))}
         </ul>
 
-        <ul className="lab-gal">
-          {SCREENS.map((s) => (
-            <li key={s.id}>
-              <figure className="lab-shot">
-                <div className="lab-shot-c">
-                  <CropImage crop={s.crop} renderWidth={410} />
-                </div>
-                <figcaption className="meta">{t(`screens.${s.id}`)}</figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
+        <div className="lab-scr-head">
+          <p className="eb">{t("screens.eyebrow")}</p>
+          <h3 className="h3s">{t("screens.title")}</h3>
+        </div>
+        <LabScreens
+          screens={SCREENS.map((s) => ({
+            id: s.id,
+            image: s.image,
+            title: t(`screens.items.${s.id}.title`),
+            text: t(`screens.items.${s.id}.text`),
+            alt: ti(`orbita.${s.altKey}`),
+          }))}
+          labels={{
+            list: t("screens.listAria"),
+            open: t("screens.open"),
+            close: tc("actions.close"),
+            prev: tc("actions.previous"),
+            next: tc("actions.next"),
+          }}
+        />
       </div>
     </Reveal>
   );

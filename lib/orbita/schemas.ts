@@ -115,7 +115,7 @@ export const bookCallInput = z.object({
 });
 
 export const handoffInput = z.object({
-  engagement: z.enum(["continuous", "project", "consulting", "unsure"]).optional(),
+  engagement: z.enum(["techlead", "continuous", "project", "consulting", "unsure"]).optional(),
   solutions: z
     .array(z.enum(["web_platform", "mobile_app", "ai_agents", "whatsapp_bots", "integrations", "legacy_evolution", "other"]))
     .max(7)

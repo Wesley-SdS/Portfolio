@@ -1,8 +1,8 @@
 import type { CSSProperties, ReactNode } from "react";
+import { OrbitaMark } from "@/components/orbita/OrbitaMark";
 import { Bell, Check, Globe, MessageCircle, Mic, Send, Smartphone } from "lucide-react";
 import { CropImage } from "@/components/ui-v3/CropImage";
 import { MetricValue } from "@/components/ui-v3/MetricValue";
-import { Orb } from "@/components/ui-v3/Orb";
 import { SmartLink } from "@/components/ui-v3/SmartLink";
 import { LIGHT_RGB } from "@/src/content/projects";
 import type { CaseBlock, CaseConfig, ChannelIcon } from "@/src/content/cases";
@@ -385,7 +385,7 @@ export function renderBlock(b: CaseBlock, i: number, ctx: Ctx): ReactNode {
         <div key={i} className="cs-orbita-cta">
           <div className="cs-orbita-row">
             <OrbitaButton className="btn btn-p cs-orb-btn">
-              <Orb size={24} />
+              <OrbitaMark size={22} className="btn-mark" />
               {tg("common.actions.talkToOrbita")}
             </OrbitaButton>
             <SmartLink href="/#orbita" className="qlnk cs-ui">

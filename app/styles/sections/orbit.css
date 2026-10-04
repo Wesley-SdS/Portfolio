@@ -233,3 +233,24 @@
 }
 .ft-wm { margin: 28px 0 -0.1em; font: 800 min(13.6vw, 196px) / .92 var(--font-display); letter-spacing: -.05em; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px var(--line-strong); user-select: none; transition: color 600ms var(--ease-standard), -webkit-text-stroke-color 600ms var(--ease-standard); }
 .ft-wm:hover { color: var(--accent); -webkit-text-stroke-color: var(--accent); }
+
+/* ---------- shared bits from the general check ---------- */
+.btn-mark { flex: none; border-radius: 6px; }
+.ps-stage { display: inline-flex; align-items: center; gap: 7px; height: 26px; padding: 0 2px; font: 500 12px/16px var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--stage-ink-2); white-space: nowrap; }
+.ps-stage .stg-sprout { color: #B5DC8E; }
+.ps-stage .stg-sapling { color: #8FD39A; }
+.ps-stage .stg-tree { color: #6CCB8C; }
+
+/* mobile: long card stacks become swipeable rows */
+@media (max-width: 639px) {
+  .home-lab .lab-feat, .home-svc .sol-grid {
+    display: flex; gap: 12px; margin-left: calc(-1 * var(--page-x)); margin-right: calc(-1 * var(--page-x));
+    padding: 4px var(--page-x) 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--page-x);
+    scrollbar-width: none; overscroll-behavior-x: contain;
+  }
+  .home-lab .lab-feat::-webkit-scrollbar, .home-svc .sol-grid::-webkit-scrollbar { display: none; }
+  .home-lab .lab-feat > li, .home-svc .sol-grid > li { flex: none; width: 78%; scroll-snap-align: start; }
+}
+@media (min-width: 1024px) {
+  .home-lab .lab-panel { align-self: start; padding-top: 28px; }
+}

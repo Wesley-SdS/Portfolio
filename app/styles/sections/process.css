@@ -9,8 +9,8 @@
 .home-proc .proc-steps { position: relative; list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
 .home-proc .proc-hline { display: none; }
 .home-proc .proc-step { position: relative; padding-left: 36px; }
-.home-proc .pnode { position: absolute; left: 0; top: 4px; display: block; width: 16px; height: 16px; border: 1px solid var(--line-strong); background: var(--bg); }
-.home-proc .pnode.fill { border-color: var(--accent); background: var(--accent); }
+.home-proc .pnode { position: absolute; left: 2px; top: 6px; display: block; width: 12px; height: 12px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: var(--bg); }
+.home-proc .pnode.fill { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 5px rgb(242 84 27 / .16); }
 /* segment from this node down to the next one (gap 12 + node offset) */
 .home-proc .proc-vseg { position: absolute; left: 7.5px; top: 20px; bottom: -16px; width: 1px; background: var(--line-strong); }
 .home-proc .proc-txt { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 10px; align-items: baseline; }

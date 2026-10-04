@@ -25,7 +25,7 @@ export interface SlotsPayload {
 }
 
 export interface QuotePrefill {
-  engagement?: "continuous" | "project" | "consulting" | "unsure";
+  engagement?: "techlead" | "continuous" | "project" | "consulting" | "unsure";
   solutions?: Array<"web_platform" | "mobile_app" | "ai_agents" | "whatsapp_bots" | "integrations" | "legacy_evolution" | "other">;
   deadline?: "asap" | "1_3_months" | "no_date";
   description?: string;

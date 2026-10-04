@@ -1300,6 +1300,10 @@
         "title": "How would you like to work together?",
         "helper": "Pick the closest format. You can change it later.",
         "options": {
+          "techlead": {
+            "title": "Technical leadership (employee or contractor)",
+            "sub": "A tech lead dedicated to your team, full- or part-time."
+          },
           "continuous": {
             "title": "Ongoing development",
             "sub": "A senior team evolving your product every month."
@@ -1657,7 +1661,7 @@
       "aria": "Breadcrumb"
     },
     "h1": "How to work with me",
-    "lead": "Three formats, one standard: architecture built to last, tests from day one and AI used with judgment. You talk directly to the person who builds.",
+    "lead": "Four formats, the same standard: architecture built to last, tests from day one and AI used with judgement. You talk directly to the person who builds.",
     "jump": {
       "techlead": "Tech lead",
       "continuous": "Ongoing",
@@ -1669,17 +1673,17 @@
     "proof": {
       "title": "Quick proof",
       "rows": {
-        "tools": {
-          "value": "102",
-          "label": "tools in Órbita"
+        "connectors": {
+          "value": "114",
+          "label": "native connectors in Adaflow"
         },
-        "commits": {
-          "value": "~70%",
-          "label": "of human commits on the AI platform I lead"
+        "clients": {
+          "value": "600+",
+          "label": "clients served by the platforms I lead"
         },
-        "tests": {
-          "value": "1,258",
-          "label": "test cases in the Nex Suite"
+        "merge": {
+          "value": "0.5 h",
+          "label": "from issue to merge in the agent pipeline"
         }
       },
       "source": "source"

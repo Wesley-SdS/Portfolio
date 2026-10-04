@@ -1,22 +1,9 @@
 import { useTranslations } from "next-intl";
 import { GRID_PROJECTS, PROJECT_CATEGORIES, caseLinkFor } from "@/src/content/projects";
 import { ANCHORS } from "@/src/content/site";
-import type { Period, Status } from "@/src/content/types";
-import { ProductsIndex, type IndexRow, type Stage } from "./products/ProductsIndex";
+import { stageOf, yearSpan } from "@/src/content/format";
+import { ProductsIndex, type IndexRow } from "./products/ProductsIndex";
 import { ProductPreview } from "./products/ProductPreview";
-
-function yearSpan(period: Period): string {
-  const start = period.start.y;
-  if (period.end === "present") return String(start);
-  return period.end.y === start ? String(start) : `${start}–${period.end.y}`;
-}
-
-/** Growth stage, as the original site told it: in development = sprout, MVP/beta = sapling, live or done = tree. */
-function stageOf(status: Status): Stage {
-  if (status === "inDevelopment") return "sprout";
-  if (status === "done" || status === "inProduction") return "tree";
-  return "sapling";
-}
 
 /**
  * Todos os produtos e projetos (#todos-os-produtos). Server component: resolves every string, year and

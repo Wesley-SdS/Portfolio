@@ -1300,6 +1300,10 @@
         "title": "Como você quer contratar?",
         "helper": "Escolha o formato mais próximo. Dá para mudar depois.",
         "options": {
+          "techlead": {
+            "title": "Liderança técnica (CLT ou PJ)",
+            "sub": "Um Tech Lead dedicado ao seu time, integral ou parcial."
+          },
           "continuous": {
             "title": "Desenvolvimento contínuo",
             "sub": "Time sênior evoluindo seu produto todo mês."
@@ -1657,7 +1661,7 @@
       "aria": "Trilha"
     },
     "h1": "Como trabalhar comigo",
-    "lead": "Três formatos, o mesmo padrão: arquitetura pensada para durar, testes desde o primeiro dia e IA usada com critério. Você fala direto com quem constrói.",
+    "lead": "Quatro formatos, o mesmo padrão: arquitetura pensada para durar, testes desde o primeiro dia e IA usada com critério. Você fala direto com quem constrói.",
     "jump": {
       "techlead": "Liderança técnica",
       "continuous": "Contínuo",
@@ -1669,17 +1673,17 @@
     "proof": {
       "title": "Prova rápida",
       "rows": {
-        "tools": {
-          "value": "102",
-          "label": "ferramentas na Órbita"
+        "connectors": {
+          "value": "114",
+          "label": "conectores nativos no Adaflow"
         },
-        "commits": {
-          "value": "~70%",
-          "label": "dos commits humanos na plataforma de IA que lidero"
+        "clients": {
+          "value": "600+",
+          "label": "clientes atendidos pelas plataformas que lidero"
         },
-        "tests": {
-          "value": "1.258",
-          "label": "casos de teste na Suíte Nex"
+        "merge": {
+          "value": "0,5 h",
+          "label": "da issue ao merge na esteira com agentes"
         }
       },
       "source": "fonte"

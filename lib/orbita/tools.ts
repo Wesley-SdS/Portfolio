@@ -58,7 +58,7 @@ export const TOOLS: Anthropic.Beta.BetaTool[] = [
     input_schema: {
       type: "object",
       properties: {
-        engagement: { type: "string", enum: ["continuous", "project", "consulting", "unsure"] },
+        engagement: { type: "string", enum: ["techlead", "continuous", "project", "consulting", "unsure"] },
         solutions: {
           type: "array",
           items: { type: "string", enum: ["web_platform", "mobile_app", "ai_agents", "whatsapp_bots", "integrations", "legacy_evolution", "other"] },

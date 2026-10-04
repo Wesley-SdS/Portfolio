@@ -83,8 +83,8 @@
 .hp-steps { position: relative; list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
 .hp-line { position: absolute; left: 8px; top: 8px; bottom: 8px; width: 1px; background: var(--line-strong); transform-origin: 50% 0; animation-name: cb-draw-y; }
 .hp-step { position: relative; display: grid; grid-template-columns: 16px minmax(0, 1fr); column-gap: 16px; }
-.hp-node { position: relative; z-index: 1; display: block; width: 16px; height: 16px; border: 1px solid var(--line-strong); background: var(--bg); }
-.hp-node.promo { border-color: var(--accent); background: var(--accent); }
+.hp-node { position: relative; z-index: 1; display: block; width: 12px; height: 12px; border-radius: 999px; border: 1.5px solid var(--line-strong); background: var(--bg); }
+.hp-node.promo { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 5px rgb(242 84 27 / .16); }
 .hp-num { color: var(--accent-ink); }
 .hp-st { margin: 8px 0 0; font: 600 18px/26px var(--font-body); color: var(--ink); }
 .hp-stx { margin: 8px 0 0; font: 400 16px/26px var(--font-body); color: var(--ink-2); }
@@ -151,7 +151,7 @@
   .cmp-hint { visibility: visible; }
   .cmp-mc { padding: 14px 20px; }
   .cmp-mh { padding: 20px 20px 16px; }
-  .cmp-mt { min-height: 64px; font-size: 28px; line-height: 32px; }
+  .cmp-mt { min-height: 56px; font-size: 22px; line-height: 27px; text-wrap: balance; }
   .cmp-last .btn { white-space: nowrap; }
 
   .hire-h3 { margin-top: 24px; }

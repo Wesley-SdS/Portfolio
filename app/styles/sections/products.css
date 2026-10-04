@@ -33,7 +33,7 @@
 .home-prod .px-leg-arr { display: none; margin-right: 4px; opacity: .6; }
 .home-prod .px-legend { column-gap: 16px; }
 
-/* ---------- growth glyphs ---------- */
+/* ---------- growth glyphs (shared: products index, stage chapters) ---------- */
 .stg { display: block; flex: none; overflow: visible; }
 .stg-ground { opacity: .45; }
 .stg-plant { transform-origin: 9px 16px; }

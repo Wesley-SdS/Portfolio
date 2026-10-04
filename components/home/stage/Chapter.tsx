@@ -1,6 +1,18 @@
 import { useLocale, useTranslations } from "next-intl";
 import { CropImage } from "@/components/ui-v3/CropImage";
-import { StatusTag } from "@/components/ui-v3/StatusTag";
+import { StageGlyph } from "@/components/ui-v3/StageGlyph";
+import { stageOf } from "@/src/content/format";
+import type { Status } from "@/src/content/types";
+
+function StageBadge({ status }: { status: Status }) {
+  const t = useTranslations("common.status");
+  return (
+    <span className="ps-stage">
+      <StageGlyph stage={stageOf(status)} />
+      {t(status)}
+    </span>
+  );
+}
 import { asLocale, formatPeriod } from "@/src/content/format";
 import { crops } from "@/src/content/images";
 import { PROJECTS, type StageChapter } from "@/src/content/projects";
@@ -18,7 +30,7 @@ export function DeskText({ ch }: { ch: StageChapter }) {
   const status = PROJECTS[ch.slug].status;
   const row = (
     <>
-      <StatusTag status={status} onStage />
+      <StageBadge status={status} />
       <span className="meta">{t("meta")}</span>
     </>
   );
@@ -125,7 +137,7 @@ export function MobText({ ch }: { ch: StageChapter }) {
   return (
     <>
       <div className="smeta e-meta">
-        <StatusTag status={p.status} onStage />
+        <StageBadge status={p.status} />
         <p>
           {eyebrow}
           {formatPeriod(p.period, locale)}

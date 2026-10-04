@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { Button, type ButtonSize, type ButtonVariant } from "@/components/ui-v3/Button";
-import { Orb } from "@/components/ui-v3/Orb";
+import { OrbitaMark } from "@/components/orbita/OrbitaMark";
 import { ORBITA_PANEL_ID } from "@/src/content/orbita";
 import { openOrbita, type OrbitaAsk, type OrbitaSource } from "./orbita-bridge";
 
@@ -32,7 +32,7 @@ export function OrbitaTrigger({ children, source, variant = "secondary", size = 
       variant={variant}
       size={size}
       className={className}
-      style={withOrb ? { paddingLeft: 12 } : undefined}
+      style={withOrb ? { paddingLeft: 14 } : undefined}
       aria-haspopup="dialog"
       aria-controls={ORBITA_PANEL_ID}
       onClick={(e) => {
@@ -40,7 +40,7 @@ export function OrbitaTrigger({ children, source, variant = "secondary", size = 
         openOrbita({ source, returnFocus: e.currentTarget, ask });
       }}
     >
-      {withOrb ? <Orb size={24} /> : null}
+      {withOrb ? <OrbitaMark size={22} className="btn-mark" /> : null}
       {children}
     </Button>
   );

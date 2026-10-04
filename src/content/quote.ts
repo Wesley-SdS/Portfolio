@@ -10,7 +10,7 @@ import { z } from "zod";
  * them with `t(issue.message)` using the root translator.
  */
 
-export const QUOTE_ENGAGEMENTS = ["continuous", "project", "consulting", "unsure"] as const;
+export const QUOTE_ENGAGEMENTS = ["techlead", "continuous", "project", "consulting", "unsure"] as const;
 export const QUOTE_SOLUTIONS = [
   "web_platform",
   "mobile_app",

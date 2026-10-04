@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
+import { OrbitaMark } from "@/components/orbita/OrbitaMark";
 import { getTranslations } from "next-intl/server";
-import { Orb } from "@/components/ui-v3/Orb";
 import { Reveal } from "@/components/ui-v3/Reveal";
 import { SmartLink } from "@/components/ui-v3/SmartLink";
 import { StatusTag } from "@/components/ui-v3/StatusTag";
@@ -154,7 +154,7 @@ export async function CasePage({ cfg, locale }: { cfg: CaseConfig; locale: Local
                 </span>
               </SmartLink>
               <OrbitaButton className="btn btn-s cs-orb-btn">
-                <Orb size={24} />
+                <OrbitaMark size={22} className="btn-mark" />
                 {tg("common.actions.talkToOrbita")}
               </OrbitaButton>
             </div>

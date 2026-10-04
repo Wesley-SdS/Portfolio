@@ -67,7 +67,6 @@ export function Contact() {
       <div className="sec ct-qsec">
         <div className="inner ct-qgrid">
           <div className="ct-qhead">
-            <p className="eb">{t("quoteEyebrow")}</p>
             <h3 className="h3 ct-qt">{t("quoteTitle")}</h3>
             <p className="lead ct-ql">{t("quoteLead")}</p>
           </div>

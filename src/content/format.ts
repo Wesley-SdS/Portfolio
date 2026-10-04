@@ -76,6 +76,22 @@ export function splitMetric(metric: Metric, locale: Locale): { to: number; rest:
   return { to, rest: `${full.slice(intText.length)}${metric.suffix ?? ""}` };
 }
 
+/** Growth stage, as the original site told it: in development = sprout, MVP/beta = sapling, live or done = tree. */
+export type Stage = "sprout" | "sapling" | "tree";
+export function stageOf(status: Status): Stage {
+  if (status === "inDevelopment") return "sprout";
+  if (status === "done" || status === "inProduction") return "tree";
+  return "sapling";
+}
+
+/** Compact year span: "2026", "2025–26", "2023–24". */
+export function yearSpan(period: Period): string {
+  const start = period.start.y;
+  if (period.end === "present") return String(start);
+  if (period.end.y === start) return String(start);
+  return `${start}–${String(period.end.y).slice(-2)}`;
+}
+
 export function statusShape(status: Status): StatusShape {
   switch (status) {
     case "inDevelopment":

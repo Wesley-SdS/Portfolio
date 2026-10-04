@@ -4,7 +4,7 @@
    artboard frame, below it the compact stepper. */
 
 .qf { container-type: inline-size; width: 100%; max-width: 600px; }
-.qf-panel { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 32px 32px 10px; min-height: 800px; }
+.qf-panel { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 32px 32px 18px; min-height: 0; }
 
 /* re-key twin for the shake (switching classes replays the animation) */
 .qf-shake-b { animation: qf-shake-b 240ms var(--ease-standard) 1; }
@@ -164,7 +164,7 @@
 
 /* ===== compact stepper (container < 520px · Mobile.dc.html .qp 350×760) ===== */
 @container (max-width: 519px) {
-  .qf-panel { min-height: 760px; padding: 20px 20px 14px; }
+  .qf-panel { min-height: 0; padding: 20px 20px 14px; }
   .qf-prog { display: flex; gap: 6px; }
   .qf-seg { flex: 1; }
   .qf-ttl { margin-top: 17px; min-height: 28px; gap: 10px; }

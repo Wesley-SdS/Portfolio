@@ -63,9 +63,9 @@ export default async function HirePage({ params }: { params: Promise<{ locale: s
   const h1Words = t("hire.h1").split(" ");
   const h1Last = h1Words.pop();
   const proofRows = [
-    { id: "tools", href: ROUTES.project("orbita"), source: "Órbita", counter: 102 },
-    { id: "commits", href: `/#${ANCHORS.experience}`, source: t("nav.experience"), counter: null },
-    { id: "tests", href: `/#${ANCHORS.allProducts}`, source: t("products.items.nex.name"), counter: null },
+    { id: "connectors", href: `/#${ANCHORS.allProducts}`, source: "Adaflow", counter: 114 },
+    { id: "clients", href: `/#${ANCHORS.experience}`, source: t("nav.experience"), counter: null },
+    { id: "merge", href: `/#${ANCHORS.allProducts}`, source: t("products.items.orbitpipeline.name"), counter: null },
   ] as const;
 
   return (

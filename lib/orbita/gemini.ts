@@ -51,6 +51,12 @@ export function geminiModel(): string {
   return process.env.GEMINI_MODEL?.trim() || DEFAULT_GEMINI_MODEL;
 }
 
+/** Tried in order when a model is overloaded (503) or out of quota (429); the lite model is the safety net. */
+export const GEMINI_FALLBACK_MODEL = "gemini-flash-lite-latest";
+function modelChain(): string[] {
+  return [...new Set([geminiModel(), GEMINI_FALLBACK_MODEL])];
+}
+
 export async function runGemini(opts: {
   apiKey: string;
   system: string[];
@@ -69,19 +75,30 @@ export async function runGemini(opts: {
     else contents.push({ role, parts: [{ text: m.content }] });
   }
 
+  // the model that answered first stays for the whole request (thought signatures are model-bound)
+  let models = modelChain();
   for (let round = 0; round < opts.maxToolRounds; round++) {
-    const res = await fetch(`${API}/${encodeURIComponent(geminiModel())}:streamGenerateContent?alt=sse`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-goog-api-key": opts.apiKey },
-      body: JSON.stringify({
-        systemInstruction: { parts: opts.system.map((text) => ({ text })) },
-        contents,
-        tools: [{ functionDeclarations: FUNCTIONS }],
-        generationConfig: { maxOutputTokens: opts.maxTokens, temperature: 0.6 },
-      }),
-      signal: opts.signal,
+    const body = JSON.stringify({
+      systemInstruction: { parts: opts.system.map((text) => ({ text })) },
+      contents,
+      tools: [{ functionDeclarations: FUNCTIONS }],
+      generationConfig: { maxOutputTokens: opts.maxTokens, temperature: 0.6 },
     });
-    if (!res.ok || !res.body) throw new GeminiError(res.status);
+    let res: Response | null = null;
+    for (const model of models) {
+      res = await fetch(`${API}/${encodeURIComponent(model)}:streamGenerateContent?alt=sse`, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": opts.apiKey },
+        body,
+        signal: opts.signal,
+      });
+      if (res.ok) {
+        models = [model];
+        break;
+      }
+      if (res.status !== 503 && res.status !== 429) break;
+    }
+    if (!res || !res.ok || !res.body) throw new GeminiError(res?.status ?? 0);
 
     // read the SSE stream; text streams to the visitor, every part is kept verbatim for the next turn
     const parts: Part[] = [];

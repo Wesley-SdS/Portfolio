@@ -5,6 +5,8 @@ import { GRID_PROJECTS, PROJECTS } from "@/src/content/projects";
 import { ENGAGEMENT_MODELS, SOLUTIONS } from "@/src/content/services";
 import { COMPANIES } from "@/src/content/leadership";
 import { ABOUT } from "@/src/content/about";
+import { CASES } from "@/src/content/cases";
+import { KB_DEEP } from "./kb-deep";
 import { SITE, ROUTES, ANCHORS } from "@/src/content/site";
 import { formatPeriod, formatYears } from "@/src/content/format";
 import type { Locale, Period, Project } from "@/src/content/types";
@@ -67,6 +69,29 @@ export function kbProjects(locale: ChatLocale): KbProject[] {
       href: p.caseHref ?? `/#${ANCHORS.allProducts}`,
     };
   });
+}
+
+/** UI-only keys that carry no facts (labels, captions, aria, controls). */
+const SKIP_KEY = /^(aria|alt|hint|label|play|pause|caption|captions|fig|toc|tocTitle|breadcrumb|cta[A-Z]?\w*|legend\w*|tooltips|nodes|pending|navCaption|diagramTitle|cover)$/;
+
+/** Every factual string of a case-study namespace, as "Section: text" lines. */
+function caseText(ns: Dict): string[] {
+  const out: string[] = [];
+  const walk = (o: unknown, trail: string[]) => {
+    if (typeof o === "string") {
+      const s = o.replace(/<\/?hl>/g, "").trim();
+      if (s.length > 24) out.push(`- ${trail.slice(-2).join(" / ")}: ${s}`);
+      return;
+    }
+    if (Array.isArray(o)) {
+      const items = o.filter((x): x is string => typeof x === "string");
+      if (items.length) out.push(`- ${trail.slice(-2).join(" / ")}: ${items.join("; ")}`);
+      return;
+    }
+    if (o && typeof o === "object") for (const [k, v] of Object.entries(o)) if (!SKIP_KEY.test(k)) walk(v, [...trail, k]);
+  };
+  for (const key of ["descriptor", "lead", "sections"]) walk(ns[key], [key]);
+  return out;
 }
 
 const cache = new Map<ChatLocale, string>();
@@ -137,6 +162,17 @@ export function buildKnowledgeBase(locale: ChatLocale): string {
 
   L.push("\n# FAQ");
   for (const k of ["price", "firstCall", "who", "nda", "code", "remote"]) L.push(`Q: ${str(m, `hire.faq.items.${k}.q`)} A: ${str(m, `hire.faq.items.${k}.a`)}`);
+
+  L.push("\n# Case studies (full text of the case pages on the site)");
+  for (const c of Object.values(CASES)) {
+    const ns = get(m, c.ns) as Dict | undefined;
+    if (!ns) continue;
+    L.push(`## ${str(m, `${c.ns}.h1`) || c.slug} (${ROUTES.project(c.slug)})`);
+    for (const line of caseText(ns)) L.push(line);
+  }
+
+  L.push("\n# Deep facts (owner's CV and repository audit; written in Portuguese, answer in the visitor's language)");
+  L.push(KB_DEEP);
 
   const kb = L.filter((l) => l.trim().length).join("\n");
   cache.set(locale, kb);

@@ -10,6 +10,8 @@ import type { BookResponse, OrbitaStatus, SlotsPayload } from "../../lib/orbita/
 
 const SECRET_VARS = [
   "ANTHROPIC_API_KEY",
+  "GEMINI_API_KEY",
+  "ORBITA_PROVIDER",
   "GOOGLE_CLIENT_ID",
   "GOOGLE_CLIENT_SECRET",
   "GOOGLE_REFRESH_TOKEN",
@@ -108,6 +110,7 @@ describe("POST /api/orbita/book", () => {
   });
 
   it("books in demo mode without credentials (auto → confirmed)", async () => {
+    process.env.ORBITA_BOOKING_MODE = "auto";
     const start = await firstFreeSlot();
     const res = await bookPOST(post("http://x/api/orbita/book", { ...valid, start }));
     expect(res.status).toBe(200);
@@ -132,8 +135,7 @@ describe("POST /api/orbita/book", () => {
     expect(body.issues.map((i) => i.path)).toEqual(["consent"]);
   });
 
-  it("returns pending in aprovacao mode", async () => {
-    process.env.ORBITA_BOOKING_MODE = "aprovacao";
+  it("returns pending in aprovacao mode (the default)", async () => {
     const res = await bookPOST(post("http://x/api/orbita/book", { ...valid, start: await firstFreeSlot() }));
     expect(((await res.json()) as BookResponse).status).toBe("pending");
   });
@@ -153,7 +155,7 @@ describe("POST /api/orbita/book", () => {
 describe("/api/orbita/chat", () => {
   it("GET reports demo mode when no keys are configured", async () => {
     const s = (await (await chatGET()).json()) as OrbitaStatus;
-    expect(s).toMatchObject({ chat: "demo", calendar: "demo", bookingMode: "auto", timeZone: "America/Sao_Paulo", slotMinutes: 30 });
+    expect(s).toMatchObject({ chat: "demo", calendar: "demo", bookingMode: "aprovacao", timeZone: "America/Sao_Paulo", slotMinutes: 30 });
   });
 
   it("rejects invalid payloads", async () => {

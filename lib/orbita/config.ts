@@ -65,8 +65,9 @@ export function scheduleConfig(): ScheduleConfig {
   };
 }
 
+/** Default "aprovacao" (owner, Oct 2026): a tentative hold + e-mail to Wesley. ORBITA_BOOKING_MODE=auto sends invites. */
 export function bookingMode(): BookingMode {
-  return process.env.ORBITA_BOOKING_MODE?.trim().toLowerCase() === "aprovacao" ? "aprovacao" : "auto";
+  return process.env.ORBITA_BOOKING_MODE?.trim().toLowerCase() === "auto" ? "auto" : "aprovacao";
 }
 
 export function calendarId(): string {
@@ -86,8 +87,24 @@ export function calendarLive(): boolean {
   return googleCredentialKind() !== null && Boolean(process.env.WESLEY_CALENDAR_ID?.trim());
 }
 
+/**
+ * Which model answers the visitor chat. ORBITA_PROVIDER forces one ("gemini" | "anthropic");
+ * otherwise a GEMINI_API_KEY wins, then ANTHROPIC_API_KEY; neither means the scripted demo.
+ * A Claude subscription OAuth token is deliberately not supported: it is for personal use and
+ * cannot back a public chatbot under Anthropic's terms.
+ */
+export type ChatProvider = "gemini" | "anthropic";
+export function chatProvider(): ChatProvider | null {
+  const gemini = Boolean(process.env.GEMINI_API_KEY?.trim());
+  const anthropic = Boolean(process.env.ANTHROPIC_API_KEY?.trim());
+  const forced = process.env.ORBITA_PROVIDER?.trim().toLowerCase();
+  if (forced === "gemini") return gemini ? "gemini" : null;
+  if (forced === "anthropic") return anthropic ? "anthropic" : null;
+  return gemini ? "gemini" : anthropic ? "anthropic" : null;
+}
+
 export function chatLive(): boolean {
-  return Boolean(process.env.ANTHROPIC_API_KEY?.trim());
+  return chatProvider() !== null;
 }
 
 export function modelConfig() {

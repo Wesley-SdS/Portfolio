@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { bookingMode, calendarLive, chatLive, modelConfig, RATE_LIMITS, scheduleConfig } from "@/lib/orbita/config";
+import { bookingMode, calendarLive, chatLive, chatProvider, modelConfig, RATE_LIMITS, scheduleConfig } from "@/lib/orbita/config";
+import { GeminiError, runGemini } from "@/lib/orbita/gemini";
 import { clientIp, rateLimitAll } from "@/lib/orbita/rate-limit";
 import { chatRequestSchema, flattenIssues } from "@/lib/orbita/schemas";
 import { jsonError, NO_STORE, readJson } from "@/lib/orbita/http";
@@ -51,6 +52,44 @@ export async function POST(req: Request) {
   const { locale, messages: history } = parsed.data;
   const cfg = modelConfig();
   const tz = scheduleConfig().timeZone;
+
+  if (chatProvider() === "gemini") {
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        const send = (ev: OrbitaStreamEvent) => controller.enqueue(encoder.encode(`${JSON.stringify(ev)}\n`));
+        try {
+          await runGemini({
+            apiKey: process.env.GEMINI_API_KEY!.trim(),
+            system: [systemPrompt(locale), dateBlock(new Date(), tz)],
+            history,
+            locale,
+            maxToolRounds: cfg.maxToolRounds,
+            maxTokens: cfg.maxTokens,
+            signal: req.signal,
+            send,
+          });
+          send({ type: "done" });
+        } catch (err) {
+          if (!req.signal.aborted) {
+            const status = err instanceof GeminiError ? err.status : 0;
+            console.error("[orbita] gemini failed", status || (err instanceof Error ? err.message : "unknown"));
+            send({ type: "error", code: [401, 403, 429, 503].includes(status) ? "unavailable" : "server" });
+          }
+        } finally {
+          try {
+            controller.close();
+          } catch {
+            /* already closed */
+          }
+        }
+      },
+    });
+    return new Response(stream, {
+      headers: { "content-type": "application/x-ndjson; charset=utf-8", ...NO_STORE, "x-accel-buffering": "no" },
+    });
+  }
+
   const client = new Anthropic({ maxRetries: 2, timeout: 55_000 });
 
   const messages: Anthropic.Beta.BetaMessageParam[] = [];

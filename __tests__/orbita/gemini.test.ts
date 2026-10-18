@@ -56,6 +56,53 @@ describe("runGemini", () => {
     expect(events.filter((e) => e.type === "text").map((e) => (e as { delta: string }).delta).join("")).toBe("Achei o Vektus.");
   });
 
+  const toolCall = () =>
+    sse([{ candidates: [{ content: { role: "model", parts: [{ functionCall: { name: "search_portfolio", args: { query: "rag" } }, thoughtSignature: "sig-1" }] } }] }]);
+  const answer = () => sse([{ candidates: [{ content: { role: "model", parts: [{ text: "Achei o Vektus." }] }, finishReason: "STOP" }] }]);
+  const busy = () => new Response("overloaded", { status: 503 });
+  const run = (events: OrbitaStreamEvent[]) =>
+    runGemini({
+      apiKey: "k",
+      system: ["s"],
+      history: [{ role: "user", content: "vocês fazem RAG?" }],
+      locale: "pt",
+      maxToolRounds: 4,
+      maxTokens: 100,
+      signal: new AbortController().signal,
+      send: (ev) => events.push(ev),
+    });
+
+  it("retries the pinned model when it is overloaded after a tool round", async () => {
+    const urls: string[] = [];
+    const replies = [toolCall(), busy(), answer()];
+    global.fetch = jest.fn(async (url: string | URL | Request) => {
+      urls.push(String(url));
+      return replies.shift()!;
+    }) as typeof fetch;
+
+    const events: OrbitaStreamEvent[] = [];
+    await run(events);
+    expect(urls).toHaveLength(3);
+    expect(new Set(urls).size).toBe(1);
+    expect(events.filter((e) => e.type === "text").map((e) => (e as { delta: string }).delta).join("")).toBe("Achei o Vektus.");
+  }, 15_000);
+
+  it("restarts on the fallback model when the pinned one stays down, without showing the tool twice", async () => {
+    const urls: string[] = [];
+    const replies = [toolCall(), busy(), busy(), busy(), toolCall(), answer()];
+    global.fetch = jest.fn(async (url: string | URL | Request) => {
+      urls.push(String(url));
+      return replies.shift()!;
+    }) as typeof fetch;
+
+    const events: OrbitaStreamEvent[] = [];
+    await run(events);
+    expect(urls.at(-1)).toContain("gemini-flash-lite-latest");
+    expect(events.filter((e) => e.type === "ui")).toHaveLength(1);
+    expect(events.filter((e) => e.type === "tool")).toHaveLength(2);
+    expect(events.filter((e) => e.type === "text").map((e) => (e as { delta: string }).delta).join("")).toBe("Achei o Vektus.");
+  }, 15_000);
+
   it("reports a refusal when Gemini blocks the answer", async () => {
     global.fetch = jest.fn(async () => sse([{ candidates: [{ finishReason: "SAFETY" }] }])) as typeof fetch;
     const events: OrbitaStreamEvent[] = [];

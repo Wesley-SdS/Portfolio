@@ -17,7 +17,15 @@
     "caseVektusTitle": "Vektus — documentos que viram respostas · Wesley Santos",
     "caseVektusDescription": "Estudo de caso: extração, OCR híbrido e busca vetorial transformam documentos em respostas com citação.",
     "privacyTitle": "Política de privacidade — Wesley Santos",
-    "privacyDescription": "Quais dados o formulário de cotação, o contato e a Órbita (chat com IA) coletam, para quê, com quem são compartilhados e como exercer seus direitos (LGPD)."
+    "privacyDescription": "Quais dados o formulário de cotação, o contato e a Órbita (chat com IA) coletam, para quê, com quem são compartilhados e como exercer seus direitos (LGPD).",
+    "caseMeuBalcaoTitle": "Meu Balcão — back-office de bolso do MEI · Wesley Santos",
+    "caseMeuBalcaoDescription": "Estudo de caso: um PWA para o MEI de serviços com agenda, Pix com confirmação ao vivo, NFS-e em 2 toques e termômetro do limite.",
+    "caseAgendaCheiaTitle": "Agenda Cheia — anti-falta para clínicas · Wesley Santos",
+    "caseAgendaCheiaDescription": "Estudo de caso: confirmação por WhatsApp e lista de espera em cascata, com três camadas contra duplo agendamento.",
+    "caseTributoClaroTitle": "Tributo Claro — copiloto da Reforma Tributária · Wesley Santos",
+    "caseTributoClaroDescription": "Estudo de caso: simulação de CBS/IBS e split payment com motor de regras determinístico e versionado (2026–2033) e PDF auditável.",
+    "caseEquilibraTitle": "Equilibra — riscos psicossociais da NR-1 · Wesley Santos",
+    "caseEquilibraDescription": "Estudo de caso: questionário anônimo com k-anonimato, score determinístico, plano 5W2H e relatório PGR para PMEs."
   },
   "common": {
     "skipLink": "Pular para o conteúdo",
@@ -41,7 +49,8 @@
       "caseStudy": "Estudo de caso",
       "privateCode": "Código privado",
       "email": "E-mail",
-      "none": "—"
+      "none": "—",
+      "demo": "Ver demo"
     },
     "actions": {
       "requestQuote": "Solicitar orçamento",
@@ -718,6 +727,42 @@
         "oneLiner": "E-commerce sob medida de ponta a ponta, com foco em performance, SEO e conversão.",
         "highlight": "—",
         "stack": "Next.js · Node.js · PostgreSQL · Tailwind"
+      },
+      "meubalcao": {
+        "name": "Meu Balcão",
+        "type": "Produto próprio · Fintech",
+        "tagline": "O back-office de bolso do MEI de serviços.",
+        "oneLiner": "PWA para o MEI: agenda com link público, Pix com confirmação ao vivo, NFS-e em 2 toques e termômetro do limite.",
+        "outcome": "Agenda, cobrança por Pix, nota e limite do MEI num PWA: confirmação do pagamento na tela, recibo, alertas de limite em 70, 90 e 100% e fila offline no caixa.",
+        "highlight": "48 testes",
+        "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Zod 4 · Vitest"
+      },
+      "agendacheia": {
+        "name": "Agenda Cheia",
+        "type": "Produto próprio · Mensageria",
+        "tagline": "Cancelou? A vaga volta a ser preenchida em minutos.",
+        "oneLiner": "Confirma consultas pelo WhatsApp e oferece a vaga cancelada à lista de espera, sem dois pacientes no mesmo horário.",
+        "outcome": "Confirmação por WhatsApp em D-2 e D-1, lista de espera em cascata com aceite seguro contra concorrência, painel em tempo real e painel de retorno financeiro.",
+        "highlight": "38 testes",
+        "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Upstash Redis · Zod 4 · Vitest"
+      },
+      "tributoclaro": {
+        "name": "Tributo Claro",
+        "type": "Produto próprio · Fintech",
+        "tagline": "A Reforma Tributária em caixa, preço e margem.",
+        "oneLiner": "Copiloto da Reforma Tributária (CBS/IBS e split payment) para PMEs de serviço B2B e seus contadores.",
+        "outcome": "Recalcula NF-e e NFS-e com um motor de regras determinístico e versionado (2026–2033), mostra carga, preço, margem e caixa por ano e gera PDF auditável para o contador.",
+        "highlight": "48 testes",
+        "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Zod 4 · React-PDF · Vitest"
+      },
+      "equilibra": {
+        "name": "Equilibra",
+        "type": "Produto próprio · Compliance NR-1",
+        "tagline": "NR-1 sem planilha: do questionário ao PGR.",
+        "oneLiner": "SaaS para PMEs cumprirem a NR-1: questionário anônimo, mapa de risco, plano 5W2H e relatório PGR.",
+        "outcome": "Questionário anônimo por link (k-anonimato 5), score determinístico por dimensão, plano de ação 5W2H, relatório PGR em PDF e canal de relato anônimo com conversa bidirecional.",
+        "highlight": "66 testes",
+        "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Zod 4 · React-PDF · Vitest"
       }
     }
   },
@@ -2123,6 +2168,27 @@
       "revoluna": "Logo da REVOLUNA",
       "mg": "Logo da Melhor do Grão",
       "influencerai": "Ícone do InfluencerAI"
+    },
+    "meubalcao": {
+      "landing": "Meu Balcão, página inicial com a proposta de agenda, Pix, nota e limite do MEI",
+      "limite": "Meu Balcão no celular, termômetro do limite do MEI com alertas em 70, 90 e 100%",
+      "inicio": "Meu Balcão no celular, início com recebido no mês, limite do MEI e vencimento do DAS",
+      "cobrar": "Meu Balcão no celular, tela de cobrança no Pix com atalhos por serviço"
+    },
+    "agendacheia": {
+      "retorno": "Agenda Cheia, painel de retorno com valor recuperado, vagas preenchidas e faltas evitadas em dados de demonstração",
+      "espera": "Agenda Cheia, lista de espera com prioridade e preferências de cada paciente",
+      "landing": "Agenda Cheia, página inicial com a cena da agenda e do WhatsApp"
+    },
+    "tributoclaro": {
+      "empresa": "Tributo Claro, visão geral de uma empresa com carga total de 2026 a 2033, alertas e cenário de alíquota",
+      "escritorio": "Tributo Claro, carteira do escritório com três empresas ordenadas por prioridade",
+      "landing": "Tributo Claro, página inicial com o exemplo de um pagamento dividido entre líquido e IBS/CBS retido"
+    },
+    "equilibra": {
+      "painel": "Equilibra, visão geral com taxa de resposta, índice de risco, mapa de calor por setor e ranking de riscos",
+      "plano": "Equilibra, plano de ação 5W2H em colunas: a fazer, em andamento e concluída",
+      "landing": "Equilibra, página inicial"
     }
   },
   "caseCommon": {
@@ -3072,5 +3138,359 @@
       }
     },
     "backHome": "Voltar ao início"
+  },
+  "caseMeuBalcao": {
+    "meta": "Produto próprio · Fintech · Out 2026",
+    "h1": "Meu Balcão",
+    "descriptor": "O back-office de bolso do MEI de serviços",
+    "ctaArchitecture": "Ver arquitetura",
+    "fig": {
+      "front": "fig. 01 · Meu Balcão · página inicial",
+      "phone": "Limite do MEI no celular"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "testes automatizados",
+        "m2": "alertas de limite (70, 90 e 100%)",
+        "m3": "toques para emitir a NFS-e"
+      }
+    },
+    "lead": "Demonstração construída a partir de um PRD: um PWA para o MEI de serviços, começando pelo nicho de beleza, cobrar por Pix, emitir nota, acompanhar o limite do MEI e os prazos de DAS e DASN, tudo no celular.",
+    "metaGrid": {
+      "role": {
+        "label": "Função",
+        "value": "Autor · produto e código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Out 2026"
+      },
+      "status": {
+        "label": "Status",
+        "value": "Demonstração · Pix e NFS-e simulados"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · GitHub"
+      }
+    },
+    "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Zod 4 · Vitest",
+    "toc": {
+      "context": "Contexto",
+      "architecture": "Arquitetura",
+      "ai": "IA onde agrega",
+      "screens": "Telas",
+      "numbers": "Números"
+    },
+    "sections": {
+      "context": {
+        "body": "A rotina do MEI fica espalhada: agenda no WhatsApp, Pix copiado à mão, nota no emissor nacional, DAS esquecido e o limite anual sem acompanhamento. O Meu Balcão reúne isso num app para usar com uma mão: agenda com link público para o cliente marcar, cobrança por Pix com QR Code e copia e cola, NFS-e a partir da cobrança paga, calendário de DAS e DASN, caixa, mensalidades recorrentes, plano grátis e Pro, e LGPD. Nasceu de um PRD com pesquisa de mercado e fontes, e o design foi feito no Claude Design."
+      },
+      "architecture": {
+        "body": "Next.js 15 (App Router) com API tipada em jStack/Hono RPC, Drizzle sobre Postgres (PGlite em desenvolvimento, Neon em produção) e Zod 4. Cada conta é isolada pelo businessId da sessão, que entra em todo filtro de consulta, e há testes que tentam ler dados de outra conta.",
+        "items": [
+          "PWA com service worker (rede primeiro, cache de reserva) e fila offline no caixa, com chave de idempotência para o servidor não duplicar lançamentos",
+          "Webhook de Pix idempotente por (provedor, endToEndId), com validação de assinatura e testes de evento repetido, segundo pagamento e valor menor",
+          "BR Code com CRC e provedor de Pix plugável (simulado ou real)",
+          "Termômetro do limite com configuração versionada e alertas em 70, 90 e 100%, calculado por regra",
+          "Confirmação do pagamento na tela por polling de 2,5 s: o canal em tempo real por WebSocket exige um runtime que a Vercel não oferece",
+          "LGPD: termos com aceite versionado, exportação em JSON e exclusão de conta; trilha de auditoria sem dados pessoais"
+        ]
+      },
+      "ai": {
+        "body": "O Jev, modelo de decisão da TypeSafe AI via Vercel AI Gateway, categoriza os lançamentos do caixa e separa o que é pessoal do que é do negócio. Cada decisão registra o motor usado, a confiança, a latência e o motivo do fallback. O limite do MEI e o termômetro nunca vêm da IA: são regras determinísticas.",
+        "note": {
+          "title": "Estado real",
+          "text": "Segundo o docs/deploy.md, em produção o AI Gateway ainda respondia 403 (verificação da conta de cobrança pendente), então a categorização roda pelas regras locais, com timeout de 4 s. Pix, NFS-e e cobrança do plano também estão em modo de simulação."
+        }
+      },
+      "screens": {
+        "tablistAria": "Telas do Meu Balcão",
+        "lightboxTitle": "Telas do Meu Balcão",
+        "captions": {
+          "landing": "Página inicial",
+          "limite": "Termômetro do limite do MEI",
+          "inicio": "Início: recebido no mês, limite e DAS",
+          "cobrar": "Cobrança no Pix"
+        }
+      },
+      "numbers": {
+        "items": {
+          "tests": "casos de teste, todos passando",
+          "files": "arquivos de teste",
+          "commits": "commits",
+          "alerts": "alertas de limite (70, 90 e 100%)"
+        },
+        "source": "contagens dos repositórios e execução das suítes em 18/10/2026 · dados de demonstração fictícios"
+      }
+    },
+    "end": {
+      "h2": "Quer um PWA assim para o seu negócio?",
+      "lead": "Um produto construído do PRD ao deploy, com testes e IA usada com critério."
+    }
+  },
+  "caseAgendaCheia": {
+    "meta": "Produto próprio · Mensageria · Out 2026",
+    "h1": "Agenda Cheia",
+    "descriptor": "Anti-falta para clínicas e consultórios",
+    "ctaArchitecture": "Ver arquitetura",
+    "fig": {
+      "front": "fig. 01 · Agenda Cheia · painel de retorno (dados de demonstração)"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "testes automatizados",
+        "m2": "camadas contra duplo agendamento",
+        "m3": "confirmações por consulta (D-2 e D-1)"
+      }
+    },
+    "lead": "Demonstração construída a partir de um PRD: um SaaS anti-falta para clínicas e consultórios que confirma consultas por WhatsApp (D-2 e D-1) e, quando alguém cancela, oferece o horário à lista de espera em cascata.",
+    "metaGrid": {
+      "role": {
+        "label": "Função",
+        "value": "Autor · produto e código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Out 2026"
+      },
+      "status": {
+        "label": "Status",
+        "value": "Demonstração · integrações simuladas"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · GitHub"
+      }
+    },
+    "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Upstash Redis · Zod 4 · Vitest",
+    "toc": {
+      "context": "Contexto",
+      "architecture": "Arquitetura",
+      "ai": "IA onde agrega",
+      "screens": "Telas",
+      "numbers": "Números"
+    },
+    "sections": {
+      "context": {
+        "body": "A falta em consultas pesa: o PRD cita cerca de 23% numa revisão sistemática de 105 estudos (Dantas et al., Health Policy, 2018), e o próprio PRD registra que não há estudo sobre consultório privado brasileiro, então a linha de base seria medida em pilotos. Lembrete tem teto de ganho; o que sobra está em reaproveitar a vaga. O Agenda Cheia confirma por WhatsApp com botões, reforça no dia para risco alto, oferece a vaga em ondas com validade, tem painel de recepção em tempo real, sinal por Pix opcional só para reincidentes, painel de retorno financeiro e sincronização com o Google Agenda."
+      },
+      "architecture": {
+        "body": "Next.js 15 com API em jStack/Hono, Drizzle e Postgres (PGlite em desenvolvimento, Neon em produção), Upstash Redis para lock e tempo real (SSE) e funções na Vercel em São Paulo. O ponto delicado é aceitar uma vaga sem que dois pacientes ocupem o mesmo horário, resolvido em três camadas:",
+        "items": [
+          "Lock no Redis por vaga (SET NX PX)",
+          "Guarda condicional no banco: UPDATE ... WHERE status = 'open' dentro de transação; sem linha afetada, a oferta vira “tomada”",
+          "Restrição de exclusão no Postgres (EXCLUDE USING gist com tstzrange e btree_gist) por profissional e intervalo; a violação é tratada como vaga preenchida",
+          "Sem Redis o app continua correto: a guarda do banco e a restrição seguram o duplo aceite, com teste de 2 e 10 aceites simultâneos",
+          "Painel em tempo real por SSE sobre Upstash pub/sub, porque o WebSocket do jStack exige um runtime de Workers",
+          "LGPD: termos e DPA versionados com aceite, exportação, anonimização e exclusão com recibo; credenciais de integrações cifradas"
+        ]
+      },
+      "ai": {
+        "body": "O Jev (TypeSafe AI, via Vercel AI Gateway) estima o risco de falta e a prioridade da lista de espera. Recebe só atributos pseudonimizados, nunca nome, telefone ou procedimento. Há timeout de 4 s e fallback por regras (desativado, sem credencial, erro ou resposta inválida), e cada decisão guarda o motor, a confiança, a latência e o motivo do fallback, visíveis no painel de retorno.",
+        "note": {
+          "title": "Metas não são resultados",
+          "text": "WhatsApp, Pix e Google Agenda rodam em modo de simulação até as credenciais serem configuradas. As metas do PRD (como reduzir faltas em 40%) são metas, não resultados medidos, e os números das telas vêm de dados de demonstração."
+        }
+      },
+      "screens": {
+        "tablistAria": "Telas do Agenda Cheia",
+        "lightboxTitle": "Telas do Agenda Cheia",
+        "captions": {
+          "retorno": "Retorno: valores recuperados (dados de demonstração)",
+          "espera": "Lista de espera",
+          "landing": "Página inicial"
+        }
+      },
+      "numbers": {
+        "items": {
+          "tests": "casos de teste, todos passando",
+          "files": "arquivos de teste",
+          "commits": "commits",
+          "layers": "camadas contra duplo agendamento"
+        },
+        "source": "contagens dos repositórios e execução das suítes em 18/10/2026 · dados de demonstração fictícios"
+      }
+    },
+    "end": {
+      "h2": "Quer um fluxo assim no seu produto?",
+      "lead": "Um produto construído do PRD ao deploy, com testes e IA usada com critério."
+    }
+  },
+  "caseTributoClaro": {
+    "meta": "Produto próprio · Fintech · Out 2026",
+    "h1": "Tributo Claro",
+    "descriptor": "Copiloto da Reforma Tributária para o caixa da PME",
+    "ctaArchitecture": "Ver arquitetura",
+    "fig": {
+      "front": "fig. 01 · Tributo Claro · visão geral de uma empresa (dados fictícios)"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "testes automatizados",
+        "m2": "anos de regras versionadas (2026–2033)",
+        "m3": "empresas na demonstração"
+      }
+    },
+    "lead": "Demonstração construída a partir de um PRD: simula o impacto da Reforma Tributária do consumo (CBS, IBS e split payment) no caixa de PMEs de serviço B2B e de seus escritórios contábeis. É uma simulação e não substitui a apuração oficial nem o contador.",
+    "metaGrid": {
+      "role": {
+        "label": "Função",
+        "value": "Autor · produto e código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Out 2026"
+      },
+      "status": {
+        "label": "Status",
+        "value": "Demonstração · simulação"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · GitHub"
+      }
+    },
+    "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Zod 4 · React-PDF · Vitest",
+    "toc": {
+      "context": "Contexto",
+      "architecture": "Arquitetura",
+      "ai": "IA onde agrega",
+      "screens": "Telas",
+      "numbers": "Números"
+    },
+    "sections": {
+      "context": {
+        "body": "Com o split payment previsto a partir de 2027, parte de cada pagamento deixa de chegar ao caixa da empresa. O Tributo Claro lê o XML de NF-e e NFS-e e mostra, antes disso, o efeito em carga tributária, preço, margem e caixa por ano, compara regimes, calcula o repasse por cliente e gera um PDF auditável para o contador. Há carteira de empresas para escritórios contábeis. A alíquota de referência de 2027 é uma estimativa, e os dados da demonstração são fictícios."
+      },
+      "architecture": {
+        "body": "Next.js 15 com API em jStack/Hono, Drizzle e Postgres (PGlite em desenvolvimento, Neon em produção), Zod 4 e relatório em React-PDF. O cálculo fica num motor de regras puro, sem IA.",
+        "items": [
+          "Motor de regras determinístico e versionado (2026–2033): o mesmo XML gera o mesmo resultado, e a versão das regras aparece ao lado de cada simulação",
+          "Importação de XML de NF-e e NFS-e pelo mesmo pipeline que processa os dados de demonstração",
+          "Cenários de alíquota de referência e comparação de regimes (Lucro Presumido, Simples Nacional e Lucro Real)",
+          "Relatório em PDF para o contador, gerado no servidor com React-PDF",
+          "Multiempresa: carteira do escritório com prioridade calculada a partir das notas e dos alertas",
+          "Demonstração com dados fictícios: um escritório e três empresas, com 12 meses de XML cada"
+        ]
+      },
+      "ai": {
+        "body": "O Jev (TypeSafe AI, via Vercel AI Gateway) só classifica, avalia risco e prioriza alertas. Os valores de tributo, carga, margem e caixa nunca passam por IA. O Jev tem timeout de 4 s, confiança mínima de 0,55 e fallback para regras locais, e cada alerta mostra o motor usado e a confiança.",
+        "note": {
+          "title": "Simulação, não apuração",
+          "text": "O Tributo Claro não substitui a apuração oficial nem o contador. A alíquota de referência de 2027 é estimada e os dados da demonstração são fictícios."
+        }
+      },
+      "screens": {
+        "tablistAria": "Telas do Tributo Claro",
+        "lightboxTitle": "Telas do Tributo Claro",
+        "captions": {
+          "empresa": "Visão geral de uma empresa (dados fictícios)",
+          "escritorio": "Carteira do escritório",
+          "landing": "Página inicial"
+        }
+      },
+      "numbers": {
+        "items": {
+          "tests": "casos de teste, todos passando",
+          "files": "arquivos de teste",
+          "commits": "commits",
+          "years": "anos de regras versionadas (2026–2033)"
+        },
+        "source": "contagens dos repositórios e execução das suítes em 18/10/2026 · dados de demonstração fictícios"
+      }
+    },
+    "end": {
+      "h2": "Quer um motor de regras auditável no seu produto?",
+      "lead": "Um produto construído do PRD ao deploy, com testes e IA usada com critério."
+    }
+  },
+  "caseEquilibra": {
+    "meta": "Produto próprio · Compliance NR-1 · Out 2026",
+    "h1": "Equilibra",
+    "descriptor": "Riscos psicossociais da NR-1 para PMEs, com anonimato por desenho",
+    "ctaArchitecture": "Ver arquitetura",
+    "fig": {
+      "front": "fig. 01 · Equilibra · visão geral (dados de demonstração)"
+    },
+    "cover": {
+      "metrics": {
+        "m1": "testes automatizados",
+        "m2": "itens no questionário",
+        "m3": "dimensões avaliadas"
+      }
+    },
+    "lead": "Demonstração construída a partir de um PRD: um SaaS para PMEs brasileiras gerirem os riscos psicossociais exigidos pela nova NR-1, do questionário anônimo ao relatório para o PGR.",
+    "metaGrid": {
+      "role": {
+        "label": "Função",
+        "value": "Autor · produto e código"
+      },
+      "period": {
+        "label": "Período",
+        "value": "Out 2026"
+      },
+      "status": {
+        "label": "Status",
+        "value": "Demonstração · protótipo funcional"
+      },
+      "code": {
+        "label": "Código",
+        "value": "Público · GitHub"
+      }
+    },
+    "stack": "Next.js 15 · React 19 · Tailwind 4 · jStack/Hono · Drizzle · Postgres (Neon) · Zod 4 · React-PDF · Vitest",
+    "toc": {
+      "context": "Contexto",
+      "architecture": "Arquitetura",
+      "ai": "IA onde agrega",
+      "screens": "Telas",
+      "numbers": "Números"
+    },
+    "sections": {
+      "context": {
+        "body": "A Portaria MTE 1.419/2024 incluiu os riscos psicossociais no GRO/PGR, com fiscalização desde 26/05/2026. Segundo o PRD, consultorias cobram de R$ 8 mil a R$ 40 mil por diagnóstico pontual, e planilhas e formulários não garantem anonimato. O Equilibra aplica um questionário de 28 itens em 7 dimensões, por link e sem login, e entrega mapa de calor por setor, ranking de riscos, plano de ação 5W2H, relatório PGR em PDF e canal de relato anônimo com protocolo e conversa bidirecional, com anexos sem metadados. Tem planos com limites e teste grátis, LGPD (termos, privacidade, DPA, exportação e exclusão), e-mail, avisos de prazo e agendamento de campanhas. Os lembretes por WhatsApp estão em simulação."
+      },
+      "architecture": {
+        "body": "Next.js 15 com API em jStack/Hono, Drizzle e Postgres (PGlite em desenvolvimento, Neon em produção), Zod 4 e PDF no servidor com React-PDF. O anonimato é decisão de projeto, não de interface.",
+        "items": [
+          "Anonimato por desenho: as respostas não guardam IP, user-agent, e-mail nem horário (só o dia), e setores com menos de 5 respostas são agrupados em “Outros setores” (k-anonimato 5)",
+          "Score de 0 a 100 por dimensão (baixo, moderado, alto e crítico), calculado por regra, nunca por IA",
+          "Multi-tenant: todo procedimento privado filtra pela empresa da sessão, com cookie assinado (HMAC) e papéis dono, admin e leitor validados no servidor",
+          "Migrações rodam no build de produção, com cron diário para avisos de prazo e funções em São Paulo",
+          "Logs estruturados em JSON, trilha de auditoria e rate limit com Upstash (código pronto, com fallback em memória)",
+          "Questionário mobile-first, tema claro e escuro e paleta de comandos"
+        ]
+      },
+      "ai": {
+        "body": "O Jev (TypeSafe AI, via Vercel AI Gateway) faz a triagem dos relatos do canal anônimo, escolhe ações do plano e classifica perguntas personalizadas. Não gera texto: devolve decisões tipadas. Há timeout de 4 s e, sem chave, com falha ou timeout, o Equilibra usa regras locais, e o motor e a confiança de cada triagem aparecem na tela.",
+        "note": {
+          "title": "O que não é IA",
+          "text": "O score por dimensão e o índice geral de risco são determinísticos e auditáveis. A triagem do canal registra o motor usado: na demonstração aparecem relatos triados pelo Jev e outros pelas regras locais."
+        }
+      },
+      "screens": {
+        "tablistAria": "Telas do Equilibra",
+        "lightboxTitle": "Telas do Equilibra",
+        "captions": {
+          "painel": "Visão geral: mapa de calor por setor (dados de demonstração)",
+          "plano": "Plano de ação 5W2H",
+          "landing": "Página inicial"
+        }
+      },
+      "numbers": {
+        "items": {
+          "tests": "casos de teste, todos passando",
+          "files": "arquivos de teste",
+          "commits": "commits",
+          "k": "respostas mínimas por setor (k-anonimato)"
+        },
+        "source": "contagens dos repositórios e execução das suítes em 18/10/2026 · dados de demonstração fictícios"
+      }
+    },
+    "end": {
+      "h2": "Quer um fluxo de compliance assim no seu produto?",
+      "lead": "Um produto construído do PRD ao deploy, com testes e IA usada com critério."
+    }
   }
 }

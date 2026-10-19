@@ -128,7 +128,11 @@ export type ProjectSlug =
   | "plantoes"
   | "fsjpii"
   | "love-startup"
-  | "ecommerce";
+  | "ecommerce"
+  | "equilibra"
+  | "tributoclaro"
+  | "agendacheia"
+  | "meubalcao";
 
 /** Filter chips in "Todos os produtos" (label: `products.chips.<id>`). */
 export type ProjectCategory = "ai" | "messaging" | "fintech" | "custom";
@@ -140,7 +144,11 @@ export type ProductLight =
   | "nex"
   | "orbitfinance"
   | "vibecoding"
-  | "vektus";
+  | "vektus"
+  | "equilibra"
+  | "tributoclaro"
+  | "agendacheia"
+  | "meubalcao";
 
 /** How a project is previewed when no screenshot exists. */
 export type Treatment =

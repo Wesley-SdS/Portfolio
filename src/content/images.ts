@@ -59,6 +59,27 @@ export const images = {
   fsjpii: {
     login: img("/projects/fsjpii/Login.png", 1920, 869),
   },
+  equilibra: {
+    painel: img("/projects/equilibra/painel.webp", 1920, 1200),
+    plano: img("/projects/equilibra/plano.webp", 1920, 1200),
+    landing: img("/projects/equilibra/landing.webp", 1920, 1200),
+  },
+  tributoclaro: {
+    empresa: img("/projects/tributo-claro/empresa.webp", 1920, 1200),
+    escritorio: img("/projects/tributo-claro/escritorio.webp", 1920, 1200),
+    landing: img("/projects/tributo-claro/landing.webp", 1920, 1200),
+  },
+  agendacheia: {
+    retorno: img("/projects/agenda-cheia/retorno.webp", 1920, 1200),
+    espera: img("/projects/agenda-cheia/espera.webp", 1920, 1200),
+    landing: img("/projects/agenda-cheia/landing.webp", 1920, 1200),
+  },
+  meubalcao: {
+    landing: img("/projects/meu-balcao/landing.webp", 1920, 1200),
+    limite: img("/projects/meu-balcao/limite.webp", 780, 1688),
+    inicio: img("/projects/meu-balcao/inicio.webp", 780, 1688),
+    cobrar: img("/projects/meu-balcao/cobrar.webp", 780, 1688),
+  },
   influencerIcon: "/projects/influencerai/icon.svg",
 } as const;
 
@@ -153,6 +174,32 @@ export const crops = {
   },
   fsjpii: {
     login: crop(images.fsjpii.login, { x: 560, y: 30, w: 780, h: 487 }, "fsjpii.login"),
+  },
+  equilibra: {
+    painel: full(images.equilibra.painel, "equilibra.painel"),
+    plano: full(images.equilibra.plano, "equilibra.plano"),
+    landing: full(images.equilibra.landing, "equilibra.landing"),
+  },
+  tributoclaro: {
+    empresa: full(images.tributoclaro.empresa, "tributoclaro.empresa"),
+    escritorio: full(images.tributoclaro.escritorio, "tributoclaro.escritorio"),
+    landing: full(images.tributoclaro.landing, "tributoclaro.landing"),
+  },
+  agendacheia: {
+    retorno: full(images.agendacheia.retorno, "agendacheia.retorno"),
+    espera: full(images.agendacheia.espera, "agendacheia.espera"),
+    landing: full(images.agendacheia.landing, "agendacheia.landing"),
+  },
+  meubalcao: {
+    landing: full(images.meubalcao.landing, "meubalcao.landing"),
+    /** phone, full frame (case cover loupe) */
+    limite: full(images.meubalcao.limite, "meubalcao.limite"),
+    inicio: full(images.meubalcao.inicio, "meubalcao.inicio"),
+    cobrar: full(images.meubalcao.cobrar, "meubalcao.cobrar"),
+    /** 16:10 top slices of the phone shots (gallery thumbs; the lightbox shows the full frame) */
+    limiteThumb: crop(images.meubalcao.limite, { x: 0, y: 0, w: 780, h: 487 }, "meubalcao.limite"),
+    inicioThumb: crop(images.meubalcao.inicio, { x: 0, y: 0, w: 780, h: 487 }, "meubalcao.inicio"),
+    cobrarThumb: crop(images.meubalcao.cobrar, { x: 0, y: 0, w: 780, h: 487 }, "meubalcao.cobrar"),
   },
   ecommerce: {
     home: crop(images.ecommerce, { x: 280, y: 0, w: 1330, h: 831 }, "ecommerce.home"),

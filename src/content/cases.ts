@@ -14,7 +14,16 @@ import type { Crop, ImageAsset, Metric, ProductLight, ProjectSlug, Status } from
  * Rendered by components/case/CasePage.tsx.
  */
 
-export type CaseSlug = "orbita" | "orbitmind" | "nex" | "orbitfinance" | "vektus";
+export type CaseSlug =
+  | "orbita"
+  | "orbitmind"
+  | "nex"
+  | "orbitfinance"
+  | "vektus"
+  | "meubalcao"
+  | "agendacheia"
+  | "tributoclaro"
+  | "equilibra";
 
 /* ----------------------------------------------------------- diagram */
 
@@ -878,8 +887,374 @@ const VEKTUS: CaseConfig = {
       ],
     },
   ],
-  next: "orbita",
+  next: "meubalcao",
   metaKeys: { title: "caseVektusTitle", description: "caseVektusDescription" },
+};
+
+/* ================================================================== MEUBALCAO (demo built from a PRD, Oct 2026) */
+
+const MEUBALCAO: CaseConfig = {
+  slug: "meubalcao",
+  ns: "caseMeuBalcao",
+  light: "meubalcao",
+  status: "prototypeDone",
+  github: "https://github.com/Wesley-SdS/meu-balcao",
+  extraLink: { href: "https://meubalcao-app.vercel.app", labelKey: "common.links.demo" },
+  cover: {
+    front: { kind: "screen", crop: crops.meubalcao.landing, bg: "#FCF8F3" },
+    back: null,
+    loupe: { kind: "phone", crop: crops.meubalcao.limite, bg: "#FCF8F3" },
+    metrics: [
+      { kind: "count", value: 48, labelKey: "m1" },
+      { kind: "short", value: 3, labelKey: "m2" },
+      { kind: "short", value: 2, labelKey: "m3" },
+    ],
+  },
+  sections: [
+    { id: "contexto", key: "context", blocks: [{ type: "body", key: "sections.context.body" }] },
+    {
+      id: "arquitetura",
+      key: "architecture",
+      blocks: [
+        { type: "body", key: "sections.architecture.body" },
+        { type: "list", key: "sections.architecture.items" },
+      ],
+    },
+    {
+      id: "ia",
+      key: "ai",
+      blocks: [
+        { type: "body", key: "sections.ai.body" },
+        { type: "note", key: "sections.ai.note" },
+      ],
+    },
+    {
+      id: "telas",
+      key: "screens",
+      blocks: [
+        {
+          type: "gallery",
+          key: "sections.screens",
+          figStart: 2,
+          pending: 0,
+          items: [
+            {
+              crop: crops.meubalcao.landing,
+              full: crops.meubalcao.landing,
+              captionKey: "sections.screens.captions.landing",
+              bg: "#FCF8F3",
+            },
+            {
+              crop: crops.meubalcao.limiteThumb,
+              full: crops.meubalcao.limite,
+              captionKey: "sections.screens.captions.limite",
+              bg: "#FCF8F3",
+            },
+            {
+              crop: crops.meubalcao.inicioThumb,
+              full: crops.meubalcao.inicio,
+              captionKey: "sections.screens.captions.inicio",
+              bg: "#FCF8F3",
+            },
+            {
+              crop: crops.meubalcao.cobrarThumb,
+              full: crops.meubalcao.cobrar,
+              captionKey: "sections.screens.captions.cobrar",
+              bg: "#FCF8F3",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "numeros",
+      key: "numbers",
+      blocks: [
+        {
+          type: "numbers",
+          key: "sections.numbers",
+          items: [
+            { id: "tests", metric: { kind: "count", value: 48, labelKey: "tests" } },
+            { id: "files", metric: { kind: "short", value: 7, labelKey: "files" } },
+            { id: "commits", metric: { kind: "count", value: 25, labelKey: "commits" } },
+            { id: "alerts", metric: { kind: "short", value: 3, labelKey: "alerts" } },
+          ],
+        },
+      ],
+    },
+  ],
+  next: "agendacheia",
+  metaKeys: { title: "caseMeuBalcaoTitle", description: "caseMeuBalcaoDescription" },
+};
+
+/* ================================================================== AGENDACHEIA (demo built from a PRD, Oct 2026) */
+
+const AGENDACHEIA: CaseConfig = {
+  slug: "agendacheia",
+  ns: "caseAgendaCheia",
+  light: "agendacheia",
+  status: "prototypeDone",
+  github: "https://github.com/Wesley-SdS/agenda-cheia",
+  extraLink: { href: "https://agenda-cheia-phi.vercel.app", labelKey: "common.links.demo" },
+  cover: {
+    front: { kind: "screen", crop: crops.agendacheia.retorno, bg: "#FAFAFC" },
+    back: { kind: "screen", crop: crops.agendacheia.landing, bg: "#14101F" },
+    loupe: null,
+    metrics: [
+      { kind: "count", value: 38, labelKey: "m1" },
+      { kind: "short", value: 3, labelKey: "m2" },
+      { kind: "short", value: 2, labelKey: "m3" },
+    ],
+  },
+  sections: [
+    { id: "contexto", key: "context", blocks: [{ type: "body", key: "sections.context.body" }] },
+    {
+      id: "arquitetura",
+      key: "architecture",
+      blocks: [
+        { type: "body", key: "sections.architecture.body" },
+        { type: "list", key: "sections.architecture.items" },
+      ],
+    },
+    {
+      id: "ia",
+      key: "ai",
+      blocks: [
+        { type: "body", key: "sections.ai.body" },
+        { type: "note", key: "sections.ai.note" },
+      ],
+    },
+    {
+      id: "telas",
+      key: "screens",
+      blocks: [
+        {
+          type: "gallery",
+          key: "sections.screens",
+          figStart: 2,
+          pending: 0,
+          items: [
+            {
+              crop: crops.agendacheia.retorno,
+              full: crops.agendacheia.retorno,
+              captionKey: "sections.screens.captions.retorno",
+              bg: "#FAFAFC",
+            },
+            {
+              crop: crops.agendacheia.espera,
+              full: crops.agendacheia.espera,
+              captionKey: "sections.screens.captions.espera",
+              bg: "#FAFAFC",
+            },
+            {
+              crop: crops.agendacheia.landing,
+              full: crops.agendacheia.landing,
+              captionKey: "sections.screens.captions.landing",
+              bg: "#14101F",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "numeros",
+      key: "numbers",
+      blocks: [
+        {
+          type: "numbers",
+          key: "sections.numbers",
+          items: [
+            { id: "tests", metric: { kind: "count", value: 38, labelKey: "tests" } },
+            { id: "files", metric: { kind: "short", value: 5, labelKey: "files" } },
+            { id: "commits", metric: { kind: "count", value: 18, labelKey: "commits" } },
+            { id: "layers", metric: { kind: "short", value: 3, labelKey: "layers" } },
+          ],
+        },
+      ],
+    },
+  ],
+  next: "tributoclaro",
+  metaKeys: { title: "caseAgendaCheiaTitle", description: "caseAgendaCheiaDescription" },
+};
+
+/* ================================================================== TRIBUTOCLARO (demo built from a PRD, Oct 2026) */
+
+const TRIBUTOCLARO: CaseConfig = {
+  slug: "tributoclaro",
+  ns: "caseTributoClaro",
+  light: "tributoclaro",
+  status: "prototypeDone",
+  github: "https://github.com/Wesley-SdS/tributo-claro",
+  extraLink: { href: "https://tributo-claro-roan.vercel.app", labelKey: "common.links.demo" },
+  cover: {
+    front: { kind: "screen", crop: crops.tributoclaro.empresa, bg: "#EEF1F6" },
+    back: { kind: "screen", crop: crops.tributoclaro.landing, bg: "#0A1020" },
+    loupe: null,
+    metrics: [
+      { kind: "count", value: 48, labelKey: "m1" },
+      { kind: "short", value: 8, labelKey: "m2" },
+      { kind: "short", value: 3, labelKey: "m3" },
+    ],
+  },
+  sections: [
+    { id: "contexto", key: "context", blocks: [{ type: "body", key: "sections.context.body" }] },
+    {
+      id: "arquitetura",
+      key: "architecture",
+      blocks: [
+        { type: "body", key: "sections.architecture.body" },
+        { type: "list", key: "sections.architecture.items" },
+      ],
+    },
+    {
+      id: "ia",
+      key: "ai",
+      blocks: [
+        { type: "body", key: "sections.ai.body" },
+        { type: "note", key: "sections.ai.note" },
+      ],
+    },
+    {
+      id: "telas",
+      key: "screens",
+      blocks: [
+        {
+          type: "gallery",
+          key: "sections.screens",
+          figStart: 2,
+          pending: 0,
+          items: [
+            {
+              crop: crops.tributoclaro.empresa,
+              full: crops.tributoclaro.empresa,
+              captionKey: "sections.screens.captions.empresa",
+              bg: "#EEF1F6",
+            },
+            {
+              crop: crops.tributoclaro.escritorio,
+              full: crops.tributoclaro.escritorio,
+              captionKey: "sections.screens.captions.escritorio",
+              bg: "#EEF1F6",
+            },
+            {
+              crop: crops.tributoclaro.landing,
+              full: crops.tributoclaro.landing,
+              captionKey: "sections.screens.captions.landing",
+              bg: "#0A1020",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "numeros",
+      key: "numbers",
+      blocks: [
+        {
+          type: "numbers",
+          key: "sections.numbers",
+          items: [
+            { id: "tests", metric: { kind: "count", value: 48, labelKey: "tests" } },
+            { id: "files", metric: { kind: "short", value: 5, labelKey: "files" } },
+            { id: "commits", metric: { kind: "short", value: 9, labelKey: "commits" } },
+            { id: "years", metric: { kind: "short", value: 8, labelKey: "years" } },
+          ],
+        },
+      ],
+    },
+  ],
+  next: "equilibra",
+  metaKeys: { title: "caseTributoClaroTitle", description: "caseTributoClaroDescription" },
+};
+
+/* ================================================================== EQUILIBRA (demo built from a PRD, Oct 2026) */
+
+const EQUILIBRA: CaseConfig = {
+  slug: "equilibra",
+  ns: "caseEquilibra",
+  light: "equilibra",
+  status: "prototypeDone",
+  github: "https://github.com/Wesley-SdS/equilibra",
+  extraLink: { href: "https://equilibra-wesleysds-projects.vercel.app", labelKey: "common.links.demo" },
+  cover: {
+    front: { kind: "screen", crop: crops.equilibra.painel, bg: "#F7F7F4" },
+    back: { kind: "screen", crop: crops.equilibra.landing, bg: "#F7F7F4" },
+    loupe: null,
+    metrics: [
+      { kind: "count", value: 66, labelKey: "m1" },
+      { kind: "count", value: 28, labelKey: "m2" },
+      { kind: "short", value: 7, labelKey: "m3" },
+    ],
+  },
+  sections: [
+    { id: "contexto", key: "context", blocks: [{ type: "body", key: "sections.context.body" }] },
+    {
+      id: "arquitetura",
+      key: "architecture",
+      blocks: [
+        { type: "body", key: "sections.architecture.body" },
+        { type: "list", key: "sections.architecture.items" },
+      ],
+    },
+    {
+      id: "ia",
+      key: "ai",
+      blocks: [
+        { type: "body", key: "sections.ai.body" },
+        { type: "note", key: "sections.ai.note" },
+      ],
+    },
+    {
+      id: "telas",
+      key: "screens",
+      blocks: [
+        {
+          type: "gallery",
+          key: "sections.screens",
+          figStart: 2,
+          pending: 0,
+          items: [
+            {
+              crop: crops.equilibra.painel,
+              full: crops.equilibra.painel,
+              captionKey: "sections.screens.captions.painel",
+              bg: "#F7F7F4",
+            },
+            {
+              crop: crops.equilibra.plano,
+              full: crops.equilibra.plano,
+              captionKey: "sections.screens.captions.plano",
+              bg: "#F7F7F4",
+            },
+            {
+              crop: crops.equilibra.landing,
+              full: crops.equilibra.landing,
+              captionKey: "sections.screens.captions.landing",
+              bg: "#F7F7F4",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "numeros",
+      key: "numbers",
+      blocks: [
+        {
+          type: "numbers",
+          key: "sections.numbers",
+          items: [
+            { id: "tests", metric: { kind: "count", value: 66, labelKey: "tests" } },
+            { id: "files", metric: { kind: "count", value: 10, labelKey: "files" } },
+            { id: "commits", metric: { kind: "count", value: 16, labelKey: "commits" } },
+            { id: "k", metric: { kind: "short", value: 5, labelKey: "k" } },
+          ],
+        },
+      ],
+    },
+  ],
+  next: "orbita",
+  metaKeys: { title: "caseEquilibraTitle", description: "caseEquilibraDescription" },
 };
 
 /* ================================================================== registry */
@@ -890,6 +1265,10 @@ export const CASES: Record<CaseSlug, CaseConfig> = {
   nex: NEX,
   orbitfinance: ORBITFINANCE,
   vektus: VEKTUS,
+  meubalcao: MEUBALCAO,
+  agendacheia: AGENDACHEIA,
+  tributoclaro: TRIBUTOCLARO,
+  equilibra: EQUILIBRA,
 };
 
 export const isCaseSlug = (slug: string): slug is CaseSlug => Object.prototype.hasOwnProperty.call(CASES, slug);

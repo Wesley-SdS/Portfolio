@@ -162,6 +162,10 @@
   --l-orbita: 134 194 140;   --t-orbita: #A6DCAB;
   --l-nex: 245 158 11;       --t-nex: #F7C25C;
   --l-vektus: 251 113 133;   --t-vektus: #FDA4B4;
+  --l-equilibra: 163 230 53;     --t-equilibra: #BEF264;
+  --l-tributoclaro: 56 189 248;  --t-tributoclaro: #7DD3FC;
+  --l-agendacheia: 255 122 61;   --t-agendacheia: #FFA27A;
+  --l-meubalcao: 168 85 247;     --t-meubalcao: #D0A5FF;
   --orb-tile: #EEF1EA;       /* decorative, never carries text */
   --chat-w: 390px; --chat-h: 640px;
 }

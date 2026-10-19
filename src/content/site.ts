@@ -59,11 +59,11 @@ export type NavKey = (typeof NAV_ITEMS)[number]["key"];
 
 /**
  * Hero stats strip (about the person). Label key: `hero.stats.<id>`. Sources: the CV (10+ years, 7 companies,
- * Tech Lead at two companies today) and the products index (15 rows).
+ * Tech Lead at two companies today) and the products index (19 rows).
  */
 export const HERO_STATS = [
   { id: "years", value: 10, suffix: "+" },
   { id: "teams", value: 2, suffix: "" },
-  { id: "projects", value: 15, suffix: "" },
+  { id: "projects", value: 19, suffix: "" },
   { id: "companies", value: 7, suffix: "" },
 ] as const;

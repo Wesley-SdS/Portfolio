@@ -219,7 +219,11 @@ export function CaseCover({
               <span className="cs-private">{tg("common.links.privateCode")}</span>
             )}
             {cfg.extraLink ? (
-              <a href={cfg.extraLink.href} className="qlnk ext cs-ui" title={tc("siteSoon")}>
+              <a
+                href={cfg.extraLink.href}
+                className="qlnk ext cs-ui"
+                {...(cfg.extraLink.href.startsWith("#") ? { title: tc("siteSoon") } : { target: "_blank", rel: "noopener noreferrer" })}
+              >
                 {tg(cfg.extraLink.labelKey)}
                 <span className="arr" aria-hidden="true">
                   ↗

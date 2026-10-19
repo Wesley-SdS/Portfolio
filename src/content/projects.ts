@@ -20,12 +20,77 @@ const GH = {
   vektus: "https://github.com/Wesley-SdS/Vektus",
   /** OWNER-FLAG: confirm public (v3spec §13 C.15) */
   influencerai: "https://github.com/OrbitMind/InfluencerAI",
+  equilibra: "https://github.com/Wesley-SdS/equilibra",
+  tributoclaro: "https://github.com/Wesley-SdS/tributo-claro",
+  agendacheia: "https://github.com/Wesley-SdS/agenda-cheia",
+  meubalcao: "https://github.com/Wesley-SdS/meu-balcao",
 } as const;
 
 export const PROJECTS: Record<ProjectSlug, Project> = {
+  /* ---- demo products built from PRDs (Oct 2026): proof-of-concept, deployed on Vercel; repos public ---- */
+  meubalcao: {
+    slug: "meubalcao",
+    gridOrder: 1,
+    stageOrder: null,
+    category: "fintech",
+    period: { start: { y: 2026, m: 10 }, end: { y: 2026, m: 10 } },
+    status: "prototypeDone",
+    light: "meubalcao",
+    treatment: "screens",
+    link: { kind: "github", href: GH.meubalcao },
+    caseHref: ROUTES.project("meubalcao"),
+    hasCase: true,
+    hasHighlight: true,
+    preview: crops.meubalcao.landing,
+  },
+  agendacheia: {
+    slug: "agendacheia",
+    gridOrder: 2,
+    stageOrder: null,
+    category: "messaging",
+    period: { start: { y: 2026, m: 10 }, end: { y: 2026, m: 10 } },
+    status: "prototypeDone",
+    light: "agendacheia",
+    treatment: "screens",
+    link: { kind: "github", href: GH.agendacheia },
+    caseHref: ROUTES.project("agendacheia"),
+    hasCase: true,
+    hasHighlight: true,
+    preview: crops.agendacheia.retorno,
+  },
+  tributoclaro: {
+    slug: "tributoclaro",
+    gridOrder: 3,
+    stageOrder: null,
+    category: "fintech",
+    period: { start: { y: 2026, m: 10 }, end: { y: 2026, m: 10 } },
+    status: "prototypeDone",
+    light: "tributoclaro",
+    treatment: "screens",
+    link: { kind: "github", href: GH.tributoclaro },
+    caseHref: ROUTES.project("tributoclaro"),
+    hasCase: true,
+    hasHighlight: true,
+    preview: crops.tributoclaro.empresa,
+  },
+  equilibra: {
+    slug: "equilibra",
+    gridOrder: 4,
+    stageOrder: null,
+    category: "ai",
+    period: { start: { y: 2026, m: 10 }, end: { y: 2026, m: 10 } },
+    status: "prototypeDone",
+    light: "equilibra",
+    treatment: "screens",
+    link: { kind: "github", href: GH.equilibra },
+    caseHref: ROUTES.project("equilibra"),
+    hasCase: true,
+    hasHighlight: true,
+    preview: crops.equilibra.painel,
+  },
   orbita: {
     slug: "orbita",
-    gridOrder: 1,
+    gridOrder: 5,
     stageOrder: 1,
     category: "ai",
     period: { start: { y: 2026, m: 7 }, end: { y: 2026, m: 9 } },
@@ -40,7 +105,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   vektus: {
     slug: "vektus",
-    gridOrder: 5,
+    gridOrder: 9,
     stageOrder: 6,
     category: "ai",
     period: { start: { y: 2026, m: 3 }, end: { y: 2026, m: 5 } },
@@ -55,7 +120,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   orbitmind: {
     slug: "orbitmind",
-    gridOrder: 6,
+    gridOrder: 10,
     stageOrder: 2,
     category: "ai",
     period: { start: { y: 2025, m: 9 }, end: "present" },
@@ -87,7 +152,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   nexbot: {
     slug: "nexbot",
-    gridOrder: 7,
+    gridOrder: 11,
     stageOrder: null,
     category: "messaging",
     period: { start: { y: 2026, m: 3 }, end: { y: 2026, m: 5 } },
@@ -102,7 +167,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   nexconnect: {
     slug: "nexconnect",
-    gridOrder: 8,
+    gridOrder: 12,
     stageOrder: null,
     category: "messaging",
     period: { start: { y: 2026, m: 3 }, end: { y: 2026, m: 5 } },
@@ -117,7 +182,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   influencerai: {
     slug: "influencerai",
-    gridOrder: 10,
+    gridOrder: 14,
     stageOrder: null,
     category: "ai",
     period: { start: { y: 2025, m: 12 }, end: { y: 2026, m: 3 } },
@@ -132,7 +197,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   vibecoding: {
     slug: "vibecoding",
-    gridOrder: 11,
+    gridOrder: 15,
     stageOrder: 5,
     category: "ai",
     period: { start: { y: 2025, m: 12 }, end: { y: 2025, m: 12 } },
@@ -146,7 +211,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   orbitfinance: {
     slug: "orbitfinance",
-    gridOrder: 12,
+    gridOrder: 16,
     stageOrder: 4,
     category: "fintech",
     period: { start: { y: 2025, m: 10 }, end: { y: 2025, m: 12 } },
@@ -162,7 +227,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   /* ---- products built and led at employers (owner: "produto meu, feito para a Adalink") ---- */
   waworkspace: {
     slug: "waworkspace",
-    gridOrder: 2,
+    gridOrder: 6,
     stageOrder: null,
     category: "messaging",
     period: { start: { y: 2026, m: 9 }, end: { y: 2026, m: 9 } },
@@ -177,7 +242,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   adaflow: {
     slug: "adaflow",
-    gridOrder: 3,
+    gridOrder: 7,
     stageOrder: null,
     category: "ai",
     period: { start: { y: 2025, m: 12 }, end: "present" },
@@ -192,7 +257,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   orbitpipeline: {
     slug: "orbitpipeline",
-    gridOrder: 4,
+    gridOrder: 8,
     stageOrder: null,
     category: "ai",
     period: { start: { y: 2026, m: 3 }, end: "present" },
@@ -207,7 +272,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   plantoes: {
     slug: "plantoes",
-    gridOrder: 9,
+    gridOrder: 13,
     stageOrder: null,
     category: "custom",
     period: { start: { y: 2025, m: 12 }, end: { y: 2026, m: 3 } },
@@ -222,7 +287,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   fsjpii: {
     slug: "fsjpii",
-    gridOrder: 13,
+    gridOrder: 17,
     stageOrder: null,
     category: "custom",
     period: { start: { y: 2025, m: 9 }, end: { y: 2025, m: 12 } },
@@ -238,7 +303,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   "love-startup": {
     slug: "love-startup",
-    gridOrder: 14,
+    gridOrder: 18,
     stageOrder: null,
     category: "custom",
     period: { start: { y: 2024, m: 12 }, end: { y: 2025, m: 1 } },
@@ -252,7 +317,7 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
   ecommerce: {
     slug: "ecommerce",
-    gridOrder: 15,
+    gridOrder: 19,
     stageOrder: null,
     category: "custom",
     period: { start: { y: 2023, m: 10 }, end: { y: 2024, m: 12 } },
@@ -267,12 +332,12 @@ export const PROJECTS: Record<ProjectSlug, Project> = {
   },
 };
 
-/** "Todos os produtos e projetos" rows, most recent first (15 rows). */
+/** "Todos os produtos e projetos" rows, most recent first (19 rows). */
 export const GRID_PROJECTS: Project[] = Object.values(PROJECTS)
   .filter((p) => p.gridOrder !== null)
   .sort((a, b) => (a.gridOrder ?? 0) - (b.gridOrder ?? 0));
 
-/** Chip order + counts: Todos 15 · IA & Agentes 7 · Atendimento & Mensageria 3 · Fintech 1 · Sob encomenda 4. */
+/** Chip order + counts: Todos 19 · IA & Agentes 8 · Atendimento & Mensageria 4 · Fintech 3 · Sob encomenda 4. */
 export const PROJECT_CATEGORIES: { id: "all" | ProjectCategory; count: number }[] = [
   { id: "all", count: GRID_PROJECTS.length },
   ...(["ai", "messaging", "fintech", "custom"] as const).map((id) => ({
@@ -283,7 +348,7 @@ export const PROJECT_CATEGORIES: { id: "all" | ProjectCategory; count: number }[
 
 /**
  * Slugs that have their own case page at /projetos/[slug] (`hasCase`):
- * orbita · orbitmind · nex · orbitfinance · vektus. VibeCoding has no page (too little
+ * orbita · orbitmind · nex · orbitfinance · vektus · meubalcao · agendacheia · tributoclaro · equilibra. VibeCoding has no page (too little
  * verified material for a credible case) — see docs/REDESIGN.md §10.
  */
 export const CASE_SLUGS: ProjectSlug[] = Object.values(PROJECTS)
@@ -311,6 +376,10 @@ export const LIGHT_RGB: Record<ProductLight, string> = {
   orbitfinance: "139 92 246",
   vibecoding: "16 185 129",
   vektus: "251 113 133",
+  equilibra: "163 230 53",
+  tributoclaro: "56 189 248",
+  agendacheia: "255 122 61",
+  meubalcao: "168 85 247",
 };
 
 /**

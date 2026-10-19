@@ -19,6 +19,10 @@ const TINT: Record<string, string> = {
   orbitfinance: "var(--t-orbitfinance)",
   vibecoding: "var(--t-vibecoding)",
   vektus: "var(--t-vektus)",
+  equilibra: "var(--t-equilibra)",
+  tributoclaro: "var(--t-tributoclaro)",
+  agendacheia: "var(--t-agendacheia)",
+  meubalcao: "var(--t-meubalcao)",
 };
 
 /**

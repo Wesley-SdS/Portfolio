@@ -14,8 +14,18 @@ import type { ProjectSlug } from "@/src/content/types";
 const validCaseHrefs = new Set<string>([...CASE_SLUGS.map((s) => ROUTES.project(s)), CASE_FALLBACK_HREF]);
 
 describe("case links never 404", () => {
-  it("case pages = the five projects with hasCase", () => {
-    expect([...CASE_SLUGS].sort()).toEqual(["nex", "orbita", "orbitfinance", "orbitmind", "vektus"]);
+  it("case pages = the nine projects with hasCase", () => {
+    expect([...CASE_SLUGS].sort()).toEqual([
+      "agendacheia",
+      "equilibra",
+      "meubalcao",
+      "nex",
+      "orbita",
+      "orbitfinance",
+      "orbitmind",
+      "tributoclaro",
+      "vektus",
+    ]);
     expect(Object.keys(CASES).sort()).toEqual([...CASE_SLUGS].sort());
   });
 

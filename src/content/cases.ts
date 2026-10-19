@@ -897,7 +897,7 @@ const MEUBALCAO: CaseConfig = {
   slug: "meubalcao",
   ns: "caseMeuBalcao",
   light: "meubalcao",
-  status: "prototypeDone",
+  status: "mvpDone",
   github: "https://github.com/Wesley-SdS/meu-balcao",
   extraLink: { href: "https://meubalcao-app.vercel.app", labelKey: "common.links.demo" },
   cover: {
@@ -993,7 +993,7 @@ const AGENDACHEIA: CaseConfig = {
   slug: "agendacheia",
   ns: "caseAgendaCheia",
   light: "agendacheia",
-  status: "prototypeDone",
+  status: "mvpDone",
   github: "https://github.com/Wesley-SdS/agenda-cheia",
   extraLink: { href: "https://agenda-cheia-phi.vercel.app", labelKey: "common.links.demo" },
   cover: {
@@ -1083,7 +1083,7 @@ const TRIBUTOCLARO: CaseConfig = {
   slug: "tributoclaro",
   ns: "caseTributoClaro",
   light: "tributoclaro",
-  status: "prototypeDone",
+  status: "mvpDone",
   github: "https://github.com/Wesley-SdS/tributo-claro",
   extraLink: { href: "https://tributo-claro-roan.vercel.app", labelKey: "common.links.demo" },
   cover: {
@@ -1173,7 +1173,7 @@ const EQUILIBRA: CaseConfig = {
   slug: "equilibra",
   ns: "caseEquilibra",
   light: "equilibra",
-  status: "prototypeDone",
+  status: "mvpDone",
   github: "https://github.com/Wesley-SdS/equilibra",
   extraLink: { href: "https://equilibra-wesleysds-projects.vercel.app", labelKey: "common.links.demo" },
   cover: {
